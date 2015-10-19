@@ -1,27 +1,402 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Epses</h1>
-
-<table>
+<%- model_class = Eps -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @epses.each do |eps| %>
       <tr>
+        <td><%= link_to eps.id, eps_path(eps) %></td>
         <td><%= eps.name %></td>
-        <td><%= link_to 'Show', eps %></td>
-        <td><%= link_to 'Edit', edit_eps_path(eps) %></td>
-        <td><%= link_to 'Destroy', eps, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l eps.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_eps_path(eps), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      eps_path(eps),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_eps_path,
+            :class => 'btn btn-primary' %>
 
-<%= link_to 'New Eps', new_eps_path %>
+
+
+
+
+
+<div >
+    <div>
+        <div class="well">
+        <h1 class="text-center">Listado de Epses</h1>
+        <p class="text-center">Listado de las eps que se encuentran registradas</p>
+
+          <%= form_tag request.path, :method => 'get', :class => '' do %>
+
+              <div class="container  col-md-offset-4">
+                  <div class="row">
+                    <div class="col-md-5">
+                      <div class="input-group" id="adv-search">
+                          <%= text_field_tag :search, params[:search], :placeholder => "Encuentre El Pasciente", :class => 'form-control' %>
+                          <div class="input-group-btn">
+                              <div class="btn-group" role="group">
+                                            <%= submit_tag "Consultar", :name => nil, :class=>"btn btn-primary" %>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          <% end %>    
+      </div>
+    </div>      
+</div> 
+
+
+
+
+<link media="all" type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/floatthead/1.2.13/jquery.floatThead.min.js"></script>
+<div>
+    
+    <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary filterable">
+        <div class="table-responsive">
+          <table id="mytable" class="table table-striped">
+            <thead>
+              <tr class="filters">
+                <th><input type="text" class="form-control" placeholder="First-Name" disabled></th>
+                <th><input type="text" class="form-control" placeholder="Last-Name" disabled></th>
+                <th><input type="text" class="form-control" placeholder="Email" disabled></th>
+                <th><input type="text" class="form-control" placeholder="State" disabled></th>
+                <th><button class="btn btn-primary btn-xs btn-filter">Filter</button>  <button class="btn btn-primary btn-xs btn-reset">Reset</button></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Jack</td>
+                <td>Daniels</td>
+                <td>jack.daniels@example.com</td>
+                <td>Virginia</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Jennifer</td>
+                <td>Lopez</td>
+                <td>jennifer.lopez@example.com</td>
+                <td>California</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Kim</td>
+                <td>Kardashian</td>
+                <td>kim.kardashian@example.com</td>
+                <td>Texas</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Nell</td>
+                <td>Laskey</td>
+                <td>nell.laskey@example.com</td>
+                <td>Florida</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Nakitha</td>
+                <td>Poythress</td>
+                <td>nakitha.poythress@example.com</td>
+                <td>Alabama</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>April</td>
+                <td>Sinkfield</td>
+                <td>april.sinkfield@example.com</td>
+                <td>North Carolina</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Ludie</td>
+                <td>Voll</td>
+                <td>ludie.voll@example.com</td>
+                <td>Colorado</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Dakota</td>
+                <td>Figaro</td>
+                <td>dakota.figaro@example.com</td>
+                <td>Arizona</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Etha</td>
+                <td>Brigley</td>
+                <td>etha.brigley@example.com</td>
+                <td>Arkansas</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Ashton</td>
+                <td>Bradham</td>
+                <td>ashton.bradham@example.com</td>
+                <td>Illinois</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Yasuko</td>
+                <td>Gullick</td>
+                <td>yasuko.gullick@example.com</td>
+                <td>Delaware</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Ettie</td>
+                <td>Moffitt</td>
+                <td>ettie.moffitt@example.com</td>
+                <td>New York</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Russ</td>
+                <td>Mailloux</td>
+                <td>russ.mailloux@example.com</td>
+                <td>Massachusetts</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Natalya</td>
+                <td>Pecoraro</td>
+                <td>natalya.pecporaro@example.com</td>
+                <td>Missouri</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Narcisa</td>
+                <td>Shilling</td>
+                <td>narcisa.shilling@example.com</td>
+                <td>Georgia</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Geoffrey</td>
+                <td>Byham</td>
+                <td>geoffrey.byham@example.com</td>
+                <td>Louisiana</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Toney</td>
+                <td>Sheffer</td>
+                <td>toney.sheffer@example.com</td>
+                <td>Pennsylvania</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Rasheeda</td>
+                <td>Falbo</td>
+                <td>rasheeda.falbo@example.com</td>
+                <td>Tennessee</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Tessa</td>
+                <td>Mueller</td>
+                <td>tessa.mueller@example.com</td>
+                <td>New Mexico</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Kelli</td>
+                <td>Leflore</td>
+                <td>kelli.leflore@example.com</td>
+                <td>Ohio</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Judi</td>
+                <td>Mroz</td>
+                <td>judi.mroz@example.com</td>
+                <td>Maryland</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Layla</td>
+                <td>Feltmann</td>
+                <td>layla.feltmann@example.com</td>
+                <td>Oklahoma</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Aja</td>
+                <td>Buser</td>
+                <td>aja.buser@example.com</td>
+                <td>Alaska</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Dorothy</td>
+                <td>Figgins</td>
+                <td>dorothy.figgins@example.com</td>
+                <td>New Jersey</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Magan</td>
+                <td>Futrell</td>
+                <td>magan.futrell@example.com</td>
+                <td>Wyoming</td>
+                <td></td>
+              </tr>
+
+              <tr>
+                <td>Lawana</td>
+                <td>Foote</td>
+                <td>lawana.foote@example.com</td>
+                <td>Idaho</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+          <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group"><input class="form-control " type="text" placeholder="Mohsin"></div>
+          <div class="form-group"><input class="form-control " type="text" placeholder="Irshad"></div>
+          <div class="form-group"><input class="form-control " type="text" placeholder="Irshad"></div>
+        </div>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+        </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>
+    <!-- /.modal-dialog --> 
+  </div>
+
+  <style type="text/css">
+  body { width:100%; }
+.floatThead-floatContainer { left: inherit !important; }
+.table td:last-child { text-align:center;  }
+.filters { background-color: orange; }
+.filterable { margin-top: 15px; }
+.filterable .panel-heading .pull-right { margin-top: -20px; }
+.filterable .filters input[disabled] { background-color: transparent; border: none; cursor: auto; box-shadow: none; padding: 0; height: auto; }
+.filterable .filters input[disabled]::-webkit-input-placeholder { color: #333; }
+.filterable .filters input[disabled]::-moz-placeholder { color: #333; }
+.filterable .filters input[disabled]:-ms-input-placeholder { color: #333; }</style>
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+  $("[data-toggle=tooltip]").tooltip();
+
+  $('#mytable').floatThead({ useAbsolutePositioning: false });
+
+  $('.filterable .btn-filter').click(function(){
+    var $panel = $(this).parents('.filterable'), 
+    $filters = $panel.find('.filters input'), 
+    $tbody = $panel.find('.table tbody');
+
+    if ($filters.prop('disabled') == true) {
+      $filters.prop('disabled', false);
+      $filters.first().focus();
+    } else {
+      $filters.val('').prop('disabled', true);
+      $filters.first().focus();
+      //$tbody.find('.no-result').remove();
+      //$tbody.find('tr').show();
+    }
+  });
+
+  $('.filterable .btn-reset').click(function(){
+    var $panel = $(this).parents('.filterable'), 
+    $filters = $panel.find('.filters input'), 
+    $tbody = $panel.find('.table tbody');
+    $filters.val('').prop('disabled', true);
+    $tbody.find('.no-result').remove();
+    $tbody.find('tr').show();       
+  });
+
+  $('.filterable .filters input').keyup(function(e){
+    /* Ignore tab key */
+    var code = e.keyCode || e.which;
+    if (code == '9') return;
+    /* Useful DOM data and selectors */
+    var $input = $(this),
+    inputContent = $input.val().toLowerCase(),
+    $panel = $input.parents('.filterable'),
+    column = $panel.find('.filters th').index($input.parents('th')),
+    $table = $panel.find('.table'),
+    $rows = $table.find('tbody tr');
+    /* Dirtiest filter function ever ;) */
+    var $filteredRows = $rows.filter(function(){
+      var value = $(this).find('td').eq(column).text().toLowerCase();
+      return value.indexOf(inputContent) === -1;
+    });
+    /* Clean previous no-result if exist */
+    $table.find('tbody .no-result').remove();
+    /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+    $rows.show();
+    $filteredRows.hide();
+    /* Prepend no-result row if all rows are filtered */
+    if ($filteredRows.length === $rows.length) {
+      $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
+    }
+  });
+});
+</script>

@@ -1,0 +1,16 @@
+<%= simple_form_for @airport, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+
+
+  <%= f.input :department,
+        prompt:       'Seleccionar un Departamento',
+        collection: @airport.select_department.sort,
+        error: false, label: false, 
+        input_html:   {class: 'form-control'} %>  
+
+   <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "Select a Ciudad"}, {class: "form-control"} %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                airports_path, :class => 'btn btn-default' %>
+<% end %>

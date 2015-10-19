@@ -1,9 +1,14 @@
 PetThing::Application.routes.draw do
 
 
+  resources :airports
+  resources :cities
+  resources :airports , :path => "aeropuertos"
+  resources :cities , :path => "ciudades"
+  resources :arles
+  resources :epses
   resources :users, :path => "usuarios"
   resources :roles, :path => "roles"
-  resources :cities, :path => "ciudades"
   resources :departments, :path => "departamentos"
   resources :countries, :path => "paises"
   resources :arles, :path => "arls"
@@ -13,11 +18,6 @@ PetThing::Application.routes.draw do
   get 'pages/home'
   get 'pages/contact'
   get 'pages/help'
-
-
-
-
-
   
   resources :products
   resources :sessions
