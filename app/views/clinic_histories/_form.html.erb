@@ -1,4 +1,4 @@
-<%= form_for(@clinic_history) do |f| %>
+<%= simple_form_for [@patient, @clinic_history], :html => { :class => 'form-horizontal' } do |f| %>
 
 
   <div class="field">

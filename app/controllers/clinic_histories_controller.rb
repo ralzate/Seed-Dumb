@@ -29,11 +29,25 @@ class ClinicHistoriesController < ApplicationController
 
   # POST /pets
   # POST /pets.json
+
+
   def create
     @clinic_history = ClinicHistory.new
     @clinic_history.patient_id = @patient.id
-    @clinic_history.save(validate: false)
-    redirect_to patient_clinic_history_step_path(@patient, @clinic_history, ClinicHistory.form_steps.first)
+
+    respond_to do |format|
+      if @clinic_history.save
+        format.html { redirect_to patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), notice: 'Historia Clinica was successfully created.' }
+
+        format.json { render :show, status: :created, location: @clinic_history }
+      else
+        format.html { render :new }
+        format.json { render json: @clinic_history.errors, status: :unprocessable_entity }
+      end
+    end
+
+
+
   end
 
   # DELETE /pets/1
