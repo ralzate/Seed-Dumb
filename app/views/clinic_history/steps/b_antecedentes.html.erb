@@ -1,31 +1,173 @@
 
 
 
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Multipurpose Step Form</title>
+<!-- CSS Files----------------------------------- -->
+<style type="text/css">
+    @charset "utf-8";
+/* CSS Document */
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400&subset=latin-ext);
+
+input,select,textarea,button{font-family:Lato; font-size:16px;}
+
+body{font-family:Lato; font-size:16px; font-weight:400; background:url(../trash/demo-bg-image.jpg) no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover; padding:10px; margin:0;}
+    
+    .header{width:100%; max-width:900px; color:#FFF; margin:0 auto; padding:30px 0;}
+        .header>h1{font-weight:400; text-align:center; font-size:36px; padding:0; margin:0;}
+        .header>h2{font-weight:300; text-align:center; font-size:24px; padding:0; margin:0;}
+    .container{width:100%; max-width:900px; background:#FFF; color:#333; margin:0 auto; padding:50px; border-radius:3px; box-sizing:border-box;}
+        .container-top{text-align:center; width:100%; margin-bottom:30px;}
+        .container-top>h3{font-weight:normal; padding:0; margin:0;}
+        .container .themes{width:100%; height:auto; overflow:hidden; padding:10px 0;}
+        .container .themes>span{width:20px; height:20px; display:inline-block; cursor:pointer; border:solid 3px #FFF;}
+        .container .themes>span.selectedx{border-color:#333;}
+        .container .themes>a{text-decoration:none; font-size:16px; color:#f44a56; display:inline-block; padding:5px 10px; border:solid 1px #DDD;}
+        .container .themes>a:hover{border-color:#f44a56;}
+        .container .themes>a.activex{color:#FFF; background:#f44a56; border-color:#f44a56;}
+        
+    .footer{width:100%; max-width:900px; margin:0 auto; margin-top:30px; background:#FFF; padding:30px; box-sizing:border-box;}
+
+
+</style>
+
+<body>
+
+
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".chkPassport").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport").show();
+            } else {
+                $("#dvPassport").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport2").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport2").show();
+            } else {
+                $("#dvPassport2").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport3").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport3").show();
+            } else {
+                $("#dvPassport3").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport4").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport4").show();
+            } else {
+                $("#dvPassport4").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport5").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport5").show();
+            } else {
+                $("#dvPassport5").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport6").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport6").show();
+            } else {
+                $("#dvPassport6").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport7").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport7").show();
+            } else {
+                $("#dvPassport7").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport8").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport8").show();
+            } else {
+                $("#dvPassport8").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport9").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport9").show();
+            } else {
+                $("#dvPassport9").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport10").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport10").show();
+            } else {
+                $("#dvPassport10").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport11").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport11").show();
+            } else {
+                $("#dvPassport11").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport12").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport12").show();
+            } else {
+                $("#dvPassport12").hide();
+            }
+        });
+    });
+
+</script>
+
+
+
+
+
 <div class="container">
-<div class="stepwizard">
-    <div class="stepwizard-row ">
 
-        <div class="stepwizard-step">
-            <a href="javascript:history.back()" type="button" class="btn btn-success btn-circle">1</a>
-            <p>Historias Clinicas</p>
-        </div>
-
-
-        <div class="stepwizard-step">
-            <a href="#step-1" type="button" class="btn btn-primary btn-circle" disabled="disabled">1</a>
-            <p>Antecedentes Personales</p>
-        </div>
-
-
-        <div class="stepwizard-step">
-            <a href="#step-1" type="button" class="btn btn-info btn-circle" disabled="disabled">3</a>
-            <p>Revision Sistemas</p>
-        </div>
-
-    </div>
-</div>
-<br/>
 <%= form_for @clinic_history, method: :put, url: wizard_path do |f| %>
+
+
+
 
 
     <div>
@@ -34,30 +176,50 @@
                 <legend>
                 <div align="center">Nuevo Antecedente Personal, Por favor Completa los Campos</div>
                 </legend>
-                <span>No</span> <span class="glyphicon glyphicon-remove" style="color: #F0AD4E;"></span>&nbsp;
-                <span>Si</span> <span class="glyphicon glyphicon-ok" style="color: #449d44;"></span>
+
                 <div class="error_messages">
                   <% f.object.errors.full_messages.each do |error| %>
                     <p><%= error %></p>
                   <% end %>
                 </div>
                 <div class="row">
+
+
+            
                   <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
-                        <label class="control-label">Neunatales</label>
+                        <label class="control-label">patologicos</label>
                         <br />
+                        <div>Si <span class="glyphicon glyphicon-remove" ></span> NO <span class="glyphicon glyphicon-unchecked" ></span><br/><br/>Seleccionar todos <input type="checkbox" id="toggle" value="select" name="approve[]" onClick="do_this();" class="form-control chkPassport chkPassport2 chkPassport3 chkPassport4 chkPassport5 chkPassport6 chkPassport7 chkPassport8 chkPassport9 chkPassport10 chkPassport11 chkPassport12" /></div>
 
-                        <%= f.check_box :neunatales, class: 'form-control js-switch' %>
-
-                    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">neunatales_description</label>
-                        <%= f.text_area :neunatales_description, class: 'form-control'  %>
                     </div>
                   </div>
                 </div>
+
+
+
+
+
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="form-group">
+                          <label class="control-label">Neunatales</label>
+                          <br />
+                          <%= f.check_box :neunatales,  class: 'form-control chkPassport', :name => "approve[]" %>
+
+                      </div>
+                    </div>
+
+
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                      <div class="form-group" id="dvPassport" style="display: none">
+                          <label class="control-label">neunatales_description</label>
+                          <%= f.text_area :neunatales_description, class: 'form-control' %>
+                      </div>
+                    </div>
+                </div>
+            
+
 
 
                 <div class="row">
@@ -65,36 +227,28 @@
                     <div class="form-group">
                         <label class="control-label">patologicos</label>
                         <br />
-                        <%= f.check_box :patologicos, class: 'form-control' %>
-
-
-
-
-          </div>
-
-
-
+                        <%= f.check_box :patologicos,  class: 'form-control chkPassport2', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">patologicos_description</label>
-                        <%= f.text_area :patologicos_description, class: 'form-control'  %>
+                      <div class="form-group" id="dvPassport2" style="display: none">
+                        <label class="control-label" >patologicos_description</label>
+                        <%= f.text_area :patologicos_description , class: 'form-control' %>
                     </div>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" >
                         <label class="control-label">quirurgicos</label>
                         <br />
-                        <%= f.check_box :quirurgicos, class: 'form-control  js-switch' %>
+                        <%= f.check_box :quirurgicos , class: 'form-control chkPassport3',  :name => "approve[]"  %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">quirurgicos_description</label>
+                    <div class="form-group" id="dvPassport3" style="display:none">
+                        <label class="control-label" >quirurgicos_description</label>
                         <%= f.text_area :quirurgicos_description, class: 'form-control'  %>
                     </div>
                   </div>
@@ -105,13 +259,13 @@
                     <div class="form-group">
                         <label class="control-label">farmacologicos</label>
                         <br />
-                        <%= f.check_box :farmacologicos, class: 'form-control  js-switch' %>
+                        <%= f.check_box :farmacologicos, class: 'form-control chkPassport4',  :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="dvPassport4" style="display:none">
                         <label class="control-label">farmacologicos_description</label>
-                        <%= f.text_area :farmacologicos_description, class: 'form-control'  %>
+                        <%= f.text_area :farmacologicos_description, class: 'form-control '  %>
                     </div>
                   </div>
                 </div>
@@ -121,11 +275,11 @@
                     <div class="form-group">
                         <label class="control-label">alergicos</label>
                         <br />
-                        <%= f.check_box :alergicos, class: 'form-control  js-switch' %>
+                        <%= f.check_box :alergicos, class: 'form-control chkPassport5', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="dvPassport5" style="display:none">
                         <label class="control-label">alergicos_description</label>
                         <%= f.text_area :alergicos_description, class: 'form-control'  %>
                     </div>
@@ -138,11 +292,11 @@
                     <div class="form-group">
                         <label class="control-label">toxicos</label>
                         <br />
-                        <%= f.check_box :toxicos, class: 'form-control  js-switch' %>
+                        <%= f.check_box :toxicos, class: 'form-control chkPassport6', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="dvPassport6" style="display:none">
                         <label class="control-label">toxicos_description</label>
                         <%= f.text_area :toxicos_description, class: 'form-control'  %>
                     </div>
@@ -154,11 +308,11 @@
                     <div class="form-group">
                         <label class="control-label">traumaticos</label>
                         <br />
-                        <%= f.check_box :traumaticos, class: 'form-control  js-switch' %>
+                        <%= f.check_box :traumaticos, class: 'form-control chkPassport7', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="dvPassport7" style="display:none">
                         <label class="control-label">traumaticos_description</label>
                         <%= f.text_area :traumaticos_description, class: 'form-control'  %>
                     </div>
@@ -170,13 +324,12 @@
                     <div class="form-group">
                         <label class="control-label">hospitables</label>
                         <br />
-                        <%= f.check_box :hospitables, class: 'form-control  js-switch' %>
+                        <%= f.check_box :hospitables, class: 'form-control chkPassport8', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="dvPassport8" style="display:none">
                         <label class="control-label">hospitables_description</label>
-                        <br />
                         <%= f.text_area :hospitables_description, class: 'form-control' %>
                     </div>
                   </div>
@@ -187,13 +340,12 @@
                     <div class="form-group">
                         <label class="control-label">atep_laboral</label>
                         <br />
-                        <%= f.check_box :atep_laboral, class: 'form-control  js-switch' %>
+                        <%= f.check_box :atep_laboral, class: 'form-control chkPassport9', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="dvPassport9" style="display:none">
                         <label class="control-label">atep_laboral_description</label>
-                        <br />
                         <%= f.text_area :atep_laboral_description, class: 'form-control' %>
                     </div>
                   </div>
@@ -204,11 +356,11 @@
                     <div class="form-group">
                         <label class="control-label">familiar</label>
                         <br />
-                        <%= f.check_box :familiar, class: 'form-control  js-switch' %>
+                        <%= f.check_box :familiar, class: 'form-control chkPassport10', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group"  id="dvPassport10" style="display:none">
                         <label class="control-label">familiar_description</label>
                         <br />
                         <%= f.text_area :familiar_description, class: 'form-control' %>
@@ -221,11 +373,11 @@
                     <div class="form-group">
                         <label class="control-label">inmunologicos</label>
                         <br />
-                        <%= f.check_box :inmunologicos, class: 'form-control  js-switch' %>
+                        <%= f.check_box :inmunologicos, class: 'form-control chkPassport11', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group"  id="dvPassport11" style="display:none">
                         <label class="control-label">inmunologicos</label>
                         <br />
                         <%= f.text_area :inmunologios_description, class: 'form-control' %>
@@ -236,14 +388,14 @@
 
                 <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group"  >
                         <label class="control-label">asociado_viajes_de_vuelo</label>
                         <br />
-                        <%= f.check_box :asociado_viajes_de_vuelo, class: 'form-control  js-switch' %>
+                        <%= f.check_box :asociado_viajes_de_vuelo, class: 'form-control chkPassport12', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="dvPassport12" style="display:none">
                         <label class="control-label">asociado_viajes_de_vuelo_description</label>
                         <br />
                         <%= f.text_area :asociado_viajes_de_vuelo_description, class: 'form-control' %>
@@ -256,7 +408,7 @@
                     <div class="form-group">
                         <label class="control-label">menstrual_cycle</label>
                         <br />
-                        <%= f.text_field :menstrual_cycle, class: 'form-control  js-switch' %>
+                        <%= f.text_field :menstrual_cycle, class: 'form-control', :name => "approve[]" %>
                     </div>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
@@ -359,131 +511,61 @@
         </div>
     </div>
     
- 
+ </body>
+
 <% end %>
 </div>
 
-<style type="text/css">
-  body{ 
-    margin-top:40px; 
-}
 
-.stepwizard-step p {
-    margin-top: 10px;
-}
 
-.stepwizard-row {
-    display: table-row;
-}
 
-.stepwizard {
-    display: table;
-    width: 100%;
-    position: relative;
-}
 
-.stepwizard-step button[disabled] {
-    opacity: 1 !important;
-    filter: alpha(opacity=100) !important;
-}
 
-.stepwizard-row:before {
-    top: 14px;
-    bottom: 0;
-    position: absolute;
-    content: " ";
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    z-order: 0;
 
-}
 
-.stepwizard-step {
-    display: table-cell;
-    text-align: center;
-    position: relative;
-}
 
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
-</style>
+
 
 
 <script type="text/javascript">
-  $(document).ready(function () {
 
-    var navListItems = $('div.setup-panel div a'),
-            allWells = $('.setup-content'),
-            allNextBtn = $('.nextBtn');
 
-    allWells.hide();
 
-    navListItems.click(function (e) {
-        e.preventDefault();
-        var $target = $($(this).attr('href')),
-                $item = $(this);
+  function do_this(){
 
-        if (!$item.hasClass('disabled')) {
-            navListItems.removeClass('btn-primary').addClass('btn-default');
-            $item.addClass('btn-primary');
-            allWells.hide();
-            $target.show();
-            $target.find('input:eq(0)').focus();
+  var checkboxes = document.getElementsByName('approve[]');
+  var button = document.getElementById('toggle');
+
+  if(button.value == 'select'){
+      for (var i in checkboxes){
+          checkboxes[i].checked = 'FALSE';
+      }
+      button.value = 'deselect'
+  }else{
+      for (var i in checkboxes){
+          checkboxes[i].checked = '';
+      }
+      button.value = 'select';
+  }
+  }
+
+
+
+  $('.wpbook_hidden').css({
+    'display': 'none'
+    });
+
+    $(':checkbox').change(function() {
+        var option = 'wpbook_option_' + $(this).attr('id');
+        if ($('.' + option).css('display') == 'none') {
+            $('.' + option).fadeIn();
+        }
+        else {
+            $('.' + option).fadeOut();
         }
     });
 
-    allNextBtn.click(function(){
-        var curStep = $(this).closest(".setup-content"),
-            curStepBtn = curStep.attr("id"),
-            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-            curInputs = curStep.find("input[type='text'],input[type='url']"),
-            isValid = true;
-
-        $(".form-group").removeClass("has-error");
-        for(var i=0; i<curInputs.length; i++){
-            if (!curInputs[i].validity.valid){
-                isValid = false;
-                $(curInputs[i]).closest(".form-group").addClass("has-error");
-            }
-        }
-
-        if (isValid)
-            nextStepWizard.removeAttr('disabled').trigger('click');
-    });
-
-    $('div.setup-panel div a.btn-primary').trigger('click');
-});
 </script>
-
-
-<script type="text/javascript">
-var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-
-elems.forEach(function(html) {
-  var switchery = new Switchery(html, { color: '#F0AD4E', secondaryColor: '#286090', jackColor: '#FFFFFF', jackSecondaryColor: '#c8ff77' });
-
-});
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
