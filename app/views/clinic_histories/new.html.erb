@@ -1,5 +1,5 @@
-<h1>Datos Pasciente</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back',  patient_clinic_histories_path(@patient) %>
+<%- model_class = ClinicHistory -%>
+<div class="page-header" align="center">
+  <h1>Datos Historia Clinica</h1>
+</div>
+<%= render :partial => 'form' %>

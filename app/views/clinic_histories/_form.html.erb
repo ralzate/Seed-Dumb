@@ -1,1160 +1,809 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Multipurpose Step Form</title>
-<!-- CSS Files----------------------------------- -->
-<style type="text/css">
-    @charset "utf-8";
-/* CSS Document */
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400&subset=latin-ext);
-
-input,select,textarea,button{font-family:Lato; font-size:16px;}
-
-body{font-family:Lato; font-size:16px; font-weight:400; background:url(../trash/demo-bg-image.jpg) no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover; padding:10px; margin:0;}
-    
-    .header{width:100%; max-width:900px; color:#FFF; margin:0 auto; padding:30px 0;}
-        .header>h1{font-weight:400; text-align:center; font-size:36px; padding:0; margin:0;}
-        .header>h2{font-weight:300; text-align:center; font-size:24px; padding:0; margin:0;}
-    .container{width:100%; max-width:900px; background:#FFF; color:#333; margin:0 auto; padding:50px; border-radius:3px; box-sizing:border-box;}
-        .container-top{text-align:center; width:100%; margin-bottom:30px;}
-        .container-top>h3{font-weight:normal; padding:0; margin:0;}
-        .container .themes{width:100%; height:auto; overflow:hidden; padding:10px 0;}
-        .container .themes>span{width:20px; height:20px; display:inline-block; cursor:pointer; border:solid 3px #FFF;}
-        .container .themes>span.selectedx{border-color:#333;}
-        .container .themes>a{text-decoration:none; font-size:16px; color:#f44a56; display:inline-block; padding:5px 10px; border:solid 1px #DDD;}
-        .container .themes>a:hover{border-color:#f44a56;}
-        .container .themes>a.activex{color:#FFF; background:#f44a56; border-color:#f44a56;}
-        
-    .footer{width:100%; max-width:900px; margin:0 auto; margin-top:30px; background:#FFF; padding:30px; box-sizing:border-box;}
-
-
-</style>
 
 <style type="text/css">
-    @charset "utf-8";
-/* CSS Document */
+    .form-control{
+        width: 90%; */
 
-.stepsForm {
-    width: 100%;
-    box-sizing: border-box;
-    line-height:1;
-}
-.stepsForm .sf-error{
-    border:solid 1px #C00 !important;
-}
-.stepsForm .sf-error+span{
-    border-color:#C00 !important;
-}
-.stepsForm #sf-msg{
-    display:inline-block;
-    padding:1rem;
-}
-.stepsForm .sf-msg-error{
-    color:#c00;
-}
-.stepsForm .sf-msg-success{
-    color:#090;
-}
-.stepsForm .sf-steps {
-    width: 100%;
-    box-sizing: border-box;
-    height: auto;
-    padding: 0 1rem;
-}
-.stepsForm .sf-steps .sf-steps-content {
-    width: 100%;
-    box-sizing: border-box;
-    border-bottom: solid 2px #2096cd;
-    font-size:18px;
-}
-.stepsForm .sf-steps-content>div{
-    display:inline-block;
-    padding:1rem 2rem 1rem 4rem;
-    background:#CCC;
-    color:#FFF;
-    cursor:pointer;
-    position:relative;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    overflow:hidden;
-}
-.stepsForm .sf-steps-center>div{
-    display:block;
-    padding:1rem 2rem 1rem 4rem;
-    background:#CCC;
-    color:#FFF;
-    cursor:pointer;
-    position:relative;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    overflow:hidden;
-    box-sizing:border-box;
-}
-.stepsForm .sf-steps-content>div.sf-active{
-    background:#2096cd;
-}
-.stepsForm .sf-steps-content>div>span{
-    position:absolute;
-    left:0;
-    top:0;
-    bottom:0;
-    background:#AAA;
-    padding:0.8rem 1rem;
-    font-size:24px;
-}
-.stepsForm .sf-steps-content>div>i{
-    position:absolute;
-    right:0;
-    top:0;
-    bottom:0;
-    background:url(../img/sf-steps-activated.png) center no-repeat;
-    padding:1rem;
-}
-.stepsForm .sf-steps-content>div.sf-active>span{
-    background:#1b7fad;
-}
-.stepsForm .sf-steps-content>div>span:after{
-  content: '';
-  display: block;
-  width: 10px;
-  position: absolute;
-  right: -10px;
-  height: 100%;
-  top: 0;
-  background: url('data:image/svg+xml; charset=utf-8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 20" preserveAspectRatio="none"><path d="m0,0 l10,10 l-10,10 l-0,-20z" stroke-width="1.5" fill="#AAA"/></svg>') 0 0 no-repeat;
-}
-.stepsForm .sf-steps-content>div.sf-active>span:after{
-  background: url('data:image/svg+xml; charset=utf-8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 20" preserveAspectRatio="none"><path d="m0,0 l10,10 l-10,10 l-0,-20z" stroke-width="1.5" fill="#1b7fad"/></svg>') 0 0 no-repeat;
-}
-
-.stepsForm .sf-steps-form{
-    display:block;
-    position:relative;
-    
-}
-
-.stepsForm .sf-steps-navigation{
-    padding:0 1rem;
-}
-
-.stepsForm .sf-button{
-    padding:1rem 2rem;
-    background:#2096cd;
-    color:#FFF;
-    border:none;
-    outline:none;
-    cursor:pointer;
-}
-
-.stepsForm .sf-content {
-    width: 100%;
-    box-sizing: border-box;
-    display: none;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    margin-top: 30px;
-}
-.stepsForm .sf-content>li {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    padding: 3px 0;
-}
-.stepsForm input[type=text],.stepsForm input[type=tel],.stepsForm input[type=email], .stepsForm input[type=password] {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 1rem;
-    border: solid 1px #CCC;
-    outline: none;
-}
-.stepsForm textarea {
-    width: 100%;
-    height: 100px;
-    box-sizing: border-box;
-    padding: 1rem;
-    border: solid 1px #CCC;
-    outline: none;
-    overflow: auto;
-}
-.stepsForm label.sf-select {
-    position: relative;
-    display: block;
-}
-.stepsForm label.sf-select>select {
-    width: 100%;
-    
-    box-sizing: border-box;
-    padding: 1rem;
-    border: solid 1px #CCC;
-    outline: none;
-}
-.stepsForm label.sf-select>span {
-    position: absolute;
-    display: inline-block;
-    text-align: center;
-    right: 1px;
-    top: 1px;
-    bottom:1px;
-    width: 3.5rem;
-    pointer-events: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    background-color: #e8e8e8;
-    border-left:solid 1px #DDD;
-}
-.stepsForm label.sf-select>span::after {
-    content: "";
-    display: inline-block;
-    width: 20%;
-    height: 20%;
-    -webkit-transform: rotate(-45deg) translate(-80%, 80%);
-    -moz-transform: rotate(-45deg) translate(-80%, 80%);
-    -ms-transform: rotate(-45deg) translate(-80%, 80%);
-    -o-transform: rotate(-45deg) translate(-80%, 80%);
-    transform: rotate(-45deg) translate(-80%, 80%);
-    border: 0 solid #fff;
-    border-left-width: .25em;
-    border-bottom-width: .25em
-}
-.stepsForm label.sf-select>select:focus+span {
-    background-color: #2096cd;
-}
-.stepsForm .sf-radio, .stepsForm .sf-check {
-    width: 100%;
-    height: auto;
-    padding: 1rem 0;
-}
-.stepsForm .sf-radio label, .stepsForm .sf-check label {
-    display: inline-block;
-    margin-right: 20px;
-}
-.stepsForm .sf-radio label input[type=radio], .stepsForm .sf-check label input[type=checkbox] {
-    position: absolute;
-    pointer-events: none;
-    opacity: 0;
-    margin: 0;
-    padding: 0;
-    height: 10px
-}
-.stepsForm .sf-radio label input[type=radio]+span, .stepsForm .sf-check label input[type=checkbox]+span {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    background-color: #fff;
-    border: 1px solid #cecece;
-    text-align: center;
-    vertical-align: top;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-}
-.stepsForm .sf-radio label input[type=radio]+span::after, .stepsForm .sf-check label input[type=checkbox]+span::after {
-    content: "";
-    display: inline-block;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-transition: all 200ms;
-    -moz-transition: all 200ms;
-    -ms-transition: all 200ms;
-    -o-transition: all 200ms;
-    transition: all 200ms
-}
-.stepsForm .sf-radio label input[type=radio]:focus+span, .stepsForm .sf-check label input[type=checkbox]:focus+span, .stepsForm .sf-radio label input[type=radio]:active+span, .stepsForm .sf-check label input[type=checkbox]:active+span {
-    border-color: #2096cd
-}
-.stepsForm .sf-radio label input[type=radio]:checked+span::after, .stepsForm .sf-check label input[type=checkbox]:checked+span::after {
-    opacity: 1
-}
-.stepsForm .sf-radio label input[type=radio].error+span, .stepsForm .sf-check label input[type=checkbox].error+span {
-    border-color: #e2513f;
-    border-width: 2px
-}
-.stepsForm .sf-radio label input[type=radio]+span {
-    -webkit-border-radius: 2em;
-    -moz-border-radius: 2em;
-    border-radius: 2em;
-    -moz-box-shadow: 0 0 5px #ddd;
-    -webkit-box-shadow: 0 0 5px #ddd;
-    box-shadow: 0 0 5px #ddd
-}
-.stepsForm .sf-radio label input[type=radio]+span::after {
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
-    border-radius: 1em;
-    background-color: #2096cd
-}
-.stepsForm .sf-radio label input[type=radio]:checked+span::after {
-    border: .2em solid #fff
-}
-.stepsForm .sf-check label input[type=checkbox]+span {
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0 0 5px #ddd;
-    -webkit-box-shadow: 0 0 5px #ddd;
-    box-shadow: 0 0 5px #ddd
-}
-.stepsForm .sf-check label input[type=checkbox]+span::after {
-    height: 45%;
-    width: 75%;
-    background-color: transparent;
-    border: 0 solid #2096cd;
-    vertical-align: bottom;
-    -webkit-transform: rotate(-45deg) translate(50%, -75%);
-    -moz-transform: rotate(-45deg) translate(50%, -75%);
-    -ms-transform: rotate(-45deg) translate(50%, -75%);
-    -o-transform: rotate(-45deg) translate(50%, -75%);
-    transform: rotate(-45deg) translate(50%, -75%)
-}
-.stepsForm .sf-check label input[type=checkbox]:checked+span::after {
-    border-left-width: .2em;
-    border-bottom-width: .2em
-}
-.stepsForm input[type=text]:focus,.stepsForm input[type=tel]:focus, .stepsForm input[type=password]:focus, .stepsForm input[type=email]:focus,.stepsForm label.sf-select>select:focus, .stepsForm textarea:focus {
-    border-color: #2096cd;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(32,150,205,1);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(32,150,205,1);
-    box-shadow: 0px 0px 5px 0px rgba(32,150,205,1);
-}
-.stepsForm input, .stepsForm select, .stepsForm textarea, .stepsForm button {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-.sf-shadow input, .sf-shadow select, .sf-shadow textarea {
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
-}
-.stepsForm .sf_columns {
-    min-height: 30px;
-    display: inline-block;
-    padding: 0 1rem;
-    box-sizing: border-box;
-    float: left;
-}
-.sf-align-right{
-    text-align:right;
-}
-
-.sf-align-center{
-    text-align:center;
-}
-.sf-align-center>span#sf-msg{
-    display:block;
-    clear:both;
-    margin:0 auto;
-}
-.sf-align-center>button{
-    display:block;
-    clear:both;
-    margin:0 auto;
-    margin-bottom:10px;
-}
-
-.stepsForm .column_1 {
-    width: 16.666666667%;
-}
-.stepsForm .column_2 {
-    width: 33.333333334%;
-}
-.stepsForm .column_3 {
-    width: 50%;
-}
-.stepsForm .column_4 {
-    width: 66.666666667%;
-}
-.stepsForm .column_5 {
-    width: 83.333333334%;
-}
-.stepsForm .column_6 {
-    width: 100%;
-}
-/*RED Style*******************************************/
-.sf-theme-red .sf-steps .sf-steps-content{
-    border-color:#f44a56;
-}
-.sf-theme-red .sf-steps .sf-steps-content>div.sf-active{
-    background:#f44a56;
-}
-.sf-theme-red .sf-steps .sf-steps-content>div.sf-active>span
-{
-    background:#c63943;
-}
-.sf-theme-red .sf-steps .sf-steps-content>div.sf-active>span:after{
-    background: url('data:image/svg+xml; charset=utf-8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 20" preserveAspectRatio="none"><path d="m0,0 l10,10 l-10,10 l-0,-20z" stroke-width="1.5" fill="#c63943"/></svg>') 0 0 no-repeat;
-}
-.sf-theme-red .sf-radio label input[type=radio]:focus+span, .sf-theme-red .sf-check label input[type=checkbox]:focus+span, .sf-theme-red .sf-radio label input[type=radio]:active+span, .sf-theme-red .sf-check label input[type=checkbox]:active+span {
-    border-color: #f44a56;
-}
-.sf-theme-red .sf-radio label input[type=radio]+span::after {
-    background-color: #f44a56;
-}
-.sf-theme-red .sf-check label input[type=checkbox]+span::after {
-    border-color:#f44a56;
-}
-.sf-theme-red label.sf-select>select:focus+span {
-    background-color: #f44a56;
-}
-.sf-theme-red input[type=text]:focus,.sf-theme-red input[type=tel]:focus, .sf-theme-red input[type=password]:focus, .sf-theme-red input[type=email]:focus,.sf-theme-red label.sf-select>select:focus, .sf-theme-red textarea:focus {
-    border-color: #f44a56;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(244,74,85,1);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(244,74,85,1);
-    box-shadow: 0px 0px 5px 0px rgba(244,74,85,1);
-}
-
-.sf-theme-red .sf-steps-navigation>button{
-    background:#f44a56;
-}
-
-/*purple Style*******************************************/
-.sf-theme-purple .sf-steps .sf-steps-content{
-    border-color:#795aac;
-}
-.sf-theme-purple .sf-steps .sf-steps-content>div.sf-active{
-    background:#795aac;
-}
-.sf-theme-purple .sf-steps .sf-steps-content>div.sf-active>span
-{
-    background:#60478a;
-}
-.sf-theme-purple .sf-steps .sf-steps-content>div.sf-active>span:after{
-    background: url('data:image/svg+xml; charset=utf-8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 20" preserveAspectRatio="none"><path d="m0,0 l10,10 l-10,10 l-0,-20z" stroke-width="1.5" fill="#60478a"/></svg>') 0 0 no-repeat;
-}
-.sf-theme-purple .sf-radio label input[type=radio]:focus+span, .sf-theme-purple .sf-check label input[type=checkbox]:focus+span, .sf-theme-purple .sf-radio label input[type=radio]:active+span, .sf-theme-purple .sf-check label input[type=checkbox]:active+span {
-    border-color: #795aac;
-}
-.sf-theme-purple .sf-radio label input[type=radio]+span::after {
-    background-color: #795aac;
-}
-.sf-theme-purple .sf-check label input[type=checkbox]+span::after {
-    border-color:#795aac;
-}
-.sf-theme-purple label.sf-select>select:focus+span {
-    background-color: #795aac;
-}
-.sf-theme-purple input[type=text]:focus,.sf-theme-purple input[type=tel]:focus, .sf-theme-purple input[type=password]:focus, .sf-theme-purple input[type=email]:focus,.sf-theme-purple label.sf-select>select:focus, .sf-theme-purple textarea:focus {
-    border-color: #795aac;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(121,90,172,1);
--moz-box-shadow: 0px 0px 5px 0px rgba(121,90,172,1);
-box-shadow: 0px 0px 5px 0px rgba(121,90,172,1);
-}
-
-.sf-theme-purple .sf-steps-navigation>button{
-    background:#795aac;
-}
-
-/*green Style*******************************************/
-.sf-theme-green .sf-steps .sf-steps-content{
-    border-color:#27ae60;
-}
-.sf-theme-green .sf-steps .sf-steps-content>div.sf-active{
-    background:#27ae60;
-}
-.sf-theme-green .sf-steps .sf-steps-content>div.sf-active>span
-{
-    background:#1d864a;
-}
-.sf-theme-green .sf-steps .sf-steps-content>div.sf-active>span:after{
-    background: url('data:image/svg+xml; charset=utf-8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 20" preserveAspectRatio="none"><path d="m0,0 l10,10 l-10,10 l-0,-20z" stroke-width="1.5" fill="#1d864a"/></svg>') 0 0 no-repeat;
-}
-.sf-theme-green .sf-radio label input[type=radio]:focus+span, .sf-theme-green .sf-check label input[type=checkbox]:focus+span, .sf-theme-green .sf-radio label input[type=radio]:active+span, .sf-theme-green .sf-check label input[type=checkbox]:active+span {
-    border-color: #27ae60;
-}
-.sf-theme-green .sf-radio label input[type=radio]+span::after {
-    background-color: #27ae60;
-}
-.sf-theme-green .sf-check label input[type=checkbox]+span::after {
-    border-color:#27ae60;
-}
-.sf-theme-green label.sf-select>select:focus+span {
-    background-color: #27ae60;
-}
-.sf-theme-green input[type=text]:focus,.sf-theme-green input[type=tel]:focus, .sf-theme-green input[type=password]:focus, .sf-theme-green input[type=email]:focus,.sf-theme-green label.sf-select>select:focus, .sf-theme-green textarea:focus {
-    border-color: #27ae60;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(29,134,74,1);
--moz-box-shadow: 0px 0px 5px 0px rgba(29,134,74,1);
-box-shadow: 0px 0px 5px 0px rgba(29,134,74,1);
-}
-
-.sf-theme-green .sf-steps-navigation>button{
-    background:#27ae60;
-}
-
-/*turquoise Style*******************************************/
-.sf-theme-turquoise .sf-steps .sf-steps-content{
-    border-color:#1fb5ad;
-}
-.sf-theme-turquoise .sf-steps .sf-steps-content>div.sf-active{
-    background:#1fb5ad;
-}
-.sf-theme-turquoise .sf-steps .sf-steps-content>div.sf-active>span
-{
-    background:#18908a;
-}
-.sf-theme-turquoise .sf-steps .sf-steps-content>div.sf-active>span:after{
-    background: url('data:image/svg+xml; charset=utf-8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 20" preserveAspectRatio="none"><path d="m0,0 l10,10 l-10,10 l-0,-20z" stroke-width="1.5" fill="#18908a"/></svg>') 0 0 no-repeat;
-}
-.sf-theme-turquoise .sf-radio label input[type=radio]:focus+span, .sf-theme-turquoise .sf-check label input[type=checkbox]:focus+span, .sf-theme-turquoise .sf-radio label input[type=radio]:active+span, .sf-theme-turquoise .sf-check label input[type=checkbox]:active+span {
-    border-color: #1fb5ad;
-}
-.sf-theme-turquoise .sf-radio label input[type=radio]+span::after {
-    background-color: #1fb5ad;
-}
-.sf-theme-turquoise .sf-check label input[type=checkbox]+span::after {
-    border-color:#1fb5ad;
-}
-.sf-theme-turquoise label.sf-select>select:focus+span {
-    background-color: #1fb5ad;
-}
-.sf-theme-turquoise input[type=text]:focus,.sf-theme-turquoise input[type=tel]:focus, .sf-theme-turquoise input[type=password]:focus, .sf-theme-turquoise input[type=email]:focus,.sf-theme-turquoise label.sf-select>select:focus, .sf-theme-turquoise textarea:focus {
-    border-color: #1fb5ad;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(31,181,174,1);
--moz-box-shadow: 0px 0px 5px 0px rgba(31,181,174,1);
-box-shadow: 0px 0px 5px 0px rgba(31,181,174,1);
-}
-
-.sf-theme-turquoise .sf-steps-navigation>button{
-    background:#1fb5ad;
-}
-
-
+    }
 </style>
 
-<!-- JS Files------------------------------------ -->
+
+<div class="container">
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+            <p><b>Historia <br/> Clinica</b></p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <p><b>Antecedentes  <br/>  Personales</b></p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+            <p><b>Tevisión Por  <br/>  Sistemas</b></p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+            <p><b>Examen  <br/>  Fisico</b></p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">5</a>
+            <p><b>Información  <br/>  Adicional</b></p>
+        </div>
+    </div>
+</div>
+<%= simple_form_for([@patient, @clinic_history], :html => { :class => 'form-horizontal' }) do |f| %>
+    <div class="row setup-content" id="step-1">
+        <div class="col-xs-12">
+            <div>
+                <h3>Paso 1</h3>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                        <label class="control-label ">Ciudad:</label>
+                        <%= f.text_field :city, class: 'form-control' %>
+                        </div>
+                    </div>
+                   <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                        <label class="control-label">Departmento:</label>
+
+                        <%= f.text_field :department, class: 'form-control' %>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                        <label class="control-label">Cove:</label>
+
+                        <%= f.text_field :cove, class: 'form-control' %>
+                        </div>
+                    </div>
+                  </div>
+                </div>
 
 
 
-<script type="text/javascript">
-    (function(jQuery){
 
-    $.fn.stepsForm = function(settings){
-            var defaults={
-                    width           :'100%',
-                    active          :0,
-                    errormsg        :'Check faulty fields.',
-                    sendbtntext     :'Create Account',
-                    posturl         :'core/demo_steps_form.php',
-                    theme           :'default'
-                };
-            var settings=$.extend(defaults,settings);
-            
-            return this.each(function(){
-                var modul=$(this);
-                var count=modul.find(".sf-steps-content").find("div").length;
-                var nextbtntext=modul.find("#sf-next").text();
-                var confirmval=new Array();
-                var confirmobject=new Array();
-                
-                modul.css({"width":settings.width});
-                modul.addClass("sf-theme-"+settings.theme);
-                openActiveTab();
-                modul.find(':input').on( "click", function() {
-                    var ax=$(this).parent().parent().find("input").attr("type");
-                    if (ax=="radio" || ax=="checkbox")
-                        $(this).parent().parent().find("input").removeClass("sf-error");
-                    else
-                        $(this).removeClass("sf-error");
-                });             
-                
-                //steps click events---------------------------------
-                modul.find(".sf-steps-content>div").on( "click", function() {
-                    if ($(this).attr("class")!="sf-active")
-                    {
-                        if (settings.active>$(this).index())
-                        {
-                            settings.active=$(this).index();
-                            openActiveTab();
-                        }
-                        else
-                        {
-                            geriControl($(this).index());
-                        }
-                    }
-                });
-                
-                //next click event ----------------------------------
-                modul.find("#sf-next").on( "click", function() {
-                    //devam etmesi için önce validate ler kontrol edilecek
-                    requredcontrol=false;
-                    modul.find(".sf-steps-form>ul").eq(settings.active).find(':input').each(function (){
-                        if ($(this).attr("data-required")=="true" && $(this).val()=="")
-                        {
-                            $(this).addClass("sf-error");
-                            requredcontrol=true;
-                        }
-                        else if($(this).attr("data-required")=="true" && ( $(this).attr("type")=="radio" || $(this).attr("type")=="checkbox" ))
-                        {
-                            if ( $(this).attr("type")=="radio" )
-                            {
-                                if ($(this).parent().parent().find("input[type='radio']:checked").length<1)
-                                {
-                                    $(this).addClass("sf-error");
-                                    requredcontrol=true;
-                                }
-                            }
-                            else
-                            {
-                                if ($(this).parent().parent().find("input[type='checkbox']:checked").length<1)
-                                {
-                                    $(this).addClass("sf-error");
-                                    requredcontrol=true;
-                                }
-                            }
-                        }
-                        else if($(this).val()!="")
-                        {                       
-                            if ($(this).attr("data-email")=="true" && validateEmail($(this).val())==false)
-                            {
-                                $(this).addClass("sf-error");
-                                requredcontrol=true;
-                            }
-                            
-                            if ($(this).attr("data-number")=="true" && isNaN($(this).val()))
-                            {
-                                $(this).addClass("sf-error");
-                                requredcontrol=true;
-                            }
-                            
-                            if ($(this).attr("data-confirm")=="true")
-                            {
-                                confirmval.push($(this).val());
-                                confirmobject.push($(this));
-                                //$(this).addClass("sf-error");
-                                confirmvalControl();
-                            }
-                            
-                        }
-                    });
-                    confirmobjectControl();
-                    confirmval.length=0;
-                    
-                    
-                    if (!requredcontrol)
-                    {
-                        confirmobjectControlDelete();
-                        confirmobject.length=0;
-                        if (modul.find("#sf-next").text()==settings.sendbtntext)
-                        {
-                            modul.find("#sf-msg").text("");
-                            //event.preventDefault();
-                            $.ajax({
-                                type    : "POST",
-                                url     : settings.posturl,
-                                data    : modul.find("form").serialize()
-                            })
-                            .success(function( msg ) {
-                                modul.find("#sf-msg").html(msg);                                    
-                            });                         
-                        }
-                        else
-                        {                   
-                            settings.active++;
-                            if (settings.active>count-1)
-                            {
-                                settings.active--;
-                                modul.find("#sf-msg").text("");
-                            }
-                            else
-                            {
-                                openActiveTab();
-                                requredcontrol=false;
-                                modul.find("#sf-msg").text("");
-                            }
-                        }
-                    }
-                    else
-                    {
-                        modul.find("#sf-msg").html(settings.errormsg);
-                    }
-                    
-                });
-                
-                //previous click event ------------------------------
-                modul.find("#sf-prev").on( "click", function() {
-                    settings.active--;
-                    if (settings.active<0)
-                    {
-                        settings.active++;
-                    }
-                    else
-                    {
-                        openActiveTab();
-                        requredcontrol=false;
-                    }
-                });
-                
-                function geriControl(sayac)
-                {
-                    requredcontrol=false;
-                    for (i=0; i<sayac; i++)
-                    {
-                        modul.find(".sf-steps-form>ul").eq(i).find(':input').each(function (){
-                            if ($(this).attr("data-required")=="true" && $(this).val()=="")
-                            {
-                                $(this).addClass("sf-error");
-                                requredcontrol=true;
-                            }
-                            else if($(this).attr("data-required")=="true" && ( $(this).attr("type")=="radio" || $(this).attr("type")=="checkbox" ))
-                            {
-                                if ( $(this).attr("type")=="radio" )
-                                {
-                                    if ($(this).parent().parent().find("input[type='radio']:checked").length<1)
-                                    {
-                                        $(this).addClass("sf-error");
-                                        requredcontrol=true;
-                                    }
-                                }
-                                else
-                                {
-                                    if ($(this).parent().parent().find("input[type='checkbox']:checked").length<1)
-                                    {
-                                        $(this).addClass("sf-error");
-                                        requredcontrol=true;
-                                    }
-                                }
-                            }
-                            else if($(this).val()!="")
-                            {                       
-                                if ($(this).attr("data-email")=="true" && validateEmail($(this).val())==false)
-                                {
-                                    $(this).addClass("sf-error");
-                                    requredcontrol=true;
-                                }
-                                
-                                if ($(this).attr("data-number")=="true" && isNaN($(this).val()))
-                                {
-                                    $(this).addClass("sf-error");
-                                    requredcontrol=true;
-                                }
-                                
-                                if ($(this).attr("data-confirm")=="true")
-                                {
-                                    confirmval.push($(this).val());
-                                    confirmobject.push($(this));
-                                    //$(this).addClass("sf-error");
-                                    confirmvalControl();
-                                }
-                            }
-                        });
-                    }
-                    
-                    confirmobjectControl();
-                    confirmval.length=0;
-                    
-                    if (!requredcontrol)
-                    {
-                        confirmobjectControlDelete();
-                        confirmobject.length=0;
-                        settings.active=sayac;
-                        if (settings.active>count-1)
-                        {
-                            settings.active--;
-                            modul.find("#sf-msg").text("");
-                        }
-                        else
-                        {
-                            openActiveTab();
-                            requredcontrol=false;
-                            modul.find("#sf-msg").text("");
-                        }
-                    }
-                    else
-                    {
-                        modul.find("#sf-msg").html(settings.errormsg);
-                    }
-                }
-                
-                resizeEvent();
-                $(window).resize(function(e) {
-                    resizeEvent();
-                });
-                
-                //resize event func-----------------------------------
-                function resizeEvent()
-                {
-                    if (modul.width()>500)
-                    {
-                        modul.find(".column_1").css({"width":"16.666666667%","margin-bottom":"0px"});
-                        modul.find(".column_2").css({"width":"33.333333334%","margin-bottom":"0px"});
-                        modul.find(".column_3").css({"width":"50%","margin-bottom":"0px"});
-                        modul.find(".column_4").css({"width":"66.666666667%","margin-bottom":"0px"});
-                        modul.find(".column_5").css({"width":"83.333333334%","margin-bottom":"0px"});
-                        modul.find(".column_6").css({"width":"100%","margin-bottom":"0px"});
-                        modul.find(".sf-content>li").css({"margin-bottom":"2rem"});
-                        modul.find(".sf-steps-content").removeClass("sf-steps-center");
-                        modul.find(".sf-steps-navigation").removeClass("sf-align-center").addClass("sf-align-right");
-                    }
-                    else
-                    {
-                        modul.find(".column_1").css({"width":"100%","margin-bottom":"2rem"});
-                        modul.find(".column_2").css({"width":"100%","margin-bottom":"2rem"});
-                        modul.find(".column_3").css({"width":"100%","margin-bottom":"2rem"});
-                        modul.find(".column_4").css({"width":"100%","margin-bottom":"2rem"});
-                        modul.find(".column_5").css({"width":"100%","margin-bottom":"2rem"});
-                        modul.find(".column_6").css({"width":"100%","margin-bottom":"2rem"});
-                        modul.find(".sf-content>li").css({"margin-bottom":"0px"});
-                        modul.find(".sf-steps-content").addClass("sf-steps-center");
-                        modul.find(".sf-steps-navigation").removeClass("sf-align-right").addClass("sf-align-center");
-                    }
-                }
-                
-                //open new step --------------------------------------
-                function openActiveTab()
-                {
-                    modul.find(".sf-steps-content>div").removeClass("sf-active");
-                    modul.find(".sf-steps-form>.sf-content").css({"display":"none"});
-                    modul.find(".sf-steps-form>ul").eq(settings.active).fadeIn();
-                    modul.find(".sf-steps-content>div").eq(settings.active).addClass("sf-active");
-                    if (settings.active==count-1)
-                        modul.find("#sf-next").text(settings.sendbtntext);
-                    else
-                        modul.find("#sf-next").text(nextbtntext);
-                    
-                    if (settings.active==0)
-                        modul.find("#sf-prev").css({"display":"none"});
-                    else
-                        modul.find("#sf-prev").css({"display":"inline-block"});
-                }
-                
-                //other scripts --------------------------------------
-                function validateEmail(email) {
-                    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                    return re.test(email);
-                }
-                
-                function confirmvalControl()
-                {
-                    var firstval=confirmval[0];
-                    
-                    for (index = 0; index < confirmval.length; index++) {
-                        if (confirmval[index]!=firstval)
-                        {
-                            requredcontrol=true;
-                        }
-                        fisrctval=confirmval[index];
-                    }
-                    //alert(requredcontrol);
-                }
-                
-                function confirmobjectControl()
-                {
-                    for (index = 0; index < confirmobject.length; index++) {
-                        confirmobject[index].addClass("sf-error");
-                    }
-                }
-                
-                function confirmobjectControlDelete()
-                {
-                    for (index = 0; index < confirmobject.length; index++) {
-                        confirmobject[index].removeClass("sf-error");
-                    }
-                }
-            });
-            
-                
-        };
-        
-})(jQuery);
-</script>
 
-</head>
-<body>
-  
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                        <label class="control-label ">Mobil / Servicio:</label>
+                        <%= f.text_field :mobiel_service, class: 'form-control' %>
+                        </div>
+                    </div>
+                   <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                        <label class="control-label">Aeropuerto:</label>
+
+                        <%= f.text_field :airport, class: 'form-control' %>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                        <label class="control-label">Tipo de Servicio:</label>
+                        <%= f.text_field :type_service, class: 'form-control' %>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                        <label class="control-label ">Pasciente</label>
+                        <%= f.text_field :patient_id, class: 'form-control' %>
+                        </div>
+                    </div>
+                   <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                        <label class="control-label">Origen</label>
+
+                        <%= f.text_field :origin, class: 'form-control' %>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                        <label class="control-label">Destino</label>
+
+                        <%= f.text_field :destination, class: 'form-control' %>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                        <label class="control-label ">Empresa:</label>
+                        <%= f.text_field :company, class: 'form-control' %>
+                        </div>
+                    </div>
+                   <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                        <label class="control-label">Nombre Acompañante:</label>
+
+                        <%= f.text_field :accompanist_name, class: 'form-control' %>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                        <label class="control-label">Parentesco:</label>
+                        <%= f.input :relationship,
+                            prompt:       'Seleccionar un Genero',
+                            collection: @clinic_history.select_relationship.sort,
+                            error: false, label: false, 
+                            input_html:   {class: 'form-control'} %> 
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+                        <label class="control-label ">Telefono:</label>
+                        <%= f.text_field :phone, class: 'form-control' %>
+                        </div>
+                    </div>
+                   <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                        <label class="control-label">Motivo Consulta</label>
+
+                        <%= f.text_area :reason_for_consultation, class: 'form-control', :required => true %>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="form-group">
+
+                        <label class="control-label">Enfermedad Actual</label>
+                        <%= f.text_area :current_illness, class: 'form-control', :required => true %>
+                        </div>
+                    </div>
+                  </div>
+                    <!-- Codigo que manda el Medico de turno -->
+                        <%= f.hidden_field :user_id, :value => current_user.id %>
+
+
+                </div>
+
+
+
 
     
-    <div >
 
-        <!--STEPS FORM START ------------ -->
-        <div class="stepsForm">
-    <%= simple_form_for [@patient, @clinic_history], :html => { :class => 'form-horizontal' } do |f| %>
-                <div class="sf-steps">
-                    <div class="sf-steps-content">
-                      <div>
-                          <span>1</span> &nbsp;&nbsp; Historia Clinica
+                <button class="btn btn-primary nextBtn " type="button" >Siguiente Paso</button> 
+            </div>
+        </div>
+    </div>
+    <div class="row setup-content" id="step-2">
+        <div class="col-xs-12">
+            <div>
+            <div class="col-md-12">
+                <h3>Paso 2</h3>
+                
+
+                    <div>
+
+                        <div class="row">
+
+
+                    
+                          <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <div> 
+
+                                <br/>Si <span class="glyphicon glyphicon-ok" style="color:#5eae76;"></span> NO <span class="glyphicon glyphicon-unchecked" style="color:#5eae76;"></span></div>
+
+                                <label class="checkbox">
+
+                                <input type="checkbox" id="toggle" value="select" name="approve[]" onClick="do_this();" class="form-control chkPassport chkPassport2 chkPassport3 chkPassport4 chkPassport5 chkPassport6 chkPassport7 chkPassport8 chkPassport9 chkPassport10 chkPassport11 chkPassport12" />
+
+                                <span class="checkbox__icon"></span> Seleccionar todos
+                                </label>
+
+                                <br/><br/>
+                               
+
+                            </div>
+                          </div>
                         </div>
-                        <div>
-                          <span>2</span> &nbsp;&nbsp; Antecedentes Personales
-                        </div>
-                        <div>
-                          <span>3</span> &nbsp;&nbsp; Revision por Sistemas
-                        </div>
-                        <div>
-                          <span>4</span> &nbsp;&nbsp; Examen Fisico
-                        </div>
-                        <div>
-                          <span>5</span> &nbsp;&nbsp; Información Complementaria
-                        </div>
+
+
+
+
+
+
+
+
+                 
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="form-group">
+
+
+                       <label class="checkbox">
+                        <%= f.check_box :neunatales, class: 'form-control chkPassport', :name => "approve[]" %>
+
+                        <span class="checkbox__icon"></span>  Neunatales
+                        </label>
+
+
+                      </div>
+                    </div>
+
+
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="form-group" id="dvPassport" style="display: none">
+                          <label class="control-label pull-right">Ampliar Infomración</label>
+                          <%= f.text_area :neunatales_description, class: 'form-control' %>
+                      </div>
+                    </div>
+      
+
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+
+                       <label class="checkbox">
+                        <%= f.check_box :patologicos, class: 'form-control chkPassport2', :name => "approve[]" %>
+
+                        <span class="checkbox__icon"></span>  Patologicos
+                        </label>
 
                     </div>
-                </div>                
-                <div class="sf-steps-form sf-radius"> 
-
-                    <ul class="sf-content"> <!-- form step one --> 
-                         <li>
-                            <div class="sf_columns column_3">
+                  </div>
 
 
+                    <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="form-group" id="dvPassport2" style="display: none">
+                        <label class="control-label pull-right">Ampliar Infomración</label>
+                        <%= f.text_area :patologicos_description , class: 'form-control' %>
+                    </div>
+                  </div>
 
 
-
-
-
-    
-    <body>
-        
-        <table cellspacing="0" border="0" align="left" id="tblDisplayContacts" cellpading="0" style="font-family: verdana; font-size: 10px; width:1%; border-top: 1px solid #f00;" class="t table table-striped table-bordered table-condense">
-            <thead>
-                <tr id="chkrowContacts" class="trBorder">
-                    <th>Si <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
- NO <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
-<br/><br/>Seleccionar todos <input type="button" id="toggle" value="Seleccionarlos" onClick="do_this()" />
-</th>
-                </tr>
-            </thead>
-
-
-
+                </div>
             
-            <tbody>   
-                <tr class="trBorderLight">
-                    <td>                        <%= f.check_box :patologicos, class: 'form-control', :name => 'approve[]', :value => '1' %>
-</td>
-                </tr>
-                <tr class="trBorderLight">
-                    <td>                        <%= f.check_box :patologicos, class: 'form-control', :name => 'approve[]', :value => '1' %>
-</td>
-                </tr>
-                <tr class="trBorderLight">
-                    <td>                        <%= f.check_box :patologicos, class: 'form-control', :name => 'approve[]', :value => '1' %>
-</td>
-                </tr>
-                <tr class="trBorderLight">
-                                        <td>                        <%= f.check_box :patologicos, class: 'form-control', :name => 'approve[]', :value => '1' %>
-</td>
-                </tr>
-                <tr class="trBorderLight">
-                                        <td>                        <%= f.check_box :patologicos, class: 'form-control', :name => 'approve[]', :value => '1' %>
-</td>
-                </tr>
-                <tr class="trBorderLight">
-                    <td><%= f.check_box :patologicos, class: 'form-control', :name => 'approve[]', :value => '1' %></td>
-                </tr>               
-            </tbody>
-        </table>
+
+
+
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" >
+
+                       <label class="checkbox">
+                        <%= f.check_box :quirurgicos, class: 'form-control chkPassport3', :name => "approve[]" %>
+
+                        <span class="checkbox__icon"></span> Quirurgicos 
+                        </label>
+
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" id="dvPassport3" style="display:none">
+                        <label class="control-label pull-right" >Ampliar Infomración</label>
+                        <%= f.text_area :quirurgicos_description, class: 'form-control'  %>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+
+
+
+                        <label class="checkbox">
+                        <%= f.check_box :farmacologicos, class: 'form-control chkPassport4', :name => "approve[]" %>
+
+                        <span class="checkbox__icon"></span> Farmacologicos
+                        </label>
+
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" id="dvPassport4" style="display:none">
+                        <label class="control-label pull-right">Ampliar Infomración</label>
+                        <%= f.text_area :farmacologicos_description, class: 'form-control '  %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+        
+
+                        <label class="checkbox">
+                        <%= f.check_box :alergicos, class: 'form-control chkPassport5', :name => "approve[]" %>
+
+                        <span class="checkbox__icon"></span> Alergicos  
+                        </label>
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" id="dvPassport5" style="display:none">
+                        <label class="control-label pull-right">Ampliar Infomración</label>
+                        <%= f.text_area :alergicos_description, class: 'form-control'  %>
+                    </div>
+                  </div>
+
+
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+  
+
+                        <label class="checkbox">
+                        <%= f.check_box :toxicos, class: 'form-control chkPassport6', :name => "approve[]" %>
+
+                        <span class="checkbox__icon"></span> 
+                        Toxicos
+                        </label>
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" id="dvPassport6" style="display:none">
+                        <label class="control-label pull-right">Ampliar Infomración</label>
+                        <%= f.text_area :toxicos_description, class: 'form-control'  %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+
+                        <label class="checkbox">
+                        <%= f.check_box :traumaticos, class: 'form-control chkPassport7', :name => "approve[]" %>
+
+                        <span class="checkbox__icon"></span> Traumaticos 
+                        </label>
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" id="dvPassport7" style="display:none">
+                        <label class="control-label pull-right">Ampliar Infomración</label>
+                        <%= f.text_area :traumaticos_description, class: 'form-control'  %>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+                        <label class="checkbox">
+                        <%= f.check_box :hospitables, class: 'form-control chkPassport8', :name => "approve[]" %>
+
+                        <span class="checkbox__icon"></span>  Hospitalarios  
+                        </label>
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" id="dvPassport8" style="display:none">
+                        <label class="control-label pull-right">Ampliar Infomración</label>
+                        <%= f.text_area :hospitables_description, class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+            
+
+                     <label class="checkbox">
+                        <%= f.check_box :atep_laboral, class: 'form-control chkPassport9', :name => "approve[]" %>
+
+                      <span class="checkbox__icon"></span>
+                       atep_laboral 
+ 
+                    </label>
+
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" id="dvPassport9" style="display:none">
+                        <label class="control-labe pull-right">Ampliar Infomración</label>
+                        <%= f.text_area :atep_laboral_description, class: 'form-control' %>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group">
+
+
+
+                     <label class="checkbox">
+                        <%= f.check_box :familiar, class: 'form-control chkPassport10', :name => "approve[]" %>
+
+                      <span class="checkbox__icon"></span>  Familiar 
+ 
+                    </label>
+
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group"  id="dvPassport10" style="display:none">
+                        <label class="control-label pull-right">Ampliar Información </label>
+                        <br />
+                        <%= f.text_area :familiar_description, class: 'form-control' %>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-3 col-sm-3 col-md-3 pull-left">
+                    <div class="form-group">
+
+
+                     <label class="checkbox">
+                        <%= f.check_box :inmunologicos, class: 'form-control chkPassport11', :name => "approve[]" %>
+
+                      <span class="checkbox__icon"></span> Inmunologicos  
+
+                    </label>
+
+
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group"  id="dvPassport11" style="display:none">
+                        <label class="control-label pull-right">Ampliar Infomración </label>
+                        <br />
+                        <%= f.text_area :inmunologios_description, class: 'form-control' %>
+                    </div>
+                  </div>
+
+                  <div class="col-xs-3 col-sm-3 col-md-3 pull-left">
+
+                    <div class="form-group"  >
+
+                     <label class="checkbox">
+                    <%= f.check_box :asociado_viajes_de_vuelo, class: 'form-control chkPassport12', :name => "approve[]" %>
+
+                      <span class="checkbox__icon"></span>
+                      <span > Asociado Viajes</span>  
+ 
+                    </label>
+
+                    </div>
+                  </div>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                    <div class="form-group" id="dvPassport12" style="display:none">
+                        <label class="control-label pull-right">Ampliar Información</label>
+                        <br />
+                        <%= f.text_area :asociado_viajes_de_vuelo_description, class: 'form-control' %>
+                    </div>
+                  </div>
+              </div>
+
+            </div>
+
+
+
+
+<style type="text/css">
+    /**
+ * Checkboxes
+ */
+.checkbox {
+    
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.checkbox > input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  position: static\9;
+  /* IE6-8 Fallback */
+}
+
+.checkbox__icon {
+  display: inline-block;
+  display: none\9;
+  /* IE6-8 Fallback */
+  /* Default State */
+  color: #999;
+  /* Active State */
+}
+input[type="checkbox"]:checked ~ .checkbox__icon {
+  color: #5eae76;
+}
+
+/****************************
+ ****************************
+ ****************************
+ * Helpers
+ */
+.checkbox__icon {
+  font-family: "icons";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--check:before, input[type="checkbox"]:checked ~ .checkbox__icon:before {
+  content: "\e601";
+}
+
+.icon--check-empty:before, .checkbox__icon:before {
+  content: "\e600";
+}
+
+@font-face {
+  font-family: "icons";
+  src: url("data:application/x-font-woff;charset=utf-8;base64,d09GRk9UVE8AAAR4AAoAAAAABDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAAA9AAAAPgAAAD4fZUAVE9TLzIAAAHsAAAAYAAAAGAIIvy3Y21hcAAAAkwAAABMAAAATBpVzFhnYXNwAAACmAAAAAgAAAAIAAAAEGhlYWQAAAKgAAAANgAAADYAeswzaGhlYQAAAtgAAAAkAAAAJAPiAedobXR4AAAC/AAAABgAAAAYBQAAAG1heHAAAAMUAAAABgAAAAYABlAAbmFtZQAAAxwAAAE5AAABOUQYtNZwb3N0AAAEWAAAACAAAAAgAAMAAAEABAQAAQEBCGljb21vb24AAQIAAQA6+BwC+BsD+BgEHgoAGVP/i4seCgAZU/+LiwwHi2v4lPh0BR0AAAB8Dx0AAACBER0AAAAJHQAAAO8SAAcBAQgPERMWGyBpY29tb29uaWNvbW9vbnUwdTF1MjB1RTYwMHVFNjAxAAACAYkABAAGAQEEBwoNL2X8lA78lA78lA77lA6L+HQVi/yU+JSLi/iU/JSLBd83Fffsi4v77Pvsi4v37AUOi/h0FYv8lPiUi4v33zc3i/s3++yLi/fs9zeL398F9wCFFftN+05JzUdI9xr7GveR95FHzwUO+JQU+JQViwwKAAMCAAGQAAUAAAFMAWYAAABHAUwBZgAAAPUAGQCEAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAA5gEB4P/g/+AB4AAgAAAAAQAAAAAAAAAAAAAAIAAAAAAAAgAAAAMAAAAUAAMAAQAAABQABAA4AAAACgAIAAIAAgABACDmAf/9//8AAAAAACDmAP/9//8AAf/jGgQAAwABAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAACkYCfgXw889QALAgAAAAAAz65FuwAAAADPrkW7AAD/4AIAAeAAAAAIAAIAAAAAAAAAAQAAAeD/4AAAAgAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAABAAAAAgAAAAIAAAAAAFAAAAYAAAAAAA4ArgABAAAAAAABAA4AAAABAAAAAAACAA4ARwABAAAAAAADAA4AJAABAAAAAAAEAA4AVQABAAAAAAAFABYADgABAAAAAAAGAAcAMgABAAAAAAAKACgAYwADAAEECQABAA4AAAADAAEECQACAA4ARwADAAEECQADAA4AJAADAAEECQAEAA4AVQADAAEECQAFABYADgADAAEECQAGAA4AOQADAAEECQAKACgAYwBpAGMAbwBtAG8AbwBuAFYAZQByAHMAaQBvAG4AIAAxAC4AMABpAGMAbwBtAG8AbwBuaWNvbW9vbgBpAGMAbwBtAG8AbwBuAFIAZQBnAHUAbABhAHIAaQBjAG8AbQBvAG8AbgBHAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAEkAYwBvAE0AbwBvAG4AAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+</style>
+
+<br/>
+
+
+                <div class="sf-steps-form sf-radius"> 
+                    
+
+                    <ul class="sf-content">
+                     
+                         <li  style="list-style-type: none;">
+                                                    <div class="row">
+
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">Ciclo Menstrual</label>
+                                <%= f.text_field :menstrual_cycle, class: 'form-control', :name => "approve[]", placeholder: 'Ciclo Menstrual' %>
+                            </div>
+
+
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">Edad Gestacional</label>
+                                <%= f.text_field :gestational_age, class: 'form-control', :name => "approve[]", placeholder: 'Edad Gestacional' %>
+                            </div>
+
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">eco</label>
+                                <%= f.text_field :eco, class: 'form-control', placeholder: 'Eco', :name => "approve[]" %>
+                            </div>
+
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">fum</label>
+                                <%= f.text_field :fum, class: 'form-control', placeholder: 'Fum' %>
+                            </div>
+                            </div>
+                        </li>
+
+
+                        <li  style="list-style-type: none;">
+                                                    <div class="row">
+
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">Embarazada</label>
+                                <%= f.text_field :pregnancy, class: 'form-control', placeholder: 'Embarazada' %>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">G</label>
+                                <%= f.text_field :g, class: 'form-control' %>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">p </label>
+                                <%= f.text_field :p , class: 'form-control', placeholder: 'p' %>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">c</label>
+                                <%= f.text_field :c, class: 'form-control', placeholder: 'c' %>
+                            </div>
+                            </div>
+                        </li>
+
+
+                         <li  style="list-style-type: none;">
+
         
 
 
-    </body>
+                        <div class="row">
 
-
-
-
-
-
-<head>
-<script type="text/javascript">
-
-    function do_this(){
-
-        var checkboxes = document.getElementsByName('approve[]');
-        var button = document.getElementById('toggle');
-
-        if(button.value == 'Seleccionarlos'){
-            for (var i in checkboxes){
-                checkboxes[i].checked = 'FALSE';
-            }
-            button.value = 'No Seleccionarlos'
-        }else{
-            for (var i in checkboxes){
-                checkboxes[i].checked = '';
-            }
-            button.value = 'Seleccionarlos';
-        }
-    }
-</script>
-</head>
-
-
-
-
-
-
-                             
-
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">a</label>
+                                <%= f.text_field :a, class: 'form-control', placeholder: 'a' %>
                             </div>
-                            <div class="sf_columns column_3">
-                                <%= f.label :ciudad %><br>
-                                <%= f.text_field :city %>
-                            </div>
-                         </li>
 
 
-                         <li>
-                            <div class="sf_columns column_3">
-                                <label class="sf-select">
-                                  <select name="country" data-required="">
-                                      <option value="" selected="selected" >Select country...</option>
-                                        <option value="de">Germany</option>
-                                        <option value="en">England</option>
-                                        <option value="us">United States</option>
-                                        <option value="tr">Turkey</option>
-                                        <option value="jp">Japan</option>
-                                    </select>
-                                    <span></span>
-                                </label>
+
+                    
+
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">m</label>
+                                <%= f.text_field :m, class: 'form-control', placeholder: 'm' %>
                             </div>
-                            <div class="sf_columns column_3">
-                                <div class="sf-radio">
-                                  Gender :  
-                                    <label><input type="radio" value="M" name="gender" data-required=""><span></span> Male</label>
-                                    <label><input type="radio" value="F" name="gender" data-required=""><span></span> Female</label>
-                                </div>
+
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">v</label>
+                                <%= f.text_field :v, class: 'form-control', placeholder: 'v' %>
                             </div>
-                         </li>
-                         <li>
-                            <div class="sf_columns column_6">
-                                <textarea placeholder="Address" name="address"></textarea>
+
+
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <label class="control-label">e</label>
+                                <%= f.text_field :e, class: 'form-control', placeholder: 'e' %>
                             </div>
-                         </li>
-                         <li>
-                            <div class="sf_columns column_6">
-                                <div class="sf-check">
-                                    <label><input type="checkbox" value="test" name="test" data-required=""><span></span> Lorem Ipsum is simply dummy text of the printing and typesetting industry</label>
-                                </div>
-                            </div>
-                         </li>
+                        </div>
+                        </li>
+
+
+
                     </ul>
-
-                    <ul class="sf-content"> <!-- form step two --> 
-                         <li>
-                            <div class="sf_columns column_3">
-                                <input type="text" placeholder="Username" data-required="">
-                            </div>
-                            <div class="sf_columns column_3">
-                                <input type="text" placeholder="Email" data-required="" data-email="">
-                            </div>
-                         </li>
-                         <li>
-                            <div class="sf_columns column_3">
-                                <input type="password" placeholder="Password" data-required="" data-confirm="">
-                            </div>
-                            <div class="sf_columns column_3">
-                                <input type="password" placeholder="Confirm Password" data-required="" data-confirm="">
-                            </div>
-                         </li>
-                    </ul>
+                       
+  
     
-                    <ul class="sf-content"> <!-- form step tree --> 
-                         <li>
-                            <div class="sf_columns column_3">
-                                <input type="text" placeholder="Phone" data-number="">
-                            </div>
-                            <div class="sf_columns column_3">
-                                <input type="text" placeholder="Extra">
-                            </div>
-                         </li>
-                         <li>
-                            <div class="sf_columns column_6">
-                                <div class="sf-check">
-                                    <label><input checked type="checkbox" value="" name="accept"><span></span> Lorem Ipsum is simply dummy text of the printing and typesetting industry</label>
-                                </div>
-                            </div>
-                         </li>
-                    </ul>
-
-
-                                        <ul class="sf-content"> <!-- form step tree --> 
-                         <li>
-                            <div class="sf_columns column_3">
-                                <input type="text" placeholder="Phone" data-number="">
-                            </div>
-                            <div class="sf_columns column_3">
-                                <input type="text" placeholder="Extra">
-                            </div>
-                         </li>
-                         <li>
-                            <div class="sf_columns column_6">
-                                <div class="sf-check">
-                                    <label><input checked type="checkbox" value="" name="accept"><span></span> Lorem Ipsum is simply dummy text of the printing and typesetting industry</label>
-                                </div>
-                            </div>
-                         </li>
-                    </ul>
-
-
-                    <ul class="sf-content"> <!-- form step tree --> 
-                         <li>
-                            <div class="sf_columns column_3">
-                                <input type="text" placeholder="Phone" data-number="">
-                            </div>
-                            <div class="sf_columns column_3">
-                                <input type="text" placeholder="Extra">
-                            </div>
-                         </li>
-                         <li>
-                            <div class="sf_columns column_6">
-                                  <div class="actions">
-                                        <%= f.submit 'Servidual', class: 'btn btn-default' %>
-                                      </div>
-                                    
-                            </div>
-                         </li>
-
-
-                    </ul>
+          
                 </div>
                 
-                <div class="sf-steps-navigation sf-align-right">
-                  <span id="sf-msg" class="sf-msg-error"></span>
-                  <button id="sf-prev" type="button" class="sf-button">Previous</button>
-                    <button id="sf-next" type="button" class="sf-button">Next</button>
-                </div>
-            <% end %>
+ 
+
+
+
+
+
+
+                <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Prev</button>
+                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+            </div>
         </div>
-        <!--STEPS FORM END -------------- -->
-       
     </div>
-    
+                  </div>
 
+    <div class="row setup-content" id="step-3">
+        <div class="col-xs-12">
+            <div class="col-md-12">
+                <h3> Step 3</h3>
+                <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Prev</button>
+                <%= f.button :submit, :class => 'btn btn-success btn-lg pull-right' %>
 
+            </div>
+        </div>
+    </div>
+<% end %>
+</div>
 
-<script>
-  $(document).ready(function(e) {
-        
-    $(".stepsForm").stepsForm({
-      width     :'100%',
-      active      :0,
-      errormsg    :'Check faulty fields.',
-      sendbtntext   :'Create Account',
-      posturl     :'core/demo_steps_form.php',
-      theme     :'green',
-    }); 
-    
-    $(".container .themes>span").click(function(e) {
-      $(".container .themes>span").removeClass("selectedx");
-      $(this).addClass("selectedx");
-            $(".stepsForm").removeClass().addClass("stepsForm");
-      $(".stepsForm").addClass("sf-theme-"+$(this).attr("data-value"));
-        });
+<style type="text/css">
+    body{ 
+    margin-top:40px; 
+}
+
+.stepwizard-step p {
+    margin-top: 10px;
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn'),
+            allPrevBtn = $('.prevBtn');
+
+    allWells.hide();
+
+    navListItems.click(function (e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+                $item = $(this);
+
+        if (!$item.hasClass('disabled')) {
+            navListItems.removeClass('btn-primary').addClass('btn-default');
+            $item.addClass('btn-primary');
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
+        }
     });
+
+    allNextBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            isValid = true;
+
+        $(".form-group").removeClass("has-error");
+        for(var i=0; i<curInputs.length; i++){
+            if (!curInputs[i].validity.valid){
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+        }
+
+        if (isValid)
+            nextStepWizard.removeAttr('disabled').trigger('click');
+    });
+
+    allPrevBtn.click(function(){
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+
+        $(".form-group").removeClass("has-error");
+        prevStepWizard.removeAttr('disabled').trigger('click');
+    });
+
+    $('div.setup-panel div a.btn-primary').trigger('click');
+});
 </script>
-</body>
-</html>

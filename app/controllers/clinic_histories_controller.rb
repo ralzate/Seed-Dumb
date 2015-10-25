@@ -31,13 +31,14 @@ class ClinicHistoriesController < ApplicationController
   # POST /pets.json
 
 
+
   def create
-    @clinic_history = ClinicHistory.new
+    @clinic_history = ClinicHistory.new(clinic_history_params)
     @clinic_history.patient_id = @patient.id
 
     respond_to do |format|
       if @clinic_history.save
-        format.html { redirect_to patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), notice: 'Historia Clinica was successfully created.' }
+        format.html { redirect_to patient_clinic_history_path(@patient, @clinic_history), notice: 'Historia Clinica was successfully created.' }
 
         format.json { render :show, status: :created, location: @clinic_history }
       else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019210055) do
+ActiveRecord::Schema.define(version: 20151023165742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,6 @@ ActiveRecord::Schema.define(version: 20151019210055) do
     t.boolean  "cardiovascular"
     t.text     "cardiovascular_description"
     t.boolean  "respiratory"
-    t.text     "respiratory_description"
     t.boolean  "abdominal"
     t.text     "abdominal_description"
     t.boolean  "genito_urinario"
@@ -116,7 +115,9 @@ ActiveRecord::Schema.define(version: 20151019210055) do
     t.string   "sat_of_o_ambiente"
     t.string   "sat_of_o_supplementary"
     t.string   "temperature"
-    t.string   "weight_in_kilograms"
+    t.string   "weight"
+    t.string   "in"
+    t.string   "kilograms"
     t.string   "height_in_centimeters"
     t.string   "glucose"
     t.string   "measurement"

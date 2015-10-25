@@ -50,7 +50,6 @@ PetThing::Application.routes.draw do
 
   resources :patients, :path => "pascientes" do
     resources :clinic_histories, :path => "historias_clinicas", only: [:new, :create, :index, :destroy, :show, :edit] do
-      resources :steps, only: [:show, :update], controller: 'clinic_history/steps'
     end
   end
   root to: 'pages#home'
