@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20151023165742) do
 
   create_table "clinic_histories", force: :cascade do |t|
     t.string   "city"
-    t.string   "department"
+    t.string   "pais"
     t.integer  "user_id"
     t.string   "cove"
     t.string   "mobiel_service"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20151023165742) do
     t.boolean  "cardiovascular"
     t.text     "cardiovascular_description"
     t.boolean  "respiratory"
+    t.text     "respiratory_description"
     t.boolean  "abdominal"
     t.text     "abdominal_description"
     t.boolean  "genito_urinario"
@@ -115,9 +116,7 @@ ActiveRecord::Schema.define(version: 20151023165742) do
     t.string   "sat_of_o_ambiente"
     t.string   "sat_of_o_supplementary"
     t.string   "temperature"
-    t.string   "weight"
-    t.string   "in"
-    t.string   "kilograms"
+    t.string   "weight_in_kilograms"
     t.string   "height_in_centimeters"
     t.string   "glucose"
     t.string   "measurement"

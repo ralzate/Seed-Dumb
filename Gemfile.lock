@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: 22e58bc75a1581d8f7a0e44a936d877865356a9c
+  revision: c84936fcfb31942897088165239aa58851a4fbb6
   specs:
     twitter-bootstrap-rails (3.2.1)
       actionpack (>= 3.1)
@@ -69,9 +69,9 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.4.0)
       railties (>= 3.0)
-    bootstrap-sass (3.3.5)
+    bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
+      sass (>= 3.3.0)
     bootstrap_form (2.3.0)
     brakeman (3.1.1)
       erubis (~> 2.6)
@@ -129,14 +129,15 @@ GEM
       rails (>= 3.1.0)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.34.0)
+    fog (1.35.0)
+      fog-aliyun
       fog-atmos
       fog-aws (>= 0.6.0)
       fog-brightbox (~> 0.4)
       fog-core (~> 1.32)
       fog-dynect (~> 0.0.2)
       fog-ecloud (~> 0.1)
-      fog-google (>= 0.0.2)
+      fog-google (>= 0.1.1)
       fog-json
       fog-local
       fog-powerdns (>= 0.1.1)
@@ -150,9 +151,15 @@ GEM
       fog-terremark
       fog-vmfusion
       fog-voxel
+      fog-xenserver
       fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
-      nokogiri (~> 1.5, >= 1.5.11)
+      nokogiri
+    fog-aliyun (0.0.10)
+      fog-core (~> 1.27)
+      fog-json (~> 1.0)
+      ipaddress (~> 0.8)
+      xml-simple (~> 1.1)
     fog-atmos (0.1.0)
       fog-core
       fog-xml
@@ -210,7 +217,7 @@ GEM
     fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (0.4.7)
+    fog-softlayer (1.0.0)
       fog-core
       fog-json
     fog-storm_on_demand (0.1.1)
@@ -223,6 +230,9 @@ GEM
       fission
       fog-core
     fog-voxel (0.1.0)
+      fog-core
+      fog-xml
+    fog-xenserver (0.2.2)
       fog-core
       fog-xml
     fog-xml (0.1.2)
@@ -245,12 +255,12 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     highline (1.7.8)
-    hike (1.2.3)
     i18n (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.0)
     jasny-bootstrap-rails (3.1.3)
       railties (>= 3.0)
+    jasny_bootstrap_extension_rails (0.0.1)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -272,7 +282,7 @@ GEM
       tilt
     letter_opener (1.4.1)
       launchy (~> 2.2)
-    libv8 (3.16.14.11)
+    libv8 (3.16.14.13)
     localstorageshim-rails (1.0.2)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -291,7 +301,7 @@ GEM
     mini_magick (4.3.6)
     mini_portile (0.6.2)
     minitest (5.8.1)
-    minitest-reporters (1.1.3)
+    minitest-reporters (1.1.4)
       ansi
       builder
       minitest (>= 5.0)
@@ -321,7 +331,7 @@ GEM
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     populator (1.0.0)
-    pry (0.10.2)
+    pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -404,7 +414,7 @@ GEM
       sexp_processor (~> 4.0)
     ruby_parser (3.7.1)
       sexp_processor (~> 4.1)
-    sass (3.2.19)
+    sass (3.4.19)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
@@ -431,11 +441,8 @@ GEM
       oauth (~> 0.4, >= 0.4.4)
       oauth2 (>= 0.8.0)
     spring (1.4.0)
-    sprockets (2.12.4)
-      hike (~> 1.2)
-      multi_json (~> 1.0)
-      rack (~> 1.0)
-      tilt (~> 1.1, != 1.3.0)
+    sprockets (3.4.0)
+      rack (> 1, < 3)
     sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -449,7 +456,7 @@ GEM
       ref
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (1.4.1)
+    tilt (2.0.1)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -469,6 +476,7 @@ GEM
     will_paginate (3.0.7)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
@@ -494,6 +502,7 @@ DEPENDENCIES
   guard-minitest
   has_scope
   jasny-bootstrap-rails
+  jasny_bootstrap_extension_rails
   jbuilder (~> 2.0)
   jquery-rails
   lazybox (= 0.2.3)

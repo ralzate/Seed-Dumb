@@ -1,231 +1,62 @@
-<%- model_class = ClinicHistory -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<!doctype html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Error state</title>
+<link rel="shortcut icon" href="../favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link type="text/css" href="../styles/fontAwesome.css" rel="stylesheet"  media="screen"/>
+<link type="text/css" href="../styles/prosto-forms.min.css" rel="stylesheet" media="screen"/>
+<link type="text/css" href="../styles/prosto-forms-all.min.css" rel="stylesheet" media="screen"/>
+<link type="text/css" href="../styles/demo.css" rel="stylesheet" media="screen"/>
+ 
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/plugins/plugin.forms.min.js"></script>
+<script type="text/javascript" src="../scripts/helpers/helpers.js"></script>
+<script type="text/javascript" src="../scripts/helpers/wrenchbar.js"></script>
+<script type="text/javascript" src="../scripts/commons.js"></script>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
-  <dd><%= @clinic_history.city %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:department) %>:</strong></dt>
-  <dd><%= @clinic_history.department %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @clinic_history.user_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cove) %>:</strong></dt>
-  <dd><%= @clinic_history.cove %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mobiel_service) %>:</strong></dt>
-  <dd><%= @clinic_history.mobiel_service %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:airport) %>:</strong></dt>
-  <dd><%= @clinic_history.airport %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:type_service) %>:</strong></dt>
-  <dd><%= @clinic_history.type_service %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:patient_id) %>:</strong></dt>
-  <dd><%= @clinic_history.patient_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:origin) %>:</strong></dt>
-  <dd><%= @clinic_history.origin %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:destination) %>:</strong></dt>
-  <dd><%= @clinic_history.destination %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:company) %>:</strong></dt>
-  <dd><%= @clinic_history.company %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:accompanist_name) %>:</strong></dt>
-  <dd><%= @clinic_history.accompanist_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:relationship) %>:</strong></dt>
-  <dd><%= @clinic_history.relationship %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone) %>:</strong></dt>
-  <dd><%= @clinic_history.phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:reason_for_consultation) %>:</strong></dt>
-  <dd><%= @clinic_history.reason_for_consultation %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:current_illness) %>:</strong></dt>
-  <dd><%= @clinic_history.current_illness %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:neunatales) %>:</strong></dt>
-  <dd><%= @clinic_history.neunatales %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:neunatales_description) %>:</strong></dt>
-  <dd><%= @clinic_history.neunatales_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:patologicos) %>:</strong></dt>
-  <dd><%= @clinic_history.patologicos %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:patologicos_description) %>:</strong></dt>
-  <dd><%= @clinic_history.patologicos_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:quirurgicos) %>:</strong></dt>
-  <dd><%= @clinic_history.quirurgicos %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:quirurgicos_description) %>:</strong></dt>
-  <dd><%= @clinic_history.quirurgicos_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:farmacologicos) %>:</strong></dt>
-  <dd><%= @clinic_history.farmacologicos %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:farmacologicos_description) %>:</strong></dt>
-  <dd><%= @clinic_history.farmacologicos_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:alergicos) %>:</strong></dt>
-  <dd><%= @clinic_history.alergicos %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:alergicos_description) %>:</strong></dt>
-  <dd><%= @clinic_history.alergicos_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:toxicos) %>:</strong></dt>
-  <dd><%= @clinic_history.toxicos %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:toxicos_description) %>:</strong></dt>
-  <dd><%= @clinic_history.toxicos_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:traumaticos) %>:</strong></dt>
-  <dd><%= @clinic_history.traumaticos %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:traumaticos_description) %>:</strong></dt>
-  <dd><%= @clinic_history.traumaticos_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:hospitables) %>:</strong></dt>
-  <dd><%= @clinic_history.hospitables %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:hospitables_description) %>:</strong></dt>
-  <dd><%= @clinic_history.hospitables_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:atep_laboral) %>:</strong></dt>
-  <dd><%= @clinic_history.atep_laboral %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:atep_laboral_description) %>:</strong></dt>
-  <dd><%= @clinic_history.atep_laboral_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:familiar) %>:</strong></dt>
-  <dd><%= @clinic_history.familiar %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:familiar_description) %>:</strong></dt>
-  <dd><%= @clinic_history.familiar_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:inmunologicos) %>:</strong></dt>
-  <dd><%= @clinic_history.inmunologicos %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:inmunologios_description) %>:</strong></dt>
-  <dd><%= @clinic_history.inmunologios_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:asociado_viajes_de_vuelo) %>:</strong></dt>
-  <dd><%= @clinic_history.asociado_viajes_de_vuelo %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:asociado_viajes_de_vuelo_description) %>:</strong></dt>
-  <dd><%= @clinic_history.asociado_viajes_de_vuelo_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:menstrual_cycle) %>:</strong></dt>
-  <dd><%= @clinic_history.menstrual_cycle %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:gestational_age) %>:</strong></dt>
-  <dd><%= @clinic_history.gestational_age %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:eco) %>:</strong></dt>
-  <dd><%= @clinic_history.eco %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:fum) %>:</strong></dt>
-  <dd><%= @clinic_history.fum %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:pregnancy) %>:</strong></dt>
-  <dd><%= @clinic_history.pregnancy %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:g) %>:</strong></dt>
-  <dd><%= @clinic_history.g %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:p) %>:</strong></dt>
-  <dd><%= @clinic_history.p %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:c) %>:</strong></dt>
-  <dd><%= @clinic_history.c %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:a) %>:</strong></dt>
-  <dd><%= @clinic_history.a %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:m) %>:</strong></dt>
-  <dd><%= @clinic_history.m %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:v) %>:</strong></dt>
-  <dd><%= @clinic_history.v %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:e) %>:</strong></dt>
-  <dd><%= @clinic_history.e %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cardiovascular) %>:</strong></dt>
-  <dd><%= @clinic_history.cardiovascular %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cardiovascular_description) %>:</strong></dt>
-  <dd><%= @clinic_history.cardiovascular_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:respiratory) %>:</strong></dt>
-  <dd><%= @clinic_history.respiratory %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:respiratory_description) %>:</strong></dt>
-  <dd><%= @clinic_history.respiratory_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:abdominal) %>:</strong></dt>
-  <dd><%= @clinic_history.abdominal %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:abdominal_description) %>:</strong></dt>
-  <dd><%= @clinic_history.abdominal_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:genito_urinario) %>:</strong></dt>
-  <dd><%= @clinic_history.genito_urinario %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:genito_urinario_description) %>:</strong></dt>
-  <dd><%= @clinic_history.genito_urinario_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:neurological) %>:</strong></dt>
-  <dd><%= @clinic_history.neurological %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:neurological_description) %>:</strong></dt>
-  <dd><%= @clinic_history.neurological_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mental) %>:</strong></dt>
-  <dd><%= @clinic_history.mental %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:mental_description) %>:</strong></dt>
-  <dd><%= @clinic_history.mental_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:sense_organ) %>:</strong></dt>
-  <dd><%= @clinic_history.sense_organ %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:sense_organ_description) %>:</strong></dt>
-  <dd><%= @clinic_history.sense_organ_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:skeletal_muscle) %>:</strong></dt>
-  <dd><%= @clinic_history.skeletal_muscle %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:skeletal_muscle_description) %>:</strong></dt>
-  <dd><%= @clinic_history.skeletal_muscle_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:skin_and_appendages) %>:</strong></dt>
-  <dd><%= @clinic_history.skin_and_appendages %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:skin_and_appendages_description) %>:</strong></dt>
-  <dd><%= @clinic_history.skin_and_appendages_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ta_mmgh) %>:</strong></dt>
-  <dd><%= @clinic_history.ta_mmgh %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:heart_rate) %>:</strong></dt>
-  <dd><%= @clinic_history.heart_rate %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:breathing_frequency) %>:</strong></dt>
-  <dd><%= @clinic_history.breathing_frequency %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:sat_of_o_ambiente) %>:</strong></dt>
-  <dd><%= @clinic_history.sat_of_o_ambiente %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:sat_of_o_supplementary) %>:</strong></dt>
-  <dd><%= @clinic_history.sat_of_o_supplementary %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:temperature) %>:</strong></dt>
-  <dd><%= @clinic_history.temperature %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:weight_in_kilograms) %>:</strong></dt>
-  <dd><%= @clinic_history.weight_in_kilograms %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:height_in_centimeters) %>:</strong></dt>
-  <dd><%= @clinic_history.height_in_centimeters %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:glucose) %>:</strong></dt>
-  <dd><%= @clinic_history.glucose %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:measurement) %>:</strong></dt>
-  <dd><%= @clinic_history.measurement %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:head) %>:</strong></dt>
-  <dd><%= @clinic_history.head %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:head_description) %>:</strong></dt>
-  <dd><%= @clinic_history.head_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:neck) %>:</strong></dt>
-  <dd><%= @clinic_history.neck %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:neck_description) %>:</strong></dt>
-  <dd><%= @clinic_history.neck_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rib_cage) %>:</strong></dt>
-  <dd><%= @clinic_history.rib_cage %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rib_cage_description) %>:</strong></dt>
-  <dd><%= @clinic_history.rib_cage_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:heart) %>:</strong></dt>
-  <dd><%= @clinic_history.heart %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:heart_description) %>:</strong></dt>
-  <dd><%= @clinic_history.heart_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:lungs) %>:</strong></dt>
-  <dd><%= @clinic_history.lungs %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:lungs_description) %>:</strong></dt>
-  <dd><%= @clinic_history.lungs_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:abdomen) %>:</strong></dt>
-  <dd><%= @clinic_history.abdomen %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:abdomen_description) %>:</strong></dt>
-  <dd><%= @clinic_history.abdomen_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:genitourinary) %>:</strong></dt>
-  <dd><%= @clinic_history.genitourinary %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:genitourinary_description) %>:</strong></dt>
-  <dd><%= @clinic_history.genitourinary_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rectum) %>:</strong></dt>
-  <dd><%= @clinic_history.rectum %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:rectum_description) %>:</strong></dt>
-  <dd><%= @clinic_history.rectum_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:extremities) %>:</strong></dt>
-  <dd><%= @clinic_history.extremities %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:extremities_description) %>:</strong></dt>
-  <dd><%= @clinic_history.extremities_description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:alteration) %>:</strong></dt>
-  <dd><%= @clinic_history.alteration %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:eye_opening) %>:</strong></dt>
-  <dd><%= @clinic_history.eye_opening %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:verbal_answer) %>:</strong></dt>
-  <dd><%= @clinic_history.verbal_answer %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:motor_response) %>:</strong></dt>
-  <dd><%= @clinic_history.motor_response %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:other_signs) %>:</strong></dt>
-  <dd><%= @clinic_history.other_signs %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:analysis) %>:</strong></dt>
-  <dd><%= @clinic_history.analysis %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:print_diagnosed) %>:</strong></dt>
-  <dd><%= @clinic_history.print_diagnosed %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:plan_and_treatment) %>:</strong></dt>
-  <dd><%= @clinic_history.plan_and_treatment %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:observations_recommendations) %>:</strong></dt>
-  <dd><%= @clinic_history.observations_recommendations %></dd>
-</dl>
+<script type="text/javascript">
+  
+</script>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              clinic_histories_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_clinic_history_path(@clinic_history), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              clinic_history_path(@clinic_history),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+</head>
+<body class="f_small f_regular lblue">
+<fieldset>
+      <section>
+        <label class="label">Columned checkboxes</label>
+        <div class="row">
+          <div class="unit span4">
+            <label class="checkbox"><input type="checkbox" name="checkbox" checked="" id="object_checkbox_29_checkbox"><i></i>Alexandra</label>
+            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_30_checkbox"><i></i>Alice</label>
+            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_31_checkbox"><i></i>Anastasia</label>
+          </div>
+          <div class="unit span4">
+            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_32_checkbox"><i></i>Avelina</label>
+            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_33_checkbox"><i></i>Basilia</label>
+            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_34_checkbox"><i></i>Beatrice</label>
+          </div>
+          <div class="unit span4">
+            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_35_checkbox"><i></i>Cassandra</label>
+            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_36_checkbox"><i></i>Clemencia</label>
+            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_37_checkbox"><i></i>Desiderata</label>
+          </div>
+        </div>
+      </section>
+      <section>
+        <label class="label">Inline checkboxes</label>
+        <div class="inline-group">
+          <label class="checkbox"><input type="checkbox" name="checkbox-inline" checked="" id="object_checkbox_38_checkbox-inline"><i></i>Alexandra</label>
+          <label class="checkbox"><input type="checkbox" name="checkbox-inline" id="object_checkbox_39_checkbox-inline"><i></i>Alice</label>
+          <label class="checkbox"><input type="checkbox" name="checkbox-inline" id="object_checkbox_40_checkbox-inline"><i></i>Anastasia</label>
+          <label class="checkbox"><input type="checkbox" name="checkbox-inline" id="object_checkbox_41_checkbox-inline"><i></i>Avelina</label>
+          <label class="checkbox"><input type="checkbox" name="checkbox-inline" id="object_checkbox_42_checkbox-inline"><i></i>Beatrice</label>
+        </div>
+      </section>
+    </fieldset>
+
+</body>
+</html>

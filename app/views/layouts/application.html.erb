@@ -27,7 +27,11 @@
     <%= render 'shared/current_users' %>
     <% end %>
 
-    <%= render 'layouts/footer' %>
+<% if  current_user %>
+
+<%= render 'layouts/footer' %>
+
+<% end %>
 
 </body>
 </html>

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require switchery
+//= require jasny-bootstrap
 
 //= require turbolinks
 //= require_tree .

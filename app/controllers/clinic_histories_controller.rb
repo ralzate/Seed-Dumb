@@ -71,7 +71,7 @@ class ClinicHistoriesController < ApplicationController
    
     # Never trust parameters from the scary internet, only allow the white list through.
     def clinic_history_params
-      params.require(:clinic_history).permit(:city, :department, 
+      params.require(:clinic_history).permit(:city, :pais, 
         :user_id, :cove, :mobiel_service, :airport, :type_service, 
         :patient_id, :origin, :destination, :company, :accompanist_name, 
         :relationship, :phone, :reason_for_consultation, :current_illness, 

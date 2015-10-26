@@ -72,6 +72,7 @@ gem 'chardinjs-rails'
 gem 'wicked'
 
 gem 'switchery-rails', '0.1.0'
+gem 'jasny_bootstrap_extension_rails'
 
 
 
