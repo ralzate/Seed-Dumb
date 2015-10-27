@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require switchery
 //= require jasny-bootstrap
+//= require garlic
 
 //= require turbolinks
 //= require_tree .
@@ -136,8 +137,123 @@
 
 
 
-
-
+    $(function () {
+        $(".chkPassport13").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport13").show();
+            } else {
+                $("#dvPassport13").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport14").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport14").show();
+            } else {
+                $("#dvPassport14").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport15").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport15").show();
+            } else {
+                $("#dvPassport15").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport16").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport16").show();
+            } else {
+                $("#dvPassport16").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport17").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport17").show();
+            } else {
+                $("#dvPassport17").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport18").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport18").show();
+            } else {
+                $("#dvPassport18").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport19").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport19").show();
+            } else {
+                $("#dvPassport19").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport20").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport20").show();
+            } else {
+                $("#dvPassport20").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport21").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport21").show();
+            } else {
+                $("#dvPassport21").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport22").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport22").show();
+            } else {
+                $("#dvPassport22").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport23").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport23").show();
+            } else {
+                $("#dvPassport23").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport24").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport24").show();
+            } else {
+                $("#dvPassport24").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport25").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport25").show();
+            } else {
+                $("#dvPassport25").hide();
+            }
+        });
+    });
 
 
 

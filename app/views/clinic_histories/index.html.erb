@@ -7,7 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:department) %></th>
+      <th><%= model_class.human_attribute_name(:pais) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:cove) %></th>
       <th><%= model_class.human_attribute_name(:mobiel_service) %></th>
@@ -121,7 +121,7 @@
     <% @clinic_histories.each do |clinic_history| %>
       <tr>
         <td><%= clinic_history.city %></td>
-        <td><%= clinic_history.department %></td>
+        <td><%= clinic_history.pais %></td>
         <td><%= clinic_history.user_id %></td>
         <td><%= clinic_history.cove %></td>
         <td><%= clinic_history.mobiel_service %></td>
