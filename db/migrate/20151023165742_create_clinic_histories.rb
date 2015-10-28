@@ -1,12 +1,11 @@
 class CreateClinicHistories < ActiveRecord::Migration
   def change
     create_table :clinic_histories do |t|
-      t.string :city
-      t.string :pais
+      t.integer :condition
+      t.references :airport
       t.references :user, index: true, foreign_key: true
       t.string :cove
       t.string :mobiel_service
-      t.integer :airport
       t.integer :type_service
       t.references :patient, index: true, foreign_key: true
       t.string :origin
@@ -121,5 +120,7 @@ class CreateClinicHistories < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+      add_index :clinic_histories, :airport_id
+
   end
 end

@@ -23711,14 +23711,19 @@ $.extend($.fn, {
                 <fieldset>
                       <div class="formSeparator unit"><span>Paso 1 Historia Clinica</span></div>
 
+
+
                     <div class="row">
                         <section class="unit span4">
                             <div class="input unit relative">
                                 <label class="icon-append" for="pais">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :pais,  :input_html => { :class => 'form-control', id: "pais" } ,  :required => true , placeholder: 'Pais', label: false  %>
-
+                                <%= f.input :condition,
+                                    prompt:       'Seleccionar una Condición',
+                                    collection: @clinic_history.select_condition.sort,
+                                    error: false, label: false, 
+                                    input_html:   {class: 'form-control'} %>
                             </div>
                         </section>
 
@@ -23727,7 +23732,7 @@ $.extend($.fn, {
                                 <label class="icon-append" for="ciudad">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :city,  :input_html => { :class => 'form-control', id: "ciudad" } ,  :required => true , placeholder: 'Ciudad', label: false  %>
+                                <%= f.collection_select :airport_id, Airport.all, :id, :name, :prompt => "Seleccione un Aeropuerto"   %>
 
                             </div>
                         </section>
@@ -23750,7 +23755,6 @@ $.extend($.fn, {
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
                                 <%= f.input :mobiel_service,  :input_html => { :class => 'form-control', id: "mobiel_service" } ,  :required => true , placeholder: 'Mobil/Servicio', label: false  %>
-
                             </div>
                         </section>
 
@@ -23759,7 +23763,12 @@ $.extend($.fn, {
                                 <label class="icon-append" for="type_service">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :type_service,  :input_html => { :class => 'form-control', id: "type_service" } ,  :required => true , placeholder: 'Tipo de Servicio:', label: false  %>
+
+                              <%= f.input :type_service,
+                                prompt:       'Seleccionar un Tipo de Servicio',
+                                collection: @clinic_history.select_type_service.sort,
+                                error: false, label: false, 
+                                input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
 
                             </div>
                         </section>
@@ -23770,7 +23779,6 @@ $.extend($.fn, {
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
                                 <%= f.input :origin,  :input_html => { :class => 'form-control', id: "origin" } ,  :required => true , placeholder: 'Origen', label: false  %>
-
                             </div>
                         </section>
                     </div>
@@ -24256,6 +24264,8 @@ $.extend($.fn, {
 
 
 
+
+
                 <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                       <div class="form-group">
@@ -24603,40 +24613,38 @@ $.extend($.fn, {
                 <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
-                    <label class="checkbox32">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> skin_and_appendages    
-                        <%= f.check_box :head, class: 'form-control fs1 chkPassport32', :name => "approve[]" %>
+                    <label class="checkbox23">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> cabeza    
+                        <%= f.check_box :head, class: 'form-control fs1 chkPassport23', :name => "approve[]" %>
                     </label>
 
 
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport32" style="display:none">
+                    <div class="form-group" id="dvPassport23" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :head_description, class: 'form-control' %>
                     </div>
                   </div> 
-                </div>
 
 
 
 
-                <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
             
 
-                    <label class="checkbox33">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> skin_and_appendages    
-                        <%= f.check_box :neck, class: 'form-control fs1 chkPassport33', :name => "approve[]" %>
+                    <label class="checkbox24">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> cuello    
+                        <%= f.check_box :neck, class: 'form-control fs1 chkPassport24', :name => "approve[]" %>
                     </label>
 
 
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport33" style="display:none">
+                    <div class="form-group" id="dvPassport24" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :neck_description, class: 'form-control' %>
                     </div>
@@ -24648,40 +24656,32 @@ $.extend($.fn, {
                 <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
-            
-
-                    <label class="checkbox34">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> skin_and_appendages    
-                        <%= f.check_box :rib_cage, class: 'form-control fs1 chkPassport34', :name => "approve[]" %>
+                    <label class="checkbox25">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> caja toraxica    
+                        <%= f.check_box :rib_cage, class: 'form-control fs1 chkPassport25', :name => "approve[]" %>
                     </label>
-
-
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport34" style="display:none">
+                    <div class="form-group" id="dvPassport25" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :rib_cage_description, class: 'form-control' %>
                     </div>
                   </div> 
-                </div>
 
 
-                <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
             
-
-                    <label class="checkbox35">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> skin_and_appendages    
-                        <%= f.check_box :heart, class: 'form-control fs1 chkPassport35', :name => "approve[]" %>
+                    <label class="checkbox26">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> corazón    
+                        <%= f.check_box :heart, class: 'form-control fs1 chkPassport26', :name => "approve[]" %>
                     </label>
-
 
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport35" style="display:none">
+                    <div class="form-group" id="dvPassport26" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :heart_description, class: 'form-control' %>
                     </div>
@@ -24691,41 +24691,34 @@ $.extend($.fn, {
                 <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
-            
-
-                    <label class="checkbox36">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> lungs    
-                        <%= f.check_box :lungs, class: 'form-control fs1 chkPassport36', :name => "approve[]" %>
+                    <label class="checkbox27">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> pulmones    
+                        <%= f.check_box :lungs, class: 'form-control fs1 chkPassport27', :name => "approve[]" %>
                     </label>
-
 
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport36" style="display:none">
+                    <div class="form-group" id="dvPassport27" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :lungs_description, class: 'form-control' %>
                     </div>
                   </div> 
-                </div>
 
 
 
-                <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
             
-
-                    <label class="checkbox37">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> lungs    
-                        <%= f.check_box :abdomen, class: 'form-control fs1 chkPassport37', :name => "approve[]" %>
+                    <label class="checkbox28">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> abdomen    
+                        <%= f.check_box :abdomen, class: 'form-control fs1 chkPassport28', :name => "approve[]" %>
                     </label>
-
 
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport37" style="display:none">
+                    <div class="form-group" id="dvPassport28" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :abdomen_description, class: 'form-control' %>
                     </div>
@@ -24738,38 +24731,34 @@ $.extend($.fn, {
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
             
-
-                    <label class="checkbox38">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> lungs    
-                        <%= f.check_box :genitourinary, class: 'form-control fs1 chkPassport38', :name => "approve[]" %>
+                    <label class="checkbox29">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> genitourinary    
+                        <%= f.check_box :genitourinary, class: 'form-control fs1 chkPassport29', :name => "approve[]" %>
                     </label>
-
 
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport38" style="display:none">
+                    <div class="form-group" id="dvPassport29" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :genitourinary_description, class: 'form-control' %>
                     </div>
                   </div> 
-                </div>
 
-                <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
             
 
-                    <label class="checkbox39">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> lungs    
-                        <%= f.check_box :rectum, class: 'form-control fs1 chkPassport39', :name => "approve[]" %>
+                    <label class="checkbox30">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> recto    
+                        <%= f.check_box :rectum, class: 'form-control fs1 chkPassport30', :name => "approve[]" %>
                     </label>
 
 
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport39" style="display:none">
+                    <div class="form-group" id="dvPassport30" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :rectum_description, class: 'form-control' %>
                     </div>
@@ -24781,16 +24770,16 @@ $.extend($.fn, {
                     <div class="form-group">
             
 
-                    <label class="checkbox40">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> lungs    
-                        <%= f.check_box :extremities, class: 'form-control fs1 chkPassport40', :name => "approve[]" %>
+                    <label class="checkbox31">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> extremidades    
+                        <%= f.check_box :extremities, class: 'form-control fs1 chkPassport31', :name => "approve[]" %>
                     </label>
 
 
                     </div>
                   </div>
                     <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport40" style="display:none">
+                    <div class="form-group" id="dvPassport31" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :extremities_description, class: 'form-control' %>
                     </div>
@@ -24798,43 +24787,27 @@ $.extend($.fn, {
                 </div>
 
                 <div class="row">
-                  <div class="col-xs-3 col-sm-6 col-md-2">
+ 
+
+                  <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
+                     <label class="checkbox23">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> alteration    
+                        <%= f.input :alteration, class: 'form-control fs1 chkPassport', :name => "approve[]" %>
+                    </label>
+
+                    </div>
+                  </div>
+
             
-
-                    <label class="checkbox41">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> lungs    
-                        <%= f.check_box :alteration, class: 'form-control fs1 chkPassport41', :name => "approve[]" %>
-                    </label>
-
-
-                    </div>
-                  </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
-                    <div class="form-group" id="dvPassport41" style="display:none">
-                        <label class="control-labe pull-right">Ampliar Información</label>
-                        <%= f.text_area :abdomen_description, class: 'form-control' %>
-                    </div>
-                  </div> 
-                </div>
-                <div class="row">
                   
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                     <label class="checkbox23">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
-                        <%= f.label "Glucosa" %>  
-                        <%= f.input :alteration, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
-                    </label>
 
-                    </div>
-                  </div>
 
                   <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
                      <label class="checkbox23">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> measurement    
-                        <%= f.input :eye_opening, class: 'form-control fs1 chkPassport23', :name => "approve[]" %>
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> ojo abierto    
+                        <%= f.input :eye_opening, class: 'form-control fs1 chkPassport', :name => "approve[]" %>
                     </label>
 
                     </div>
@@ -24846,7 +24819,6 @@ $.extend($.fn, {
 
 
 
-                  <--------------------------------------------------->
 
 
 
@@ -24858,7 +24830,7 @@ $.extend($.fn, {
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
-                        <%= f.label "Glucosa" %>  
+                        <%= f.label "Respuesta Verbal" %>  
                         <%= f.input :verbal_answer, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
                     </label>
 
@@ -24868,7 +24840,7 @@ $.extend($.fn, {
                   <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
                      <label class="checkbox23">
-                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> measurement    
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> Respuesta Motora    
                         <%= f.input :motor_response, class: 'form-control fs1 chkPassport23', :name => "approve[]" %>
                     </label>
 
@@ -24886,7 +24858,7 @@ $.extend($.fn, {
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
-                        <%= f.label "Glucosa" %>  
+                        <%= f.label "Otros Signos" %>  
                         <%= f.input :other_signs, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
                     </label>
 
@@ -24921,6 +24893,61 @@ $.extend($.fn, {
 
 
 
+
+                <div class="row">
+                  
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                     <label class="checkbox23">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
+                        <%= f.label "Otros Signos" %>  
+                        <%= f.text_area :analysis, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
+                    </label>
+
+                    </div>
+                  </div>
+
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                     <label class="checkbox23">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
+                        <%= f.label "Otros Signos" %>  
+                        <%= f.text_area :print_diagnosed, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
+                    </label>
+
+                    </div>
+                  </div>
+
+                </div>
+
+
+
+
+                <div class="row">
+                  
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                     <label class="checkbox23">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
+                        <%= f.label "Otros Signos" %>  
+                        <%= f.text_area :plan_and_treatment, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
+                    </label>
+
+                    </div>
+                  </div>
+
+                  <div class="col-xs-6 col-sm-6 col-md-6">
+                    <div class="form-group">
+                     <label class="checkbox23">
+                      <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
+                        <%= f.label "Otros Signos" %>  
+                        <%= f.text_area :observations_recommendations, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
+                    </label>
+
+                    </div>
+                  </div>
+                  
+                </div>
 
 
                

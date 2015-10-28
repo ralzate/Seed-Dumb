@@ -6,12 +6,9 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:city) %></th>
-      <th><%= model_class.human_attribute_name(:pais) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
       <th><%= model_class.human_attribute_name(:cove) %></th>
       <th><%= model_class.human_attribute_name(:mobiel_service) %></th>
-      <th><%= model_class.human_attribute_name(:airport) %></th>
       <th><%= model_class.human_attribute_name(:type_service) %></th>
       <th><%= model_class.human_attribute_name(:patient_id) %></th>
       <th><%= model_class.human_attribute_name(:origin) %></th>
@@ -120,12 +117,9 @@
   <tbody>
     <% @clinic_histories.each do |clinic_history| %>
       <tr>
-        <td><%= clinic_history.city %></td>
-        <td><%= clinic_history.pais %></td>
         <td><%= clinic_history.user_id %></td>
         <td><%= clinic_history.cove %></td>
         <td><%= clinic_history.mobiel_service %></td>
-        <td><%= clinic_history.airport %></td>
         <td><%= clinic_history.type_service %></td>
         <td><%= clinic_history.patient_id %></td>
         <td><%= clinic_history.origin %></td>

@@ -256,6 +256,78 @@
     });
 
 
+    $(function () {
+        $(".chkPassport26").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport26").show();
+            } else {
+                $("#dvPassport26").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport27").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport27").show();
+            } else {
+                $("#dvPassport27").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport28").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport28").show();
+            } else {
+                $("#dvPassport28").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport29").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport29").show();
+            } else {
+                $("#dvPassport29").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport30").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport30").show();
+            } else {
+                $("#dvPassport30").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport31").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport31").show();
+            } else {
+                $("#dvPassport31").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport32").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport32").show();
+            } else {
+                $("#dvPassport32").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport33").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport33").show();
+            } else {
+                $("#dvPassport33").hide();
+            }
+        });
+    });
 
 
     

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   private
   def not_authenticated
     flash[:danger] = "No Tienes Permiso para esto"
-    redirect_to login_path
+    redirect_to root_path
   end
   
   def not_found

@@ -40,12 +40,11 @@ ActiveRecord::Schema.define(version: 20151023165742) do
   end
 
   create_table "clinic_histories", force: :cascade do |t|
-    t.string   "city"
-    t.string   "pais"
+    t.integer  "condition"
+    t.integer  "airport_id"
     t.integer  "user_id"
     t.string   "cove"
     t.string   "mobiel_service"
-    t.integer  "airport"
     t.integer  "type_service"
     t.integer  "patient_id"
     t.string   "origin"
@@ -151,6 +150,7 @@ ActiveRecord::Schema.define(version: 20151023165742) do
     t.datetime "updated_at",                           null: false
   end
 
+  add_index "clinic_histories", ["airport_id"], name: "index_clinic_histories_on_airport_id", using: :btree
   add_index "clinic_histories", ["patient_id"], name: "index_clinic_histories_on_patient_id", using: :btree
   add_index "clinic_histories", ["user_id"], name: "index_clinic_histories_on_user_id", using: :btree
 
@@ -230,6 +230,7 @@ ActiveRecord::Schema.define(version: 20151023165742) do
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
   create_table "patients", force: :cascade do |t|
+    t.integer  "city_id"
     t.string   "first_name"
     t.string   "second_name"
     t.string   "first_surname"
@@ -252,6 +253,7 @@ ActiveRecord::Schema.define(version: 20151023165742) do
     t.datetime "updated_at",     null: false
   end
 
+  add_index "patients", ["city_id"], name: "index_patients_on_city_id", using: :btree
   add_index "patients", ["user_id"], name: "index_patients_on_user_id", using: :btree
 
   create_table "products", force: :cascade do |t|
