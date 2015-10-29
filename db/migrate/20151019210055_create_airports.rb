@@ -3,7 +3,7 @@ class CreateAirports < ActiveRecord::Migration
     create_table :airports do |t|
       t.string :name
       t.references :city, index: true, foreign_key: true
-      t.integer :department
+      t.string :department
 
       t.timestamps null: false
     end

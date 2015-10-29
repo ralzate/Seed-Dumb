@@ -4,7 +4,7 @@ class AirportsController < ApplicationController
   # GET /airports
   # GET /airports.json
   def index
-    @airports = Airport.all
+    @airports = Airport.search(params[:search]).page(params[:page]).per_page(2)
   end
 
   # GET /airports/1

@@ -120,7 +120,7 @@ class CreateClinicHistories < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-      add_index :clinic_histories, :airport_id
+    add_index :clinic_histories, :airport_id
 
   end
 end

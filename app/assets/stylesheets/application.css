@@ -20,6 +20,24 @@
  */
 
 
+.blanco{
+  color: #FFFFFF !important;
+}
+
+
+.color_blanco{
+  color: #FFFFFF !important;
+}
+
+
+
+.btn-color{
+  background-color: #167F92;
+}
+
+.color_blanco:hover{
+  background-color: #167F92 !important;
+}
 
 .navbar-custom{
   background-color: #0080C5 !important;

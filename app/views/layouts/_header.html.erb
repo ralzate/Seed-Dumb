@@ -19,25 +19,27 @@
 
                 <% if  current_user %>
 
-                <li><%= link_to epses_path do %>
+                <li><%= link_to epses_path, :class => "btn btn-color btn-md color_blanco" do %>
                     <i class="glyphicon glyphicon-stats"> Epses</i><% end %>
                 </li>
-
-                <li><%= link_to arles_path do %>
+                <li><%= link_to arles_path, :class => "btn btn-color btn-md color_blanco" do %>
                     <i class="glyphicon glyphicon-signal"> Arles</i><% end %>
                 </li>
 
-                <li><%= link_to airports_path do %>
+                <li><%= link_to airports_path, :class => "btn btn-color btn-md color_blanco" do %>
                     <i class="glyphicon glyphicon-plane"> Aeropuertos</i><% end %>
                 </li>
 
-                <li><%= link_to cities_path do %>
+                <li><%= link_to cities_path, :class => "btn btn-color btn-md color_blanco" do %>
                     <i class="glyphicon glyphicon-road"> Ciudades</i><% end %>
                 </li>
 
-                <li><%= link_to users_path do %>
+                <li><%= link_to users_path, :class => "btn btn-color btn-md color_blanco" do %>
                     <i class="glyphicon glyphicon-user"> Usuarios</i><% end %>
                 </li>
+
+
+
 
              
 

@@ -7,8 +7,7 @@ class ClinicHistoriesController < ApplicationController
   def index
     # Normally you'd have more complex requirements about
     # when not to show rows, but we don't show any records that don't have a name
-
-    @clinic_histories = @patient.clinic_histories.all
+    @clinic_histories =  @patient.clinic_histories.search(params[:search]).page(params[:page]).per_page(2)
 
   end
 
@@ -71,8 +70,7 @@ class ClinicHistoriesController < ApplicationController
    
     # Never trust parameters from the scary internet, only allow the white list through.
     def clinic_history_params
-      params.require(:clinic_history).permit(:city, :pais, 
-        :user_id, :cove, :mobiel_service, :airport, :type_service, 
+      params.require(:clinic_history).permit(:user_id, :cove, :mobiel_service, :airport_id, :type_service, 
         :patient_id, :origin, :destination, :company, :accompanist_name, 
         :relationship, :phone, :reason_for_consultation, :current_illness, 
         :neunatales, :neunatales_description, :patologicos, 
