@@ -23849,7 +23849,26 @@ $.extend($.fn, {
                             </div>
                         </section>
                         <!-- Codigo que manda el Medico de turno -->
-                        <%= f.hidden_field :user_id, :value => current_user.id %>
+
+
+                        <%= f.hidden_field :first_name, :value => @patient.first_name %>
+                        <%= f.hidden_field :second_name, :value => @patient.second_name %>
+                        <%= f.hidden_field :first_surname, :value => @patient.first_surname %>
+                        <%= f.hidden_field :second_surname, :value => @patient.second_surname %>
+                        <%= f.hidden_field :email, :value => @patient.email %>
+                        <%= f.hidden_field :type_document, :value => @patient.label_documento %>
+                        <%= f.hidden_field :document, :value => @patient.document %>
+                        <%= f.hidden_field :days_age, :value => @patient.days_age %>
+                        <%= f.hidden_field :months_age, :value => @patient.months_age %>
+                        <%= f.hidden_field :years_age, :value => @patient.years_age %>
+                        <%= f.hidden_field :birthdate, :value => @patient.birthdate %>
+                        <%= f.hidden_field :gender, :value => @patient.label_genre %>
+                        <%= f.hidden_field :profession, :value => @patient.label_profession %>
+                        <%= f.hidden_field :blood_type, :value => @patient.label_blood %>
+                        <%= f.hidden_field :nacionality, :value => @patient.nacionality %>
+                        <%= f.hidden_field :address, :value => @patient.address %>
+
+                        <% f.hidden_field :user_id, :value => current_user.id %>
 
 
 
@@ -23898,7 +23917,7 @@ $.extend($.fn, {
                         </label>
                       </div>
                     </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                       <div class="form-group" id="dvPassport"  style="display: none">
 
                           <label class="control-label">Ampliar Información</label>
@@ -23917,7 +23936,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                       <div class="form-group" id="dvPassport2" style="display: none">
                         <label class="control-label ">Ampliar Información</label>
                         <%= f.text_area :patologicos_description, class: 'form-control' %>
@@ -23925,9 +23944,7 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                </div>
-            
-                <div class="row">
+
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group" >
 
@@ -23941,12 +23958,18 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+
+
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport3" style="display:none">
                         <label class="control-label pull-right" >Ampliar Información</label>
                         <%= f.text_area :quirurgicos_description, class: 'form-control'  %>
                     </div>
                   </div>
+
+
+        </div>
+<div class="row">
 
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
@@ -23956,19 +23979,15 @@ $.extend($.fn, {
                         <%= f.check_box :farmacologicos, class: 'form-control fs1 chkPassport4', :name => "approve[]" %>
 
                         </label>
-
-
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport4" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :farmacologicos_description, class: 'form-control '  %>
                     </div>
                   </div>
-                </div>
 
-                <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
         
@@ -23981,7 +24000,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport5" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :alergicos_description, class: 'form-control'  %>
@@ -24004,7 +24023,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport6" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :toxicos_description, class: 'form-control'  %>
@@ -24025,7 +24044,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport7" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :traumaticos_description, class: 'form-control'  %>
@@ -24042,15 +24061,13 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport8" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :hospitables_description, class: 'form-control' %>
                     </div>
                   </div>
-                </div>
 
-                <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
             
@@ -24067,12 +24084,16 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport9" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :atep_laboral_description, class: 'form-control' %>
                     </div>
                   </div>
+
+                </div>
+
+                <div class="row">
 
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
@@ -24087,16 +24108,14 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group"  id="dvPassport10" style="display:none">
                         <label class="control-label pull-right">Ampliar Información </label>
                         <br />
                         <%= f.text_area :familiar_description, class: 'form-control' %>
                     </div>
                   </div>
-                </div>
-
-                <div class="row">
+ 
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
 
@@ -24112,7 +24131,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group"  id="dvPassport11" style="display:none">
                         <label class="control-label pull-right">Ampliar Información </label>
                         <br />
@@ -24135,7 +24154,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport12" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <br />
@@ -24148,35 +24167,33 @@ $.extend($.fn, {
 
 
 <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">Ciclo Menstrual</label>
                                 <%= f.text_field :menstrual_cycle, class: 'form-control', :name => "approve[]", placeholder: 'Ciclo Menstrual' %>
                             </div>
 
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">Edad Gestacional</label>
                                 <%= f.text_field :gestational_age, class: 'form-control', :name => "approve[]", placeholder: 'Edad Gestacional' %>
                             </div>
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">eco</label>
                                 <%= f.text_field :eco, class: 'form-control', placeholder: 'Eco' %>
                             </div>
 
-</div>
 
-<div class="row">
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">fum</label>
                                 <%= f.text_field :fum, class: 'form-control', placeholder: 'Fum' %>
                             </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">pregnancy</label>
                                 <%= f.text_field :pregnancy, class: 'form-control', placeholder: 'Pregnacy' %>
                             </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">G</label>
                                 <%= f.text_field :g, class: 'form-control' %>
                             </div>
@@ -24185,40 +24202,38 @@ $.extend($.fn, {
 
 <div class="row">
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">p </label>
                                 <%= f.text_field :p , class: 'form-control', placeholder: 'p' %>
                             </div>
 
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">c</label>
                                 <%= f.text_field :c, class: 'form-control', placeholder: 'c' %>
                             </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">a</label>
                                 <%= f.text_field :a, class: 'form-control', placeholder: 'a' %>
                             </div>
 
 
-</div>
 
                     
 
-<div class="row">
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">m</label>
                                 <%= f.text_field :m, class: 'form-control', placeholder: 'm' %>
                             </div>
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">v</label>
                                 <%= f.text_field :v, class: 'form-control', placeholder: 'a' %>
                             </div>
 
 
-                    <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div class="col-xs-4 col-sm-4 col-md-2">
                                 <label class="control-label">e</label>
                                 <%= f.text_field :e, class: 'form-control', placeholder: 'm' %>
                             </div>
@@ -24282,7 +24297,7 @@ $.extend($.fn, {
                     </div>
 
 
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                       <div class="form-group" id="dvPassport13" style="display: none">
                           <label class="control-label pull-right">Ampliar Información</label>
                           <%= f.text_area :cardiovascular_description, class: 'form-control' %>
@@ -24303,7 +24318,7 @@ $.extend($.fn, {
                   </div>
 
 
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                       <div class="form-group" id="dvPassport14" style="display: none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :respiratory_description , class: 'form-control' %>
@@ -24311,12 +24326,7 @@ $.extend($.fn, {
                   </div>
 
 
-                </div>
-            
-
-
-
-                <div class="row">
+        
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group" >
 
@@ -24328,12 +24338,19 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport15" style="display:none">
                         <label class="control-label pull-right" >Ampliar Información</label>
                         <%= f.text_area :abdominal_description, class: 'form-control'  %>
                     </div>
                   </div>
+
+                          </div>
+            
+
+
+
+                <div class="row">
 
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
@@ -24349,15 +24366,13 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport16" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :genito_urinario_description, class: 'form-control '  %>
                     </div>
                   </div>
-                </div>
-
-                <div class="row">
+         
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
         
@@ -24370,7 +24385,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport17" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :neurological_description, class: 'form-control'  %>
@@ -24391,7 +24406,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport18" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :mental_description, class: 'form-control'  %>
@@ -24412,7 +24427,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport19" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :sense_organ_description, class: 'form-control'  %>
@@ -24430,15 +24445,13 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport21" style="display:none">
                         <label class="control-label pull-right">Ampliar Información</label>
                         <%= f.text_area :skeletal_muscle_description, class: 'form-control' %>
                     </div>
                   </div>
-                </div>
 
-                <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
             
@@ -24451,7 +24464,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport22" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :skin_and_appendages_description, class: 'form-control' %>
@@ -24477,7 +24490,7 @@ $.extend($.fn, {
 
                 <div class="row">
                   
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-2">
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> ta_mmgh    
@@ -24489,7 +24502,7 @@ $.extend($.fn, {
 
 
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-2">
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> heart_rate    
@@ -24501,13 +24514,8 @@ $.extend($.fn, {
 
 
 
-                  
-              </div>
-
-
-                <div class="row">
-                  
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+          
+                  <div class="col-xs-6 col-sm-6 col-md-2">
                     <div class="form-group">
                      <label class="checkbox24">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> breathing_frequency    
@@ -24517,7 +24525,7 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-2">
                     <div class="form-group">
                      <label class="checkbox25">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> sat_of_o_ambiente    
@@ -24527,12 +24535,9 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  </div>
-
-
-                <div class="row">
+     
                   
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-2">
                     <div class="form-group">
                      <label class="checkbox26">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> breathing_frequency    
@@ -24542,7 +24547,7 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-2">
                     <div class="form-group">
                      <label class="checkbox27">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> sat_of_o_ambiente    
@@ -24558,7 +24563,7 @@ $.extend($.fn, {
 
                 <div class="row">
                   
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox28">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> weight_in_kilograms    
@@ -24568,7 +24573,7 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox29">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> height_in_centimeters    
@@ -24578,13 +24583,8 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  </div>
-
-
-
-                <div class="row">
                   
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox30">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
@@ -24595,7 +24595,7 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox31">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> measurement    
@@ -24605,11 +24605,7 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  </div>
 
-
-
-                <div class="row">
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
                     <label class="checkbox23">
@@ -24620,7 +24616,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport23" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :head_description, class: 'form-control' %>
@@ -24642,17 +24638,13 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport24" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :neck_description, class: 'form-control' %>
                     </div>
                   </div> 
-                </div>
-
-
-
-                <div class="row">
+ 
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
                     <label class="checkbox25">
@@ -24661,13 +24653,17 @@ $.extend($.fn, {
                     </label>
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport25" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :rib_cage_description, class: 'form-control' %>
                     </div>
                   </div> 
+               </div>
 
+
+
+                <div class="row">
 
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
@@ -24679,15 +24675,13 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport26" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :heart_description, class: 'form-control' %>
                     </div>
                   </div> 
-                </div>
-
-                <div class="row">
+        
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
                     <label class="checkbox27">
@@ -24697,7 +24691,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport27" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :lungs_description, class: 'form-control' %>
@@ -24716,7 +24710,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport28" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :abdomen_description, class: 'form-control' %>
@@ -24737,7 +24731,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport29" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :genitourinary_description, class: 'form-control' %>
@@ -24756,15 +24750,13 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport30" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :rectum_description, class: 'form-control' %>
                     </div>
                   </div> 
-                </div>
-
-                <div class="row">
+           
                   <div class="col-xs-3 col-sm-6 col-md-2">
                     <div class="form-group">
             
@@ -24777,7 +24769,7 @@ $.extend($.fn, {
 
                     </div>
                   </div>
-                    <div class="col-xs-9 col-sm-6 col-md-4">
+                    <div class="col-xs-9 col-sm-6 col-md-2">
                     <div class="form-group" id="dvPassport31" style="display:none">
                         <label class="control-labe pull-right">Ampliar Información</label>
                         <%= f.text_area :extremities_description, class: 'form-control' %>
@@ -24788,7 +24780,7 @@ $.extend($.fn, {
                 <div class="row">
  
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> alteration    
@@ -24802,7 +24794,7 @@ $.extend($.fn, {
                   
 
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> ojo abierto    
@@ -24812,20 +24804,9 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  </div>
-
-
-
-
-
-
-
-
-
-
-                <div class="row">
+       
                   
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
@@ -24836,7 +24817,7 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> Respuesta Motora    
@@ -24853,7 +24834,7 @@ $.extend($.fn, {
 
                 <div class="row">
                   
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-3">
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
@@ -24864,7 +24845,7 @@ $.extend($.fn, {
                     </div>
                   </div>
 
-                  <div class="col-xs-6 col-sm-6 col-md-6">
+                  <div class="col-xs-6 col-sm-6 col-md-9">
                     <div class="form-group">
 
                     </div>
@@ -24899,7 +24880,7 @@ $.extend($.fn, {
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
-                        <%= f.label "Otros Signos" %>  
+                        <%= f.label "analysis" %>  
                         <%= f.text_area :analysis, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
                     </label>
 
@@ -24910,7 +24891,7 @@ $.extend($.fn, {
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
-                        <%= f.label "Otros Signos" %>  
+                        <%= f.label "diagnostico" %>  
                         <%= f.text_area :print_diagnosed, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
                     </label>
 
@@ -24928,7 +24909,7 @@ $.extend($.fn, {
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
-                        <%= f.label "Otros Signos" %>  
+                        <%= f.label "tratamiento" %>  
                         <%= f.text_area :plan_and_treatment, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
                     </label>
 
@@ -24939,7 +24920,7 @@ $.extend($.fn, {
                     <div class="form-group">
                      <label class="checkbox23">
                       <span class="glyphicon glyphicon-check" style="color:#2ecc71"></span> 
-                        <%= f.label "Otros Signos" %>  
+                        <%= f.label "observaciones" %>  
                         <%= f.text_area :observations_recommendations, class: 'form-control fs1 chkPassport23', :name => "approve[]", label: false %>
                     </label>
 
@@ -24963,3 +24944,335 @@ $.extend($.fn, {
     <% end %>
 </body>
 </html>
+
+
+
+<script type="text/javascript">
+    
+
+
+  $(function () {
+        $(".chkPassport").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport").show();
+            } else {
+                $("#dvPassport").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport2").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport2").show();
+            } else {
+                $("#dvPassport2").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport3").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport3").show();
+            } else {
+                $("#dvPassport3").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport4").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport4").show();
+            } else {
+                $("#dvPassport4").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport5").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport5").show();
+            } else {
+                $("#dvPassport5").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport6").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport6").show();
+            } else {
+                $("#dvPassport6").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport7").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport7").show();
+            } else {
+                $("#dvPassport7").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport8").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport8").show();
+            } else {
+                $("#dvPassport8").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport9").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport9").show();
+            } else {
+                $("#dvPassport9").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport10").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport10").show();
+            } else {
+                $("#dvPassport10").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport11").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport11").show();
+            } else {
+                $("#dvPassport11").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport12").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport12").show();
+            } else {
+                $("#dvPassport12").hide();
+            }
+        });
+    });
+
+
+
+
+
+    $(function () {
+        $(".chkPassport13").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport13").show();
+            } else {
+                $("#dvPassport13").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport14").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport14").show();
+            } else {
+                $("#dvPassport14").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport15").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport15").show();
+            } else {
+                $("#dvPassport15").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport16").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport16").show();
+            } else {
+                $("#dvPassport16").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport17").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport17").show();
+            } else {
+                $("#dvPassport17").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport18").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport18").show();
+            } else {
+                $("#dvPassport18").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport19").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport19").show();
+            } else {
+                $("#dvPassport19").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport20").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport20").show();
+            } else {
+                $("#dvPassport20").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport21").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport21").show();
+            } else {
+                $("#dvPassport21").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport22").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport22").show();
+            } else {
+                $("#dvPassport22").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport23").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport23").show();
+            } else {
+                $("#dvPassport23").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport24").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport24").show();
+            } else {
+                $("#dvPassport24").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport25").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport25").show();
+            } else {
+                $("#dvPassport25").hide();
+            }
+        });
+    });
+
+
+    $(function () {
+        $(".chkPassport26").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport26").show();
+            } else {
+                $("#dvPassport26").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport27").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport27").show();
+            } else {
+                $("#dvPassport27").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport28").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport28").show();
+            } else {
+                $("#dvPassport28").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport29").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport29").show();
+            } else {
+                $("#dvPassport29").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport30").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport30").show();
+            } else {
+                $("#dvPassport30").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport31").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport31").show();
+            } else {
+                $("#dvPassport31").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport32").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport32").show();
+            } else {
+                $("#dvPassport32").hide();
+            }
+        });
+    });
+    $(function () {
+        $(".chkPassport33").click(function () {
+            if ($(this).is(":checked")) {
+                $("#dvPassport33").show();
+            } else {
+                $("#dvPassport33").hide();
+            }
+        });
+    });
+
+
+    
+    function do_this(){
+
+        var checkboxes = document.getElementsByName('approve[]');
+        var button = document.getElementById('toggle');
+
+        if(button.value == 'select'){
+            for (var i in checkboxes){
+                checkboxes[i].checked = 'FALSE';
+            }
+            button.value = 'deselect'
+        }else{
+            for (var i in checkboxes){
+                checkboxes[i].checked = '';
+            }
+            button.value = 'select';
+        }
+    }
+</script>

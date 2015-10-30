@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023165742) do
+ActiveRecord::Schema.define(version: 20151030234401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,19 +40,39 @@ ActiveRecord::Schema.define(version: 20151023165742) do
   end
 
   create_table "clinic_histories", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "second_name"
+    t.string   "first_surname"
+    t.string   "second_surname"
+    t.string   "email"
+    t.string   "document"
+    t.integer  "days_age"
+    t.integer  "months_age"
+    t.integer  "years_age"
+    t.date     "birthdate"
+    t.string   "gender"
+    t.string   "profession"
+    t.string   "blood_type"
+    t.string   "nacionality"
+    t.integer  "eps_id"
+    t.integer  "arl_id"
+    t.string   "address"
     t.integer  "condition"
-    t.integer  "airport_id"
+    t.string   "accompanist_name"
+    t.integer  "relationship"
+    t.string   "phone"
+    t.integer  "city_id"
     t.integer  "user_id"
+    t.string   "city"
+    t.string   "department"
     t.string   "cove"
     t.string   "mobiel_service"
+    t.integer  "airport_id"
     t.integer  "type_service"
     t.integer  "patient_id"
     t.string   "origin"
     t.string   "destination"
     t.string   "company"
-    t.string   "accompanist_name"
-    t.integer  "relationship"
-    t.string   "phone"
     t.text     "reason_for_consultation"
     t.text     "current_illness"
     t.boolean  "neunatales"
@@ -148,9 +168,13 @@ ActiveRecord::Schema.define(version: 20151023165742) do
     t.text     "observations_recommendations"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.string   "type_document"
   end
 
   add_index "clinic_histories", ["airport_id"], name: "index_clinic_histories_on_airport_id", using: :btree
+  add_index "clinic_histories", ["arl_id"], name: "index_clinic_histories_on_arl_id", using: :btree
+  add_index "clinic_histories", ["city_id"], name: "index_clinic_histories_on_city_id", using: :btree
+  add_index "clinic_histories", ["eps_id"], name: "index_clinic_histories_on_eps_id", using: :btree
   add_index "clinic_histories", ["patient_id"], name: "index_clinic_histories_on_patient_id", using: :btree
   add_index "clinic_histories", ["user_id"], name: "index_clinic_histories_on_user_id", using: :btree
 
@@ -245,12 +269,13 @@ ActiveRecord::Schema.define(version: 20151023165742) do
     t.integer  "gender"
     t.string   "profession"
     t.integer  "blood_type"
-    t.integer  "nacionality"
+    t.string   "nacionality"
     t.string   "address"
     t.integer  "condition"
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "country_code"
   end
 
   add_index "patients", ["city_id"], name: "index_patients_on_city_id", using: :btree
@@ -267,6 +292,20 @@ ActiveRecord::Schema.define(version: 20151023165742) do
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
+
+  create_table "progress_notes", force: :cascade do |t|
+    t.string   "patient_name"
+    t.string   "patient_document"
+    t.integer  "type_document"
+    t.integer  "age"
+    t.string   "medical_record"
+    t.text     "description"
+    t.integer  "clinic_history_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "progress_notes", ["clinic_history_id"], name: "index_progress_notes_on_clinic_history_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -307,6 +346,7 @@ ActiveRecord::Schema.define(version: 20151023165742) do
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
     t.string   "last_login_from_ip_address"
+    t.string   "country_code"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree
@@ -317,6 +357,10 @@ ActiveRecord::Schema.define(version: 20151023165742) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
 
   add_foreign_key "airports", "cities"
+  add_foreign_key "clinic_histories", "airports"
+  add_foreign_key "clinic_histories", "arles"
+  add_foreign_key "clinic_histories", "cities"
+  add_foreign_key "clinic_histories", "epses"
   add_foreign_key "clinic_histories", "patients"
   add_foreign_key "clinic_histories", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
@@ -324,4 +368,5 @@ ActiveRecord::Schema.define(version: 20151023165742) do
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "patients", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "progress_notes", "clinic_histories"
 end

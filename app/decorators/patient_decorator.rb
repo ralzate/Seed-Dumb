@@ -9,8 +9,8 @@ module PatientDecorator
   	end
 
 	def label_genre
-	    if select_genre.flatten.include?(genre.to_i)
-	      select_genre.each { |first_name, id| return first_name if genre.to_i == id }
+	    if select_genre.flatten.include?(gender.to_i)
+	      select_genre.each { |first_name, id| return first_name if gender.to_i == id }
 	    end
 	end
   	

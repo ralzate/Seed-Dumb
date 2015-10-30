@@ -21835,7 +21835,7 @@ $.extend($.fn, {
 <body class="f_small f_regular lblue">
   <div class="w_normal horizontal_center f_light ptop_50">
       <%= simple_form_for(@patient, :html => { :class => 'pf_form shadow', :id => 'validation' }) do |f| %>
-        <header>Datos para los Paciente</header>
+        <header>Datos para los Pacientes</header>
         <fieldset>
 
           <div class="row">
@@ -21952,11 +21952,17 @@ $.extend($.fn, {
           <div class="row">
 
             <section class="span6 unit">
-              <label class="label my-labol">Nacionalidad</label>
               <label class="input">
                 <i class="icon-append fa fa-globe"></i>
-                  <%= f.select :nacionality, { "Custom" => "offer"}, {}, :class => "countries", :id => "countryId".html_safe %>
+                    <%= f.input :nacionality do %>
+  <%= f.country_select :country_code, {object: f.object, prompt: 'País'} %>
+<% end %>
               </label>
+
+ 
+
+
+
             </section>
 
             <section class="span6 unit">

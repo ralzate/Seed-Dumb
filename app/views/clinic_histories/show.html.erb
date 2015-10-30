@@ -1,62 +1,707 @@
-<!doctype html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Error state</title>
-<link rel="shortcut icon" href="../favicon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link type="text/css" href="../styles/fontAwesome.css" rel="stylesheet"  media="screen"/>
-<link type="text/css" href="../styles/prosto-forms.min.css" rel="stylesheet" media="screen"/>
-<link type="text/css" href="../styles/prosto-forms-all.min.css" rel="stylesheet" media="screen"/>
-<link type="text/css" href="../styles/demo.css" rel="stylesheet" media="screen"/>
- 
-<script type="text/javascript" src="../scripts/jquery.js"></script>
-<script type="text/javascript" src="../scripts/plugins/plugin.forms.min.js"></script>
-<script type="text/javascript" src="../scripts/helpers/helpers.js"></script>
-<script type="text/javascript" src="../scripts/helpers/wrenchbar.js"></script>
-<script type="text/javascript" src="../scripts/commons.js"></script>
+<p id="notice"><%= notice %></p>
 
-<script type="text/javascript">
-  
-</script>
-<!--[if IE]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+<p>
+  <strong>First name:</strong>
+  <%= @clinic_history.first_name %>
+</p>
 
-</head>
-<body class="f_small f_regular lblue">
-<fieldset>
-      <section>
-        <label class="label">Columned checkboxes</label>
-        <div class="row">
-          <div class="unit span4">
-            <label class="checkbox"><input type="checkbox" name="checkbox" checked="" id="object_checkbox_29_checkbox"><i></i>Alexandra</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_30_checkbox"><i></i>Alice</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_31_checkbox"><i></i>Anastasia</label>
-          </div>
-          <div class="unit span4">
-            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_32_checkbox"><i></i>Avelina</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_33_checkbox"><i></i>Basilia</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_34_checkbox"><i></i>Beatrice</label>
-          </div>
-          <div class="unit span4">
-            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_35_checkbox"><i></i>Cassandra</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_36_checkbox"><i></i>Clemencia</label>
-            <label class="checkbox"><input type="checkbox" name="checkbox" id="object_checkbox_37_checkbox"><i></i>Desiderata</label>
-          </div>
-        </div>
-      </section>
-      <section>
-        <label class="label">Inline checkboxes</label>
-        <div class="inline-group">
-          <label class="checkbox"><input type="checkbox" name="checkbox-inline" checked="" id="object_checkbox_38_checkbox-inline"><i></i>Alexandra</label>
-          <label class="checkbox"><input type="checkbox" name="checkbox-inline" id="object_checkbox_39_checkbox-inline"><i></i>Alice</label>
-          <label class="checkbox"><input type="checkbox" name="checkbox-inline" id="object_checkbox_40_checkbox-inline"><i></i>Anastasia</label>
-          <label class="checkbox"><input type="checkbox" name="checkbox-inline" id="object_checkbox_41_checkbox-inline"><i></i>Avelina</label>
-          <label class="checkbox"><input type="checkbox" name="checkbox-inline" id="object_checkbox_42_checkbox-inline"><i></i>Beatrice</label>
-        </div>
-      </section>
-    </fieldset>
+<p>
+  <strong>Second name:</strong>
+  <%= @clinic_history.second_name %>
+</p>
 
-</body>
-</html>
+<p>
+  <strong>First surname:</strong>
+  <%= @clinic_history.first_surname %>
+</p>
+
+<p>
+  <strong>Second surname:</strong>
+  <%= @clinic_history.second_surname %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @clinic_history.email %>
+</p>
+
+<p>
+  <strong>Type document:</strong>
+  <%= @clinic_history.type_document %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @clinic_history.document %>
+</p>
+
+<p>
+  <strong>Days age:</strong>
+  <%= @clinic_history.days_age %>
+</p>
+
+<p>
+  <strong>Months age:</strong>
+  <%= @clinic_history.months_age %>
+</p>
+
+<p>
+  <strong>Years age:</strong>
+  <%= @clinic_history.years_age %>
+</p>
+
+<p>
+  <strong>Birthdate:</strong>
+  <%= @clinic_history.birthdate %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @clinic_history.gender %>
+</p>
+
+<p>
+  <strong>Profession:</strong>
+  <%= @clinic_history.profession %>
+</p>
+
+<p>
+  <strong>Blood type:</strong>
+  <%= @clinic_history.blood_type %>
+</p>
+
+<p>
+  <strong>Nacionality:</strong>
+  <%= @clinic_history.nacionality %>
+</p>
+
+<p>
+  <strong>Eps:</strong>
+  <%= @clinic_history.eps %>
+</p>
+
+<p>
+  <strong>Arl:</strong>
+  <%= @clinic_history.arl %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @clinic_history.address %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @clinic_history.condition %>
+</p>
+
+<p>
+  <strong>Accompanist name:</strong>
+  <%= @clinic_history.accompanist_name %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @clinic_history.relationship %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @clinic_history.phone %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @clinic_history.city %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @clinic_history.user %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @clinic_history.city %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @clinic_history.department %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @clinic_history.user %>
+</p>
+
+<p>
+  <strong>Cove:</strong>
+  <%= @clinic_history.cove %>
+</p>
+
+<p>
+  <strong>Mobiel service:</strong>
+  <%= @clinic_history.mobiel_service %>
+</p>
+
+<p>
+  <strong>Airport:</strong>
+  <%= @clinic_history.airport %>
+</p>
+
+<p>
+  <strong>Type service:</strong>
+  <%= @clinic_history.type_service %>
+</p>
+
+<p>
+  <strong>Patient:</strong>
+  <%= @clinic_history.patient %>
+</p>
+
+<p>
+  <strong>Origin:</strong>
+  <%= @clinic_history.origin %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @clinic_history.destination %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @clinic_history.company %>
+</p>
+
+<p>
+  <strong>Accompanist name:</strong>
+  <%= @clinic_history.accompanist_name %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @clinic_history.relationship %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @clinic_history.phone %>
+</p>
+
+<p>
+  <strong>Reason for consultation:</strong>
+  <%= @clinic_history.reason_for_consultation %>
+</p>
+
+<p>
+  <strong>Current illness:</strong>
+  <%= @clinic_history.current_illness %>
+</p>
+
+<p>
+  <strong>Neunatales:</strong>
+  <%= @clinic_history.neunatales %>
+</p>
+
+<p>
+  <strong>Neunatales description:</strong>
+  <%= @clinic_history.neunatales_description %>
+</p>
+
+<p>
+  <strong>Patologicos:</strong>
+  <%= @clinic_history.patologicos %>
+</p>
+
+<p>
+  <strong>Patologicos description:</strong>
+  <%= @clinic_history.patologicos_description %>
+</p>
+
+<p>
+  <strong>Quirurgicos:</strong>
+  <%= @clinic_history.quirurgicos %>
+</p>
+
+<p>
+  <strong>Quirurgicos description:</strong>
+  <%= @clinic_history.quirurgicos_description %>
+</p>
+
+<p>
+  <strong>Farmacologicos:</strong>
+  <%= @clinic_history.farmacologicos %>
+</p>
+
+<p>
+  <strong>Farmacologicos description:</strong>
+  <%= @clinic_history.farmacologicos_description %>
+</p>
+
+<p>
+  <strong>Alergicos:</strong>
+  <%= @clinic_history.alergicos %>
+</p>
+
+<p>
+  <strong>Alergicos description:</strong>
+  <%= @clinic_history.alergicos_description %>
+</p>
+
+<p>
+  <strong>Toxicos:</strong>
+  <%= @clinic_history.toxicos %>
+</p>
+
+<p>
+  <strong>Toxicos description:</strong>
+  <%= @clinic_history.toxicos_description %>
+</p>
+
+<p>
+  <strong>Traumaticos:</strong>
+  <%= @clinic_history.traumaticos %>
+</p>
+
+<p>
+  <strong>Traumaticos description:</strong>
+  <%= @clinic_history.traumaticos_description %>
+</p>
+
+<p>
+  <strong>Hospitables:</strong>
+  <%= @clinic_history.hospitables %>
+</p>
+
+<p>
+  <strong>Hospitables description:</strong>
+  <%= @clinic_history.hospitables_description %>
+</p>
+
+<p>
+  <strong>Atep laboral:</strong>
+  <%= @clinic_history.atep_laboral %>
+</p>
+
+<p>
+  <strong>Atep laboral description:</strong>
+  <%= @clinic_history.atep_laboral_description %>
+</p>
+
+<p>
+  <strong>Familiar:</strong>
+  <%= @clinic_history.familiar %>
+</p>
+
+<p>
+  <strong>Familiar description:</strong>
+  <%= @clinic_history.familiar_description %>
+</p>
+
+<p>
+  <strong>Inmunologicos:</strong>
+  <%= @clinic_history.inmunologicos %>
+</p>
+
+<p>
+  <strong>Inmunologios description:</strong>
+  <%= @clinic_history.inmunologios_description %>
+</p>
+
+<p>
+  <strong>Asociado viajes de vuelo:</strong>
+  <%= @clinic_history.asociado_viajes_de_vuelo %>
+</p>
+
+<p>
+  <strong>Asociado viajes de vuelo description:</strong>
+  <%= @clinic_history.asociado_viajes_de_vuelo_description %>
+</p>
+
+<p>
+  <strong>Menstrual cycle:</strong>
+  <%= @clinic_history.menstrual_cycle %>
+</p>
+
+<p>
+  <strong>Gestational age:</strong>
+  <%= @clinic_history.gestational_age %>
+</p>
+
+<p>
+  <strong>Eco:</strong>
+  <%= @clinic_history.eco %>
+</p>
+
+<p>
+  <strong>Fum:</strong>
+  <%= @clinic_history.fum %>
+</p>
+
+<p>
+  <strong>Pregnancy:</strong>
+  <%= @clinic_history.pregnancy %>
+</p>
+
+<p>
+  <strong>G:</strong>
+  <%= @clinic_history.g %>
+</p>
+
+<p>
+  <strong>P:</strong>
+  <%= @clinic_history.p %>
+</p>
+
+<p>
+  <strong>C:</strong>
+  <%= @clinic_history.c %>
+</p>
+
+<p>
+  <strong>A:</strong>
+  <%= @clinic_history.a %>
+</p>
+
+<p>
+  <strong>M:</strong>
+  <%= @clinic_history.m %>
+</p>
+
+<p>
+  <strong>V:</strong>
+  <%= @clinic_history.v %>
+</p>
+
+<p>
+  <strong>E:</strong>
+  <%= @clinic_history.e %>
+</p>
+
+<p>
+  <strong>Cardiovascular:</strong>
+  <%= @clinic_history.cardiovascular %>
+</p>
+
+<p>
+  <strong>Cardiovascular description:</strong>
+  <%= @clinic_history.cardiovascular_description %>
+</p>
+
+<p>
+  <strong>Respiratory:</strong>
+  <%= @clinic_history.respiratory %>
+</p>
+
+<p>
+  <strong>Respiratory description:</strong>
+  <%= @clinic_history.respiratory_description %>
+</p>
+
+<p>
+  <strong>Abdominal:</strong>
+  <%= @clinic_history.abdominal %>
+</p>
+
+<p>
+  <strong>Abdominal description:</strong>
+  <%= @clinic_history.abdominal_description %>
+</p>
+
+<p>
+  <strong>Genito urinario:</strong>
+  <%= @clinic_history.genito_urinario %>
+</p>
+
+<p>
+  <strong>Genito urinario description:</strong>
+  <%= @clinic_history.genito_urinario_description %>
+</p>
+
+<p>
+  <strong>Neurological:</strong>
+  <%= @clinic_history.neurological %>
+</p>
+
+<p>
+  <strong>Neurological description:</strong>
+  <%= @clinic_history.neurological_description %>
+</p>
+
+<p>
+  <strong>Mental:</strong>
+  <%= @clinic_history.mental %>
+</p>
+
+<p>
+  <strong>Mental description:</strong>
+  <%= @clinic_history.mental_description %>
+</p>
+
+<p>
+  <strong>Sense organ:</strong>
+  <%= @clinic_history.sense_organ %>
+</p>
+
+<p>
+  <strong>Sense organ description:</strong>
+  <%= @clinic_history.sense_organ_description %>
+</p>
+
+<p>
+  <strong>Skeletal muscle:</strong>
+  <%= @clinic_history.skeletal_muscle %>
+</p>
+
+<p>
+  <strong>Skeletal muscle description:</strong>
+  <%= @clinic_history.skeletal_muscle_description %>
+</p>
+
+<p>
+  <strong>Skin and appendages:</strong>
+  <%= @clinic_history.skin_and_appendages %>
+</p>
+
+<p>
+  <strong>Skin and appendages description:</strong>
+  <%= @clinic_history.skin_and_appendages_description %>
+</p>
+
+<p>
+  <strong>Ta mmgh:</strong>
+  <%= @clinic_history.ta_mmgh %>
+</p>
+
+<p>
+  <strong>Heart rate:</strong>
+  <%= @clinic_history.heart_rate %>
+</p>
+
+<p>
+  <strong>Breathing frequency:</strong>
+  <%= @clinic_history.breathing_frequency %>
+</p>
+
+<p>
+  <strong>Sat of o ambiente:</strong>
+  <%= @clinic_history.sat_of_o_ambiente %>
+</p>
+
+<p>
+  <strong>Sat of o supplementary:</strong>
+  <%= @clinic_history.sat_of_o_supplementary %>
+</p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @clinic_history.temperature %>
+</p>
+
+<p>
+  <strong>Weight in kilograms:</strong>
+  <%= @clinic_history.weight_in_kilograms %>
+</p>
+
+<p>
+  <strong>Height in centimeters:</strong>
+  <%= @clinic_history.height_in_centimeters %>
+</p>
+
+<p>
+  <strong>Glucose:</strong>
+  <%= @clinic_history.glucose %>
+</p>
+
+<p>
+  <strong>Measurement:</strong>
+  <%= @clinic_history.measurement %>
+</p>
+
+<p>
+  <strong>Head:</strong>
+  <%= @clinic_history.head %>
+</p>
+
+<p>
+  <strong>Head description:</strong>
+  <%= @clinic_history.head_description %>
+</p>
+
+<p>
+  <strong>Sense organ:</strong>
+  <%= @clinic_history.sense_organ %>
+</p>
+
+<p>
+  <strong>Sense organ description:</strong>
+  <%= @clinic_history.sense_organ_description %>
+</p>
+
+<p>
+  <strong>Neck:</strong>
+  <%= @clinic_history.neck %>
+</p>
+
+<p>
+  <strong>Neck description:</strong>
+  <%= @clinic_history.neck_description %>
+</p>
+
+<p>
+  <strong>Rib cage:</strong>
+  <%= @clinic_history.rib_cage %>
+</p>
+
+<p>
+  <strong>Rib cage description:</strong>
+  <%= @clinic_history.rib_cage_description %>
+</p>
+
+<p>
+  <strong>Heart:</strong>
+  <%= @clinic_history.heart %>
+</p>
+
+<p>
+  <strong>Heart description:</strong>
+  <%= @clinic_history.heart_description %>
+</p>
+
+<p>
+  <strong>Lungs:</strong>
+  <%= @clinic_history.lungs %>
+</p>
+
+<p>
+  <strong>Lungs description:</strong>
+  <%= @clinic_history.lungs_description %>
+</p>
+
+<p>
+  <strong>Abdomen:</strong>
+  <%= @clinic_history.abdomen %>
+</p>
+
+<p>
+  <strong>Abdomen description:</strong>
+  <%= @clinic_history.abdomen_description %>
+</p>
+
+<p>
+  <strong>Genitourinary:</strong>
+  <%= @clinic_history.genitourinary %>
+</p>
+
+<p>
+  <strong>Genitourinary description:</strong>
+  <%= @clinic_history.genitourinary_description %>
+</p>
+
+<p>
+  <strong>Rectum:</strong>
+  <%= @clinic_history.rectum %>
+</p>
+
+<p>
+  <strong>Rectum description:</strong>
+  <%= @clinic_history.rectum_description %>
+</p>
+
+<p>
+  <strong>Extremities:</strong>
+  <%= @clinic_history.extremities %>
+</p>
+
+<p>
+  <strong>Extremities description:</strong>
+  <%= @clinic_history.extremities_description %>
+</p>
+
+<p>
+  <strong>Skin and appendages:</strong>
+  <%= @clinic_history.skin_and_appendages %>
+</p>
+
+<p>
+  <strong>Skin and appendages description:</strong>
+  <%= @clinic_history.skin_and_appendages_description %>
+</p>
+
+<p>
+  <strong>Skeletal muscle:</strong>
+  <%= @clinic_history.skeletal_muscle %>
+</p>
+
+<p>
+  <strong>Skeletal muscle description:</strong>
+  <%= @clinic_history.skeletal_muscle_description %>
+</p>
+
+<p>
+  <strong>Mental:</strong>
+  <%= @clinic_history.mental %>
+</p>
+
+<p>
+  <strong>Mental description:</strong>
+  <%= @clinic_history.mental_description %>
+</p>
+
+<p>
+  <strong>Neurological:</strong>
+  <%= @clinic_history.neurological %>
+</p>
+
+<p>
+  <strong>Neurological description:</strong>
+  <%= @clinic_history.neurological_description %>
+</p>
+
+<p>
+  <strong>Alteration:</strong>
+  <%= @clinic_history.alteration %>
+</p>
+
+<p>
+  <strong>Eye opening:</strong>
+  <%= @clinic_history.eye_opening %>
+</p>
+
+<p>
+  <strong>Verbal answer:</strong>
+  <%= @clinic_history.verbal_answer %>
+</p>
+
+<p>
+  <strong>Motor response:</strong>
+  <%= @clinic_history.motor_response %>
+</p>
+
+<p>
+  <strong>Other signs:</strong>
+  <%= @clinic_history.other_signs %>
+</p>
+
+<p>
+  <strong>Analysis:</strong>
+  <%= @clinic_history.analysis %>
+</p>
+
+<p>
+  <strong>Print diagnosed:</strong>
+  <%= @clinic_history.print_diagnosed %>
+</p>
+
+<p>
+  <strong>Plan and treatment:</strong>
+  <%= @clinic_history.plan_and_treatment %>
+</p>
+
+<p>
+  <strong>Observations recommendations:</strong>
+  <%= @clinic_history.observations_recommendations %>
+</p>
+

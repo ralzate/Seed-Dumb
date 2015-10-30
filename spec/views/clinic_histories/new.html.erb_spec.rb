@@ -3,12 +3,35 @@ require 'rails_helper'
 RSpec.describe "clinic_histories/new", type: :view do
   before(:each) do
     assign(:clinic_history, ClinicHistory.new(
+      :first_name => "MyString",
+      :second_name => "MyString",
+      :first_surname => "MyString",
+      :second_surname => "MyString",
+      :email => "MyString",
+      :type_document => "MyString",
+      :document => "MyString",
+      :days_age => 1,
+      :months_age => 1,
+      :years_age => 1,
+      :gender => "MyString",
+      :profession => "MyString",
+      :blood_type => "MyString",
+      :nacionality => "MyString",
+      :eps => nil,
+      :arl => nil,
+      :address => "MyString",
+      :condition => 1,
+      :accompanist_name => "MyString",
+      :relationship => 1,
+      :phone => "MyString",
+      :city => nil,
+      :user => nil,
       :city => "MyString",
       :department => "MyString",
       :user => nil,
       :cove => "MyString",
       :mobiel_service => "MyString",
-      :airport => 1,
+      :airport => nil,
       :type_service => 1,
       :patient => nil,
       :origin => "MyString",
@@ -58,6 +81,7 @@ RSpec.describe "clinic_histories/new", type: :view do
       :cardiovascular => false,
       :cardiovascular_description => "MyText",
       :respiratory => false,
+      :respiratory_description => "MyText",
       :abdominal => false,
       :abdominal_description => "MyText",
       :genito_urinario => false,
@@ -78,9 +102,7 @@ RSpec.describe "clinic_histories/new", type: :view do
       :sat_of_o_ambiente => "MyString",
       :sat_of_o_supplementary => "MyString",
       :temperature => "MyString",
-      :weight => "MyString",
-      :in => "MyString",
-      :kilograms => "MyString",
+      :weight_in_kilograms => "MyString",
       :height_in_centimeters => "MyString",
       :glucose => "MyString",
       :measurement => "MyString",
@@ -129,6 +151,52 @@ RSpec.describe "clinic_histories/new", type: :view do
 
     assert_select "form[action=?][method=?]", clinic_histories_path, "post" do
 
+      assert_select "input#clinic_history_first_name[name=?]", "clinic_history[first_name]"
+
+      assert_select "input#clinic_history_second_name[name=?]", "clinic_history[second_name]"
+
+      assert_select "input#clinic_history_first_surname[name=?]", "clinic_history[first_surname]"
+
+      assert_select "input#clinic_history_second_surname[name=?]", "clinic_history[second_surname]"
+
+      assert_select "input#clinic_history_email[name=?]", "clinic_history[email]"
+
+      assert_select "input#clinic_history_type_document[name=?]", "clinic_history[type_document]"
+
+      assert_select "input#clinic_history_document[name=?]", "clinic_history[document]"
+
+      assert_select "input#clinic_history_days_age[name=?]", "clinic_history[days_age]"
+
+      assert_select "input#clinic_history_months_age[name=?]", "clinic_history[months_age]"
+
+      assert_select "input#clinic_history_years_age[name=?]", "clinic_history[years_age]"
+
+      assert_select "input#clinic_history_gender[name=?]", "clinic_history[gender]"
+
+      assert_select "input#clinic_history_profession[name=?]", "clinic_history[profession]"
+
+      assert_select "input#clinic_history_blood_type[name=?]", "clinic_history[blood_type]"
+
+      assert_select "input#clinic_history_nacionality[name=?]", "clinic_history[nacionality]"
+
+      assert_select "input#clinic_history_eps_id[name=?]", "clinic_history[eps_id]"
+
+      assert_select "input#clinic_history_arl_id[name=?]", "clinic_history[arl_id]"
+
+      assert_select "input#clinic_history_address[name=?]", "clinic_history[address]"
+
+      assert_select "input#clinic_history_condition[name=?]", "clinic_history[condition]"
+
+      assert_select "input#clinic_history_accompanist_name[name=?]", "clinic_history[accompanist_name]"
+
+      assert_select "input#clinic_history_relationship[name=?]", "clinic_history[relationship]"
+
+      assert_select "input#clinic_history_phone[name=?]", "clinic_history[phone]"
+
+      assert_select "input#clinic_history_city_id[name=?]", "clinic_history[city_id]"
+
+      assert_select "input#clinic_history_user_id[name=?]", "clinic_history[user_id]"
+
       assert_select "input#clinic_history_city[name=?]", "clinic_history[city]"
 
       assert_select "input#clinic_history_department[name=?]", "clinic_history[department]"
@@ -139,7 +207,7 @@ RSpec.describe "clinic_histories/new", type: :view do
 
       assert_select "input#clinic_history_mobiel_service[name=?]", "clinic_history[mobiel_service]"
 
-      assert_select "input#clinic_history_airport[name=?]", "clinic_history[airport]"
+      assert_select "input#clinic_history_airport_id[name=?]", "clinic_history[airport_id]"
 
       assert_select "input#clinic_history_type_service[name=?]", "clinic_history[type_service]"
 
@@ -239,6 +307,8 @@ RSpec.describe "clinic_histories/new", type: :view do
 
       assert_select "input#clinic_history_respiratory[name=?]", "clinic_history[respiratory]"
 
+      assert_select "textarea#clinic_history_respiratory_description[name=?]", "clinic_history[respiratory_description]"
+
       assert_select "input#clinic_history_abdominal[name=?]", "clinic_history[abdominal]"
 
       assert_select "textarea#clinic_history_abdominal_description[name=?]", "clinic_history[abdominal_description]"
@@ -279,11 +349,7 @@ RSpec.describe "clinic_histories/new", type: :view do
 
       assert_select "input#clinic_history_temperature[name=?]", "clinic_history[temperature]"
 
-      assert_select "input#clinic_history_weight[name=?]", "clinic_history[weight]"
-
-      assert_select "input#clinic_history_in[name=?]", "clinic_history[in]"
-
-      assert_select "input#clinic_history_kilograms[name=?]", "clinic_history[kilograms]"
+      assert_select "input#clinic_history_weight_in_kilograms[name=?]", "clinic_history[weight_in_kilograms]"
 
       assert_select "input#clinic_history_height_in_centimeters[name=?]", "clinic_history[height_in_centimeters]"
 

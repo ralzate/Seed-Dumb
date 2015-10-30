@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Patient name:</strong>
+  <%= @progress_note.patient_name %>
+</p>
+
+<p>
+  <strong>Patient document:</strong>
+  <%= @progress_note.patient_document %>
+</p>
+
+<p>
+  <strong>Type document:</strong>
+  <%= @progress_note.type_document %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @progress_note.age %>
+</p>
+
+<p>
+  <strong>Medical record:</strong>
+  <%= @progress_note.medical_record %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @progress_note.description %>
+</p>
+
+<p>
+  <strong>Clinic history:</strong>
+  <%= @progress_note.clinic_history %>
+</p>
+
+<%= link_to 'Edit', edit_progress_note_path(@progress_note) %> |
+<%= link_to 'Back', progress_notes_path %>

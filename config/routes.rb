@@ -1,8 +1,6 @@
 PetThing::Application.routes.draw do
 
 
-  resources :airports
-  resources :cities
   resources :airports , :path => "aeropuertos"
   resources :cities , :path => "ciudades"
   resources :arles
@@ -49,7 +47,8 @@ PetThing::Application.routes.draw do
 
 
   resources :patients, :path => "pascientes" do
-    resources :clinic_histories, :path => "historias_clinicas", only: [:new, :create, :index, :destroy, :show, :edit] do
+    resources :clinic_histories, :path => "historias_clinicas" do
+      resources :progress_notes, :path => "nota_de_evolucion"
     end
   end
   root to: 'pages#home'

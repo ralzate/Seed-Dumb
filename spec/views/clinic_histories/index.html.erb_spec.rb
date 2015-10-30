@@ -4,19 +4,42 @@ RSpec.describe "clinic_histories/index", type: :view do
   before(:each) do
     assign(:clinic_histories, [
       ClinicHistory.create!(
+        :first_name => "First Name",
+        :second_name => "Second Name",
+        :first_surname => "First Surname",
+        :second_surname => "Second Surname",
+        :email => "Email",
+        :type_document => "Type Document",
+        :document => "Document",
+        :days_age => 1,
+        :months_age => 2,
+        :years_age => 3,
+        :gender => "Gender",
+        :profession => "Profession",
+        :blood_type => "Blood Type",
+        :nacionality => "Nacionality",
+        :eps => nil,
+        :arl => nil,
+        :address => "Address",
+        :condition => 4,
+        :accompanist_name => "Accompanist Name",
+        :relationship => 5,
+        :phone => "Phone",
+        :city => nil,
+        :user => nil,
         :city => "City",
         :department => "Department",
         :user => nil,
         :cove => "Cove",
         :mobiel_service => "Mobiel Service",
-        :airport => 1,
-        :type_service => 2,
+        :airport => nil,
+        :type_service => 6,
         :patient => nil,
         :origin => "Origin",
         :destination => "Destination",
         :company => "Company",
         :accompanist_name => "Accompanist Name",
-        :relationship => 3,
+        :relationship => 7,
         :phone => "Phone",
         :reason_for_consultation => "MyText",
         :current_illness => "MyText",
@@ -44,10 +67,10 @@ RSpec.describe "clinic_histories/index", type: :view do
         :inmunologios_description => "MyText",
         :asociado_viajes_de_vuelo => false,
         :asociado_viajes_de_vuelo_description => "MyText",
-        :menstrual_cycle => 4,
+        :menstrual_cycle => 8,
         :gestational_age => "Gestational Age",
         :eco => "Eco",
-        :fum => 5,
+        :fum => 9,
         :pregnancy => false,
         :g => "G",
         :p => "P",
@@ -59,6 +82,7 @@ RSpec.describe "clinic_histories/index", type: :view do
         :cardiovascular => false,
         :cardiovascular_description => "MyText",
         :respiratory => false,
+        :respiratory_description => "MyText",
         :abdominal => false,
         :abdominal_description => "MyText",
         :genito_urinario => false,
@@ -79,9 +103,7 @@ RSpec.describe "clinic_histories/index", type: :view do
         :sat_of_o_ambiente => "Sat Of O Ambiente",
         :sat_of_o_supplementary => "Sat Of O Supplementary",
         :temperature => "Temperature",
-        :weight => "Weight",
-        :in => "In",
-        :kilograms => "Kilograms",
+        :weight_in_kilograms => "Weight In Kilograms",
         :height_in_centimeters => "Height In Centimeters",
         :glucose => "Glucose",
         :measurement => "Measurement",
@@ -113,30 +135,53 @@ RSpec.describe "clinic_histories/index", type: :view do
         :mental_description => "MyText",
         :neurological => false,
         :neurological_description => "MyText",
-        :alteration => 6,
-        :eye_opening => 7,
-        :verbal_answer => 8,
-        :motor_response => 9,
-        :other_signs => 10,
+        :alteration => 10,
+        :eye_opening => 11,
+        :verbal_answer => 12,
+        :motor_response => 13,
+        :other_signs => 14,
         :analysis => "MyText",
         :print_diagnosed => "MyText",
         :plan_and_treatment => "MyText",
         :observations_recommendations => "MyText"
       ),
       ClinicHistory.create!(
+        :first_name => "First Name",
+        :second_name => "Second Name",
+        :first_surname => "First Surname",
+        :second_surname => "Second Surname",
+        :email => "Email",
+        :type_document => "Type Document",
+        :document => "Document",
+        :days_age => 1,
+        :months_age => 2,
+        :years_age => 3,
+        :gender => "Gender",
+        :profession => "Profession",
+        :blood_type => "Blood Type",
+        :nacionality => "Nacionality",
+        :eps => nil,
+        :arl => nil,
+        :address => "Address",
+        :condition => 4,
+        :accompanist_name => "Accompanist Name",
+        :relationship => 5,
+        :phone => "Phone",
+        :city => nil,
+        :user => nil,
         :city => "City",
         :department => "Department",
         :user => nil,
         :cove => "Cove",
         :mobiel_service => "Mobiel Service",
-        :airport => 1,
-        :type_service => 2,
+        :airport => nil,
+        :type_service => 6,
         :patient => nil,
         :origin => "Origin",
         :destination => "Destination",
         :company => "Company",
         :accompanist_name => "Accompanist Name",
-        :relationship => 3,
+        :relationship => 7,
         :phone => "Phone",
         :reason_for_consultation => "MyText",
         :current_illness => "MyText",
@@ -164,10 +209,10 @@ RSpec.describe "clinic_histories/index", type: :view do
         :inmunologios_description => "MyText",
         :asociado_viajes_de_vuelo => false,
         :asociado_viajes_de_vuelo_description => "MyText",
-        :menstrual_cycle => 4,
+        :menstrual_cycle => 8,
         :gestational_age => "Gestational Age",
         :eco => "Eco",
-        :fum => 5,
+        :fum => 9,
         :pregnancy => false,
         :g => "G",
         :p => "P",
@@ -179,6 +224,7 @@ RSpec.describe "clinic_histories/index", type: :view do
         :cardiovascular => false,
         :cardiovascular_description => "MyText",
         :respiratory => false,
+        :respiratory_description => "MyText",
         :abdominal => false,
         :abdominal_description => "MyText",
         :genito_urinario => false,
@@ -199,9 +245,7 @@ RSpec.describe "clinic_histories/index", type: :view do
         :sat_of_o_ambiente => "Sat Of O Ambiente",
         :sat_of_o_supplementary => "Sat Of O Supplementary",
         :temperature => "Temperature",
-        :weight => "Weight",
-        :in => "In",
-        :kilograms => "Kilograms",
+        :weight_in_kilograms => "Weight In Kilograms",
         :height_in_centimeters => "Height In Centimeters",
         :glucose => "Glucose",
         :measurement => "Measurement",
@@ -233,11 +277,11 @@ RSpec.describe "clinic_histories/index", type: :view do
         :mental_description => "MyText",
         :neurological => false,
         :neurological_description => "MyText",
-        :alteration => 6,
-        :eye_opening => 7,
-        :verbal_answer => 8,
-        :motor_response => 9,
-        :other_signs => 10,
+        :alteration => 10,
+        :eye_opening => 11,
+        :verbal_answer => 12,
+        :motor_response => 13,
+        :other_signs => 14,
         :analysis => "MyText",
         :print_diagnosed => "MyText",
         :plan_and_treatment => "MyText",
@@ -248,19 +292,42 @@ RSpec.describe "clinic_histories/index", type: :view do
 
   it "renders a list of clinic_histories" do
     render
+    assert_select "tr>td", :text => "First Name".to_s, :count => 2
+    assert_select "tr>td", :text => "Second Name".to_s, :count => 2
+    assert_select "tr>td", :text => "First Surname".to_s, :count => 2
+    assert_select "tr>td", :text => "Second Surname".to_s, :count => 2
+    assert_select "tr>td", :text => "Email".to_s, :count => 2
+    assert_select "tr>td", :text => "Type Document".to_s, :count => 2
+    assert_select "tr>td", :text => "Document".to_s, :count => 2
+    assert_select "tr>td", :text => 1.to_s, :count => 2
+    assert_select "tr>td", :text => 2.to_s, :count => 2
+    assert_select "tr>td", :text => 3.to_s, :count => 2
+    assert_select "tr>td", :text => "Gender".to_s, :count => 2
+    assert_select "tr>td", :text => "Profession".to_s, :count => 2
+    assert_select "tr>td", :text => "Blood Type".to_s, :count => 2
+    assert_select "tr>td", :text => "Nacionality".to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => "Address".to_s, :count => 2
+    assert_select "tr>td", :text => 4.to_s, :count => 2
+    assert_select "tr>td", :text => "Accompanist Name".to_s, :count => 2
+    assert_select "tr>td", :text => 5.to_s, :count => 2
+    assert_select "tr>td", :text => "Phone".to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => "City".to_s, :count => 2
     assert_select "tr>td", :text => "Department".to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => "Cove".to_s, :count => 2
     assert_select "tr>td", :text => "Mobiel Service".to_s, :count => 2
-    assert_select "tr>td", :text => 1.to_s, :count => 2
-    assert_select "tr>td", :text => 2.to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
+    assert_select "tr>td", :text => 6.to_s, :count => 2
     assert_select "tr>td", :text => nil.to_s, :count => 2
     assert_select "tr>td", :text => "Origin".to_s, :count => 2
     assert_select "tr>td", :text => "Destination".to_s, :count => 2
     assert_select "tr>td", :text => "Company".to_s, :count => 2
     assert_select "tr>td", :text => "Accompanist Name".to_s, :count => 2
-    assert_select "tr>td", :text => 3.to_s, :count => 2
+    assert_select "tr>td", :text => 7.to_s, :count => 2
     assert_select "tr>td", :text => "Phone".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
@@ -288,10 +355,10 @@ RSpec.describe "clinic_histories/index", type: :view do
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => 4.to_s, :count => 2
+    assert_select "tr>td", :text => 8.to_s, :count => 2
     assert_select "tr>td", :text => "Gestational Age".to_s, :count => 2
     assert_select "tr>td", :text => "Eco".to_s, :count => 2
-    assert_select "tr>td", :text => 5.to_s, :count => 2
+    assert_select "tr>td", :text => 9.to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
     assert_select "tr>td", :text => "G".to_s, :count => 2
     assert_select "tr>td", :text => "P".to_s, :count => 2
@@ -303,6 +370,7 @@ RSpec.describe "clinic_histories/index", type: :view do
     assert_select "tr>td", :text => false.to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
+    assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
@@ -323,9 +391,7 @@ RSpec.describe "clinic_histories/index", type: :view do
     assert_select "tr>td", :text => "Sat Of O Ambiente".to_s, :count => 2
     assert_select "tr>td", :text => "Sat Of O Supplementary".to_s, :count => 2
     assert_select "tr>td", :text => "Temperature".to_s, :count => 2
-    assert_select "tr>td", :text => "Weight".to_s, :count => 2
-    assert_select "tr>td", :text => "In".to_s, :count => 2
-    assert_select "tr>td", :text => "Kilograms".to_s, :count => 2
+    assert_select "tr>td", :text => "Weight In Kilograms".to_s, :count => 2
     assert_select "tr>td", :text => "Height In Centimeters".to_s, :count => 2
     assert_select "tr>td", :text => "Glucose".to_s, :count => 2
     assert_select "tr>td", :text => "Measurement".to_s, :count => 2
@@ -357,11 +423,11 @@ RSpec.describe "clinic_histories/index", type: :view do
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => 6.to_s, :count => 2
-    assert_select "tr>td", :text => 7.to_s, :count => 2
-    assert_select "tr>td", :text => 8.to_s, :count => 2
-    assert_select "tr>td", :text => 9.to_s, :count => 2
     assert_select "tr>td", :text => 10.to_s, :count => 2
+    assert_select "tr>td", :text => 11.to_s, :count => 2
+    assert_select "tr>td", :text => 12.to_s, :count => 2
+    assert_select "tr>td", :text => 13.to_s, :count => 2
+    assert_select "tr>td", :text => 14.to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
