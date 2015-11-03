@@ -1,3 +1,6 @@
+
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -11,7 +14,10 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
+ *= requir
+
+
+ e_self
  *= require switchery
 
  *= require jasny-bootstrap
@@ -126,7 +132,11 @@ text-decoration: :none!important;
 text-decoration: none!important;
 
 }
+.fontf
+{
+font-family: sans-serif!important;
 
+}
 
 
 /* Logo SinStock */

@@ -1,25 +1,8 @@
-<%= form_for(@rol) do |f| %>
-  <% if @rol.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@rol.errors.count, "error") %> prohibited this rol from being saved:</h2>
+<%= simple_form_for @rol, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :restrictions %>
 
-      <ul>
-      <% @rol.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :restrictions %><br>
-    <%= f.text_field :restrictions %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                roles_path, :class => 'btn btn-default' %>
 <% end %>

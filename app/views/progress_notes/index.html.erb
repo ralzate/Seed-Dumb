@@ -3,7 +3,7 @@
  
 <%= link_to image_tag('Crud/return.png', :title => "Listado historias clinicas"),  patient_clinic_histories_path(@patient,@clinic_history), :class => 'btn btn-link'%>
 
-  <h1>Listado de  <span>Notas de Evolución </span></h1>
+  <h1>Listado de  <span>Notas de Evolución de </span><%= @patient.first_name %></h1>
 </div>
 
   <%= form_tag request.path, :method => 'get', :class => '' do %>

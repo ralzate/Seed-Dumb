@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Patient name:</strong>
+  <strong>Nombre del Paciente:</strong>
   <%= @progress_note.patient_name %>
 </p>
 
 <p>
-  <strong>Patient document:</strong>
+  <strong>Documento del Paciente:</strong>
   <%= @progress_note.patient_document %>
 </p>
 
@@ -16,12 +16,23 @@
 </p>
 
 <p>
-  <strong>Age:</strong>
-  <%= @progress_note.age %>
+  <strong>Edad:</strong>
+
+  <% edad =  ((Time.now - @patient.birthdate.to_time)/60/60/24).to_i  %>
+      <% edad2 =  ((Time.now - @patient.birthdate.to_time)/60/60/24/31).to_i  %>
+      <% edad3 =  ((Time.now - @patient.birthdate.to_time)/60/60/24/365).to_i  %>
+      
+      <% if  edad < 31 %>
+          Tiene <%= edad %> dias de vida
+      <% elsif edad >= 31 && edad < 365 %>
+          Tiene <%= edad2 %> meses de vida
+      <% elsif edad >= 365 %>
+          Tiene <%= edad3 %> años de vida
+      <% end %>
 </p>
 
 <p>
-  <strong>Medical record:</strong>
+  <strong>Registro Medico:</strong>
   <%= @progress_note.medical_record %>
 </p>
 
@@ -31,9 +42,9 @@
 </p>
 
 <p>
-  <strong>Clinic history:</strong>
-  <%= @progress_note.clinic_history %>
+  <strong>Historia Clinica:</strong>
+  <%= @progress_note.clinic_history.id %>
 </p>
 
-<%= link_to 'Edit', edit_progress_note_path(@progress_note) %> |
-<%= link_to 'Back', progress_notes_path %>
+<%= link_to 'Edit', edit_patient_clinic_history_progress_note_path(@patient,@clinic_history,@progress_note) %> |
+<%= link_to 'Back', patient_clinic_history_progress_notes_path(@patient,@clinic_history,@progress_note) %>

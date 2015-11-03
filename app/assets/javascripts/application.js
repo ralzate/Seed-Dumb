@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require switchery
 //= require jasny-bootstrap
+//= require bootstrap-datepicker
 //= require garlic
 
 //= require turbolinks

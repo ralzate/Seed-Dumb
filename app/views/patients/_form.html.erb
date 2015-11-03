@@ -1,3 +1,4 @@
+<%= javascript_include_tag "fecha" %>
 <!doctype html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -7444,6 +7445,7 @@ textarea:disabled:-moz-placeholder { color:#cccccc; }
     font-size: 14px;
     line-height: 20px;
     min-height: 20px;
+    font-family: 'OpenSansCondensedLight', sans-serif;
 }
 form.multistep fieldset .unit {
     display: none; 
@@ -21843,14 +21845,14 @@ $.extend($.fn, {
               <label class="label my-labol">Primer Nombre</label>
               <label class="input">
                 <i class="icon-append fa fa-asterisk"></i>
-                <%= f.text_field :first_name, class: 'form-control', required: true, placeholder: 'Primer Nombre' %>
+                <%= f.text_field :first_name, class: 'form-control fontf', required: true, placeholder: 'Primer Nombre' %>
               </label>
             </section>
             <section class="span3 unit">
               <label class="label my-labol">Segundo Nombre</label>
               <label class="input">
                 <i class="icon-append fa fa-envelope"></i>
-                <%= f.text_field :second_name, class: 'form-control', required: true, placeholder: 'Segundo Nombre' %>
+                <%= f.text_field :second_name, class: 'form-control fontf', required: true, placeholder: 'Segundo Nombre' %>
               </label>
             </section>
 
@@ -21858,14 +21860,14 @@ $.extend($.fn, {
               <label class="label my-labol">Primer Apellido</label>
               <label class="input">
                 <i class="icon-append fa fa-globe"></i>
-                <%= f.text_field :first_surname, class: 'form-control', required: true, placeholder: 'Primer APellido' %>
+                <%= f.text_field :first_surname, class: 'form-control fontf', required: true, placeholder: 'Primer APellido' %>
               </label>
             </section>
              <section class="span3 unit">
               <label class="label my-labol">Segundo Apellido</label>
               <label class="input">
                 <i class="icon-append fa fa-envelope"></i>
-                <%= f.text_field :second_surname, class: 'form-control', required: true, placeholder: 'Segundo APellido' %>
+                <%= f.text_field :second_surname, class: 'form-control fontf', required: true, placeholder: 'Segundo APellido' %>
               </label>
             </section>
 
@@ -21876,7 +21878,7 @@ $.extend($.fn, {
               <label class="label my-labol">Email</label>
               <label class="input">
                 <i class="icon-append fa fa-globe"></i>
-                <%= f.email_field :email, class: 'form-control', required: true, placeholder: 'Email' %>
+                <%= f.email_field :email, class: 'form-control fontf', required: true, placeholder: 'Email' %>
               </label>
             </section>
              <section class="span3 unit">
@@ -21887,7 +21889,7 @@ $.extend($.fn, {
                     prompt:       'Seleccionar un Genero',
                     collection: @patient.select_genre.sort,
                     error: false, label: false, 
-                    input_html:   {class: 'form-control'} %>
+                    input_html:   {class: 'form-control fontf'} %>
               </label>
             </section>
             <section class="span3 unit">
@@ -21898,14 +21900,14 @@ $.extend($.fn, {
                     prompt:       'Seleccionar un Documento',
                     collection: @patient.select_document.sort,
                     error: false, label: false, 
-                    input_html:   {class: 'form-control'} %>
+                    input_html:   {class: 'form-control fontf'} %>
               </label>
             </section>
              <section class="span3 unit">
               <label class="label my-labol">Documento</label>
               <label class="input">
                 <i class="icon-append fa fa-envelope"></i>
-                <%= f.text_field :document, class: 'form-control', required: true, placeholder: 'Identificacion' %>
+                <%= f.text_field :document, class: 'form-control fontf', required: true, placeholder: 'Identificacion' %>
               </label>
             </section>
           </div>
@@ -21919,7 +21921,7 @@ $.extend($.fn, {
                     prompt:       'Seleccionar un Tipo de Sangre',
                     collection: @patient.select_blood.sort,
                     error: false, label: false, 
-                    input_html:   {class: 'form-control'} %>
+                    input_html:   {class: 'form-control fontf'} %>
 
 
               </label>
@@ -21932,7 +21934,7 @@ $.extend($.fn, {
                     prompt:       'Seleccionar una Profesión',
                     collection: @patient.select_profession.sort,
                     error: false, label: false, 
-                    input_html:   {class: 'form-control'} %>
+                    input_html:   {class: 'form-control fontf'} %>
 
               </label>
             </section>
@@ -21941,7 +21943,7 @@ $.extend($.fn, {
               <label class="label my-labol">Dirección</label>
               <label class="input">
                 <i class="icon-append fa fa-globe"></i>
-                  <%= f.text_field :address, class: 'form-control', required: true, placeholder: 'Dirección' %>
+                  <%= f.text_field :address, class: 'form-control fontf', required: true, placeholder: 'Dirección' %>
               </label>
             </section>
           </div>
@@ -21951,12 +21953,13 @@ $.extend($.fn, {
 
           <div class="row">
 
-            <section class="span6 unit">
+            <section class="span4 unit">
+             <label class="label my-labol">Nacionalidad</label>
               <label class="input">
                 <i class="icon-append fa fa-globe"></i>
-                    <%= f.input :nacionality do %>
-  <%= f.country_select :country_code, {object: f.object, prompt: 'País'} %>
-<% end %>
+                   
+  <%= f.country_select :country_code, {object: f.object, prompt: 'País'}, class: 'form-control fontf' %>
+
               </label>
 
  
@@ -21965,7 +21968,7 @@ $.extend($.fn, {
 
             </section>
 
-            <section class="span6 unit">
+            <section class="span4 unit">
               <label class="label my-labol">Ciudad</label>
               <label class="input">
                 <i class="icon-append fa fa-globe"></i>
@@ -21973,7 +21976,19 @@ $.extend($.fn, {
               </label>
             </section>
 
+
+
+            <section class="span4 unit">
+              <label class="label my-labol">Fecha de nacimiento</label>
+              <label class="input">
+                <i class="icon-append fa fa-globe"></i>
+                <%= f.input :birthdate, :as => :string, :label => false, :required => true,  :input_html => {  :class => "datepicker " } %>
+              </label>
+            </section>
+
           </div>
+
+
 
           <script src="http://lab.iamrohit.in/js/location.js"></script>
 

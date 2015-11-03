@@ -1,6 +1,7 @@
 PetThing::Application.routes.draw do
 
 
+  resources :roles
   resources :airports , :path => "aeropuertos"
   resources :cities , :path => "ciudades"
   resources :arles
@@ -11,6 +12,8 @@ PetThing::Application.routes.draw do
   resources :countries, :path => "paises"
   resources :arles, :path => "arls"
   resources :epses, :path => "eps"
+  
+
   get 'reset_passwords/new'
 
   get 'pages/home'

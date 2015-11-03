@@ -47,6 +47,248 @@
 </header>
 
 
+<br/>
+  <% @patients.each do |patient| %>
+
+<div id="blog-card" class="blog-card container-fluid">
+  <div class="photo photo1"></div>
+  <ul class="details">
+    <li class="author"><a href="#">John Doe</a></li>
+    <li class="date">Aug. 24, 2015</li>
+    <li class="tags">
+      <ul>
+
+      <% edad =  ((Time.now - patient.birthdate.to_time)/60/60/24).to_i  %>
+      <% edad2 =  ((Time.now - patient.birthdate.to_time)/60/60/24/31).to_i  %>
+      <% edad3 =  ((Time.now - patient.birthdate.to_time)/60/60/24/365).to_i  %>
+      
+      <% if  edad < 31 %>
+        <li><a href="#">Tiene <%= edad %> dias de nacido</a></li>
+      <% elsif edad >= 31 && edad < 365 %>
+          <li><a href="#">Tiene <%= edad2 %> meses de nacido</a></li>
+      <% elsif edad >= 365 %>
+          <li><a href="#">Tiene <%= edad3 %> años de nacido</a></li>
+      <% end %>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">HTML</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="description">
+    <h1><%= patient.first_name.capitalize %> <%= patient.second_name.capitalize %> <%= patient.first_surname.capitalize %> </h2>
+    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+    <a href="#">Read More</a>
+    <div style="margin-top:20px;">
+     <%= link_to 'Ver Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "color-blanco1 btn btn-info btn-md" %> 
+    </div>                  
+  </div>
+</div>
+<br/>
+
+<% end %>
+
+<style type="text/css">
+  /*PEN STYLES*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700);
+.blog-card {
+  transition: height 0.3s ease;
+  -webkit-transition: height 0.3s ease;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 7px -3px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 1.6%;
+  overflow: hidden;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.45em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.blog-card:hover .details {
+  left: 0;
+}
+.blog-card:hover.alt .details {
+  right: 0;
+}
+.blog-card.alt .details {
+  right: -100%;
+  left: inherit;
+}
+.blog-card .photo {
+  height: 200px;
+  position: relative;
+}
+.blog-card .photo.photo1 {
+  background: url("http://s.ytimg.com/yts/img/avatar_720-vflYJnzBZ.png") center no-repeat;
+  background-size: cover;
+}
+
+.blog-card .details {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Open Sans";
+  list-style: none;
+  margin: 0;
+  padding: 10px 15px;
+  height: 200px;
+  /*POSITION*/
+  position: absolute;
+  top: 0;
+  left: -100%;
+}
+.blog-card .details > li {
+  padding: 3px 0;
+}
+.blog-card .details li:before, .blog-card .details .tags ul:before {
+  font-family: FontAwesome;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.blog-card .details .author:before {
+  content: "\f007";
+}
+.blog-card .details .date:before {
+  content: "\f133";
+}
+.blog-card .details .tags ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.blog-card .details .tags ul:before {
+  content: "\f02b";
+}
+.blog-card .details .tags li {
+  display: inline-block;
+  margin-right: 3px;
+}
+.blog-card .details a {
+  color: inherit;
+  border-bottom: 1px dotted;
+}
+.blog-card .details a:hover {
+  color: #167f92;
+}
+.blog-card .description {
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+.blog-card .description h1 {
+  font-family: "Roboto";
+  line-height: 1em;
+  margin: 0 0 10px 0;
+}
+.blog-card .description h2 {
+  color: #9b9b9b;
+  font-family: "Open Sans";
+  line-height: 1.2em;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 1.2% 0;
+}
+.blog-card .description p {
+  position: relative;
+  margin: 0;
+  padding-top: 20px;
+}
+.blog-card .description p:after {
+  content: "";
+  background: #167f92;
+  height: 6px;
+  width: 40px;
+  /*POSITION*/
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+.blog-card .description a {
+  color: #167f92;
+  margin-bottom: 10px;
+  float: right;
+}
+.blog-card .description a:after {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  content: "\f061";
+  font-family: FontAwesome;
+  margin-left: -10px;
+  opacity: 0;
+  vertical-align: middle;
+}
+.blog-card .description a:hover:after {
+  margin-left: 5px;
+  opacity: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .blog-card {
+    height: 200px;
+    max-width: 800px;
+  }
+  .blog-card:hover .photo {
+    -webkit-transform: rotate(5deg) scale(1.3);
+        -ms-transform: rotate(5deg) scale(1.3);
+            transform: rotate(5deg) scale(1.3);
+  }
+  .blog-card:hover.alt .photo {
+    -webkit-transform: rotate(-5deg) scale(1.3);
+        -ms-transform: rotate(-5deg) scale(1.3);
+            transform: rotate(-5deg) scale(1.3);
+  }
+  .blog-card.alt .details {
+    padding-left: 30px;
+  }
+  .blog-card.alt .description {
+    float: right;
+  }
+  .blog-card.alt .description:before {
+    -webkit-transform: skewX(5deg);
+        -ms-transform: skewX(5deg);
+            transform: skewX(5deg);
+    right: -15px;
+    left: inherit;
+  }
+  .blog-card.alt .photo {
+    float: right;
+  }
+  .blog-card .photo {
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    float: left;
+    height: 100%;
+    width: 40%;
+  }
+  .blog-card .details {
+    width: 40%;
+  }
+  .blog-card .description {
+    float: left;
+    width: 60%;
+    z-index: 0;
+    height: 120%;
+  }
+  .blog-card .description:before {
+    -webkit-transform: skewX(-5deg);
+        -ms-transform: skewX(-5deg);
+            transform: skewX(-5deg);
+    content: "";
+    background: #fff;
+    width: 100%;
+    z-index: -1;
+    /*POSITION*/
+    position: absolute;
+    left: -15px;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+</style>
 
 
 
@@ -63,48 +305,32 @@
        <div class="well profile">
             <div class="col-sm-12">
                 <div class="col-xs-12 col-sm-8">
-                    <h2><%= patient.first_name %> <%= patient.second_name %> <%= patient.first_surname%> <%=patient.first_surname %></h2>
+                    <h2><%= patient.first_name.capitalize %> <%= patient.second_name.capitalize %> <%= patient.first_surname.capitalize %> <%=patient.second_surname.capitalize %></h2>
                     <p><strong>Cedula: </strong> <%= patient.document%> </p>
-                               </div>             
+                </div>             
                 <div class="col-xs-12 col-sm-4 text-center">
                     <figure>
                         <img src="http://s.ytimg.com/yts/img/avatar_720-vflYJnzBZ.png" style="width:100px;height:100px; border-radius: 55px;" alt="" class="center-block img-circle img-responsive profile-img">
                         <figcaption class="ratings">
-                            <p>Ratings
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                <span class="fa fa-star"></span>
-                            </a>
-                            <a href="#">
-                                 <span class="fa fa-star-o"></span>
-                            </a> 
-                            </p>
+                           
                         </figcaption>
                     </figure>
                 </div>
             </div>            
             <div class="col-xs-12 divider text-center">
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                    
-                </div>
-                <div class="col-xs-12 col-sm-4 emphasis">
-                   
-                    <div class="btn-group dropup btn-block">
-                      <button type="button" class="btn btn-info btn-block"><span class="fa fa-gear"></span>  <%= link_to 'Crear nota de evolucion de enfermeria(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "color-blanco1" %> </button>
+                <div class="col-xs-12 col-sm-6 emphasis">
+                     <div class="btn-group dropup btn-block">
+                      <button type="button" class="btn btn-info btn-block" style ="font-size:20px!important;"><span class="fa fa-gear"></span>  <%= link_to 'Ver Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "color-blanco1" %> </button>
                       
                     </div>
                 </div>
+                
+                  <div class="col-xs-12 col-sm-6 emphasis">
+                     <div class="btn-group dropup btn-block">
+                      <button type="button" class="btn btn-info btn-block" style ="font-size:20px!important;"><span class="fa fa-gear"></span>  <%= link_to 'Crear Historia Clinica' , new_patient_clinic_history_path(patient, @clinic_history), :class => "color-blanco1" %> </button>
+                      
+                    </div>
+                              
             </div>
        </div>                 
     </div>

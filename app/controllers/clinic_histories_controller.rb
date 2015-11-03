@@ -8,7 +8,6 @@ class ClinicHistoriesController < ApplicationController
     # Normally you'd have more complex requirements about
     # when not to show rows, but we don't show any records that don't have a name
     @clinic_histories =  @patient.clinic_histories.search(params[:search]).page(params[:page]).per_page(2)
-
   end
 
   # GET /pets/1
@@ -32,11 +31,24 @@ class ClinicHistoriesController < ApplicationController
 
 
   def create
-    @clinic_history = ClinicHistory.new(clinic_history_params)
+    @clinic_history = ClinicHistory.new(@clinic_history)
     @clinic_history.patient_id = @patient.id
 
     respond_to do |format|
       if @clinic_history.save
+        format.html { redirect_to patient_clinic_history_path(@patient, @clinic_history), notice: 'Historia Clinica was successfully created.' }
+
+        format.json { render :show, status: :created, location: @clinic_history }
+      else
+        format.html { render :new }
+        format.json { render json: @clinic_history.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @clinic_history.update(clinic_history_params)
         format.html { redirect_to patient_clinic_history_path(@patient, @clinic_history), notice: 'Historia Clinica was successfully created.' }
 
         format.json { render :show, status: :created, location: @clinic_history }

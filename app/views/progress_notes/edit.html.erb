@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @progress_note %> |
-<%= link_to 'Back', progress_notes_path %>
+<%= link_to 'Show', patient_clinic_history_progress_notes_path(@patient,@clinic_history,@progress_note) %> |
+<%= link_to 'Back', patient_clinic_history_progress_notes_path(@patient,@clinic_history,@progress_note) %>

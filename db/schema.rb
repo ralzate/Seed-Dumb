@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151030234401) do
     t.string   "first_surname"
     t.string   "second_surname"
     t.string   "email"
+    t.string   "type_document"
     t.string   "document"
     t.integer  "days_age"
     t.integer  "months_age"
@@ -168,7 +169,6 @@ ActiveRecord::Schema.define(version: 20151030234401) do
     t.text     "observations_recommendations"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.string   "type_document"
   end
 
   add_index "clinic_histories", ["airport_id"], name: "index_clinic_histories_on_airport_id", using: :btree
@@ -269,7 +269,7 @@ ActiveRecord::Schema.define(version: 20151030234401) do
     t.integer  "gender"
     t.string   "profession"
     t.integer  "blood_type"
-    t.string   "nacionality"
+    t.integer  "nacionality"
     t.string   "address"
     t.integer  "condition"
     t.integer  "user_id"
@@ -296,7 +296,7 @@ ActiveRecord::Schema.define(version: 20151030234401) do
   create_table "progress_notes", force: :cascade do |t|
     t.string   "patient_name"
     t.string   "patient_document"
-    t.integer  "type_document"
+    t.string   "type_document"
     t.integer  "age"
     t.string   "medical_record"
     t.text     "description"
@@ -346,7 +346,6 @@ ActiveRecord::Schema.define(version: 20151030234401) do
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
     t.string   "last_login_from_ip_address"
-    t.string   "country_code"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

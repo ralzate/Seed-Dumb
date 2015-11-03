@@ -3,7 +3,7 @@ class CreateProgressNotes < ActiveRecord::Migration
     create_table :progress_notes do |t|
       t.string :patient_name
       t.string :patient_document
-      t.integer :type_document
+      t.string :type_document
       t.integer :age
       t.string :medical_record
       t.text :description

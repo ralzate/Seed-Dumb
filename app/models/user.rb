@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
   validates :password,  confirmation: true, if: :new_user?
 
 
+   def self.search(search)
+    where("first_name like '%#{search}%'  or second_name like '%#{search}%' 
+    or first_surname like '%#{search}%'  or second_surname like '%#{search}%' 
+    or email like '%#{search}%' or document like '%#{search}%'")
+   end
+
+
+
   class << self
     def current_users
       where("#{sorcery_config.last_activity_at_attribute_name} IS NOT NULL") \

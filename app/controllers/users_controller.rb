@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :current_user?, only: [:edit, :update, :destroy]
-  skip_before_filter :require_login, only: [:new, :create, :show]
+  skip_before_filter :require_login, only: []
   # GET /users
   # GET /users.json
   def index
-      @users = User.paginate(page: params[:page], per_page: 25)
+      @users = User.search(params[:search]).page(params[:page]).per_page(10)
   end
 
   # GET /users/1
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { login(params[:user][:email], params[:user][:password])
+        format.html { 
                       flash[:success] = "Registration successful. Please check your email for activation."
                       redirect_back_or_to @user  }
         format.json { render :show, status: :created, location: @user }
