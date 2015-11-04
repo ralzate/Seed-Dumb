@@ -4868,7 +4868,7 @@ body .checkbox-toggle i:before,
 body .radio-toggle i:before,
 body .steps,
 body .trumbowyg-box:hover .trumbowyg-separator {
-    background-color: #8dc9e5;
+    background-color: green;
 }
 body .ImageFieldButton:hover, 
 body .button.primary,
@@ -4923,11 +4923,11 @@ body .simpleChecker.small .simpleChecker_handler:before,
 body .active-step .steps {
     color: #3c3c3c;
     background: #fff ;
-    border-color: #2da5da;
-    border-bottom-color: #2da5da;
-    border-left-color: #2da5da;
-    border-right-color: #2da5da;
-    border-top-color: #2da5da;
+    border-color: #167F92;
+    border-bottom-color: #167F92;
+    border-left-color: #167F92;
+    border-right-color: #167F92;
+    border-top-color: #167F92;
     outline: none
 }
 body .radio_box_activator.active,
@@ -9227,7 +9227,7 @@ textarea:disabled:-moz-placeholder { color:#cccccc; }
     border: 2px solid;
     border-color: inherit;
     padding: 10px;
-    margin: 15px;
+    margin: 160px;
     text-align: center;
     position: relative;
 }
@@ -23671,6 +23671,10 @@ $.extend($.fn, {
     <div class="ptop_50"></div>
     <%= simple_form_for([@patient, @clinic_history], :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
 
+
+
+
+
                 <header>Historia Clinica</header>
                 <div class="pleft_10px pright_10px stepsHolder">
                     <div class="span2 left step">
@@ -23710,17 +23714,49 @@ $.extend($.fn, {
                     <div class="clear"></div>
                 </div>
                 <fieldset>
+
+
+
+<ul>
+<li><input type="checkbox" id="selectAll"> Select All</li>
+<li><input type="checkbox" name="item[]" value="value1" class="chkbox">Item 1</li>
+<li><input type="checkbox" name="item[]" value="value2" class="chkbox">Item 2</li>
+<li><input type="checkbox" name="item[]" value="value3" class="chkbox">Item 3</li>
+<li><input type="checkbox" name="item[]" value="value4" class="chkbox">Item 4</li>
+<li><input type="checkbox" name="item[]" value="value5" class="chkbox">Item 5</li>
+</ul>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('#selectAll').on('click',function(){
+    if ($(this).is(':checked')) {
+      $('.chkbox').each(function(){
+        this.checked = true;
+      });
+    }else{
+      $('.chkbox').each(function(){
+        this.checked = false;
+      });
+    }
+  })
+});
+</script>
+
+
                       <div class="formSeparator unit"><span>Paso 1 Historia Clinica</span></div>
 
 
                     <div class="row">
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Condición:</label>
+                                <label class="input">
+
                                 <label class="icon-append" for="pais">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
                                 <%= f.input :condition,
-                                    prompt:       'Seleccionar una Condición',
+                                    prompt:       'Campo Obligatorio',
                                     collection: @clinic_history.select_condition.sort,
                                     error: false, label: false, 
                                     input_html:   {class: 'form-control'} %>
@@ -23729,20 +23765,25 @@ $.extend($.fn, {
 
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Aeropuerto:</label>
+                                <label class="input">
+
                                 <label class="icon-append" for="ciudad">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.collection_select :airport_id, Airport.all, :id, :name, :prompt => "Seleccione un Aeropuerto"   %>
+                                <%= f.collection_select :airport_id, Airport.all, :id, :name, :prompt => "Campo Obligatorio"   %>
 
                             </div>
                         </section>
                         
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Cove:</label>
+                                <label class="input">
                                 <label class="icon-append" for="cove">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :cove,  :input_html => { :class => 'form-control', id: "cove" } ,  :required => true , placeholder: 'Cove', label: false  %>
+                                <%= f.input :cove,  :input_html => { :class => 'form-control', id: "cove" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
 
                             </div>
                         </section>
@@ -23751,21 +23792,25 @@ $.extend($.fn, {
                     <div class="row">
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Mobil/Servicio:</label>
+                                <label class="input">
                                 <label class="icon-append" for="mobiel_service">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :mobiel_service,  :input_html => { :class => 'form-control', id: "mobiel_service" } ,  :required => true , placeholder: 'Mobil/Servicio', label: false  %>
+                                <%= f.input :mobiel_service,  :input_html => { :class => 'form-control', id: "mobiel_service" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
                             </div>
                         </section>
 
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Tipo Servicio:</label>
+                                <label class="input">
                                 <label class="icon-append" for="type_service">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
 
                               <%= f.input :type_service,
-                                prompt:       'Seleccionar un Tipo de Servicio',
+                                prompt:       'Campo Obligatorio',
                                 collection: @clinic_history.select_type_service.sort,
                                 error: false, label: false, 
                                 input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
@@ -23775,10 +23820,12 @@ $.extend($.fn, {
                         
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Origen:</label>
+                                <label class="input">
                                 <label class="icon-append" for="origin">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :origin,  :input_html => { :class => 'form-control', id: "origin" } ,  :required => true , placeholder: 'Origen', label: false  %>
+                                <%= f.input :origin,  :input_html => { :class => 'form-control', id: "origin" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
                             </div>
                         </section>
                     </div>
@@ -23786,30 +23833,36 @@ $.extend($.fn, {
                     <div class="row">
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Destino:</label>
+                                <label class="input">
                                 <label class="icon-append" for="destination">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :destination,  :input_html => { :class => 'form-control', id: "destination" } ,  :required => true , placeholder: 'Destino', label: false  %>
+                                <%= f.input :destination,  :input_html => { :class => 'form-control', id: "destination" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
 
                             </div>
                         </section>
 
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Empresa:</label>
+                                <label class="input">
                                 <label class="icon-append" for="company">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } ,  :required => true , placeholder: 'Empresa', label: false  %>
+                                <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
 
                             </div>
                         </section>
                         
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Nombre Acompañante:</label>
+                                <label class="input">
                                 <label class="icon-append" for="accompanist_name">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :accompanist_name,  :input_html => { :class => 'form-control', id: "accompanist_name" } ,  :required => true , placeholder: 'Nombre Acompañante', label: false  %>
+                                <%= f.input :accompanist_name,  :input_html => { :class => 'form-control', id: "accompanist_name" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
 
                             </div>
                         </section>
@@ -23818,11 +23871,13 @@ $.extend($.fn, {
                     <div class="row">
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Selecciona el parentesco:</label>
+                                <label class="input">
                                 <label class="icon-append" for="destination">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
                                 <%= f.input :relationship,
-                                prompt:       'Seleccionar un Parentesco',
+                                prompt:       'Campo Obligatorio',
                                 collection: @clinic_history.select_relationship.sort,
                                 error: false, label: false, 
                                 input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
@@ -23832,20 +23887,24 @@ $.extend($.fn, {
 
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Razón de la consulta:</label>
+                                <label class="input">
                                 <label class="icon-append" for="reason_for_consultation">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.text_area :reason_for_consultation,  :input_html => { :class => 'form-control', id: "reason_for_consultation" } ,  :required => true , placeholder: 'Motivo Consulta', label: false  %>
+                                <%= f.text_area :reason_for_consultation,  :input_html => { :class => 'form-control', id: "reason_for_consultation" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
 
                             </div>
                         </section>
                         
                         <section class="unit span4">
                             <div class="input unit relative">
+                                <label class="label my-labol">Enfermedad Actual:</label>
+                                <label class="input">
                                 <label class="icon-append" for="current_illness">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </label>
-                                <%= f.input :current_illness,  :input_html => { :class => 'form-control', id: "current_illness" } ,  :required => true , placeholder: 'Enfermedad Actual', label: false  %>
+                                <%= f.input :current_illness,  :input_html => { :class => 'form-control', id: "current_illness" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
 
                             </div>
                         </section>
@@ -23892,14 +23951,14 @@ $.extend($.fn, {
                     <div class="form-group">
                         <div> 
 
-                        <br/>Si <span class="glyphicon glyphicon-ok" style="color:#5eae76;"></span> NO <span class="glyphicon glyphicon-unchecked" style="color:#5eae76;"></span>
+                        <br/>Anormal <span class="glyphicon glyphicon-ok" style="color:#5eae76;"></span> Normal <span class="glyphicon glyphicon-unchecked" style="color:#5eae76;"></span>
 
 
                         </div>
 
                         <label for="chkPassport">
 
-                        <span class="checkbox__icon"></span> Seleccionar todos
+                        <span class="checkbox__icon"></span> Seleccionar todas las opciones
                         <input type="checkbox" id="toggle" value="select" name="approve[]" onClick="do_this();" class="form-control fs1 chkPassport chkPassport2 chkPassport3 chkPassport4 chkPassport5 chkPassport6 chkPassport7 chkPassport8 chkPassport9 chkPassport10 chkPassport11 chkPassport12" />
 
                         </label>
@@ -24264,13 +24323,13 @@ $.extend($.fn, {
                     <div class="form-group">
                         <div> 
 
-                        <br/>Si <span class="glyphicon glyphicon-ok" style="color:#5eae76;"></span> NO <span class="glyphicon glyphicon-unchecked" style="color:#5eae76;"></span></div>
+                        <br/>Anormal <span class="glyphicon glyphicon-ok" style="color:#5eae76;"></span> Normal <span class="glyphicon glyphicon-unchecked" style="color:#5eae76;"></span></div>
 
                         <label for="chkPassport">
 
                         <input type="checkbox" id="toggle" value="select" name="approve[]" onClick="do_this();" class="form-control fs1 chkPassport13 chkPassport14 chkPassport15 chkPassport16 chkPassport17 chkPassport18 chkPassport19 chkPassport20 chkPassport21 chkPassport22 chkPassport22 chkPassport23 chkPassport24 chkPassport25" />
 
-                        <span class="checkbox__icon"></span> Seleccionar todos
+                        <span class="checkbox__icon"></span> Seleccionar todas las opciones
                         </label>
 
                     </div>

@@ -1,10 +1,13 @@
 class RolesController < ApplicationController
   before_action :set_rol, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authorize
+
+
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Rol.all
+    @roles = Rol.search(params[:search]).page(params[:page]).per_page(2)
   end
 
   # GET /roles/1

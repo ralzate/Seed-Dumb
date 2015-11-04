@@ -1,10 +1,11 @@
 class EpsesController < ApplicationController
   before_action :set_eps, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   # GET /epses
   # GET /epses.json
   def index
-    @epses = Eps.all
+    @epses = Eps.search(params[:search]).page(params[:page]).per_page(2)
   end
 
   # GET /epses/1

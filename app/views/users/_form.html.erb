@@ -21855,13 +21855,17 @@ $.extend($.fn, {
   }
 </style>
 
-<br/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <div class="w_normal horizontal_center f_light ptop_50">
     
 
       <%= simple_form_for(@user, :html => { :class => 'pf_form shadow', :id => 'validation' }) do |f| %>
+
+  <%= render 'shared/errors' %>
+
+
+
         <header class="blanco"><h4><i class="fa fa-plane"></i> Datos para el Usuario </h4> </header>
         <fieldset>
           <div class="row">
@@ -21951,7 +21955,6 @@ $.extend($.fn, {
           <div class="form-group">
 
             <div class="fileinput fileinput-new" data-provides="fileinput">
-              <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
               <div>
                 <span class="btn btn-default btn-file"><span class="fileinput-new"><%= f.file_field :picture, class: "form-control", id: 'button' %></span><span class="fileinput-exists">Cambiar</span><input type="file" name="..."></span>
                 <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Eliminar</a>
@@ -21960,10 +21963,14 @@ $.extend($.fn, {
             
           </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6">
-          <div class="form-group">
-          </div>
-        </div>
+        <% if current_user.rol_id == 1 %>
+            <section class="span6 unit">
+              <label class="label my-labol">Rol:</label>
+              <label class="input">
+              <i class="icon-append fa fa-envelope"></i>
+                <%= f.collection_select :rol_id , Rol.all, :id, :name, :prompt => "Selecionar Rol" , class: 'form-control input-lg'  %>
+            </section>
+        <% end %>   
       </div>
 
 
@@ -22012,7 +22019,7 @@ $.extend($.fn, {
             <div class="ui-group-buttons">
                 <button type="reset" class="btn btn-info  secondary left blanco">Borrar</button>
                 <div class="or"></div>
-                <%= link_to "Aeropuertos",  airports_path, :class => "btn btn-success   right blanco" %>
+                <%= link_to "Usuarios",  users_path, :class => "btn btn-success   right blanco" %>
 
             </div>
 

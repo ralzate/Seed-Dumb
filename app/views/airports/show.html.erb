@@ -1,3 +1,9 @@
+
+
+
+
+
+
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="wrapper">
@@ -5,56 +11,61 @@
     <div class="logo"></div>
     <div class="info-panel__main">
       <h1>Aeropuerto Ingresado Satisfactoriamente</h1>
+      <br/>
       <h2>Gracias por Ingresar la información</h2>
             <div   align="center">
-            <div class="ui-group-buttons">
+
+                <h3 class="panel-title-fd">Datos del aeropuerto # <%= @airport.id %></h3>
+
+
+
+
+
+
+                <div class="media">
+                  
+                  <%= image_tag "Models/airplane.png", :class => 'imagelink' %>
+
+                  <style type="text/css">
+                    .imagelink{
+                      width: 104px; height: 104px;
+                    }
+                  </style>
+
+
+
+                  <div class="media-body">
+                    <h4 class="media-heading color_blanco"><b>Nombre:</b> <%= @airport.name %></h4>
+                    <h4 class="media-heading color_blanco"><b>Departamento:</b> <%= @airport.label_department %></h4>
+                    <h4 class="media-heading color_blanco"><b>Ciudad:</b> <%= @airport.city.name %></h4>
+
+                  </div>
+
+
+              </div>
+
+<br/>
+<div align="center">
+  
+              <div class="ui-group-buttons">
 
                 <%= link_to "Editar Aeropuerto", edit_airport_path(@airport), :class => 'button btn btn-success blanco'%>
 
                 <div class="or"></div>
 
                 <%= link_to  "Regresar al listado", airports_path,   :class => 'button btn btn-primary blanco' %>
-
-            </div>
+</div>
         </div>
     </div>
   </div>
 <br/><br/>
 
-        <div class="panel panel-default">
-            <div class="panel-heading-fd">
-                <h3 class="panel-title-fd">Datos del aeropuerto # <%= @airport.id %></h3>
-            </div>
-
-            <div class="panel-body">
+    
 
 
 
 
-                <div class="media">
-      <a class="pull-left" href="#">
-      
-      <%= image_tag "Models/airplane.png", :class => 'imagelink' %>
 
-      <style type="text/css">
-        .imagelink{
-          width: 64px; height: 64px;
-        }
-      </style>
-
-      </a>
-      <div class="media-body">
-        <h5 class="media-heading"><b>Nombre:</b> <%= @airport.name %></h5>
-        <h5 class="media-heading"><b>Departamento:</b> <%= @airport.label_department %></h5>
-        <h5 class="media-heading"><b>Ciudad:</b> <%= @airport.city.name %></h5>
-
-      </div>
-
-      <div class="media-body">
-
-      </div>
-
-    </div>
 
 
       </div>
@@ -324,3 +335,15 @@ p {
 }
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,6 +3,7 @@
 
 
 
+
 <header class="sb-page-header" style = "padding-bottom:0px!important">
   <div class="container">
     <h1 style = "margin:0px 0px 10px 0px;text-shadow: rgba(1,1,1,0.5) 2px 2px ;">Buscar paciente</h1>
@@ -38,7 +39,9 @@
                   </div>
                 </div>
                 <br>
+                <% if  current_user.rol_id === 1 || current_user.rol_id === 2 %>
                  <%= link_to 'Nuevo Pasciente', new_patient_path , :class=>"color-blanco1"%>
+                <% end %>
               </div>
        
 <% end %>
@@ -47,14 +50,18 @@
 </header>
 
 
+
+
+
+
 <br/>
   <% @patients.each do |patient| %>
 
 <div id="blog-card" class="blog-card container-fluid">
   <div class="photo photo1"></div>
   <ul class="details">
-    <li class="author"><a href="#">John Doe</a></li>
-    <li class="date">Aug. 24, 2015</li>
+    <li class="author" style="font-size:12px;"><a>Tipo Identifiación: </a> <%= patient.label_documento %></li>
+    <li class="date"><a>Identificación: </a> <%= patient.document%></li>
     <li class="tags">
       <ul>
 
@@ -63,11 +70,11 @@
       <% edad3 =  ((Time.now - patient.birthdate.to_time)/60/60/24/365).to_i  %>
       
       <% if  edad < 31 %>
-        <li><a href="#">Tiene <%= edad %> dias de nacido</a></li>
+        <li><a>Tiene <%= edad %> dias de nacido</a></li>
       <% elsif edad >= 31 && edad < 365 %>
-          <li><a href="#">Tiene <%= edad2 %> meses de nacido</a></li>
+          <li><a>Tiene <%= edad2 %> meses de nacido</a></li>
       <% elsif edad >= 365 %>
-          <li><a href="#">Tiene <%= edad3 %> años de nacido</a></li>
+          <li><a>Tiene <%= edad3 %> años de nacido</a></li>
       <% end %>
         <li><a href="#">Code</a></li>
         <li><a href="#">HTML</a></li>
@@ -77,10 +84,19 @@
   <div class="description">
     <h1><%= patient.first_name.capitalize %> <%= patient.second_name.capitalize %> <%= patient.first_surname.capitalize %> </h2>
     <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-    <a href="#">Read More</a>
     <div style="margin-top:20px;">
+
+
+
+
      <%= link_to 'Ver Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "color-blanco1 btn btn-info btn-md" %> 
-    </div>                  
+
+
+
+     <%= link_to 'Ver Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "color-blanco1 btn btn-info btn-md" %> 
+    </div>   
+
+
   </div>
 </div>
 <br/>
@@ -291,141 +307,8 @@
 </style>
 
 
-
-
-
-
-
-
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
-  <div class="row">
-  <% @patients.each do |patient| %>
-    <div class="col-md-12">
-       <div class="well profile">
-            <div class="col-sm-12">
-                <div class="col-xs-12 col-sm-8">
-                    <h2><%= patient.first_name.capitalize %> <%= patient.second_name.capitalize %> <%= patient.first_surname.capitalize %> <%=patient.second_surname.capitalize %></h2>
-                    <p><strong>Cedula: </strong> <%= patient.document%> </p>
-                </div>             
-                <div class="col-xs-12 col-sm-4 text-center">
-                    <figure>
-                        <img src="http://s.ytimg.com/yts/img/avatar_720-vflYJnzBZ.png" style="width:100px;height:100px; border-radius: 55px;" alt="" class="center-block img-circle img-responsive profile-img">
-                        <figcaption class="ratings">
-                           
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>            
-            <div class="col-xs-12 divider text-center">
-                <div class="col-xs-12 col-sm-6 emphasis">
-                     <div class="btn-group dropup btn-block">
-                      <button type="button" class="btn btn-info btn-block" style ="font-size:20px!important;"><span class="fa fa-gear"></span>  <%= link_to 'Ver Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "color-blanco1" %> </button>
-                      
-                    </div>
-                </div>
-                
-                  <div class="col-xs-12 col-sm-6 emphasis">
-                     <div class="btn-group dropup btn-block">
-                      <button type="button" class="btn btn-info btn-block" style ="font-size:20px!important;"><span class="fa fa-gear"></span>  <%= link_to 'Crear Historia Clinica' , new_patient_clinic_history_path(patient, @clinic_history), :class => "color-blanco1" %> </button>
-                      
-                    </div>
-                              
-            </div>
-       </div>                 
-    </div>
-    <% end %>  
- 
-</div>
-
-
-<style type="text/css">
-  @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
-body
-{
-    font-family: 'Lato', 'sans-serif';
-    }
-.profile 
-{
-   
-    display: inline-block;
-        display: inline-block;
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 10px;
-    }
-figcaption.ratings
-{
-    margin-top:20px;
-    }
-figcaption.ratings a
-{
-    color:#f1c40f;
-    font-size:11px;
-    }
-figcaption.ratings a:hover
-{
-    color:#f39c12;
-    text-decoration:none;
-    }
-.divider 
-{
-    border-top:1px solid rgba(0,0,0,0.1);
-    }
-.emphasis 
-{
-    border-top: 4px solid transparent;
-    }
-.emphasis:hover 
-{
-    border-top: 4px solid #1abc9c;
-    }
-.emphasis h2
-{
-    margin-bottom:0;
-    }
-span.tags 
-{
-    background: #1abc9c;
-    border-radius: 2px;
-    color: #f5f5f5;
-    font-weight: bold;
-    padding: 2px 4px;
-    }
-.dropdown-menu 
-{
-    background-color: #34495e;    
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    width: 250px;
-    margin-left: -125px;
-    left: 50%;
-    }
-.dropdown-menu .divider 
-{
-    background:none;    
-    }
-.dropdown-menu>li>a
-{
-    color:#f5f5f5;
-    }
-.dropup .dropdown-menu 
-{
-    margin-bottom:10px;
-    }
-.dropup .dropdown-menu:before 
-{
-    content: "";
-    border-top: 10px solid #34495e;
-    border-right: 10px solid transparent;
-    border-left: 10px solid transparent;
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    margin-left: -10px;
-    z-index: 10;
-    }
-</style>
 
 
 

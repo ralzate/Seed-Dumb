@@ -76,6 +76,7 @@ gem 'jasny_bootstrap_extension_rails'
 
 gem 'carmen-rails', '~> 1.0.0'
 gem 'bootstrap-datepicker-rails'
+gem 'sextant'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,10 +1,11 @@
 class ArlesController < ApplicationController
   before_action :set_arl, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   # GET /arles
   # GET /arles.json
   def index
-    @arles = Arl.all
+    @arles = Arl.search(params[:search]).page(params[:page]).per_page(2)
   end
 
   # GET /arles/1

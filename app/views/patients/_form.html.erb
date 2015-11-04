@@ -6610,6 +6610,7 @@ body.trumbowyg-body-fullscreen {
   padding-left: 3px;
   padding-right: 0px;
   border-top: none;
+  padding-top: 3px;
   border-bottom: none;
   border-right: none;
   border-left-width: 1px;
@@ -7478,12 +7479,12 @@ form.multistep fieldset.active-fieldset {
 .pf_form .pf_header, 
 .pf_form .pf_footer {
   font-size: 26px;
-    line-height: 34px;
+  line-height: 34px;
   text-align: left;
   padding: 20px;
   padding-left: 22px;
   padding-right: 22px;
-  background-color: #e6e6e6;
+  background-color: #167f92;
   border-bottom: 1px solid #cfd8d9;
 }
 label {
@@ -21833,25 +21834,31 @@ $.extend($.fn, {
 
 </head>
 
-<br/><br/>  
+<br/><br/> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 <body class="f_small f_regular lblue">
   <div class="w_normal horizontal_center f_light ptop_50">
       <%= simple_form_for(@patient, :html => { :class => 'pf_form shadow', :id => 'validation' }) do |f| %>
-        <header>Datos para los Pacientes</header>
+        <header class="blanco"><h4><i class="fa fa-user"></i> Datos para los Pacientes </h4> </header>
         <fieldset>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
 
           <div class="row">
             <section class="span3 unit">
               <label class="label my-labol">Primer Nombre</label>
               <label class="input">
-                <i class="icon-append fa fa-asterisk"></i>
+                <i class="icon-append fa fa-user  fa-2x"></i>
                 <%= f.text_field :first_name, class: 'form-control fontf', required: true, placeholder: 'Primer Nombre' %>
               </label>
             </section>
             <section class="span3 unit">
               <label class="label my-labol">Segundo Nombre</label>
               <label class="input">
-                <i class="icon-append fa fa-envelope"></i>
+                <i class="icon-append fa fa-user  fa-2x"></i>
                 <%= f.text_field :second_name, class: 'form-control fontf', required: true, placeholder: 'Segundo Nombre' %>
               </label>
             </section>
@@ -21859,14 +21866,14 @@ $.extend($.fn, {
             <section class="span3 unit">
               <label class="label my-labol">Primer Apellido</label>
               <label class="input">
-                <i class="icon-append fa fa-globe"></i>
+                <i class="icon-append fa fa-user  fa-2x"></i>
                 <%= f.text_field :first_surname, class: 'form-control fontf', required: true, placeholder: 'Primer APellido' %>
               </label>
             </section>
              <section class="span3 unit">
               <label class="label my-labol">Segundo Apellido</label>
               <label class="input">
-                <i class="icon-append fa fa-envelope"></i>
+                <i class="icon-append fa fa-user  fa-2x"></i>
                 <%= f.text_field :second_surname, class: 'form-control fontf', required: true, placeholder: 'Segundo APellido' %>
               </label>
             </section>
@@ -21877,14 +21884,18 @@ $.extend($.fn, {
             <section class="span3 unit">
               <label class="label my-labol">Email</label>
               <label class="input">
-                <i class="icon-append fa fa-globe"></i>
+                <i class="icon-append fa fa-google-plus-square fa-2x"></i>
                 <%= f.email_field :email, class: 'form-control fontf', required: true, placeholder: 'Email' %>
               </label>
             </section>
+            <style type="text/css">
+            .form-control{
+              height: 39px !important;
+              }</style>
              <section class="span3 unit">
               <label class="label my-labol">Genero</label>
               <label class="input">
-                <i class="icon-append fa fa-envelope"></i>
+                <i class="icon-append fa fa-arrow-circle-down fa-2x"></i>
                 <%= f.input :gender,
                     prompt:       'Seleccionar un Genero',
                     collection: @patient.select_genre.sort,
@@ -21892,10 +21903,13 @@ $.extend($.fn, {
                     input_html:   {class: 'form-control fontf'} %>
               </label>
             </section>
+            <style type="text/css">
+        
+            </style>
             <section class="span3 unit">
               <label class="label my-labol">Tipo Documento</label>
               <label class="input">
-                <i class="icon-append fa fa-globe"></i>
+                <i class="icon-append  fa fa-arrow-circle-down fa-2x"></i>
                 <%= f.input :type_document,
                     prompt:       'Seleccionar un Documento',
                     collection: @patient.select_document.sort,
@@ -21903,20 +21917,21 @@ $.extend($.fn, {
                     input_html:   {class: 'form-control fontf'} %>
               </label>
             </section>
+
              <section class="span3 unit">
               <label class="label my-labol">Documento</label>
               <label class="input">
-                <i class="icon-append fa fa-envelope"></i>
+                <i class="icon-append fa fa-credit-card fa-2x"></i>
                 <%= f.text_field :document, class: 'form-control fontf', required: true, placeholder: 'Identificacion' %>
               </label>
             </section>
           </div>
 
           <div class="row">
-            <section class="span4 unit">
+            <section class="span3 unit">
               <label class="label my-labol">Tipo de Sangre</label>
               <label class="input">
-                <i class="icon-append fa fa-globe"></i>
+                <i class="icon-append fa  fa-arrow-circle-down fa-2x"></i>
               <%= f.input :blood_type,
                     prompt:       'Seleccionar un Tipo de Sangre',
                     collection: @patient.select_blood.sort,
@@ -21926,10 +21941,10 @@ $.extend($.fn, {
 
               </label>
             </section>
-             <section class="span4 unit">
+             <section class="span3 unit">
               <label class="label my-labol">Profesión</label>
               <label class="input">
-                <i class="icon-append fa fa-envelope"></i>
+                <i class="icon-append fa  fa-arrow-circle-down fa-2x"></i>
                   <%= f.input :profession,
                     prompt:       'Seleccionar una Profesión',
                     collection: @patient.select_profession.sort,
@@ -21939,49 +21954,48 @@ $.extend($.fn, {
               </label>
             </section>
 
-            <section class="span4 unit">
+            <section class="span3 unit">
               <label class="label my-labol">Dirección</label>
               <label class="input">
-                <i class="icon-append fa fa-globe"></i>
+                <i class="icon-append fa fa-building fa-2x"></i>
                   <%= f.text_field :address, class: 'form-control fontf', required: true, placeholder: 'Dirección' %>
               </label>
             </section>
-          </div>
+
+            <section class="span3 unit">
+             <label class="label my-labol">Nacionalidad</label>
+              <label class="input">
+                <i class="icon-append fa  fa-arrow-circle-down fa-2x"></i>
+                   
+            <%= f.country_select :country_code, {object: f.object, prompt: 'País'}, class: 'form-control fontf' %>
+              </label>
+
+
+            </section>
+
+                      </div>
 
 
 
 
           <div class="row">
 
-            <section class="span4 unit">
-             <label class="label my-labol">Nacionalidad</label>
-              <label class="input">
-                <i class="icon-append fa fa-globe"></i>
-                   
-  <%= f.country_select :country_code, {object: f.object, prompt: 'País'}, class: 'form-control fontf' %>
 
-              </label>
-
- 
-
-
-
-            </section>
-
-            <section class="span4 unit">
+            <section class="span3 unit">
               <label class="label my-labol">Ciudad</label>
               <label class="input">
-                <i class="icon-append fa fa-globe"></i>
-                 <%= f.collection_select :city_id, City.all, :id, :name, :prompt => "Seleccione una Ciudad"   %>
+                <i class="icon-append fa  fa-arrow-circle-down fa-2x"></i>
+                 <%= f.collection_select :city_id, City.all, :id, :name, :prompt => "Seleccione una Ciudad", 
+                    input_html:   {class: 'form-control fontf'}   %>
               </label>
             </section>
 
 
 
-            <section class="span4 unit">
+            <section class="span3 unit">
               <label class="label my-labol">Fecha de nacimiento</label>
               <label class="input">
-                <i class="icon-append fa fa-globe"></i>
+                <i class="icon-append fa fa-birthday-cake fa-2x"></i>
                 <%= f.input :birthdate, :as => :string, :label => false, :required => true,  :input_html => {  :class => "datepicker " } %>
               </label>
             </section>
@@ -21993,17 +22007,13 @@ $.extend($.fn, {
           <script src="http://lab.iamrohit.in/js/location.js"></script>
 
 
-
-
-
-
           <div class="row">
-            <section class="span6 unit">
+            <section class="span3 unit">
               <label class="input">
                   <%= f.hidden_field :user_id, :value => current_user.id %>
               </label>
             </section>
-             <section class="span6 unit">
+             <section class="span3 unit">
               <label class="input">
               </label>
             </section>
@@ -22013,8 +22023,51 @@ $.extend($.fn, {
         </fieldset>
         
         <footer>
-          <button type="reset" class="button secondary left">Borrar</button>
-          <%= f.submit "Guardar Pasciente", :class => 'button primary right' %>
+          <%= f.submit "Guardar", :class => 'btn btn-primary  right' %>
+
+
+
+
+
+<style type="text/css">
+.ui-group-buttons .or{position:relative;float:left;width:.3em;height:1.3em;z-index:3;font-size:12px}
+.ui-group-buttons .or:before{position:absolute;top:50%;left:50%;content:'or';background-color:#5a5a5a;margin-top:-.1em;margin-left:-.9em;width:1.8em;height:1.8em;line-height:1.55;color:#fff;font-style:normal;font-weight:400;text-align:center;border-radius:500px;-webkit-box-shadow:0 0 0 1px rgba(0,0,0,0.1);box-shadow:0 0 0 1px rgba(0,0,0,0.1);-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+.ui-group-buttons .or:after{position:absolute;top:0;left:0;content:' ';width:.3em;height:2.84em;background-color:rgba(0,0,0,0);border-top:.6em solid #5a5a5a;border-bottom:.6em solid #5a5a5a}
+.ui-group-buttons .or.or-lg{height:1.3em;font-size:16px}
+.ui-group-buttons .or.or-lg:after{height:2.85em}
+.ui-group-buttons .or.or-sm{height:1em}
+.ui-group-buttons .or.or-sm:after{height:2.5em}
+.ui-group-buttons .or.or-xs{height:.25em}
+.ui-group-buttons .or.or-xs:after{height:1.84em;z-index:-1000}
+.ui-group-buttons{display:inline-block;vertical-align:middle}
+.ui-group-buttons:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.ui-group-buttons .btn{float:left;border-radius:0}
+.ui-group-buttons .btn:first-child{margin-left:0;border-top-left-radius:.25em;border-bottom-left-radius:.25em;padding-right:15px}
+.ui-group-buttons .btn:last-child{border-top-right-radius:.25em;border-bottom-right-radius:.25em;padding-left:15px}
+</style>
+
+
+            <div class="ui-group-buttons">
+                <button type="reset" class="btn btn-info  secondary left blanco">Borrar</button>
+                <div class="or"></div>
+                <%= link_to "Pacientes",  root_path, :class => "btn btn-success   right blanco" %>
+
+            </div>
+
+
+
+<style type="text/css">
+  .btn-lg{
+    background-color: #00CDAE !important;
+  }
+</style>
+
+
+           
+
+
+
+
 
         </footer>
       <% end %>

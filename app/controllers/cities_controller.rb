@@ -1,10 +1,12 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize
 
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+    @cities = City.search(params[:search]).page(params[:page]).per_page(2)
+
   end
 
   # GET /cities/1
