@@ -21963,14 +21963,12 @@ $.extend($.fn, {
             
           </div>
         </div>
-        <% if current_user.rol_id == 1 %>
             <section class="span6 unit">
               <label class="label my-labol">Rol:</label>
               <label class="input">
               <i class="icon-append fa fa-envelope"></i>
                 <%= f.collection_select :rol_id , Rol.all, :id, :name, :prompt => "Selecionar Rol" , class: 'form-control input-lg'  %>
             </section>
-        <% end %>   
       </div>
 
 

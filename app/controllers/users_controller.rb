@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :current_user?, only: [:edit, :update, :destroy]
-  skip_before_filter :require_login, only: []
-
-  before_filter :authorize
-
+  skip_before_filter :require_login, only: [:new, :create, :show]
   # GET /users
   # GET /users.json
   def index
-      @users = User.search(params[:search]).page(params[:page]).per_page(10)
+      @users = User.paginate(page: params[:page], per_page: 25)
   end
 
   # GET /users/1
@@ -32,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { 
+        format.html { login(params[:user][:email], params[:user][:password])
                       flash[:success] = "Registration successful. Please check your email for activation."
                       redirect_back_or_to @user  }
         format.json { render :show, status: :created, location: @user }
@@ -71,7 +68,16 @@ class UsersController < ApplicationController
     end
   end
 
-
+  def activate
+    if @user = User.load_from_activation_token(params[:id])
+      @user.activate!
+      flash[:success] = 'User was successfully activated.'
+      redirect_to @user
+    else
+      flash[:warning] = 'Cannot activate this user.'
+      redirect_to root_path
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -81,9 +87,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :first_name, :second_name, 
-        :first_surname, :second_surname, :type_document, :document, 
-        :medical_record, :rol_id, :password, :password_confirmation, 
-        :picture)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :picture)
     end
 end
