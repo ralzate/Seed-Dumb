@@ -25,7 +25,8 @@ class EpsesController < ApplicationController
   # POST /epses
   # POST /epses.json
   def create
-    @eps = Eps.new(eps_params)
+    @eps = Eps.new(params[:eps])
+
 
     respond_to do |format|
       if @eps.save

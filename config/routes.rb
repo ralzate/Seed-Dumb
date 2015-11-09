@@ -49,11 +49,16 @@ PetThing::Application.routes.draw do
   delete    'logout', to:   'sessions#destroy',   as: :logout
 
 
-  resources :patients, :path => "pascientes" do
-    resources :clinic_histories, :path => "historias_clinicas" do
+
+  resources :patients, :path => "pascientes", only: [:new, :create, :index, :destroy, :show, :edit]  do
+    resources :clinic_histories, :path => "historias_clinicas", only: [:new, :create, :index, :destroy, :show, :edit] do
+      resources :steps, only: [:show, :update], controller: 'clinic_history/steps'
       resources :progress_notes, :path => "nota_de_evolucion"
     end
   end
+
+
+
   root to: 'pages#home'
 
 

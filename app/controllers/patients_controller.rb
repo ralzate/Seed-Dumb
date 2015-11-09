@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to new_patient_clinic_history_path(@patient, @clinic_history), notice: "Pasciente Creado Satisfacctoriamente" }
+        format.html { redirect_to new_patient_clinic_history_path(@patient), notice: 'Historia Clinica was successfully created.' }
         format.json { render :show, status: :created, location: @patient }
       else
         format.html { render :new }

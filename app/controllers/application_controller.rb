@@ -12,9 +12,10 @@ class ApplicationController < ActionController::Base
   protected
   # Is Admin
   def admin?
-    if current_user.rol_id === 1
-     flash[:notice] = "Bienvenido #{current_user.email}"
-    end
+    #if current_user.rol_id === 1
+     #flash[:notice] = "Bienvenido #{current_user.email}"
+    #end
+    true
   end
   # Permisos
   def authorize
@@ -39,7 +40,6 @@ class ApplicationController < ActionController::Base
       false
     end
   end
-
 
 
   private

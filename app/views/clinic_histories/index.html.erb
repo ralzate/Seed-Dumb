@@ -146,7 +146,8 @@
 
 <% if  current_user.rol_id === 1 || current_user.rol_id === 2 %>
 
-<%= link_to image_tag('Crud/new.png', :title => "nueva historia clinica"),  new_patient_clinic_history_path(@patient,@clinic_history), :class => 'btn btn-link'%></td>
+<%= link_to 'Nueva Historia Clinica', new_patient_clinic_history_path(@patient) %>
+</td>
 <% end %>
 
 <style type="text/css">

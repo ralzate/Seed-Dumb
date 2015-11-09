@@ -1,138 +1,30 @@
-<br/>
-<div align="center">
-  <h1>Listado de  <span>Epses</span></h1>
+<div class="col-md-10 well" >
+
+
+<div class="">
+<div class="  column content-column"> 
+  <div class="fill header">
+  <h3>Listado de  <span>Epses</span></h3>
 </div>
+<div id="ember1012" class="ember-view scroll-y noscroll-x fill body scrollbox reports-home-container">  
 
-  <%= form_tag request.path, :method => 'get', :class => '' do %>
-
+<%= form_tag request.path, :method => 'get', :class => '' do %>
 <div id="page" class="middle">
-  
   <div class="wrapper">
     <div class="table">
-      
       <div class="table-cell-flex">
           <%= text_field_tag :search, params[:search], :placeholder => "Ingresa Nombre o Cedula", :class => 'form-control' %>
       </div>
-      
       <!-- random google image -->
       <div class="table-cell-fixed"> 
       <%= button_tag(type: "submit", class: "btn btn-link") do %>
         <i class="glyphicon glyphicon-search blanco"  style="font-size: 20px;"></i>
       <% end %>
       </div>
-      
     </div>
   </div>
-  
 </div>
 <% end %>
-
-
-<style type="text/css">
-
-#page {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-#page .wrapper {
-  width: 60%;
-}
-#page .wrapper .table {
-  display: table;
-  width: 100%;
-  margin: auto;
-  background: linear-gradient(to bottom, #167f92 0%, #167f92 100%);
-  border-radius: 6px;
-  padding: 5px;
-  box-shadow: 1px 1px 2px #167f92;
-}
-#page .wrapper .table > * {
-  vertical-align: middle;
-}
-#page .wrapper .table .table-cell-flex {
-  display: table-cell;
-  width: 100%;
-}
-#page .wrapper .table .table-cell-flex input {
-  color: #167f92;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #167f92;
-  box-shadow: inset 1px 1px 5px #167f92;
-}
-#page .wrapper .table .table-cell-fixed {
-  display: table-cell;
-  white-space: nowrap;
-}
-#page .wrapper .table .table-cell-fixed a {
-  margin-left: 5px;
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  text-align: middle;
-  transition: all 0.2s linear;
-}
-#page .wrapper .table .table-cell-fixed a:hover {
-  background: #167f92;
-}
-#page .wrapper .table .table-cell-fixed a:active {
-  box-shadow: inset 0px 0px 5px #167f92;
-}
-.middle:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-}
-.middle > * {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-</style>
-
-
-<br/>
-
-
-
-
-
-
-<table class="responstable">
-  
-  <tr>
-    <th>eps #</th>
-    <th>nombre</th>
-    <th>opciones</th>
-  </tr>
-  
-<% @epses.each do |eps| %>
-
-  <tr>
-    <td><%= link_to eps.id, eps_path(eps) %></td>
-    <td><%= eps.name %></td>
-    <td><%= link_to  image_tag('Crud/show.png', :title => "ver aeropuerto"), eps, :class => 'btn btn-link' %>
-    <%= link_to image_tag('Crud/edit.png', :title => "editar aeropuerto"), edit_eps_path(eps),  :class => 'btn btn-link'%></td>
-
-
-  </tr>
-  
-<% end %>
-
-</table>
-
-<%= link_to image_tag('Crud/new.png', :title => "nuevo aeropuerto"), new_eps_path, :class => 'btn btn-link'%></td>
-
-<div align="center">
-  <%= will_paginate @epses, renderer: BootstrapPagination::Rails %>
-</div>
-
 
 
 <style type="text/css">
@@ -214,12 +106,6 @@ If you like this solution, you might also want to check out the 1.0 version:
   }
 }
 
-body {
-  padding: 0 2em;
-  font-family: 'Lato', Arial, sans-serif;
-  color: #024457;
-  background: #f2f2f2;
-}
 
 h1 {
   font-family: Verdana;
@@ -232,3 +118,46 @@ h1 span {
 
 </style>
 
+
+
+
+
+<table class="table">
+  
+  <tr>
+    <th>eps #</th>
+    <th>nombre</th>
+    <th>opciones</th>
+  </tr>
+  
+<% @epses.each do |eps| %>
+
+  <tr>
+    <td><%= link_to eps.id, eps_path(eps) %></td>
+    <td><%= eps.name %></td>
+    <td><%= link_to  image_tag('Crud/show.png', :title => "ver aeropuerto"), eps, :class => 'btn btn-link' %>
+    <%= link_to image_tag('Crud/edit.png', :title => "editar aeropuerto"), edit_eps_path(eps),  :class => 'btn btn-link'%></td>
+
+
+  </tr>
+  
+<% end %>
+
+</table>
+
+
+
+<%= link_to image_tag('Crud/new.png', :title => "nuevo aeropuerto"), new_eps_path, :class => 'btn btn-link'%>
+
+<div align="center">
+  <%= will_paginate @epses, renderer: BootstrapPagination::Rails %>
+</div>
+
+
+
+</div>
+<style type="text/css">
+    @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+body{margin-top:20px;}
+.fa-fw {width: 2em;}
+</style>
