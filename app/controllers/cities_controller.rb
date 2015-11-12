@@ -1,50 +1,44 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_action :get_all, only: [:index, :create, :update, :destroy]
 
-  # GET /cities
-  # GET /cities.json
+  # GET /users
+  # GET /users.json
   def index
-    @cities = City.search(params[:search]).page(params[:page]).per_page(2)
-
+     @cities = City.search(params[:search]).page(params[:page]).per_page(2)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
-
-  # GET /cities/1
-  # GET /cities/1.json
+  # GET /blogs/1
+  # GET /blogs/1.json
   def show
+    @city = City.find_by(id: params[:id])
   end
 
-  # GET /cities/new
+  # GET /epss/new
   def new
     @city = City.new
   end
 
-  # GET /cities/1/edit
+  # GET /epss/1/edit
   def edit
+    @city = City.find_by(id: params[:id])
   end
 
-  # POST /cities
-  # POST /cities.json
+  # POST /epss
+  # POST /epss.json
   def create
-    @city = City.new(city_params)
-
-    respond_to do |format|
-      if @city.save
-        format.html { redirect_to @city, notice: 'City was successfully created.' }
-        format.json { render :show, status: :created, location: @city }
-      else
-        format.html { render :new }
-        format.json { render json: @city.errors, status: :unprocessable_entity }
-      end
-    end
+    @city = City.create(city_params)
   end
 
-  # PATCH/PUT /cities/1
-  # PATCH/PUT /cities/1.json
+  # PATCH/PUT /epss/
+  # PATCH/PUT /epss/1.json
   def update
     respond_to do |format|
       if @city.update(city_params)
-        format.html { redirect_to @city, notice: 'City was successfully updated.' }
+        format.html { redirect_to @city, notice: 'eps was successfully updated.' }
         format.json { render :show, status: :ok, location: @city }
       else
         format.html { render :edit }
@@ -53,13 +47,13 @@ class CitiesController < ApplicationController
     end
   end
 
-  # DELETE /cities/1
-  # DELETE /cities/1.json
+  # DELETE /users/1
+  # DELETE /epss/1
+  # DELETE /epss/1.json
   def destroy
-    @city.destroy
-    respond_to do |format|
-      format.html { redirect_to cities_url, notice: 'City was successfully destroyed.' }
-      format.json { head :no_content }
+    @city = City.find_by(id: params[:id])
+    if @city.destroy
+      redirect_to cities_url
     end
   end
 
@@ -69,8 +63,12 @@ class CitiesController < ApplicationController
       @city = City.find(params[:id])
     end
 
+    def get_all
+      @cities = City.search(params[:search]).page(params[:page]).per_page(2)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:city).permit(:country, :name)
+      params.require(:city).permit(:name)
     end
 end

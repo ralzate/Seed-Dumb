@@ -37,7 +37,8 @@ class ClinicHistoriesController < ApplicationController
 
     respond_to do |format|
       if @clinic_history.save
-        format.html { redirect_to patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), notice: 'Historia Clinica was successfully created.' }
+        format.html { redirect_to patient_clinic_history_steps_path(@patient, @clinic_history,
+         ClinicHistory.form_steps.second), notice: 'Historia Clinica was successfully created.' }
 
         format.json { render :show, status: :created, location: @clinic_history }
       else

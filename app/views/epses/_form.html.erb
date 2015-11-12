@@ -1,169 +1,40 @@
-<div class="col-md-8 well col-md-offset-1" style="top:20px;">
-
-
-        <div class="container">
-        <div class="centered title"><h1>Información para la Eps</h1></div>
+<div class="container new_blog">
+  <div class="centered title new_blog"><h3>Información para la Eps</h3></div>
      </div>
      <hr class="featurette-divider"></hr>
-         <div class="container">
+         <div class="container new_blog">
             <div class="row">
-                <div class="col-sm-12">
-                <div class="tab-content">
-  <div id="stripe" class="tab-pane fade in active">
-                       <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
+                <div class="col-sm-6">
+                  <div class="tab-content">
+                    <div id="stripe" class="tab-pane fade in active">
+                      <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
+                          <%= simple_form_for(@eps, :html => { :class => 'contact-form', :id => 'contact-form'  }, :remote => true) do |f| %>
+                            <%= f.error_notification %>
+                              <br>
+                                <div class='form-row'>
+                                <div class='form-group required'>
+                                  <div class='error form-group hide'>
+                                    <div class='alert-danger alert'>
+                                        Please correct the errors and try again.  
+                                    </div>
+                                  </div>
+                                  <label class='control-label new_blog'>Nombre</label>
+                                  <%= f.input :name,  placeholder: 'Campo Obligatorio', input_html: {class: "form-control new_blog"}, label: false,  :required => true %>
+                                </div>              
+       
+                                </div>
+                             
+                                  <div class='form-row'>
+                                    <div class='form-group'>
+                                               <label class='control-label'></label>
+                                            
+                                                <%= f.submit "Guardar", :class => 'form-control btn btn-primary new_blog' %>
 
-      <%= simple_form_for(@eps, :html => { :class => 'contact-form', :id => 'contact-form' }) do |f| %>
+                                      
+                                    </div>
+                                  </div>    
+                          
 
-
-
-            <br>
-              <div class='form-row'>
-                  <div class='form-group required'>
-                    <div class='error form-group hide'>
-                    <div class='alert-danger alert'>
-                      Please correct the errors and try again.
-                  
-                  </div>
-                </div>
-                    <label class='control-label'>Nombre</label>
-                    <%= f.input :name,  placeholder: 'Campo Obligatorio', input_html: { name: "Name", class: "form-control",  id: "Name "}, label: false %>
-
-
-
-                  </div>              
-
-                        
-                </div>
-           
-            <div class='form-row'>
-              <div class='form-group'>
-                         <label class='control-label'></label>
                       
-                          <%= f.submit "Guardar", :class => 'form-control btn btn-primary' %>
+                            <% end %>    
 
-                
-              </div>
-            </div>    
-            
-              </div>
-              
-                <div id="paypal" class="tab-pane fade">
-                <form action="?" id="paypalForm" method="POST">
-                <div class="paypalResult"><!-- content will load here --></div>
-               <br>
-                <input type="hidden" id="action" value="paypal"></input>
-                <input type="hidden" id="token" value="token-supersecuretoken123123123"></input>
-               <a href="#paypal"><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="paypal" width="100%"></a>
-               <br><br><br>
-              </div>
-            </div>
-            
-            
-          
-        </div>   
-
-          
-            <br><br><br>
-        </div>
-                    
-                    
-                    
-                </div>
-                
-                
-                
-            </div>
-        </div>
-        
-        
-              <% end %>    
-
-
-
-<style type="text/css">
-  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
-
-
-
-.jumbotron-flat {
-  background-color: solid #4DB8FFF;
-  height: 100%;
-  border: 1px solid #4DB8FF;
-  background: white;
-  width: 100%;
-text-align: center;
-overflow: auto;
-}
-
-.paymentAmt {
-    font-size: 80px; 
-}
-
-.centered {
-    text-align: center;
-}
-
-.title {
- padding-top: 15px;   
-}
-</style>
-
-
-
-
-
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-
-
-
-<script type="text/javascript">
-  $('#contact-form').bootstrapValidator({
-//        live: 'disabled',
-        message: 'This value is not valid',
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            Name: {
-                validators: {
-                    notEmpty: {
-                        message: 'El Campo Nombre es requirido Para la Eps'
-                    }
-                }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'The email address is required'
-                    },
-                    emailAddress: {
-                        message: 'The email address is not valid'
-                    }
-                }
-            },
-            Message: {
-                validators: {
-                    notEmpty: {
-                        message: 'The Message is required and cannot be empty'
-                    }
-                }
-            }
-        }
-    });
-</script>
-
-
-
-
-
-
-
-</div>
-<style type="text/css">
-    @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
-body{margin-top:20px;}
-.fa-fw {width: 2em;}
-</style>

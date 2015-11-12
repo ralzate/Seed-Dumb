@@ -35,6 +35,7 @@ class Patient < ActiveRecord::Base
   has_many :clinic_histories
    has_many :progress_notes
 
+
    def self.search(search)
     where("first_name like '%#{search}%'  or second_name like '%#{search}%' 
     or first_surname like '%#{search}%'  or second_surname like '%#{search}%' 

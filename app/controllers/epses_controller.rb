@@ -1,50 +1,46 @@
 class EpsesController < ApplicationController
   before_action :set_eps, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_action :get_all, only: [:index, :create, :update, :destroy]
 
-  # GET /epses
-  # GET /epses.json
+  # GET /users
+  # GET /users.json
   def index
-    @epses = Eps.search(params[:search]).page(params[:page]).per_page(2)
+     @epses = Eps.search(params[:search]).page(params[:page]).per_page(1)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
-
-  # GET /epses/1
-  # GET /epses/1.json
+  # GET /blogs/1
+  # GET /blogs/1.json
   def show
+    @eps = Eps.find_by(id: params[:id])
   end
 
-  # GET /epses/new
+  # GET /epss/new
   def new
     @eps = Eps.new
   end
 
-  # GET /epses/1/edit
+  # GET /epss/1/edit
   def edit
+    @eps = Eps.find_by(id: params[:id])
   end
 
-  # POST /epses
-  # POST /epses.json
+  # POST /epss
+  # POST /epss.json
   def create
-    @eps = Eps.new(params[:eps])
+    @eps = Eps.create(eps_params)
 
-
-    respond_to do |format|
-      if @eps.save
-        format.html { redirect_to @eps, notice: 'Eps was successfully created.' }
-        format.json { render :show, status: :created, location: @eps }
-      else
-        format.html { render :new }
-        format.json { render json: @eps.errors, status: :unprocessable_entity }
-      end
-    end
+    
   end
 
-  # PATCH/PUT /epses/1
-  # PATCH/PUT /epses/1.json
+  # PATCH/PUT /epss/
+  # PATCH/PUT /epss/1.json
   def update
     respond_to do |format|
       if @eps.update(eps_params)
-        format.html { redirect_to @eps, notice: 'Eps was successfully updated.' }
+        format.html { redirect_to @eps, notice: 'eps was successfully updated.' }
         format.json { render :show, status: :ok, location: @eps }
       else
         format.html { render :edit }
@@ -53,13 +49,13 @@ class EpsesController < ApplicationController
     end
   end
 
-  # DELETE /epses/1
-  # DELETE /epses/1.json
+  # DELETE /users/1
+  # DELETE /epss/1
+  # DELETE /epss/1.json
   def destroy
-    @eps.destroy
-    respond_to do |format|
-      format.html { redirect_to epses_url, notice: 'Eps was successfully destroyed.' }
-      format.json { head :no_content }
+    @eps = Eps.find_by(id: params[:id])
+    if @eps.destroy
+      redirect_to epses_url
     end
   end
 
@@ -67,6 +63,11 @@ class EpsesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_eps
       @eps = Eps.find(params[:id])
+    end
+
+
+    def get_all
+      @epses = Eps.search(params[:search]).page(params[:page]).per_page(2)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

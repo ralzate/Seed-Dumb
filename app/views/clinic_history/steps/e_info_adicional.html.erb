@@ -1,168 +1,201 @@
-<div class="container">
-<div class="stepwizard">
-    <div class="stepwizard-row setup-panel">
-        <div class="stepwizard-step">
-            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-            <p>Información Complementaria</p>
-        </div>
+<%= javascript_include_tag "date" %>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+
+<div class="container-fluid">    
         
-    </div>
-</div>
-<%= form_for @clinic_history, method: :put, url: wizard_path do |f| %>
-    <div>
-        <div >
-            <div >
-                <legend>
-                <div align="center">Nueva Información Complementaria, Por favor Completa los Campos</div>
-                </legend>
-                <div class="error_messages">
-                  <% f.object.errors.full_messages.each do |error| %>
-                    <p><%= error %></p>
-                  <% end %>
-                </div>
-                Porque TU eres la gran fuente de mi inspiración
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">analysis</label>
-                        <br />
-                        <%= f.text_field :analysis, class: 'form-control' %>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">print_diagnosed</label>
-                        <%= f.text_field :print_diagnosed, class: 'form-control'  %>
-                    </div>
-                  </div>
-                </div>
+    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+        
 
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">plan_and_treatment</label>
-                        <br />
-                        <%= f.text_field :plan_and_treatment, class: 'form-control' %>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <label class="control-label">observations_recommendations</label>
-                        <%= f.text_field :observations_recommendations, class: 'form-control'  %>
-                    </div>
-                  </div>
-                </div>
-
-  
-        <%= link_to "Atras", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.fourth), :class=>"btn btn-success btn-lg color_blanco" %>
-
-
-                <%= f.submit 'Proximo Paso', :class => 'btn btn-primary nextBtn btn-lg' %>
-            </div>
-        </div>
-    </div>
-    
- 
-<% end %>
-</div>
+        
 
 <style type="text/css">
-  body{ 
-    margin-top:40px; 
+  .panel > .panel-heading {
+    background-image: none;
+    background-color: #3B5999;
+    color: white;
 }
 
-.stepwizard-step p {
-    margin-top: 10px;
-}
+  .panel-title{
+    font-size: 25px;   
+  }
+  .pie_form{
+    background-image: none;
+    background-color: #3B5999;
+    color: white;   
+  }
 
-.stepwizard-row {
-    display: table-row;
-}
-
-.stepwizard {
-    display: table;
-    width: 100%;
-    position: relative;
-}
-
-.stepwizard-step button[disabled] {
-    opacity: 1 !important;
-    filter: alpha(opacity=100) !important;
-}
-
-.stepwizard-row:before {
-    top: 14px;
-    bottom: 0;
-    position: absolute;
-    content: " ";
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    z-order: 0;
-
-}
-
-.stepwizard-step {
-    display: table-cell;
-    text-align: center;
-    position: relative;
-}
-
-.btn-circle {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 12px;
-  line-height: 1.428571429;
-  border-radius: 15px;
-}
 </style>
 
 
-<script type="text/javascript">
-  $(document).ready(function () {
 
-    var navListItems = $('div.setup-panel div a'),
-            allWells = $('.setup-content'),
-            allNextBtn = $('.nextBtn');
 
-    allWells.hide();
 
-    navListItems.click(function (e) {
-        e.preventDefault();
-        var $target = $($(this).attr('href')),
-                $item = $(this);
 
-        if (!$item.hasClass('disabled')) {
-            navListItems.removeClass('btn-primary').addClass('btn-default');
-            $item.addClass('btn-primary');
-            allWells.hide();
-            $target.show();
-            $target.find('input:eq(0)').focus();
-        }
-    });
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
-    allNextBtn.click(function(){
-        var curStep = $(this).closest(".setup-content"),
-            curStepBtn = curStep.attr("id"),
-            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-            curInputs = curStep.find("input[type='text'],input[type='url']"),
-            isValid = true;
+<div class="panel panel-default" >
 
-        $(".form-group").removeClass("has-error");
-        for(var i=0; i<curInputs.length; i++){
-            if (!curInputs[i].validity.valid){
-                isValid = false;
-                $(curInputs[i]).closest(".form-group").addClass("has-error");
-            }
-        }
+<div class="panel-heading">
+    <div class="panel-title text-center">Paso 5 Información Adicional<span class="glyphicon glyphicon-user"></span></div>
+</div>   
 
-        if (isValid)
-            nextStepWizard.removeAttr('disabled').trigger('click');
-    });
 
-    $('div.setup-panel div a.btn-primary').trigger('click');
-});
-</script>
 
+<div class="container-fluid">
+  <div class="row">
+
+
+<%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+
+<br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <form class="form-horizontal span6">
+        <fieldset>
+       
+
+       
+          <div class="form-group">
+            <div class="controls">
+              <div class="row">
+                <div class="col-sm-3 col-md-6">
+                            <label class="control-label">Analisis</label>
+
+                        <%= f.text_field :analysis, class: 'form-control' %>
+
+
+                </div>
+                <div class="col-sm-3 col-md-6">
+                    <label class="control-label">Diagnostico</label>
+                        <%= f.text_field :print_diagnosed, class: 'form-control'  %>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+
+       
+          <div class="form-group">
+            <div class="controls">
+              <div class="row">
+                
+                <div class="col-sm-3 col-md-6">
+                  <label class="control-label">Plan y Tratamiento</label>
+                        <%= f.text_field :plan_and_treatment, class: 'form-control' %>
+
+                </div>
+                <div class="col-sm-3 col-md-6">
+                            <label class="control-label">Observaciones / Recomendaciones</label>
+
+
+                        <%= f.text_field :observations_recommendations, class: 'form-control'  %>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+<br/>
+
+
+
+
+
+            <div class="row  well pie_form">
+
+
+
+        <div class="form-actions ">
+              
+
+              <div class="col-md-5">
+
+
+                    <%= link_to "Regresar al Paso 4", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.fourth), :class=>"btn btn-success color_blanco" %>
+
+              </div>
+
+
+              <div class="col-md-5 col-md-push-4">
+
+                <button type="reset" class="btn btn-default ">Borrar</button>
+
+
+                <%= f.submit 'Guardar', :class => 'btn btn-success' %>
+
+
+              </div>
+
+
+        </div>
+
+
+  </div>
+</div>
+            <% end %>
+
+
+
+
+</div>
+
+
+
+
+
+
+          
+       
+       
+
+        </fieldset>
+    </div>
+  </div>
+</div>
+
+
+
+   
+
+
+
+
+
+
+
+                    

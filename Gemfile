@@ -75,7 +75,6 @@ gem 'switchery-rails', '0.1.0'
 gem 'jasny_bootstrap_extension_rails'
 
 gem 'carmen-rails', '~> 1.0.0'
-gem 'bootstrap-datepicker-rails'
 gem 'sextant'
 
 # Use ActiveModel has_secure_password

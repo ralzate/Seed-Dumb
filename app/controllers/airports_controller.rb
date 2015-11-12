@@ -1,49 +1,44 @@
 class AirportsController < ApplicationController
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_action :get_all, only: [:index, :create, :update, :destroy]
 
-  # GET /airports
-  # GET /airports.json
+  # GET /users
+  # GET /users.json
   def index
-    @airports = Airport.search(params[:search]).page(params[:page]).per_page(2)
+     @airports = Airport.search(params[:search]).page(params[:page]).per_page(2)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
-
-  # GET /airports/1
-  # GET /airports/1.json
+  # GET /blogs/1
+  # GET /blogs/1.json
   def show
+    @airport = Airport.find_by(id: params[:id])
   end
 
-  # GET /airports/new
+  # GET /epss/new
   def new
     @airport = Airport.new
   end
 
-  # GET /airports/1/edit
+  # GET /epss/1/edit
   def edit
+    @airport = Airport.find_by(id: params[:id])
   end
 
-  # POST /airports
-  # POST /airports.json
+  # POST /epss
+  # POST /epss.json
   def create
-    @airport = Airport.new(airport_params)
-
-    respond_to do |format|
-      if @airport.save
-        format.html { redirect_to @airport, notice: 'Airport was successfully created.' }
-        format.json { render :show, status: :created, location: @airport }
-      else
-        format.html { render :new }
-        format.json { render json: @airport.errors, status: :unprocessable_entity }
-      end
-    end
+    @airport = Airport.create(airport_params)
   end
 
-  # PATCH/PUT /airports/1
-  # PATCH/PUT /airports/1.json
+  # PATCH/PUT /epss/
+  # PATCH/PUT /epss/1.json
   def update
     respond_to do |format|
       if @airport.update(airport_params)
-        format.html { redirect_to @airport, notice: 'Airport was successfully updated.' }
+        format.html { redirect_to @airport, notice: 'eps was successfully updated.' }
         format.json { render :show, status: :ok, location: @airport }
       else
         format.html { render :edit }
@@ -52,13 +47,13 @@ class AirportsController < ApplicationController
     end
   end
 
-  # DELETE /airports/1
-  # DELETE /airports/1.json
+  # DELETE /users/1
+  # DELETE /epss/1
+  # DELETE /epss/1.json
   def destroy
-    @airport.destroy
-    respond_to do |format|
-      format.html { redirect_to airports_url, notice: 'Airport was successfully destroyed.' }
-      format.json { head :no_content }
+    @airport = Airport.find_by(id: params[:id])
+    if @airport.destroy
+      redirect_to airports_url
     end
   end
 
@@ -66,6 +61,10 @@ class AirportsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_airport
       @airport = Airport.find(params[:id])
+    end
+
+    def get_all
+      @airports = Airport.search(params[:search]).page(params[:page]).per_page(2)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

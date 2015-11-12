@@ -10,16 +10,23 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
 //= require switchery
+//= require jquery.purr
 //= require jasny-bootstrap
 //= require bootstrap-datepicker
+//= require best_in_place
 //= require garlic
 
 //= require turbolinks
 //= require_tree .
+
+
+
 
 
 
@@ -52,6 +59,11 @@ $(document).ready(function() {
     });
 
     
+  
+
+
+
+
 });
 
 
@@ -457,3 +469,55 @@ $(document).ready(function() {
             }
         });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

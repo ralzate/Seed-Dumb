@@ -12,9 +12,12 @@ class Eps < ActiveRecord::Base
    has_many :clinic_histories
    has_many :patients
 
+validates :name, presence: true
+
+
 
    def self.search(search)
-    where("name like '%#{search}%'")
+    search.present? ? where(["name LIKE ?" ,"%#{search}%"]) : all
   end
 
 end

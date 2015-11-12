@@ -1,49 +1,44 @@
 class ArlesController < ApplicationController
   before_action :set_arl, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize
+  before_action :get_all, only: [:index, :create, :update, :destroy]
 
-  # GET /arles
-  # GET /arles.json
+  # GET /users
+  # GET /users.json
   def index
-    @arles = Arl.search(params[:search]).page(params[:page]).per_page(2)
+     @arles = Arl.search(params[:search]).page(params[:page]).per_page(2)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
-
-  # GET /arles/1
-  # GET /arles/1.json
+  # GET /blogs/1
+  # GET /blogs/1.json
   def show
+    @arl = Arl.find_by(id: params[:id])
   end
 
-  # GET /arles/new
+  # GET /epss/new
   def new
     @arl = Arl.new
   end
 
-  # GET /arles/1/edit
+  # GET /epss/1/edit
   def edit
+    @arl = Arl.find_by(id: params[:id])
   end
 
-  # POST /arles
-  # POST /arles.json
+  # POST /epss
+  # POST /epss.json
   def create
-    @arl = Arl.new(arl_params)
-
-    respond_to do |format|
-      if @arl.save
-        format.html { redirect_to @arl, notice: 'Arl was successfully created.' }
-        format.json { render :show, status: :created, location: @arl }
-      else
-        format.html { render :new }
-        format.json { render json: @arl.errors, status: :unprocessable_entity }
-      end
-    end
+    @arl = Arl.create(arl_params)
   end
 
-  # PATCH/PUT /arles/1
-  # PATCH/PUT /arles/1.json
+  # PATCH/PUT /epss/
+  # PATCH/PUT /epss/1.json
   def update
     respond_to do |format|
       if @arl.update(arl_params)
-        format.html { redirect_to @arl, notice: 'Arl was successfully updated.' }
+        format.html { redirect_to @arl, notice: 'eps was successfully updated.' }
         format.json { render :show, status: :ok, location: @arl }
       else
         format.html { render :edit }
@@ -52,13 +47,13 @@ class ArlesController < ApplicationController
     end
   end
 
-  # DELETE /arles/1
-  # DELETE /arles/1.json
+  # DELETE /users/1
+  # DELETE /epss/1
+  # DELETE /epss/1.json
   def destroy
-    @arl.destroy
-    respond_to do |format|
-      format.html { redirect_to arles_url, notice: 'Arl was successfully destroyed.' }
-      format.json { head :no_content }
+    @arl = Arl.find_by(id: params[:id])
+    if @arl.destroy
+      redirect_to arles_url
     end
   end
 
@@ -66,6 +61,10 @@ class ArlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_arl
       @arl = Arl.find(params[:id])
+    end
+
+    def get_all
+      @arles = Arl.search(params[:search]).page(params[:page]).per_page(2)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
