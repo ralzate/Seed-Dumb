@@ -20,6 +20,21 @@
  */
 
 
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+
+.title {
+  font-family: 'Pacifico';
+  font-weight: norma;
+  font-size: 40px;
+  text-align: center;
+  line-height: 1.4;
+  color: #2980B9;
+}
+
+
+
+
 
 
 .label{

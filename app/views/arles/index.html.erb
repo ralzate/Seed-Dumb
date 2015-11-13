@@ -1,34 +1,48 @@
-                <div class="padding">
-                    <div class="full col-sm-9">
+<div class="padding">
+<div class="full col-sm-9">
 
-<br/>
-<div align="center">
-  <h1>Listado de  <span>Arles</span></h1>
-</div>
 
-  <%= form_tag request.path, :method => 'get', :class => '' do %>
+<div id="content">
+        <section>
 
-<div id="page" class="middle">
-  
-  <div class="wrapper">
-    <div class="table">
-      
-      <div class="table-cell-flex">
-          <%= text_field_tag :search, params[:search], :placeholder => "Busca por el Nombre", :class => 'form-control' %>
-      </div>
-      
-      <!-- random google image -->
-      <div class="table-cell-fixed"> 
-      <%= button_tag(type: "submit", class: "btn btn-link") do %>
-        <i class="glyphicon glyphicon-search blanco"  style="font-size: 20px;"></i>
-      <% end %>
-      </div>
-      
-    </div>
+          <div class="section-body contain-lg">
+
+
+            <!-- BEGIN RESPONSIVE TABLE 1 -->
+            <div class="row">
+
+              <div class="col-md-12">
+                <article class="margin-bottom-xxl">
+
+
+
+
+                    <%= form_tag request.path, :method => 'get', :class => '' do %>
+
+<div>
+  <div class="row">
+
+    <div class="col-lg-12">
+    <h1 class="title">Listado de  <span>Aeropuertos</span></h1>
+
+            <div class="input-group custom-search-form">
+              <%= text_field_tag :search, params[:search], :placeholder => "Busca por el Nombre", :class => 'form-control' %>
+              <span class="input-group-btn">
+
+
+<%= button_tag(type: "submit", class: "btn btn-primary") do %>
+              <span class="glyphicon glyphicon-search"></span>
+                          <% end %>
+
+             </span>
+             </div><!-- /input-group -->
+        </div>
   </div>
-  
 </div>
-<% end %>
+                    <% end %>
+
+
+
 
 
 
@@ -37,167 +51,22 @@
 </div>
 
 
-<div class="row" >
-  <div class="col-xs-6 col-sm-6 col-md-6">
-<%= link_to 'Nueva Arl', new_arl_path, remote: true, :class => "btn btn-primary" %>
-</div>
-  <div class="col-xs-6 col-sm-6 col-md-6">
-  <%= will_paginate @arles, renderer: BootstrapPagination::Rails %>
-</div>
 
-</div>
+
+
+
+
 
 <div class="row">
   <div class="col-md-12 " id="tasks">
     <%= render partial: "display" %>
   </div>
 </div>
-
-
-
-
-
-</div><!-- /padding -->
-            </div>
-            <!-- /main -->
-          
-        </div>
-    </div>
 </div>
 
 
-<!--post modal-->
-<div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-  <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            Update Status
-      </div>
-      <div class="modal-body">
-          <form class="form center-block">
-            <div class="form-group">
-              <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
-            </div>
-          </form>
-      </div>
-      <div class="modal-footer">
-          <div>
-          <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-            <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-          </div>    
-      </div>
-  </div>
-  </div>
-</div>
-        
-        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-
-        <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 
 
-
-
-
-        
-        <!-- JavaScript jQuery code from Bootply.com editor  -->
-        
-        <script type='text/javascript'>
-        
-        $(document).ready(function() {
-        
-            /* off-canvas sidebar toggle */
-
-$('[data-toggle=offcanvas]').click(function() {
-    $(this).toggleClass('visible-xs text-center');
-    $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
-    $('.row-offcanvas').toggleClass('active');
-    $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
-    $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
-    $('#btnShow').toggle();
-});
-        
-        });
-        
-        </script>
-        
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-          ga('create', 'UA-40413119-1', 'bootply.com');
-          ga('send', 'pageview');
-        </script>
-        
-        
-        <style>
-            .ad {
-              position: absolute;
-              bottom: 70px;
-              right: 48px;
-              z-index: 992;
-              background-color:#f3f3f3;
-              position: fixed;
-              width: 155px;
-              padding:1px;
-            }
-            
-            .ad-btn-hide {
-              position: absolute;
-              top: -10px;
-              left: -12px;
-              background: #fefefe;
-              background: rgba(240,240,240,0.9);
-              border: 0;
-              border-radius: 26px;
-              cursor: pointer;
-              padding: 2px;
-              height: 25px;
-              width: 25px;
-              font-size: 14px;
-              vertical-align:top;
-              outline: 0;
-            }
-            
-            .carbon-img {
-              float:left;
-              padding: 10px;
-            }
-            
-            .carbon-text {
-              color: #888;
-              display: inline-block;
-              font-family: Verdana;
-              font-size: 11px;
-              font-weight: 400;
-              height: 60px;
-              margin-left: 9px;
-              width: 142px;
-              padding-top: 10px;
-            }
-            
-            .carbon-text:hover {
-              color: #666;
-            }
-            
-            .carbon-poweredby {
-              color: #6A6A6A;
-              float: left;
-              font-family: Verdana;
-              font-size: 11px;
-              font-weight: 400;
-              margin-left: 10px;
-              margin-top: 13px;
-              text-align: center;
-            }
-        </style>
-        <div class="ad collapse in">
-          <button class="ad-btn-hide" data-toggle="collapse" data-target=".ad">&times;</button>
-          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootplycom" id="_carbonads_js"></script>
-        </div>
-        
-    </body>
-</html>
+                                    
+             

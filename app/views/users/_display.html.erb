@@ -15,26 +15,26 @@
     <div>
     <table class="table table-striped custab">
     <thead>
-    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><%= link_to 'Nueva Arl', new_arl_path, remote: true, :class => "btn btn-primary" %></span>
+    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><%= link_to 'Nuevo Usuario', new_user_path, :class => "btn btn-primary" %></span>
 
-    <span class="btn btn-link btn-xs pull-right">  <%= will_paginate @arles, renderer: BootstrapPagination::Rails %>
+    <span class="btn btn-link btn-xs pull-right">  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
 </span>
 
 <table class="responstable">
   
   <tr>
-    <th>Arl #</th>
+    <th>Usuario #</th>
     <th>Nombre</th>
     <th>Opciones</th>
   </tr>
   
-<% @arles.each do |arl| %>
+<% @users.each do |user| %>
 
   <tr>
 
-    <td><%= arl.id %></td>
-    <td> <%= best_in_place arl, :name, :ok_button => "Guardar", :ok_button_class => "btn btn-success", :cancel_button => 'Cerrar', :cancel_button_class => "btn btn-primary"  %></td>
-    <td><%= link_to  image_tag('Crud/search.png', :title => "ver arl",:size => "30x30"), arl, :class => 'btn btn-link' %></td>
+    <td><%= user.id %></td>
+    <td> <%= best_in_place user, :name, :ok_button => "Guardar", :ok_button_class => "btn btn-success", :cancel_button => 'Cerrar', :cancel_button_class => "btn btn-primary"  %></td>
+    <td><%= link_to  image_tag('Crud/search.png', :title => "ver user",:size => "30x30"), user, :class => 'btn btn-link' %></td>
 
 
   </tr>

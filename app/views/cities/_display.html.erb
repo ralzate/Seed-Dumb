@@ -1,75 +1,9 @@
-<div class="col-md-12" >
+<div  >
 
 
 
 
-<style type="text/css">
 
-#page {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-#page .wrapper {
-  width: 60%;
-}
-#page .wrapper .table {
-  display: table;
-  width: 100%;
-  margin: auto;
-  background: linear-gradient(to bottom, #21BDC8 0%, #21BDC8 100%);
-  border-radius: 6px;
-  padding: 2px;
-  box-shadow: 1px 1px 2px #21BDC8;
-}
-#page .wrapper .table > * {
-  vertical-align: middle;
-}
-#page .wrapper .table .table-cell-flex {
-  display: table-cell;
-  width: 100%;
-}
-#page .wrapper .table .table-cell-flex input {
-  color: #21BDC8;
-  padding: 2px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #21BDC8;
-  box-shadow: inset 1px 1px 5px #21BDC8;
-}
-#page .wrapper .table .table-cell-fixed {
-  display: table-cell;
-  white-space: nowrap;
-}
-#page .wrapper .table .table-cell-fixed a {
-  margin-left: 5px;
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  text-align: middle;
-  transition: all 0.2s linear;
-}
-#page .wrapper .table .table-cell-fixed a:hover {
-  background: #21BDC8;
-}
-#page .wrapper .table .table-cell-fixed a:active {
-  box-shadow: inset 0px 0px 5px #21BDC8;
-}
-.middle:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-}
-.middle > * {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-</style>
 
 
 <br/>
@@ -77,12 +11,19 @@
 
 
 
+<div>
+    <div>
+    <table class="table table-striped custab">
+    <thead>
+    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><%= link_to 'Nueva Ciudad', new_city_path, remote: true, :class => "btn btn-primary" %></span>
 
+    <span class="btn btn-link btn-xs pull-right">  <%= will_paginate @cities, renderer: BootstrapPagination::Rails %>
+</span>
 
 <table class="responstable">
   
   <tr>
-    <th>Ciudad #</th>
+    <th>Arl #</th>
     <th>Nombre</th>
     <th>Opciones</th>
   </tr>
@@ -93,7 +34,7 @@
 
     <td><%= city.id %></td>
     <td> <%= best_in_place city, :name, :ok_button => "Guardar", :ok_button_class => "btn btn-success", :cancel_button => 'Cerrar', :cancel_button_class => "btn btn-primary"  %></td>
-    <td><%= link_to  image_tag('Crud/search.png', :title => "ver Ciudad",:size => "30x30"), city, :class => 'btn btn-link' %></td>
+    <td><%= link_to  image_tag('Crud/search.png', :title => "ver city",:size => "30x30"), city, :class => 'btn btn-link' %></td>
 
 
   </tr>
@@ -124,7 +65,7 @@ If you like this solution, you might also want to check out the 1.0 version:
   background: #FFF;
   color: #024457;
   border-radius: 10px;
-  border: 1px solid #21BDC8;
+  border: 1px solid #3276B1;
 }
 .responstable tr {
   border: 1px solid #D9E4E6;
@@ -135,7 +76,7 @@ If you like this solution, you might also want to check out the 1.0 version:
 .responstable th {
   display: none;
   border: 1px solid #FFF;
-  background-color: #21BDC8;
+  background-color: #3276B1;
   color: #FFF;
   padding: 1em;
 }
