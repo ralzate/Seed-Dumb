@@ -1,250 +1,42 @@
-<br/>
-<div align="center">
+<br/><br/><br/><br/>
+
+<div class="row">
+<div class="full col-sm-9 full2">
 
 
-<%= link_to image_tag('Crud/return.png', :title => "Listado de pacientes"),  root_path, :class => 'btn btn-link'%>
 
 
-  <h1>Listado de  <span>Historias Clinicas de </span><%= @patient.first_name %></h1>
+
+    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Listado de  <span>Historias Clinicas</span></h1></span>
+
+
+    <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @clinic_histories, renderer: BootstrapPagination::Rails %>
+</span>
+
+    <span  class="btn btn-link btn-xs  pagination pagination pull-right"><%= link_to 'Nueva Eps', new_eps_path, remote: true, :class => "btn  principal" %></span>
+
+
+
+<div class="row new_blog">
+<div class="col-md-6" id="task-form" style="display:none;"></div>
 </div>
 
-  <%= form_tag request.path, :method => 'get', :class => '' do %>
 
-<div id="page" class="middle">
-  
-  <div class="wrapper">
-    <div class="table">
-      
-      <div class="table-cell-flex">
-          <%= text_field_tag :search, params[:search], :placeholder => "Ingresa Nombre o Cedula", :class => 'form-control' %>
-      </div>
-      
-      <!-- random google image -->
-      <div class="table-cell-fixed"> 
-      <%= button_tag(type: "submit", class: "btn btn-link") do %>
-        <i class="glyphicon glyphicon-search blanco"  style="font-size: 20px;"></i>
-      <% end %>
-      </div>
-      
-    </div>
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12 " id="tasks">
+    <%= render partial: "display" %>
   </div>
-  
 </div>
-<% end %>
-
-
-<style type="text/css">
-
-#page {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-}
-#page .wrapper {
-  width: 60%;
-}
-#page .wrapper .table {
-  display: table;
-  width: 100%;
-  margin: auto;
-  background: linear-gradient(to bottom, #167f92 0%, #167f92 100%);
-  border-radius: 6px;
-  padding: 5px;
-  box-shadow: 1px 1px 2px #167f92;
-}
-#page .wrapper .table > * {
-  vertical-align: middle;
-}
-#page .wrapper .table .table-cell-flex {
-  display: table-cell;
-  width: 100%;
-}
-#page .wrapper .table .table-cell-flex input {
-  color: #167f92;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #167f92;
-  box-shadow: inset 1px 1px 5px #167f92;
-}
-#page .wrapper .table .table-cell-fixed {
-  display: table-cell;
-  white-space: nowrap;
-}
-#page .wrapper .table .table-cell-fixed a {
-  margin-left: 5px;
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  text-align: middle;
-  transition: all 0.2s linear;
-}
-#page .wrapper .table .table-cell-fixed a:hover {
-  background: #167f92;
-}
-#page .wrapper .table .table-cell-fixed a:active {
-  box-shadow: inset 0px 0px 5px #167f92;
-}
-.middle:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-}
-.middle > * {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-</style>
-
-
-<br/>
+</div>
 
 
 
 
 
-
-<table class="responstable">
-  
-  <tr>
-    <th>Aeropuerto #</th>
-    <th>Nombre Paciente</th>
-    <th>Apellodo Paciente</th>
-    <th>Identificación</th>
-    <th>Opciones</th>
-  </tr>
-  
-<% @clinic_histories.each do |clinic_history| %>
-
-  <tr>
-        <td><%= clinic_history.airport_id %></td>
-        <td><%= clinic_history.patient.first_name %> <%= clinic_history.patient.second_name %></td>
-        <td><%= clinic_history.patient.first_surname %> <%= clinic_history.patient.second_surname %></td>
-        <td><%= clinic_history.patient.document %></td>
-        <td>
-        <%= link_to 'Notas de Evolución', patient_clinic_history_progress_notes_path(@patient,clinic_history), :class => "btn btn-info blanco btn-sm" %>
-        <% if  current_user.rol_id === 1 || current_user.rol_id === 2 %>
-
-        <%= link_to 'Ver Historia Clinica', patient_clinic_history_progress_notes_path(@patient,clinic_history), :class => "btn btn-primary blanco btn-sm" %>
-        <% end %>
-</td>
-
-
-
-
-
-  </tr>
-  
-<% end %>
-
-</table>
-
-<% if  current_user.rol_id === 1 || current_user.rol_id === 2 %>
-
-<%= link_to 'Nueva Historia Clinica', new_patient_clinic_history_path(@patient) %>
-</td>
-<% end %>
-
-<style type="text/css">
-  /*
-
-RESPONSTABLE 2.0 by jordyvanraaij
-  Designed mobile first!
-
-
-If you like this solution, you might also want to check out the 1.0 version:
-  https://gist.github.com/jordyvanraaij/9069194
-
-*/
-.responstable {
-  margin: 1em 0;
-  width: 100%;
-  overflow: hidden;
-  background: #FFF;
-  color: #024457;
-  border-radius: 10px;
-  border: 1px solid #167F92;
-}
-.responstable tr {
-  border: 1px solid #D9E4E6;
-}
-.responstable tr:nth-child(odd) {
-  background-color: #EAF3F3;
-}
-.responstable th {
-  display: none;
-  border: 1px solid #FFF;
-  background-color: #167F92;
-  color: #FFF;
-  padding: 1em;
-}
-.responstable th:first-child {
-  display: table-cell;
-  text-align: center;
-}
-.responstable th:nth-child(2) {
-  display: table-cell;
-}
-.responstable th:nth-child(2) span {
-  display: none;
-}
-.responstable th:nth-child(2):after {
-  content: attr(data-th);
-}
-@media (min-width: 480px) {
-  .responstable th:nth-child(2) span {
-    display: block;
-  }
-  .responstable th:nth-child(2):after {
-    display: none;
-  }
-}
-.responstable td {
-  display: block;
-  word-wrap: break-word;
-  max-width: 7em;
-}
-.responstable td:first-child {
-  display: table-cell;
-  text-align: center;
-  border-right: 1px solid #D9E4E6;
-}
-@media (min-width: 480px) {
-  .responstable td {
-    border: 1px solid #D9E4E6;
-  }
-}
-.responstable th, .responstable td {
-  text-align: left;
-  margin: .5em 1em;
-}
-@media (min-width: 480px) {
-  .responstable th, .responstable td {
-    display: table-cell;
-    padding: 1em;
-  }
-}
-
-body {
-  padding: 0 2em;
-  font-family: 'Lato', Arial, sans-serif;
-  color: #024457;
-  background: #f2f2f2;
-}
-
-h1 {
-  font-family: Verdana;
-  font-weight: normal;
-  color: #024457;
-}
-h1 span {
-  color: #167F92;
-}
-
-</style>
-
+                                    
+             

@@ -8,7 +8,7 @@ class ClinicHistoriesController < ApplicationController
     # Normally you'd have more complex requirements about
     # when not to show rows, but we don't show any records that don't have a name
 
-    @clinic_histories = @patient.clinic_histories.all
+    @clinic_histories = @patient.clinic_histories.search(params[:search]).page(params[:page]).per_page(2)
 
   end
 

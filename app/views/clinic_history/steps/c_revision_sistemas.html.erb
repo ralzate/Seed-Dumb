@@ -1,10 +1,6 @@
 <%= javascript_include_tag "date" %>
 
 
-<br/>
-<br/>
-<br/>
-<br/>
 
 
 
@@ -461,7 +457,7 @@
         <div class="form-actions ">
               
 
-              <div class="col-md-5">
+              <div class="col-md-5 col-md-push-1">
 
 
                   <%= link_to "Regresar al Paso 2", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), :class=>"btn btn-success color_blanco" %>
@@ -470,7 +466,7 @@
               </div>
 
 
-              <div class="col-md-5 col-md-push-4">
+              <div class="col-md-5 col-md-push-2">
 
                 <button type="reset" class="btn btn-default ">Borrar</button>
 

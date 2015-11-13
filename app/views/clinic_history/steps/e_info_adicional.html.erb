@@ -1,12 +1,6 @@
 <%= javascript_include_tag "date" %>
 
 
-<br/>
-<br/>
-<br/>
-<br/>
-
-
 
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
@@ -88,13 +82,13 @@
                 <div class="col-sm-3 col-md-6">
                             <label class="control-label">Analisis</label>
 
-                        <%= f.text_field :analysis, class: 'form-control' %>
+                        <%= f.text_area :analysis, class: 'form-control' %>
 
 
                 </div>
                 <div class="col-sm-3 col-md-6">
                     <label class="control-label">Diagnostico</label>
-                        <%= f.text_field :print_diagnosed, class: 'form-control'  %>
+                        <%= f.text_area :print_diagnosed, class: 'form-control'  %>
                 </div>
                 
               </div>
@@ -109,14 +103,14 @@
                 
                 <div class="col-sm-3 col-md-6">
                   <label class="control-label">Plan y Tratamiento</label>
-                        <%= f.text_field :plan_and_treatment, class: 'form-control' %>
+                        <%= f.text_area :plan_and_treatment, class: 'form-control' %>
 
                 </div>
                 <div class="col-sm-3 col-md-6">
                             <label class="control-label">Observaciones / Recomendaciones</label>
 
 
-                        <%= f.text_field :observations_recommendations, class: 'form-control'  %>
+                        <%= f.text_area :observations_recommendations, class: 'form-control'  %>
 
 
                 </div>

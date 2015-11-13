@@ -1,67 +1,52 @@
-<div class="container new_blog">
-  <div class="centered title new_blog"><h3>Información para el Aeropuerto</h3></div>
-     </div>
-     <hr class="featurette-divider"></hr>
-         <div class="container new_blog">
-            <div class="row">
-                <div class="col-sm-6">
-                  <div class="tab-content">
-                    <div id="stripe" class="tab-pane fade in active">
-                      <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
-                          <%= simple_form_for(@airport, :html => { :class => 'contact-form', :id => 'contact-form'  }, :remote => true) do |f| %>
-                            <%= f.error_notification %>
-                              <br>
-          <div class="row">
-            <section class="span6 unit">
-              <label class="label my-labol">Nombre:</label>
-              <label class="input">
-                <i class="icon-append fa fa-asterisk"></i>
-                <%= f.text_field :name, class: "form-control ", required: true, placeholder: 'Campo Obligatorio' %>
 
-              </label>
-            </section>
-            <section class="span6 unit">
-              <label class="label my-labol">Seleccionar un Departamento:</label>
-              <label class="input">
-                <i class="icon-append fa fa-envelope"></i>
-              <%= f.input :department,
+
+
+<br/>
+
+<div class="container-fluid">
+    <div class="row vertical-offset-100">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Información para la Aeropuerto</h3>
+        </div>
+          <div class="panel-body">
+            <%= simple_form_for(@airport, :remote => true) do |f| %>
+                    <fieldset>
+                <div class="form-group">
+                  <label class='control-label new_blog'>Nombre:</label>                
+                  <%= f.input :name,  placeholder: 'Campo Obligatorio', input_html: {class: "form-control new_blog"}, label: false,  :required => true %>
+
+              </div>
+  
+
+                  <div class="form-group">
+                  <label class='control-label new_blog'>Seleccionar un Departamento:</label>                
+                  <%= f.input :department,
                       prompt:       'Campo Obligatorio',
                       collection: @airport.select_department.sort,
                       error: false, label: false, 
                       input_html:   {class: 'form-control'} %>  
                       </label>
-            </section>
+
+              </div>
+
+
+
+                  <div class="form-group">
+                  <label class='control-label new_blog'>Seleccionar una Ciudad:</label>                
+                        <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+                      </label>
+
+              </div>
+
+              <%= f.submit "Guardar", :class => 'btn btn-primary pull-right' %>
+
+            </fieldset>
+              <% end %>
           </div>
-
-
-          <div class="row">
-            <section class="span6 unit">
-              <label class="label my-labol">Nombre:</label>
-              <label class="input">
-                <i class="icon-append fa fa-asterisk"></i>
-                          <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
-
-              </label>
-            </section>
-            <section class="span6 unit">
-
-            </section>
-          </div>
-
-
-
-                             
-                                  <div class='form-row'>
-                                    <div class='form-group'>
-                                               <label class='control-label'></label>
-                                            
-                                                <%= f.submit "Guardar", :class => 'form-control btn btn-primary new_blog' %>
-
-                                      
-                                    </div>
-                                  </div>    
-                          
-
-                      
-                            <% end %>    
-
+      </div>
+    </div>
+  </div>
+</div>

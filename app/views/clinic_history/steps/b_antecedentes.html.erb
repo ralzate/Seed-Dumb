@@ -1,11 +1,6 @@
 <%= javascript_include_tag "date" %>
 
 
-<br/>
-<br/>
-<br/>
-<br/>
-
 
 
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
@@ -21,7 +16,7 @@
 <style type="text/css">
   .panel > .panel-heading {
     background-image: none;
-    background-color: #3B5999;
+    background-color: #20b4bf;
     color: white;
 }
 
@@ -30,7 +25,7 @@
   }
   .pie_form{
     background-image: none;
-    background-color: #3B5999;
+    background-color: #20b4bf;
     color: white;   
   }
 
@@ -627,7 +622,7 @@
         <div class="form-actions ">
               
 
-              <div class="col-md-5">
+              <div class="col-md-5 col-md-push-1">
 
 
                 <%= link_to "Regresar al Paso 1", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-success color_blanco" %>
@@ -636,7 +631,7 @@
               </div>
 
 
-              <div class="col-md-5 col-md-push-4">
+              <div class="col-md-5 col-md-push-2">
 
                 <button type="reset" class="btn btn-default ">Borrar</button>
 

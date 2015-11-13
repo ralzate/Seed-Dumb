@@ -1,51 +1,44 @@
 class RolesController < ApplicationController
   before_action :set_rol, only: [:show, :edit, :update, :destroy]
+  before_action :get_all, only: [:index, :create, :update, :destroy]
 
-  before_filter :authorize
-
-
-  # GET /roles
-  # GET /roles.json
+  # GET /users
+  # GET /users.json
   def index
-    @roles = Rol.search(params[:search]).page(params[:page]).per_page(2)
+     @roles = Rol.search(params[:search]).page(params[:page]).per_page(2)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
-
-  # GET /roles/1
-  # GET /roles/1.json
+  # GET /blogs/1
+  # GET /blogs/1.json
   def show
+    @rol = Rol.find_by(id: params[:id])
   end
 
-  # GET /roles/new
+  # GET /epss/new
   def new
     @rol = Rol.new
   end
 
-  # GET /roles/1/edit
+  # GET /epss/1/edit
   def edit
+    @rol = Rol.find_by(id: params[:id])
   end
 
-  # POST /roles
-  # POST /roles.json
+  # POST /epss
+  # POST /epss.json
   def create
-    @rol = Rol.new(rol_params)
-
-    respond_to do |format|
-      if @rol.save
-        format.html { redirect_to @rol, notice: 'Rol was successfully created.' }
-        format.json { render :show, status: :created, location: @rol }
-      else
-        format.html { render :new }
-        format.json { render json: @rol.errors, status: :unprocessable_entity }
-      end
-    end
+    @rol = Rol.create(rol_params)
   end
 
-  # PATCH/PUT /roles/1
-  # PATCH/PUT /roles/1.json
+  # PATCH/PUT /epss/
+  # PATCH/PUT /epss/1.json
   def update
     respond_to do |format|
       if @rol.update(rol_params)
-        format.html { redirect_to @rol, notice: 'Rol was successfully updated.' }
+        format.html { redirect_to @rol, notice: 'eps was successfully updated.' }
         format.json { render :show, status: :ok, location: @rol }
       else
         format.html { render :edit }
@@ -54,13 +47,13 @@ class RolesController < ApplicationController
     end
   end
 
-  # DELETE /roles/1
-  # DELETE /roles/1.json
+  # DELETE /users/1
+  # DELETE /epss/1
+  # DELETE /epss/1.json
   def destroy
-    @rol.destroy
-    respond_to do |format|
-      format.html { redirect_to roles_url, notice: 'Rol was successfully destroyed.' }
-      format.json { head :no_content }
+    @rol = Rol.find_by(id: params[:id])
+    if @rol.destroy
+      redirect_to roles_url
     end
   end
 
@@ -70,8 +63,12 @@ class RolesController < ApplicationController
       @rol = Rol.find(params[:id])
     end
 
+    def get_all
+      @roles = Rol.search(params[:search]).page(params[:page]).per_page(2)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def rol_params
-      params.require(:rol).permit(:name, :restrictions)
+      params.require(:rol).permit(:name)
     end
 end

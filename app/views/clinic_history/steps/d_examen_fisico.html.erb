@@ -1,12 +1,6 @@
 <%= javascript_include_tag "date" %>
 
 
-<br/>
-<br/>
-<br/>
-<br/>
-
-
 
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
@@ -26,7 +20,7 @@
 }
 
   .panel-title{
-    font-size: 25px;   
+    font-size: 20px;   
   }
   .pie_form{
     background-image: none;
@@ -228,6 +222,10 @@
 
 
 
+
+
+
+
          </div>
 
 <br/>
@@ -237,6 +235,7 @@
 
 
               <div class="row">
+
 
 
 
@@ -255,6 +254,8 @@
 
                   </label>
               </div>
+
+
 
 
               <div class="col-xs-3 col-sm-6 col-md-3">
@@ -306,7 +307,7 @@
 
 
 
-              <div class="col-xs-3 col-sm-6 col-md-3">
+              <div class="col-xs-3 col-sm-6 col-md-2">
                   <label class="label">Cabeza</label>
 
                   <div class="checkbox radio-margin">
@@ -320,7 +321,7 @@
 
 
 
-                <div class="col-xs-3 col-sm-6 col-md-3">
+                <div class="col-xs-3 col-sm-6 col-md-2">
                   <div class="form-group" id="dvPassport23" style="display: none">
                     <label class="label ">Ampliar Info</label>
 
@@ -337,7 +338,7 @@
 
 
 
-              <div class="col-xs-3 col-sm-6 col-md-3">
+              <div class="col-xs-3 col-sm-6 col-md-2">
                   <label class="label">Cuello</label>
 
                   <div class="checkbox radio-margin">
@@ -351,7 +352,7 @@
 
 
 
-                <div class="col-xs-3 col-sm-6 col-md-3">
+                <div class="col-xs-3 col-sm-6 col-md-2">
                   <div class="form-group" id="dvPassport24" style="display: none">
                     <label class="label ">Ampliar Info</label>
 
@@ -363,14 +364,8 @@
 
 
 
-</div>
 
-
-
-        <div class="row">
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
+              <div class="col-xs-3 col-sm-6 col-md-2">
                   <label class="label">Corazón</label>
 
                   <div class="checkbox radio-margin">
@@ -382,7 +377,7 @@
                 </div>
               </div>
 
-              <div class="col-xs-3 col-sm-6 col-md-3">
+              <div class="col-xs-3 col-sm-6 col-md-2">
                 <div class="form-group" id="dvPassport26" style="display: none">
                   <label class="label ">Ampliar Info</label>
 
@@ -391,7 +386,15 @@
               </div>
 
 
-             <div class="col-xs-3 col-sm-6 col-md-3">
+</div>
+
+
+
+        <div class="row">
+
+
+
+             <div class="col-xs-3 col-sm-6 col-md-2">
                   <label class="label">Pulmones</label>
                   <div class="checkbox radio-margin">
                   <label>
@@ -403,26 +406,16 @@
               </div>
 
 
-              <div class="col-xs-3 col-sm-6 col-md-3">
+              <div class="col-xs-3 col-sm-6 col-md-2">
                 <div class="form-group" id="dvPassport27" style="display: none">
                   <label class="label ">Ampliar Info</label>
                     <%= f.text_area :lungs_description, class: 'form-control' %>
                 </div>
               </div>
 
-         </div>
 
 
-
-
-
-
-
-
-     <div class="row">
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
+              <div class="col-xs-3 col-sm-6 col-md-2">
                   <label class="label">abdomen</label>
 
                   <div class="checkbox radio-margin">
@@ -434,7 +427,7 @@
                 </div>
               </div>
 
-              <div class="col-xs-3 col-sm-6 col-md-3">
+              <div class="col-xs-3 col-sm-6 col-md-2">
                 <div class="form-group" id="dvPassport28" style="display: none">
                   <label class="label ">Ampliar Info</label>
 
@@ -443,7 +436,7 @@
               </div>
 
 
-             <div class="col-xs-3 col-sm-6 col-md-3">
+             <div class="col-xs-3 col-sm-6 col-md-2">
                   <label class="label">genitourinary</label>
                   <div class="checkbox radio-margin">
                   <label>
@@ -455,28 +448,13 @@
               </div>
 
 
-              <div class="col-xs-3 col-sm-6 col-md-3">
+              <div class="col-xs-3 col-sm-6 col-md-2">
                 <div class="form-group" id="dvPassport29" style="display: none">
                   <label class="label ">Ampliar Info</label>
                     <%= f.text_area :genitourinary_description, class: 'form-control' %>
                 </div>
               </div>
 
-         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-     <div class="row">
 
 
               <div class="col-xs-3 col-sm-6 col-md-3">
@@ -628,7 +606,9 @@
         <div class="form-actions ">
               
 
-              <div class="col-md-5">
+
+
+              <div class="col-md-5 col-md-push-1">
 
 
                   <%= link_to "Regresar al Paso 3", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-success color_blanco" %>
@@ -637,7 +617,7 @@
               </div>
 
 
-              <div class="col-md-5 col-md-push-4">
+              <div class="col-md-5  col-md-push-2">
 
                 <button type="reset" class="btn btn-default ">Borrar</button>
 
@@ -650,6 +630,17 @@
 
 
   </div>
+
+
+
+
+
+
+
+
+
+
+
 </div>
             <% end %>
 

@@ -1,30 +1,53 @@
-<div  >
-
-
-
-
-
-
-
-<br/>
-
-
-
+<div>
 
 <div>
     <div>
-    <table class="table table-striped custab">
+    <table class="table table-bordered">
     <thead>
-    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><%= link_to 'Nueva Arl', new_arl_path, remote: true, :class => "btn btn-primary" %></span>
 
-    <span class="btn btn-link btn-xs pull-right">  <%= will_paginate @arles, renderer: BootstrapPagination::Rails %>
-</span>
 
-<table class="responstable">
+
+
+<table class="table table-bordered" style="margin-top:-30px;">
   
-  <tr>
+
+<tr>
+      <th  colspan="5">
+        
+                            <%= form_tag request.path, :method => 'get', :class => '' do %>
+
+<div>
+  <div class="row">
+
+    <div class="col-lg-5 ">
+
+            <div class="input-group custom-search-form">
+              <%= text_field_tag :search, params[:search], :placeholder => "Busca por el Nombre", :class => 'form-control' %>
+              <span class="input-group-btn">
+
+
+<%= button_tag(type: "submit", class: "btn principal") do %>
+              <span class="glyphicon glyphicon-search"></span>
+                          <% end %>
+
+             </span>
+             </div><!-- /input-group -->
+        </div>
+  </div>
+</div>
+                    <% end %>
+
+
+
+      </th>
+
+</tr>
+
+
+  <tr class="header">
     <th>Arl #</th>
     <th>Nombre</th>
+    <th>Fecha de Creación</th>
     <th>Opciones</th>
   </tr>
   
@@ -34,8 +57,18 @@
 
     <td><%= arl.id %></td>
     <td> <%= best_in_place arl, :name, :ok_button => "Guardar", :ok_button_class => "btn btn-success", :cancel_button => 'Cerrar', :cancel_button_class => "btn btn-primary"  %></td>
-    <td><%= link_to  image_tag('Crud/search.png', :title => "ver arl",:size => "30x30"), arl, :class => 'btn btn-link' %></td>
+    <td><%= arl.created_at.strftime('%b %d. %Y') %></td>
+    <td>
 
+<%= link_to edit_eps_path(arl), :class => "btn-link" do %>
+      <span class="glyphicon glyphicon-edit "></span>
+<% end %>
+
+
+
+
+
+</td>
 
   </tr>
   
@@ -44,94 +77,45 @@
 </table>
 
 
+<style type="text/css">
+
+.eliminar {
+    color: red;
+}
+
+</style>
+
 
 
 
 
 <style type="text/css">
-  /*
 
-RESPONSTABLE 2.0 by jordyvanraaij
-  Designed mobile first!
 
-If you like this solution, you might also want to check out the 1.0 version:
-  https://gist.github.com/jordyvanraaij/9069194
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+      z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #20B4BF !important;
+    border-color: #20B4BF !important;
+}
 
-*/
-.responstable {
-  margin: 1em 0;
-  width: 100%;
-  overflow: hidden;
-  background: #FFF;
-  color: #024457;
-  border-radius: 10px;
-  border: 1px solid #3276B1;
+.principal{
+  background-color: #20B4BF !important;
+  color: #ffffff !important;
+  border-color: #22BDC8;
 }
-.responstable tr {
-  border: 1px solid #D9E4E6;
-}
-.responstable tr:nth-child(odd) {
-  background-color: #EAF3F3;
-}
-.responstable th {
-  display: none;
-  border: 1px solid #FFF;
-  background-color: #3276B1;
-  color: #FFF;
-  padding: 1em;
-}
-.responstable th:first-child {
-  display: table-cell;
-  text-align: center;
-}
-.responstable th:nth-child(2) {
-  display: table-cell;
-}
-.responstable th:nth-child(2) span {
-  display: none;
-}
-.responstable th:nth-child(2):after {
-  content: attr(data-th);
-}
-@media (min-width: 480px) {
-  .responstable th:nth-child(2) span {
-    display: block;
-  }
-  .responstable th:nth-child(2):after {
-    display: none;
-  }
-}
-.responstable td {
-  display: block;
-  word-wrap: break-word;
-  max-width: 7em;
-}
-.responstable td:first-child {
-  display: table-cell;
-  text-align: center;
-  border-right: 1px solid #D9E4E6;
-}
-@media (min-width: 480px) {
-  .responstable td {
-    border: 1px solid #D9E4E6;
-  }
-}
-.responstable th, .responstable td {
-  text-align: left;
-  margin: .5em 1em;
-}
-@media (min-width: 480px) {
-  .responstable th, .responstable td {
-    display: table-cell;
-    padding: 1em;
-  }
+
+
+.header{
+  background-color: #F2F2F2;
+  border-color: #22BDC8;
 }
 
 body {
   padding: 0 2em;
   font-family: 'Lato', Arial, sans-serif;
-  color: #024457;
-  background: #f2f2f2;
+  background: #ffffff !important;
 }
 
 h1 {

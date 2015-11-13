@@ -45,23 +45,16 @@
 
 
   <tr class="header">
-    <th>Usuario #</th>
-    <th>Nombres</th>
-    <th>Tipo Documento</th>
-    <th>Documento</th>
+    <th>HC #</th>
     <th>Opciones</th>
   </tr>
   
-<% @users.each do |user| %>
+<% @clinic_histories.each do |clinic_history| %>
 
   <tr>
 
 
-    <td><%= user.id %></td>
-    <td><%= user.first_name %> <%= user.first_surname %></td>
-    <td><%= user.label_documento %></td>
-    <td><%= user.document %></td>
-    <td><%= link_to  image_tag('Crud/search.png', :title => "ver user",:size => "30x30"), user, :class => 'btn btn-link' %></td>
+    <td><%= clinic_history.id %></td>
 
 
 
