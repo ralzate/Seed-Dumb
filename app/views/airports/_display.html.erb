@@ -12,7 +12,7 @@
   
 
 <tr>
-      <th  colspan="5">
+      <th  colspan="6">
         
                             <%= form_tag request.path, :method => 'get', :class => '' do %>
 
@@ -63,7 +63,13 @@
     <td><%= airport.city.name %></td>
     <td><%= airport.label_department %></td>
     <td><%= airport.created_at.strftime('%b %d. %Y') %></td>
-    <td><%= link_to  image_tag('Crud/search.png', :title => "ver airport",:size => "30x30"), airport, :class => 'btn btn-link' %></td>
+
+<td>
+
+    <%= link_to 'Editar', edit_airport_path(airport),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>
+    <%= link_to 'Eliminar', airport, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-xs color_blanco ' %>
+
+
 
 
 
