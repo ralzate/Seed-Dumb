@@ -1,29 +1,22 @@
 
-<br/>
-
 <div class="container-fluid">
-    <div class="row vertical-offset-100">
-      <div class="col-md-4 col-md-offset-4">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Información para la Arl</h3>
-        </div>
-          <div class="panel-body">
-            <%= simple_form_for(@arl, :remote => true) do |f| %>
-                    <fieldset>
-                <div class="form-group">
-                  <label class='control-label new_blog'>Nombre</label>                
+    
+      <div class="col-md-12 col-md-offset" style = "margin-bottom:10px;">
+      
+          <div class="panel-body navbar navbar-default">
+
+            <%= simple_form_for(@arl,html: { class: "form-inline pull-right"} ,:remote => true) do |f| %>
+                   <div class="form-group">
+                  <label class='control-label new_blog'>Nombre:</label>                
                   <%= f.input :name,  placeholder: 'Campo Obligatorio', input_html: {class: "form-control new_blog"}, label: false,  :required => true %>
 
-              </div>
-  
+                    </div>
 
-              <%= f.submit "Guardar", :class => 'btn btn-primary pull-right' %>
 
-            </fieldset>
+              
+
               <% end %>
           </div>
       </div>
     </div>
-  </div>
-</div>
+ 

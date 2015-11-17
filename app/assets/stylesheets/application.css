@@ -28,8 +28,11 @@
 
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-
+.principal {
+    background-color: #20B4BF !important;
+    color: #ffffff !important;
+    border-color: 2px solid rgb(68, 228, 204)!important;
+}
 .full2
 {
 

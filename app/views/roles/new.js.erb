@@ -1,3 +1,14 @@
 
 $('.new_blog').html("<%= j (render 'form') %>");
 $('.new_blog').slideDown(350);
+
+
+
+
+
+<label class="control-label">Primer Apellido:</label>
+<%= f.text_field :first_surname, class: "form-control ", required: true, placeholder: 'Segundo Nombre' %>
+
+
+<label class="control-label">Segundo Apellido:</label>
+<%= f.text_field :second_surname, class: "form-control ", required: true, placeholder: 'Segundo Nombre' %>

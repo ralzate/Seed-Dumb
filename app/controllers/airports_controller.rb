@@ -5,7 +5,7 @@ class AirportsController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-     @airports = Airport.search(params[:search]).page(params[:page]).per_page(2)
+     @airports = Airport.search(params[:search]).page(params[:page]).per_page(10)
     respond_to do |format|
       format.html
       format.json
@@ -64,7 +64,7 @@ class AirportsController < ApplicationController
     end
 
     def get_all
-      @airports = Airport.search(params[:search]).page(params[:page]).per_page(2)
+      @airports = Airport.search(params[:search]).page(params[:page]).per_page(10)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

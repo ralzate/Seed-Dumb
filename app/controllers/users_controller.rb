@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :current_user?, only: [:edit, :update, :destroy]
   skip_before_filter :require_login, only: [:new, :create, :show]
+  layout 'inicio'
   # GET /users
   # GET /users.json
   def index
@@ -22,8 +23,6 @@ class UsersController < ApplicationController
   def edit
   end
 
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
 
@@ -40,6 +39,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json

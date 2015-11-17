@@ -1,4 +1,14 @@
-<%= javascript_include_tag "date" %>
+
+
+
+
+
+ <div class="col-md-12" style = "margin:25px!important">
+
+                <%= link_to "Listado de Pacientes",  root_path, :class => "btn btn-info color_blanco  pull-left" %>
+</div>
+
+
 
 
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
@@ -12,24 +22,30 @@
         
 
 <style type="text/css">
-  .panel > .panel-heading {
-    background-image: none !important;
-    background-color: #20b4bf !important;
-    color: white !important;
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+.panel-heading {
+    background-image: none;
+    background-color: #ECECEC;
+    color: #5bc0de;
+    font-family: 'Roboto', sans-serif;
 }
 
   .panel-title{
-    font-size: 25px;   
+    font-size: 30px;   
   }
   .pie_form{
     background-image: none;
-    background-color: #20b4bf;
+    background-color: #ECECEC;
     color: white;   
   }
-
+  .line1
+  {
+    display: inline-block;
+    width: 30% !important;
+  }
 
 </style>
-
 
 
 
@@ -39,19 +55,21 @@
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
-<div class="panel panel-default" >
+
 
 <div class="panel-heading">
-    <div class="panel-title text-center"> Paso 1 Historia Clinica <span class="glyphicon glyphicon-user"></span></div>
+    <div class="panel-title">  <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 1</div>
 </div>   
 
 
 
-<div class="container-fluid">
+<div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
   <%= simple_form_for([@patient, @clinic_history], :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
 
 <br/>
+
+
 
             <div class="row">
 

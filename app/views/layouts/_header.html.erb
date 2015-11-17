@@ -320,23 +320,19 @@ small.text-muted {
                       
 
 
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Bienvenido <%= truncate(current_user.first_name, :length => 12)
- %>
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
 
-      <li><a href="#"><%= link_to 'Actualizar mi información', current_user %></a></li>
-      <li><a href="#"><%= link_to 'Cerrar Sesión', logout_path, method: :delete %></a></li>
-
-  </ul>
-</div>
 
 
 
 
                     </li>
                         <% end %>
+
+                    <li  class="active">
+                            <i class="glyphicon glyphicon-user"> </i>
+                                                <%= current_user.email %>
+
+                    </li>
 
                     <li>
                         <%= link_to root_path, :class => "ember-view color_blanco" do %>
@@ -394,12 +390,14 @@ small.text-muted {
 
                     <% if current_user %>
 
-                    <li  class="active">
-                            <i class="glyphicon glyphicon-user"> </i>
-                                                Bienvenido <%= current_user.email %>
-
-                    </li>
                         <% end %>
+
+
+                    <li>
+                        <%= link_to root_path, :class => "ember-view color_blanco" do %>
+                            <i class="glyphicon glyphicon-home"></i>
+                        <% end %>
+                    </li>
 
 
                     <li >
@@ -444,6 +442,17 @@ small.text-muted {
 
 
                 </ul>
+                <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Bienvenido <%= truncate(current_user.first_name, :length => 12)
+ %>
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+
+      <li><a href="#"><%= link_to 'Actualizar mi información', current_user %></a></li>
+      <li><a href="#"><%= link_to 'Cerrar Sesión', logout_path, method: :delete %></a></li>
+
+  </ul>
+</div>
               
             </div>
             <!-- /sidebar -->

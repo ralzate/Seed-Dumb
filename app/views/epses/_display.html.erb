@@ -12,10 +12,10 @@
   
 
 <tr>
-      <th  colspan="5">
+      <th  colspan="6">
         
-                            <%= form_tag request.path, :method => 'get', :class => '' do %>
-
+              <%= form_tag request.path, :method => 'get' do %>
+  
 <div>
   <div class="row">
 
@@ -26,7 +26,7 @@
               <span class="input-group-btn">
 
 
-<%= button_tag(type: "submit", class: "btn principal") do %>
+<%= button_tag(type: "submit", class: "btn principal nn") do %>
               <span class="glyphicon glyphicon-search"></span>
                           <% end %>
 
@@ -47,22 +47,28 @@
   <tr class="header">
     <th>Eps #</th>
     <th>Nombre</th>
-    <th>Fecha de Creación</th>
+    <th>Fecha</th>
     <th>Opciones</th>
   </tr>
+  
   
 <% @epses.each do |eps| %>
 
   <tr>
 
     <td><%= eps.id %></td>
-    <td> <%= best_in_place eps, :name, :ok_button => "Guardar", :ok_button_class => "btn btn-success", :cancel_button => 'Cerrar', :cancel_button_class => "btn btn-primary"  %></td>
+    <td><%= best_in_place eps, :name, :ok_button => "Guardar", :ok_button_class => "btn btn-success", :cancel_button => 'Cerrar', :cancel_button_class => "btn btn-primary"  %></td>
+    <td><%= eps.city.name %></td>
     <td><%= eps.created_at.strftime('%b %d. %Y') %></td>
-    <td>
 
+<td>
 
-    <%= link_to 'Editar', edit_eps_path(eps),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>
+    <%= link_to 'Editar', edit_airport_path(eps),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>
     <%= link_to 'Eliminar', eps, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-xs color_blanco ' %>
+
+
+
+
 
 
 

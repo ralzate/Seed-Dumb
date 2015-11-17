@@ -9,35 +9,10 @@
 
 </head>
 <body>
-  <div>
-
-
- <% if current_user? %>
-
-    <%= render 'layouts/header' %>
-
+ 
    
-    <div>
-     
 
       <%= yield %>
-    </div>
-  </div>
-
-    <% if logged_in? %>
-    <%= render 'shared/current_users' %>
-    <% end %>
-
-<% if  current_user %>
-
-<%= render 'layouts/footer' %>
-
-<% end %>
-
-<% else%>
-  <%= yield %>
-
-<% end %>
-
+    
 </body>
 </html>
