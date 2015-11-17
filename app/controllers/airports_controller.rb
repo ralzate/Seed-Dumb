@@ -31,6 +31,7 @@ class AirportsController < ApplicationController
   # POST /epss.json
   def create
     @airport = Airport.create(airport_params)
+
   end
 
   # PATCH/PUT /epss/

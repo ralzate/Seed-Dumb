@@ -53,7 +53,7 @@ class ClinicHistory::StepsController < ApplicationController
           :mental_description, :neurological, :neurological_description, :alteration, :eye_opening, :verbal_answer, 
           :motor_response, :other_signs] 
 
-       when "e_info_adicional"
+       when "e_impresion_diagnostica"
           [:analysis, :print_diagnosed, :plan_and_treatment, :observations_recommendations]
 
        end
