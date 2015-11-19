@@ -1,18 +1,24 @@
+ <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+
+    <%= link_to "1. Informacion General", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "2. Antesedentes Personales", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "3. Revisión por Sistemas", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
 
 
 
 
+    <a class="btn btn-info color_blanco mrg disabled">4. Examen Fisico</a>
 
- <div class="col-md-12" style = "margin:25px!important">
+    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
 
-                <%= link_to "Listado de Pacientes",  root_path, :class => "btn btn-info color_blanco  pull-left" %>
+
 </div>
 
 
 
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
 <div class="container-fluid">    
         
@@ -52,601 +58,278 @@
 
 
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-
-
-
-<div class="panel-heading">
-    <div class="panel-title">  <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 4</div>
-</div>   
-
-
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
 <%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
 
-<br/>
 
 
 
 
 
 
+<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 4 Examen Fisico</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
 
 
-
-
-
-
-
-
-
-<!-- Start Checkbox -->
-      
-  
-
-
-<style type="text/css">
-
-/*Radio and Checkbox START*/
-.checkbox label:after, 
-.radio label:after {
-    content: '';
-    display: table;
-    clear: both;
-}
-
-.checkbox .cr,
-.radio .cr {
-    position: relative;
-    display: inline-block;
-    border: 1px solid #a9a9a9;
-    border-radius: .25em;
-    width: 1.3em;
-    height: 1.3em;
-    float: left;
-    margin-right: .5em;
-}
 
-.radio .cr {
-    border-radius: 50%;
-}
 
-.checkbox .cr .cr-icon,
-.radio .cr .cr-icon {
-    position: absolute;
-    font-size: .8em;
-    line-height: 0;
-    top: 50%;
-    left: 20%;
-}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-3">
+              <label>TA mm/HG:</label> 
+              <%= f.input :ta_mmgh, :input_html => { :class => 'form-control fs1' }, label: false %>
 
-.checkbox label input[type="checkbox"],
-.radio label input[type="radio"] {
-    display: none;
-}
+          </div>
+          <div class="col-md-3">
+              <label>Frecuencía Cardiaca:</label> 
+              <%= f.input :heart_rate, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
 
-.checkbox label input[type="checkbox"] + .cr > .cr-icon,
-.radio label input[type="radio"] + .cr > .cr-icon {
-    transform: scale(3) rotateZ(-20deg);
-    opacity: 0;
-    transition: all .3s ease-in;
-}
+          <div class="col-md-3">
+              <label>Frecuencía Respiratoria:</label> 
+              <%= f.input :breathing_frequency, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+          <div class="col-md-3">
+              <label>% SAT. de 02 Ambiente:</label> 
+              <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+        </div>
 
-.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
-.radio label input[type="radio"]:checked + .cr > .cr-icon {
-    transform: scale(1) rotateZ(0deg);
-    opacity: 1;
-}
 
-.checkbox label input[type="checkbox"]:disabled + .cr,
-.radio label input[type="radio"]:disabled + .cr {
-    opacity: .5;
-}
-/*Radio and Checkbox END*/
-</style>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.filterable .btn-filter').click(function(){
-        var $panel = $(this).parents('.filterable'),
-        $filters = $panel.find('.filters input'),
-        $tbody = $panel.find('.table tbody');
-        if ($filters.prop('disabled') == true) {
-            $filters.prop('disabled', false);
-            $filters.first().focus();
-        } else {
-            $filters.val('').prop('disabled', true);
-            $tbody.find('.no-result').remove();
-            $tbody.find('tr').show();
-        }
-    });
+        <br/>
+        <br/>        <br/>
+        <br/>
 
-    $('.filterable .filters input').keyup(function(e){
-        /* Ignore tab key */
-        var code = e.keyCode || e.which;
-        if (code == '9') return;
-        /* Useful DOM data and selectors */
-        var $input = $(this),
-        inputContent = $input.val().toLowerCase(),
-        $panel = $input.parents('.filterable'),
-        column = $panel.find('.filters th').index($input.parents('th')),
-        $table = $panel.find('.table'),
-        $rows = $table.find('tbody tr');
-        /* Dirtiest filter function ever ;) */
-        var $filteredRows = $rows.filter(function(){
-            var value = $(this).find('td').eq(column).text().toLowerCase();
-            return value.indexOf(inputContent) === -1;
-        });
-        /* Clean previous no-result if exist */
-        $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
-        $rows.show();
-        $filteredRows.hide();
-        /* Prepend no-result row if all rows are filtered */
-        if ($filteredRows.length === $rows.length) {
-            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
-        }
-    });
-});
-</script>
+        <div class="col-md-12">
+          <div class="col-md-3">
+              <label>% SAT. de O2 Suplement:</label> 
+              <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
 
-<!-- End Checkbox -->
+          </div>
+          <div class="col-md-3">
+              <label>Temperatura:</label> 
+              <%= f.input :temperature, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
 
+          <div class="col-md-3">
+              <label>Peso en Kilogramos:</label> 
+              <%= f.input :weight_in_kilograms, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+          <div class="col-md-3">
+              <label>Talla en Centimetros:</label> 
+              <%= f.input :height_in_centimeters, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+        </div>
 
 
-
-
-              <div class="row">
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">TA mm/HG </label>
-                  <label>
-                      <%= f.input :ta_mmgh, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Frecuencía Cardiaca </label>
-                  <label>
-                      <%= f.input :heart_rate, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div>
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Frecuencía Respiratoria </label>
-                  <label>
-                      <%= f.input :breathing_frequency, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div> 
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">% SAT. de 02 Ambiente </label>
-                  <label>
-                      <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div> 
-
-
-
-
-
-
-
-         </div>
-
-<br/>
-
-
-
-
-
-              <div class="row">
-
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">% SAT. de O2 Suplement </label>
-                  <label>
-                      <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Temperatura</label>
-                  <label>
-                      <%= f.input :temperature, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div>
-
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Peso en Kilogramos  </label>
-                  <label>
-                      <%= f.input :weight_in_kilograms, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div> 
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Talla en Centimetros  </label>
-                  <label>
-                      <%= f.input :height_in_centimeters, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div> 
-
-
-
-         </div>
-
-
-
-<br/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-              <div class="row">
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Cabeza</label>
-
-                  <div class="checkbox radio-margin">
-                  <label>
-                      <%= f.check_box :head, class: 'form-control fs1 chkPassport23 checkbox2', :name => "approve[]", 'data-required' => true %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport23" style="display: none">
-                    <label class="label ">Ampliar Info</label>
-
-                    <%= f.text_area :head_description, class: 'form-control' %>
-                                  </div>
-                                </div>
-
-
-
-
-
-
-
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Cuello</label>
-
-                  <div class="checkbox radio-margin">
-                  <label>
-      <%= f.check_box :neck, class: 'form-control fs1 chkPassport24', :name => "approve[]" %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport24" style="display: none">
-                    <label class="label ">Ampliar Info</label>
-
-    <%= f.text_area :neck_description, class: 'form-control' %>
-                                  </div>
-                                </div>
-
-
-
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Corazón</label>
-
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :heart, class: 'form-control fs1 chkPassport26', :name => "approve[]" %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                <div class="form-group" id="dvPassport26" style="display: none">
-                  <label class="label ">Ampliar Info</label>
-
-                  <%= f.text_area :heart_description, class: 'form-control' %>
-                </div>
-              </div>
-
-
+    </div>
 </div>
 
 
 
-        <div class="row">
 
-
-
-             <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Pulmones</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :lungs, class: 'form-control fs1 chkPassport27', :name => "approve[]" %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                <div class="form-group" id="dvPassport27" style="display: none">
-                  <label class="label ">Ampliar Info</label>
-                    <%= f.text_area :lungs_description, class: 'form-control' %>
-                </div>
-              </div>
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">abdomen</label>
-
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :abdomen, class: 'form-control fs1 chkPassport28', :name => "approve[]" %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                <div class="form-group" id="dvPassport28" style="display: none">
-                  <label class="label ">Ampliar Info</label>
-
-                  <%= f.text_area :abdomen_description, class: 'form-control' %>
-                </div>
-              </div>
-
-
-             <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">genitourinary</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :genitourinary, class: 'form-control fs1 chkPassport29', :name => "approve[]" %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                <div class="form-group" id="dvPassport29" style="display: none">
-                  <label class="label ">Ampliar Info</label>
-                    <%= f.text_area :genitourinary_description, class: 'form-control' %>
-                </div>
-              </div>
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">recto</label>
-
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :rectum, class: 'form-control fs1 chkPassport30', :name => "approve[]" %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                <div class="form-group" id="dvPassport30" style="display: none">
-                  <label class="label ">Ampliar Info</label>
-
-                  <%= f.text_area :rectum_description, class: 'form-control' %>
-                </div>
-              </div>
-
-
-             <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">genitourinary</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :extremities, class: 'form-control fs1 chkPassport32', :name => "approve[]" %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                <div class="form-group" id="dvPassport32" style="display: none">
-                  <label class="label ">Ampliar Info</label>
-                    <%= f.text_area :extremities_description, class: 'form-control' %>
-                </div>
-              </div>
-
-         </div>
-
-
-
-
-
-
-
-
-
-
-
-              <div class="row">
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Alteración </label>
-                  <label>
-                      <%= f.input :alteration, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">ojo abierto</label>
-                  <label>
-                      <%= f.input :eye_opening, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div>
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Respuesta Verbal</label>
-                  <label>
-                      <%= f.input :verbal_answer, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div> 
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Respuesta Motora </label>
-                  <label>
-                      <%= f.input :motor_response, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div> 
-
-
-
-         </div>
-
-
-
-
-
-
-
-
-              <div class="row">
-
-            <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Glucometria</label>
-                  <label>
-                      <%= f.input :glucose, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-3">
-                  <label class="label">Otros Signos </label>
-                  <label>
-                      <%= f.input :other_signs, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-                  </label>
-              </div>
-
-              
-
-
-         </div>
-
-
-
-
-
-
-
-
-
-
-
-<br/>
 <br/>
 
 
 
+<div class="container-fluid">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
+
+        <thead>
+          <tr >
+            <th  colspan="1">
+            </th>
 
 
-            <div class="row  well pie_form">
+
+            <th  colspan="1">
+               &nbsp;Seleccionar todos Si &nbsp;<input type="checkbox" id="checkAll"  />
+            </th>
+
+            <th  colspan="1">
+               &nbsp;Seleccionar todos No &nbsp;<input type="checkbox" id="checkAll2"  />
+            </th>
+            <th  colspan="1">
+            </th>
+
+          </tr>
+        </thead>
+        <thead>
+          <tr >
+            <th class="text-center" style="width:10%">
+              Nombre
+            </th>
+            <th class="text-center" style="width:10%">
+              Si
+            </th>
+            <th class="text-center" style="width:10%">
+              No
+            </th>
+            <th class="text-center" style="width:60%">
+              Ampliar Información
+            </th>
+          </tr>
+        </thead>
 
 
 
-        <div class="form-actions ">
-              
 
 
 
-              <div class="col-md-5 col-md-push-1">
 
 
-                  <%= link_to "Regresar al Paso 3", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-success color_blanco" %>
 
 
-              </div>
+        <tbody>
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Cuello
+            </td>
+            <td align="center">
+              <%= f.check_box :neck_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :neck_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :neck_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
 
 
-              <div class="col-md-5  col-md-push-2">
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Corazón
+            </td>
+            <td align="center">
+              <%= f.check_box :heart_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :heart_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :heart_description, class: 'form-control' %>
 
-                <button type="reset" class="btn btn-default ">Borrar</button>
+            </td>
+          </tr>
 
-          <button type="submit" class="btn btn-success">Siguiente Paso</button>
-
-              </div>
-
-
-        </div>
+          <tr id='addr1'></tr>
 
 
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Pulmones
+            </td>
+            <td align="center">
+              <%= f.check_box :lungs_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :lungs_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :lungs_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Abdomen
+            </td>
+            <td align="center">
+              <%= f.check_box :abdomen_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :abdomen_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :abdomen_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Genitourinario
+            </td>
+            <td align="center">
+              <%= f.check_box :genitourinary_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :genitourinary_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :genitourinary_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Recto
+            </td>
+            <td align="center">
+              <%= f.check_box :rectum_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :rectum_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :rectum_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Extremidades
+            </td>
+            <td align="center">
+              <%= f.check_box :extremities_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :extremities_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :extremities_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          
+
+
+
+
+
+        </tbody>
+      </table>
+    </div>
   </div>
 
 
@@ -656,10 +339,77 @@
 
 
 
+<div class="container-fluid">
+    <div class="row">
+
+
+        <div class="col-md-12">
+          <div class="col-md-3">
+              <label>Alteración:</label> 
+              <%= f.input :alteration, :input_html => { :class => 'form-control fs1' }, label: false %>
+
+          </div>
+          <div class="col-md-3">
+              <label>Ojo abierto:</label> 
+              <%= f.input :eye_opening, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+
+          <div class="col-md-3">
+              <label>Respuesta Verbal:</label> 
+              <%= f.input :verbal_answer, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+          <div class="col-md-3">
+              <label>Respuesta Motora:</label> 
+              <%= f.input :motor_response, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+        </div>
 
 
 
+        <br/>
+        <br/>        <br/>
+        <br/>
+
+
+        <div class="col-md-12">
+          <div class="col-md-3">
+              <label>Otros Signos :</label> 
+                      <%= f.input :other_signs, :input_html => { :class => 'form-control fs1' }, label: false %>
+
+          </div>
+
+    </div>
 </div>
+
+
+
+
+
+<br/>
+<br/>
+
+
+
+
+
+         <div class="well pie_form">
+
+                <div class="form-actions"  style = "text-align:center!important"> 
+                <%= link_to "Regresar", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-info color_blanco custom" %>
+                    
+                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px; ">Borrar</button>
+                        <%= f.submit "Siguiente", :class => 'btn btn btn-info  custom' %>
+                    
+                </div>
+              </div>
+
+
+  </div>
+</div>
+
+
+
+
             <% end %>
 
 
@@ -669,144 +419,32 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <script type="text/javascript">
-    $(function () {
-        $(".chkPassport").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport").show();
-            } else {
-                $("#dvPassport").hide();
-            }
-        });
-    });
-
-
-    $(function () {
-        $(".chkPassport2").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport2").show();
-            } else {
-                $("#dvPassport2").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport3").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport3").show();
-            } else {
-                $("#dvPassport3").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport4").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport4").show();
-            } else {
-                $("#dvPassport4").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport5").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport5").show();
-            } else {
-                $("#dvPassport5").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport6").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport6").show();
-            } else {
-                $("#dvPassport6").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport7").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport7").show();
-            } else {
-                $("#dvPassport7").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport8").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport8").show();
-            } else {
-                $("#dvPassport8").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport9").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport9").show();
-            } else {
-                $("#dvPassport9").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport10").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport10").show();
-            } else {
-                $("#dvPassport10").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport11").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport11").show();
-            } else {
-                $("#dvPassport11").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport12").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport12").show();
-            } else {
-                $("#dvPassport12").hide();
-            }
-        });
-    });
 
 
 
 
-    $(function () {
-        $(".Embarazo").click(function () {
-            if ($(this).is(":checked")) {
-                $("#MostrarEmbarazo").show();
-                $("#MostrarEmbarazo2").show();
-                $("#MostrarEmbarazo3").show();
-                $("#MostrarEmbarazo4").show();
-                $("#MostrarEmbarazo5").show();
-                $("#MostrarEmbarazo6").show();
-                $("#MostrarEmbarazo7").show();
-                $("#MostrarEmbarazo8").show();
-            } else {
-                $("#MostrarEmbarazo").hide();
-                $("#MostrarEmbarazo2").hide();
-                $("#MostrarEmbarazo3").hide();
-                $("#MostrarEmbarazo4").hide();
-                $("#MostrarEmbarazo5").hide();
-                $("#MostrarEmbarazo6").hide();
-                $("#MostrarEmbarazo7").hide();
-                $("#MostrarEmbarazo8").hide();
-            }
-        });
-    });
+$('#checkAll').click(function () {    
+    $(':checkbox.checkItem').prop('checked', this.checked);    
+    $(':checkbox.checkItem2').prop('checked', false);    
+    $( "#checkAll2" ).prop( "checked", false );
+
+ });
+$('#checkAll2').click(function () {    
+    $(':checkbox.checkItem2').prop('checked', this.checked);    
+    $(':checkbox.checkItem').prop('checked', false);    
+    $( "#checkAll" ).prop( "checked", false );
+
+ });
 
 
 

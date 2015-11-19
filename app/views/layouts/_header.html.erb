@@ -3,10 +3,20 @@
         
         <style type="text/css">
             /* custom template */
+            @import url(https://fonts.googleapis.com/css?family=Raleway);
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 html, body {
    height: 100%;
-   font-family:verdana,arial,sans-serif;
+   font-family: 'Open Sans', sans-serif;
    color:#555555;
+}
+.fs
+{
+
+  font-size: 16px!important;
+   font-family: 'Raleway', sans-serif;
+   display: inline-block;
+  
 }
 
 .nav {
@@ -289,6 +299,7 @@ small.text-muted {
   #sidebar, #sidebar a, #sidebar-footer a {
     padding-left:3px;
   }
+
 }
         </style>
     </head>
@@ -311,58 +322,49 @@ small.text-muted {
                                    <% if current_user %>
 
                 <ul class="nav hidden-xs" id="lg-menu">
+</li>
 
-                    <% if current_user %>
-
-                    <li  class="active">
-
-
-                      
-
-
-
-
-
-
-
-                    </li>
-                        <% end %>
-
-                    <li  class="active">
-                            <i class="glyphicon glyphicon-user"> </i>
-                                                <%= current_user.email %>
-
+                    <li><span class = "glyphicon glyphicon-user">
+                        <%= link_to "Inicio", root_path, :class => "color_blanco fs" %>
+                          
                     </li>
 
-                    <li>
-                        <%= link_to root_path, :class => "ember-view color_blanco" do %>
-                            <i class="glyphicon glyphicon-home"> Inicio</i>
-                        <% end %>
+                    <li><span class = "glyphicon glyphicon-stats">
+                        <%= link_to "Epses", epses_path, :class => "color_blanco fs" %>
+                          
+                    </li>
+
+                    <li><span class = "glyphicon glyphicon-signal">
+                        <%= link_to "Arles", arles_path, :class => "color_blanco fs" %>
+                          
+                    </li>
+
+                    <li><span class = "glyphicon glyphicon-stats">
+                        <%= link_to "Aeropuertos", airports_path, :class => "color_blanco fs" %>
+                          
+                    </li>
+
+                    <li><span class = "glyphicon glyphicon-signal">
+                        <%= link_to "Ciudades", cities_path, :class => "ember-view color_blanco fs" %>
+                           
+                    </li>
+
+                    <li><span class = "glyphicon glyphicon-plane">
+                        <%= link_to "Usuarios", users_path, :class => "ember-view color_blanco fs"%>
+                   
+                    </li>
+
+                    <li><span class = "glyphicon glyphicon-user">
+                        <%= link_to "Roles", roles_path, :class => "ember-view color_blanco fs"  %>
+                           
+                        <br>
                     </li>
 
 
-                    <li>
-                        <%= link_to airports_path, :class => "ember-view color_blanco" do %>
-                            <i class="glyphicon glyphicon-plane"> Aeropuertos</i>
-                        <% end %>
-                    </li>
 
-                    <li>
-                        <%= link_to cities_path, :class => "ember-view color_blanco" do %>
-                            <i class="glyphicon glyphicon-road"> Ciudades</i>
-                        <% end %>
-                    </li>
-
-                    <li>
-                        <%= link_to users_path, :class => "ember-view color_blanco" do %>
-                            <i class="glyphicon glyphicon-user"> Usuarios</i>
-                        <% end %>
-                    </li>
-
-                    <li>
-                        <%= link_to roles_path, :class => "ember-view color_blanco" do %>
-                            <i class="glyphicon glyphicon-user"> Roles</i>
-                        <% end %>
+                    <li><span class = "glyphicon glyphicon-user">
+                        <%= link_to "Pacientes", patients_path, :class => "ember-view color_blanco fs"  %>
+                           
                         <br>
                     </li>
 
@@ -425,12 +427,17 @@ small.text-muted {
                         <% end %>
                         <br>
                     </li>
-
+                    <li><span class = "glyphicon glyphicon-user">
+                        <%= link_to "Pacientes", patients_path, :class => "ember-view color_blanco fs"  %>
+                           
+                        <br>
+                    </li>
 
 
 
 
                 </ul>
+                <br>
                 <div class="dropdown">
   <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Bienvenido <%= truncate(current_user.first_name, :length => 12)
  %>

@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { login(params[:user][:email], params[:user][:password])
                       flash[:success] = "Registration successful. Please check your email for activation."
-                      redirect_back_or_to @user  }
+                      redirect_to root_path  }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { flash[:danger] = "Registration failed. Please check the data you introduced."

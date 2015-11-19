@@ -164,4 +164,5 @@ class ClinicHistory < ActiveRecord::Base
 
   end
 
+
 end

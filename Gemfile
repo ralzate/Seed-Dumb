@@ -67,9 +67,10 @@ gem 'bootstrap_form'
 gem 'has_scope'
 gem 'random_data'
 gem 'filterrific'
-gem 'bootstrap-datepicker-rails'
 gem 'chardinjs-rails'
 gem 'wicked'
+gem "default_value_for", "~> 3.0.0"
+
 
 gem 'switchery-rails', '0.1.0'
 gem 'jasny_bootstrap_extension_rails'

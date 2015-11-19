@@ -1,18 +1,23 @@
+ <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+
+    <%= link_to "1. Informacion General", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+
+
+    <a class="btn btn-info color_blanco mrg disabled">2. Antesedentes Personales</a>
+
+    <a class="btn btn-info color_blanco mrg disabled">3. Revisión por Sistemas</a>
+
+    <a class="btn btn-info color_blanco mrg disabled">4. Examen Fisico</a>
+
+    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
 
 
 
 
-
- <div class="col-md-12" style = "margin:25px!important">
-
-                <%= link_to "Listado de Pacientes",  root_path, :class => "btn btn-info color_blanco  pull-left" %>
 </div>
 
 
 
-
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
 <div class="container-fluid">    
         
@@ -49,25 +54,256 @@
 
 
 
-
-
-
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-
-
-
-<div class="panel-heading">
-    <div class="panel-title">  <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 2</div>
-</div>   
-
-
-
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
 <%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
 
-<br/>
+
+
+
+<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 2 Antecedentes Personales</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+<div class="container-fluid">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
+
+        <thead>
+          <tr >
+            <th  colspan="1">
+            </th>
+
+
+
+            <th  colspan="1">
+               &nbsp;Seleccionar todos Si &nbsp;<input type="checkbox" id="checkAll"  />
+            </th>
+
+            <th  colspan="1">
+               &nbsp;Seleccionar todos No &nbsp;<input type="checkbox" id="checkAll2"  />
+            </th>
+            <th  colspan="1">
+            </th>
+
+          </tr>
+        </thead>
+        <thead>
+          <tr >
+            <th class="text-center" style="width:10%">
+              Nombre
+            </th>
+            <th class="text-center" style="width:10%">
+              Si
+            </th>
+            <th class="text-center" style="width:10%">
+              No
+            </th>
+            <th class="text-center" style="width:60%">
+              Ampliar Información
+            </th>
+          </tr>
+        </thead>
+
+
+
+        <tbody>
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Neonatales
+            </td>
+            <td align="center">
+              <%= f.check_box :neunatales_true, :name => "approve[]", class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :neunatales_false, :name => "approve[]", class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+              <%= f.text_field :neunatales_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Patológicos
+            </td>
+            <td align="center">
+              <%= f.check_box :patologicos_true,  :name => "approve[]", class: 'checkItem myCheckbox2' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :patologicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox2' %>
+            </td>
+            <td>
+              <%= f.text_field :patologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+          <tr id='addr0'  class="selectme">
+            <td align="center">
+            Quirúrgicos
+            </td>
+            <td align="center">
+              <%= f.check_box :quirurgicos_true, :name => "approve[]", class: 'checkItem myCheckbox3' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :quirurgicos_false,  :name => "approve[]", class: 'checkItem2 myCheckbox3' %>
+            </td>
+            <td>
+              <%= f.text_field :quirurgicos_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+          <tr id='addr0' class="selectme">
+            <td align="center"  >
+            Farmacologicos
+            </td>
+            <td align="center">
+              <%= f.check_box :farmacologicos_true, :name => "approve[]", class: 'checkItem myCheckbox4' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :farmacologicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox4' %>
+            </td>
+            <td>
+              <%= f.text_field :farmacologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+          <tr id='addr0' class="selectme">
+            <td align="center" >
+            Alergicos
+            </td>
+            <td align="center">
+              <%= f.check_box :alergicos_true, :name => "approve[]", class: 'checkItem myCheckbox5' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :alergicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox5' %>
+            </td>
+            <td>
+              <%= f.text_field :alergicos_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+          <tr id='addr0'  class="selectme">
+            <td align="center">
+            Tóxicos
+            </td>
+            <td align="center">
+              <%= f.check_box :toxicos_true, :name => "approve[]", class: 'checkItem myCheckbox6' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :toxicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox6' %>
+            </td>
+            <td>
+              <%= f.text_field :toxicos_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Traumaticos
+            </td>
+            <td align="center">
+              <%= f.check_box :traumaticos_true, :name => "approve[]", class: 'checkItem myCheckbox7' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :traumaticos_false, :name => "approve[]", class: 'checkItem2 myCheckbox7' %>
+            </td>
+            <td>
+              <%= f.text_field :traumaticos_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0'  class="selectme">
+            <td align="center">
+            Hospitalarios
+            </td>
+            <td align="center">
+              <%= f.check_box :hospitables_true, :name => "approve[]", class: 'checkItem myCheckbox8' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :hospitables_false, :name => "approve[]", class: 'checkItem2 myCheckbox8' %>
+            </td>
+            <td>
+              <%= f.text_field :hospitables_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0'  class="selectme">
+            <td align="center">
+            (ATEP) Laboral
+            </td>
+            <td align="center">
+              <%= f.check_box :atep_laboral_true, :name => "approve[]", class: 'checkItem myCheckbox9' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :atep_laboral_false, :name => "approve[]", class: 'checkItem2 myCheckbox9' %>
+            </td>
+            <td>
+              <%= f.text_field :atep_laboral_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+
+
+          <tr id='addr0'  class="selectme">
+            <td align="center">
+            Familiar
+            </td>
+            <td align="center">
+              <%= f.check_box :familiar_true, :name => "approve[]", class: 'checkItem myCheckbox10' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :familiar_false, :name => "approve[]", class: 'checkItem2 myCheckbox10' %>
+            </td>
+            <td>
+              <%= f.text_field :familiar_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0'  class="selectme">
+            <td align="center">
+            Inmunológicos
+            </td>
+            <td align="center">
+              <%= f.check_box :inmunologicos_true, :name => "approve[]", class: 'checkItem myCheckbox11' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :inmunologicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox11' %>
+            </td>
+            <td>
+              <%= f.text_field :inmunologios_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
 
 
 
@@ -75,545 +311,137 @@
 
 
 
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Asociado a viajes de vuelo
+            </td>
+            <td align="center">
+              <%= f.check_box :asociado_viajes_de_vuelo_true, :name => "approve[]", class: 'checkItem myCheckbox myCheckbox12' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :asociado_viajes_de_vuelo_false, :name => "approve[]", class: 'checkItem2 myCheckbox myCheckbox12' %>
+            </td>
+            <td>
+              <%= f.text_field :asociado_viajes_de_vuelo_description, class: 'form-control', :id => "txtPassportNumber" %>
+
+            </td>
+          </tr>
+          <tr id='addr1'></tr>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 
 
 
 
 
-<!-- Start Checkbox -->
-      
-  
+
+<div class="container-fluid">
+    <div class=" clearfix">
+    <div class="row">
+      <div class="col-md-2">
+        <label class="control-label" for="firstname">Ciclo Menstrual</label>
+        <%= f.text_field :menstrual_cycle, class: 'form-control', placeholder: 'Ciclo Menstrual' %>
+
+      </div>
+      <div class="col-md-2">
+        <label class="control-label" for="lastname">Eco</label>
+        <%= f.text_field :eco, class: 'form-control', placeholder: 'Eco' %>
+
+      </div>
+      <div class="col-md-2">
+        <label class="control-label" for="firstname">FUM</label>
+        <%= f.text_field :fum, class: 'form-control', placeholder: 'Fum' %>
+      </div>
+
+      <div class="col-md-2">
+        <label class="control-label" for="firstname">Embarazo</label><br/>
+         <%= f.check_box :pregnancy_true, class: 'Embarazo', :name => "approve[]" %>
+
+      </div>
+      <div class="col-md-2" id="MostrarEmbarazo" style="display:none">
+        <label class="control-label" for="firstname">Edad Gestacional</label>
+        <%= f.text_field :gestational_age, class: 'form-control', :name => "approve[]", placeholder: 'Edad Gestacional' %>
+
+      </div>
 
 
-<style type="text/css">
+      <div class="col-md-2" id="MostrarEmbarazo2" style="display:none">
+        <label class="control-label" for="lastname">G</label>
+        <%= f.text_field :g, class: 'form-control', placeholder: 'G' %>
 
-/*Radio and Checkbox START*/
-.checkbox label:after, 
-.radio label:after {
-    content: '';
-    display: table;
-    clear: both;
-}
+      </div>
+    </div>
 
-.checkbox .cr,
-.radio .cr {
-    position: relative;
-    display: inline-block;
-    border: 1px solid #a9a9a9;
-    border-radius: .25em;
-    width: 1.3em;
-    height: 1.3em;
-    float: left;
-    margin-right: .5em;
-}
-
-.radio .cr {
-    border-radius: 50%;
-}
-
-.checkbox .cr .cr-icon,
-.radio .cr .cr-icon {
-    position: absolute;
-    font-size: .8em;
-    line-height: 0;
-    top: 50%;
-    left: 20%;
-}
-
-.checkbox label input[type="checkbox"],
-.radio label input[type="radio"] {
-    display: none;
-}
-
-.checkbox label input[type="checkbox"] + .cr > .cr-icon,
-.radio label input[type="radio"] + .cr > .cr-icon {
-    transform: scale(3) rotateZ(-20deg);
-    opacity: 0;
-    transition: all .3s ease-in;
-}
-
-.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
-.radio label input[type="radio"]:checked + .cr > .cr-icon {
-    transform: scale(1) rotateZ(0deg);
-    opacity: 1;
-}
-
-.checkbox label input[type="checkbox"]:disabled + .cr,
-.radio label input[type="radio"]:disabled + .cr {
-    opacity: .5;
-}
-/*Radio and Checkbox END*/
-</style>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.filterable .btn-filter').click(function(){
-        var $panel = $(this).parents('.filterable'),
-        $filters = $panel.find('.filters input'),
-        $tbody = $panel.find('.table tbody');
-        if ($filters.prop('disabled') == true) {
-            $filters.prop('disabled', false);
-            $filters.first().focus();
-        } else {
-            $filters.val('').prop('disabled', true);
-            $tbody.find('.no-result').remove();
-            $tbody.find('tr').show();
-        }
-    });
-
-    $('.filterable .filters input').keyup(function(e){
-        /* Ignore tab key */
-        var code = e.keyCode || e.which;
-        if (code == '9') return;
-        /* Useful DOM data and selectors */
-        var $input = $(this),
-        inputContent = $input.val().toLowerCase(),
-        $panel = $input.parents('.filterable'),
-        column = $panel.find('.filters th').index($input.parents('th')),
-        $table = $panel.find('.table'),
-        $rows = $table.find('tbody tr');
-        /* Dirtiest filter function ever ;) */
-        var $filteredRows = $rows.filter(function(){
-            var value = $(this).find('td').eq(column).text().toLowerCase();
-            return value.indexOf(inputContent) === -1;
-        });
-        /* Clean previous no-result if exist */
-        $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
-        $rows.show();
-        $filteredRows.hide();
-        /* Prepend no-result row if all rows are filtered */
-        if ($filteredRows.length === $rows.length) {
-            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
-        }
-    });
-});
-</script>
-
-<!-- End Checkbox -->
+  </div>
+</div>
 
 
 
-<script type="text/javascript">
-    $(function () {
-        $(".allchk").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport").show();
-                $("#dvPassport2").show();
-                $("#dvPassport3").show();
-                $("#dvPassport4").show();
-                $("#dvPassport5").show();
-                $("#dvPassport6").show();
-                $("#dvPassport7").show();
-                $("#dvPassport8").show();
-                $("#dvPassport9").show();
-                $("#dvPassport10").show();
-                $("#dvPassport11").show();
-                $("#dvPassport12").show();
-            } else {
-                $("#dvPassport").hide();
-                $("#dvPassport2").hide();
-                $("#dvPassport3").hide();
-                $("#dvPassport4").hide();
-                $("#dvPassport5").hide();
-                $("#dvPassport6").hide();
-                $("#dvPassport7").hide();
-                $("#dvPassport8").hide();
-                $("#dvPassport9").hide();
-                $("#dvPassport10").hide();
-                $("#dvPassport11").hide();
-                $("#dvPassport12").hide();
-
-            }
-        });
-    });
 
 
-</script>
+<div class="container-fluid">
+    <div class=" clearfix">
+    <div class="row">
+
+      <div class="col-md-2" id="MostrarEmbarazo3" style="display:none">
+        <label class="control-label" for="firstname">P</label>
+        <%= f.text_field :p, class: 'form-control', placeholder: 'P' %>
+      </div>
+
+      <div class="col-md-2" id="MostrarEmbarazo4" style="display:none">
+        <label class="control-label" for="firstname">C</label><br/>
+          <%= f.text_field :c, class: 'form-control', placeholder: 'C' %>
+
+      </div>
 
 
+      <div class="col-md-2" id="MostrarEmbarazo5" style="display:none">
+        <label class="control-label" for="firstname">A</label>
+          <%= f.text_field :a, class: 'form-control', placeholder: 'A' %>
+
+      </div>
+      <div class="col-md-2" id="MostrarEmbarazo6" style="display:none">
+        <label class="control-label" for="lastname">M</label>
+          <%= f.text_field :m, class: 'form-control', placeholder: 'M' %>
+
+      </div>
+      <div class="col-md-2" id="MostrarEmbarazo7" style="display:none">
+        <label class="control-label" for="firstname">V</label>
+          <%= f.text_field :v, class: 'form-control', placeholder: 'V' %>
+      </div>
+
+      <div class="col-md-2" id="MostrarEmbarazo8" style="display:none">
+        <label class="control-label" for="firstname">E</label><br/>
+          <%= f.text_field :e, class: 'form-control', placeholder: 'E' %>
+
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+</div>
 
 
    
 
-              <div class="row">
 
-                      <div class="col-xs-3 col-sm-6 col-md-2">
 
-                        <label class="label">    
 
-                        Seleccionar todos</label>
 
-                        <div class="checkbox radio-margin">
-                        <label>
-                          <input type="checkbox" id="selecctall" class="fs1 allchk" />
-                          <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        </label>
-                      </div>
-                    </div>
 
-              </div>
 
 
 
 
-              <div class="row">
 
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Neunatales</label>
-
-                  <div class="checkbox radio-margin">
-                  <label>
-                     <%= f.check_box :neunatales, class: 'form-control checkbox1 fs1 chkPassport option-input ', :name => "approve[]", 'data-required' => true %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport"  style="display: none">
-                    <label class="label ">Ampliar Información</label>
-
-                    <%= f.text_area :neunatales_description, class: 'form-control', :id => "txtPassportNumber" %>
-                  </div>
-                </div>
-
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Patologicos</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                      <%= f.check_box :patologicos, class: 'form-control checkbox1 fs1 chkPassport2', :name => "approve[]", 'data-required' => true %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport2"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                    <%= f.text_area :patologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
-                  </div>
-                </div>            
-
-   
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Quirúrgicos</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                     <%= f.check_box :quirurgicos, class: 'form-control checkbox1 fs1 chkPassport3', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                  <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport3"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                    <%= f.text_area :quirurgicos_description, class: 'form-control', :id => "txtPassportNumber" %>
-                  </div>
-                </div> 
-
-         </div>
-
-
-
-          <div class="row">
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-
-                  <label class="label">Farmacologicos</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                      <%= f.check_box :farmacologicos, class: 'form-control checkbox1 fs1 chkPassport4', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport4"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                      <%= f.text_area :farmacologicos_description, class: 'form-control '  %>
-                  </div>
-                </div>            
-         
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Alergicos</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :alergicos, class: 'form-control checkbox1 fs1 chkPassport5', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport5"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                    <%= f.text_area :alergicos_description, class: 'form-control'  %>
-                  </div>
-                </div>
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Tóxicos</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                     <%= f.check_box :toxicos, class: 'form-control checkbox1 fs1 chkPassport6', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport6"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                      <%= f.text_area :toxicos_description, class: 'form-control'  %>
-                  </div>
-                </div>            
-         
-
-          </div>
-
-
-
-
-          <div class="row">
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Traumaticos</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :traumaticos, class: 'form-control checkbox1 fs1 chkPassport7', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport7"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                      <%= f.text_area :traumaticos_description, class: 'form-control '  %>
-                  </div>
-                </div>            
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Hospitalarios</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                              <%= f.check_box :hospitables, class: 'form-control checkbox1 fs1 chkPassport8', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport8"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                            <%= f.text_area :hospitables_description, class: 'form-control' %>
-                  </div>
-                </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label"> (ATEP) Laboral</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                            <%= f.check_box :atep_laboral, class: 'form-control checkbox1 fs1 chkPassport9', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport9"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                          <%= f.text_area :atep_laboral_description, class: 'form-control' %>
-                  </div>
-                </div>            
-         
-
-          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div class="row">
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Familiar</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :familiar, class: 'form-control checkbox1 fs1 chkPassport10', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport10"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                        <%= f.text_area :familiar_description, class: 'form-control' %>
-                  </div>
-                </div>            
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Inmunológicos</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                        <%= f.check_box :inmunologicos, class: 'form-control checkbox1 fs1 chkPassport11', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport11"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                      <%= f.text_area :inmunologios_description, class: 'form-control' %>
-                  </div>
-                </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label"> Asociado a viajes</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                      <%= f.check_box :asociado_viajes_de_vuelo, class: 'form-control checkbox1 fs1 chkPassport12', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport12"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                    <%= f.text_area :asociado_viajes_de_vuelo_description, class: 'form-control' %>
-                  </div>
-                </div>            
-         
-
-          </div>
-
-
-
-              <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-2">
-                  <label class="control-label">Ciclo Menstrual</label>
-                  <%= f.text_field :menstrual_cycle, class: 'form-control', placeholder: 'Ciclo Menstrual' %>
-                </div>
-
-
-
-
-
-                <div class="col-xs-4 col-sm-4 col-md-2">
-                  <label class="control-label">Eco</label>
-                  <%= f.text_field :eco, class: 'form-control', placeholder: 'Eco' %>
-                </div>
-
-
-
-                <div class="col-xs-4 col-sm-4 col-md-2">
-                  <label class="control-label">FUM</label>
-                  <%= f.text_field :fum, class: 'form-control', placeholder: 'Fum' %>
-                </div>
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label"> Embarazo</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                  <%= f.check_box :pregnancy, class: 'form-control  fs1 Embarazo', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-
-
-
-
-                <div class="col-xs-4 col-sm-4 col-md-2" id="MostrarEmbarazo" style="display:none">
-                  <label class="control-label">Edad Gest</label>
-                  <%= f.text_field :gestational_age, class: 'form-control', :name => "approve[]", placeholder: 'Edad Gestacional' %>
-                </div>
-
-                <div class="col-xs-4 col-sm-4 col-md-2" id="MostrarEmbarazo2" style="display:none">
-                  <label class="control-label">G</label>
-                  <%= f.text_field :g, class: 'form-control' %>
-                </div>
-              </div>
-
-
-              <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-2" id="MostrarEmbarazo3" style="display:none">
-                  <label class="control-label">P </label>
-                  <%= f.text_field :p , class: 'form-control', placeholder: 'p' %>
-                </div>
-
-                <div class="col-xs-4 col-sm-4 col-md-2" id="MostrarEmbarazo4" style="display:none"> 
-                  <label class="control-label">C</label>
-                  <%= f.text_field :c, class: 'form-control', placeholder: 'c' %>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-2" id="MostrarEmbarazo5" style="display:none">
-                  <label class="control-label">A</label>
-                  <%= f.text_field :a, class: 'form-control', placeholder: 'a' %>
-                </div>                
-
-                <div class="col-xs-4 col-sm-4 col-md-2" id="MostrarEmbarazo6" style="display:none">
-                  <label class="control-label">M</label>
-                  <%= f.text_field :m, class: 'form-control', placeholder: 'm' %>
-                </div>
-
-                <div class="col-xs-4 col-sm-4 col-md-2" id="MostrarEmbarazo7" style="display:none">
-                  <label class="control-label">V</label>
-                  <%= f.text_field :v, class: 'form-control', placeholder: 'a' %>
-                </div>
-
-                <div class="col-xs-4 col-sm-4 col-md-2" id="MostrarEmbarazo8" style="display:none">
-                  <label class="control-label">E</label>
-                  <%= f.text_field :e, class: 'form-control', placeholder: 'm' %>
-                </div>
-              </div>
 
 
 
@@ -630,36 +458,24 @@
 
 
 
-            <div class="row  well pie_form">
+         <div class="well pie_form">
 
-
-
-        <div class="form-actions ">
-              
-
-              <div class="col-md-5 col-md-push-1">
-
-
-                <%= link_to "Regresar al Paso 1", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-success color_blanco" %>
-
-
+                <div class="form-actions"  style = "text-align:center!important"> 
+                <%= link_to "Regresar", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-info color_blanco custom" %>
+                    
+                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px;">Borrar</button>
+                        <%= f.submit "Siguiente", :class => 'btn btn btn-info  custom' %>
+                    
+                </div>
               </div>
-
-
-              <div class="col-md-5 col-md-push-2">
-
-                <button type="reset" class="btn btn-default ">Borrar</button>
-
-          <button type="submit" class="btn btn-success">Siguiente Paso</button>
-
-              </div>
-
-
-        </div>
 
 
   </div>
 </div>
+
+
+
+
             <% end %>
 
 
@@ -669,117 +485,32 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <script type="text/javascript">
-    $(function () {
-        $(".chkPassport").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport").show();
-            } else {
-                $("#dvPassport").hide();
-            }
-        });
-    });
 
 
-    $(function () {
-        $(".chkPassport2").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport2").show();
-            } else {
-                $("#dvPassport2").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport3").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport3").show();
-            } else {
-                $("#dvPassport3").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport4").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport4").show();
-            } else {
-                $("#dvPassport4").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport5").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport5").show();
-            } else {
-                $("#dvPassport5").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport6").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport6").show();
-            } else {
-                $("#dvPassport6").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport7").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport7").show();
-            } else {
-                $("#dvPassport7").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport8").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport8").show();
-            } else {
-                $("#dvPassport8").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport9").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport9").show();
-            } else {
-                $("#dvPassport9").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport10").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport10").show();
-            } else {
-                $("#dvPassport10").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport11").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport11").show();
-            } else {
-                $("#dvPassport11").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport12").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport12").show();
-            } else {
-                $("#dvPassport12").hide();
-            }
-        });
-    });
+
+
+$('#checkAll').click(function () {    
+    $(':checkbox.checkItem').prop('checked', this.checked);    
+    $(':checkbox.checkItem2').prop('checked', false);    
+    $( "#checkAll2" ).prop( "checked", false );
+
+ });
+$('#checkAll2').click(function () {    
+    $(':checkbox.checkItem2').prop('checked', this.checked);    
+    $(':checkbox.checkItem').prop('checked', false);    
+    $( "#checkAll" ).prop( "checked", false );
+
+ });
 
 
 
@@ -807,6 +538,7 @@
             }
         });
     });
+
 
 
 

@@ -1,18 +1,23 @@
+ <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+
+    <%= link_to "1. Informacion General", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "2. Antesedentes Personales", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
+
+
+    <a class="btn btn-info color_blanco mrg disabled">3. Revisión por Sistemas</a>
+
+    <a class="btn btn-info color_blanco mrg disabled">4. Examen Fisico</a>
+
+    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
 
 
 
-
-
- <div class="col-md-12" style = "margin:25px!important">
-
-                <%= link_to "Listado de Pacientes",  root_path, :class => "btn btn-info color_blanco  pull-left" %>
 </div>
 
 
 
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
 <div class="container-fluid">    
         
@@ -52,22 +57,65 @@
 
 
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-
-
-
-<div class="panel-heading">
-    <div class="panel-title">  <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 3</div>
-</div>   
-
-
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
 <%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
 
-<br/>
+
+
+
+
+
+
+<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 3 Revisión por Sistemas</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+
+<div class="container-fluid">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
+
+        <thead>
+          <tr >
+            <th  colspan="1">
+            </th>
+
+
+
+            <th  colspan="1">
+               &nbsp;Seleccionar todos Si &nbsp;<input type="checkbox" id="checkAll"  />
+            </th>
+
+            <th  colspan="1">
+               &nbsp;Seleccionar todos No &nbsp;<input type="checkbox" id="checkAll2"  />
+            </th>
+            <th  colspan="1">
+            </th>
+
+          </tr>
+        </thead>
+        <thead>
+          <tr >
+            <th class="text-center" style="width:10%">
+              Nombre
+            </th>
+            <th class="text-center" style="width:10%">
+              Si
+            </th>
+            <th class="text-center" style="width:10%">
+              No
+            </th>
+            <th class="text-center" style="width:60%">
+              Ampliar Información
+            </th>
+          </tr>
+        </thead>
 
 
 
@@ -78,382 +126,224 @@
 
 
 
+        <tbody>
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Cardiovascular
+            </td>
+            <td align="center">
+              <%= f.check_box :cardiovascular_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :cardiovascular_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :cardiovascular_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Respiratorio
+            </td>
+            <td align="center">
+              <%= f.check_box :respiratory_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :respiratory_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :respiratory_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Abdominal
+            </td>
+            <td align="center">
+              <%= f.check_box :abdominal_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :abdominal_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :abdominal_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Genito urinario
+            </td>
+            <td align="center">
+              <%= f.check_box :genito_urinario_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :genito_urinario_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :genito_urinario_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Neurologico
+            </td>
+            <td align="center">
+              <%= f.check_box :neurological_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :neurological_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :neurological_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Mental
+            </td>
+            <td align="center">
+              <%= f.check_box :mental_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :mental_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :mental_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Mental
+            </td>
+            <td align="center">
+              <%= f.check_box :mental_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :mental_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :mental_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Organo de los sentidos
+            </td>
+            <td align="center">
+              <%= f.check_box :sense_organ_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :sense_organ_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :sense_organ_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Musculo-esqueletico
+            </td>
+            <td align="center">
+              <%= f.check_box :skeletal_muscle_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :skeletal_muscle_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :skeletal_muscle_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Piel y faneras
+            </td>
+            <td align="center">
+              <%= f.check_box :skin_and_appendages_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :skin_and_appendages_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :skin_and_appendages_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
 
 
 
 
 
 
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 
 
-<!-- Start Checkbox -->
-      
-  
 
-
-<style type="text/css">
-
-/*Radio and Checkbox START*/
-.checkbox label:after, 
-.radio label:after {
-    content: '';
-    display: table;
-    clear: both;
-}
-
-.checkbox .cr,
-.radio .cr {
-    position: relative;
-    display: inline-block;
-    border: 1px solid #a9a9a9;
-    border-radius: .25em;
-    width: 1.3em;
-    height: 1.3em;
-    float: left;
-    margin-right: .5em;
-}
-
-.radio .cr {
-    border-radius: 50%;
-}
-
-.checkbox .cr .cr-icon,
-.radio .cr .cr-icon {
-    position: absolute;
-    font-size: .8em;
-    line-height: 0;
-    top: 50%;
-    left: 20%;
-}
-
-.checkbox label input[type="checkbox"],
-.radio label input[type="radio"] {
-    display: none;
-}
-
-.checkbox label input[type="checkbox"] + .cr > .cr-icon,
-.radio label input[type="radio"] + .cr > .cr-icon {
-    transform: scale(3) rotateZ(-20deg);
-    opacity: 0;
-    transition: all .3s ease-in;
-}
-
-.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
-.radio label input[type="radio"]:checked + .cr > .cr-icon {
-    transform: scale(1) rotateZ(0deg);
-    opacity: 1;
-}
-
-.checkbox label input[type="checkbox"]:disabled + .cr,
-.radio label input[type="radio"]:disabled + .cr {
-    opacity: .5;
-}
-/*Radio and Checkbox END*/
-</style>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.filterable .btn-filter').click(function(){
-        var $panel = $(this).parents('.filterable'),
-        $filters = $panel.find('.filters input'),
-        $tbody = $panel.find('.table tbody');
-        if ($filters.prop('disabled') == true) {
-            $filters.prop('disabled', false);
-            $filters.first().focus();
-        } else {
-            $filters.val('').prop('disabled', true);
-            $tbody.find('.no-result').remove();
-            $tbody.find('tr').show();
-        }
-    });
-
-    $('.filterable .filters input').keyup(function(e){
-        /* Ignore tab key */
-        var code = e.keyCode || e.which;
-        if (code == '9') return;
-        /* Useful DOM data and selectors */
-        var $input = $(this),
-        inputContent = $input.val().toLowerCase(),
-        $panel = $input.parents('.filterable'),
-        column = $panel.find('.filters th').index($input.parents('th')),
-        $table = $panel.find('.table'),
-        $rows = $table.find('tbody tr');
-        /* Dirtiest filter function ever ;) */
-        var $filteredRows = $rows.filter(function(){
-            var value = $(this).find('td').eq(column).text().toLowerCase();
-            return value.indexOf(inputContent) === -1;
-        });
-        /* Clean previous no-result if exist */
-        $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
-        $rows.show();
-        $filteredRows.hide();
-        /* Prepend no-result row if all rows are filtered */
-        if ($filteredRows.length === $rows.length) {
-            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
-        }
-    });
-});
-</script>
-
-<!-- End Checkbox -->
-
-
-
-<script type="text/javascript">
-
-
-  $(function () {
-        $(".allchk2").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport13").show();
-                $("#dvPassport14").show();
-                $("#dvPassport15").show();
-                $("#dvPassport16").show();
-                $("#dvPassport17").show();
-                $("#dvPassport18").show();
-                $("#dvPassport19").show();
-                $("#dvPassport20").show();
-                $("#dvPassport21").show();
-                $("#dvPassport22").show();
-            } else {
-                $("#dvPassport13").hide();
-                $("#dvPassport14").hide();
-                $("#dvPassport15").hide();
-                $("#dvPassport16").hide();
-                $("#dvPassport17").hide();
-                $("#dvPassport18").hide();
-                $("#dvPassport19").hide();
-                $("#dvPassport20").hide();
-                $("#dvPassport21").hide();
-                $("#dvPassport22").hide();
-
-            }
-        });
-    });
-
-
-
-</script>
 
 
 
 
    
 
-              <div class="row">
-
-                      <div class="col-xs-3 col-sm-6 col-md-2">
-
-                        <label class="label">    
-
-                        Seleccionar todos</label>
-
-                        <div class="checkbox radio-margin">
-                        <label>
-                          <input type="checkbox" id="selecctall2" class="fs1 allchk2" />
-                          <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                        </label>
-                      </div>
-                    </div>
-
-              </div>
-
-
-
-
-              <div class="row">
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Cardiovascular</label>
-
-                  <div class="checkbox radio-margin">
-                  <label>
-                      <%= f.check_box :cardiovascular, class: 'form-control fs1 chkPassport13 checkbox2', :name => "approve[]", 'data-required' => true %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport13" style="display: none">
-                    <label class="label ">Ampliar Información</label>
-
-                    <%= f.text_area :cardiovascular_description, class: 'form-control' %>
-                  </div>
-                </div>
-
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Respiratorio</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                    <%= f.check_box :respiratory, class: 'form-control fs1 chkPassport14 checkbox2', :name => "approve[]" %>
-
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                <div class="form-group" id="dvPassport14" style="display: none">
-                  <label class="label">Ampliar Información</label>
-                  <%= f.text_area :respiratory_description , class: 'form-control' %>
-                  </div>
-                </div>            
-
-   
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Abdominal</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                  <%= f.check_box :abdominal, class: 'form-control fs1 chkPassport15 checkbox2', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                  <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport15"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                    <%= f.text_area :abdominal_description, class: 'form-control'  %>
-                  </div>
-                </div> 
-
-         </div>
-
-
-
-          <div class="row">
-
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-
-                  <label class="label"> Genito urinario </label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                  <%= f.check_box :genito_urinario, class: 'form-control fs1  chkPassport16 checkbox2', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport16"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                <%= f.text_area :genito_urinario_description, class: 'form-control '  %>
-                  </div>
-                </div>            
-         
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Neurologico</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                  <%= f.check_box :neurological, class: 'form-control fs1 chkPassport17 checkbox2', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport17"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                <%= f.text_area :neurological_description, class: 'form-control'  %>
-                  </div>
-                </div>
-
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Tóxicos</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                  <%= f.check_box :mental, class: 'form-control fs1 chkPassport18 checkbox2', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-                  <div class="form-group" id="dvPassport18"  style="display: none">
-                  <label class="label">Ampliar Información</label>
-                <%= f.text_area :mental_description, class: 'form-control'  %>
-                  </div>
-                </div>            
-         
-
-          </div>
-
-
-
-
-          <div class="row">
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Organo de los sentidos </label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                  <%= f.check_box :sense_organ, class: 'form-control fs1 chkPassport19 checkbox2', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-                </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-              <div class="form-group" id="dvPassport19" style="display:none">
-                  <label class="label">Ampliar Información</label>
-                <%= f.text_area :sense_organ_description, class: 'form-control'  %>
-                  </div>
-                </div>            
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label">Musculo-esqueletico</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                  <%= f.check_box :skeletal_muscle, class: 'form-control fs1 chkPassport21 checkbox2', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-              <div class="form-group" id="dvPassport21" style="display:none">
-                  <label class="label">Ampliar Información</label>
-                <%= f.text_area :skeletal_muscle_description, class: 'form-control' %>
-                  </div>
-                </div>
-
-              <div class="col-xs-3 col-sm-6 col-md-2">
-                  <label class="label"> Piel y faneras</label>
-                  <div class="checkbox radio-margin">
-                  <label>
-                  <%= f.check_box :skin_and_appendages, class: 'form-control fs1 chkPassport22 checkbox2', :name => "approve[]" %>
-                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
-                  </label>
-                </div>
-              </div>
-
-                <div class="col-xs-3 col-sm-6 col-md-2">
-              <div class="form-group" id="dvPassport22" style="display:none">
-                  <label class="label">Ampliar Información</label>
-                <%= f.text_area :skin_and_appendages_description, class: 'form-control' %>
-                  </div>
-                </div>            
-         
-
-          </div>
-
-
 
 
 
@@ -470,36 +360,24 @@
 
 
 
-            <div class="row  well pie_form">
+         <div class="well pie_form">
 
-
-
-        <div class="form-actions ">
-              
-
-              <div class="col-md-5 col-md-push-1">
-
-
-                  <%= link_to "Regresar al Paso 2", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), :class=>"btn btn-success color_blanco" %>
-
-
+                <div class="form-actions"  style = "text-align:center!important"> 
+                <%= link_to "Regresar", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), :class=>"btn btn-info color_blanco custom" %>
+                    
+                        <button type="rese  t" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px;">Borrar</button>
+                        <%= f.submit "Siguiente", :class => 'btn btn btn-info  custom' %>
+                    
+                </div>
               </div>
-
-
-              <div class="col-md-5 col-md-push-2">
-
-                <button type="reset" class="btn btn-default ">Borrar</button>
-
-          <button type="submit" class="btn btn-success">Siguiente Paso</button>
-
-              </div>
-
-
-        </div>
 
 
   </div>
 </div>
+
+
+
+
             <% end %>
 
 
@@ -509,144 +387,32 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <script type="text/javascript">
-    $(function () {
-        $(".chkPassport").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport").show();
-            } else {
-                $("#dvPassport").hide();
-            }
-        });
-    });
-
-
-    $(function () {
-        $(".chkPassport2").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport2").show();
-            } else {
-                $("#dvPassport2").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport3").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport3").show();
-            } else {
-                $("#dvPassport3").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport4").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport4").show();
-            } else {
-                $("#dvPassport4").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport5").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport5").show();
-            } else {
-                $("#dvPassport5").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport6").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport6").show();
-            } else {
-                $("#dvPassport6").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport7").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport7").show();
-            } else {
-                $("#dvPassport7").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport8").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport8").show();
-            } else {
-                $("#dvPassport8").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport9").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport9").show();
-            } else {
-                $("#dvPassport9").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport10").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport10").show();
-            } else {
-                $("#dvPassport10").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport11").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport11").show();
-            } else {
-                $("#dvPassport11").hide();
-            }
-        });
-    });
-    $(function () {
-        $(".chkPassport12").click(function () {
-            if ($(this).is(":checked")) {
-                $("#dvPassport12").show();
-            } else {
-                $("#dvPassport12").hide();
-            }
-        });
-    });
 
 
 
 
-    $(function () {
-        $(".Embarazo").click(function () {
-            if ($(this).is(":checked")) {
-                $("#MostrarEmbarazo").show();
-                $("#MostrarEmbarazo2").show();
-                $("#MostrarEmbarazo3").show();
-                $("#MostrarEmbarazo4").show();
-                $("#MostrarEmbarazo5").show();
-                $("#MostrarEmbarazo6").show();
-                $("#MostrarEmbarazo7").show();
-                $("#MostrarEmbarazo8").show();
-            } else {
-                $("#MostrarEmbarazo").hide();
-                $("#MostrarEmbarazo2").hide();
-                $("#MostrarEmbarazo3").hide();
-                $("#MostrarEmbarazo4").hide();
-                $("#MostrarEmbarazo5").hide();
-                $("#MostrarEmbarazo6").hide();
-                $("#MostrarEmbarazo7").hide();
-                $("#MostrarEmbarazo8").hide();
-            }
-        });
-    });
+$('#checkAll').click(function () {    
+    $(':checkbox.checkItem').prop('checked', this.checked);    
+    $(':checkbox.checkItem2').prop('checked', false);    
+    $( "#checkAll2" ).prop( "checked", false );
+
+ });
+$('#checkAll2').click(function () {    
+    $(':checkbox.checkItem2').prop('checked', this.checked);    
+    $(':checkbox.checkItem').prop('checked', false);    
+    $( "#checkAll" ).prop( "checked", false );
+
+ });
 
 
 

@@ -90,7 +90,7 @@
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <label class="label">Primer Apellido</label>
+                    <label class="label">Tipo Documento</label>
                     <div class="form-group">
                       <%= f.input :type_document,
                               prompt:       'Seleccionar un Documento',
@@ -112,27 +112,27 @@
                 <div class="row">
 
 <div class="col-md-4">
-                    <label class="label">Primer Apellido</label>
+                    <label class="label">Documento</label>
                     <div class="form-group">
                         <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
                     </div>
                   </div>  
 
                   <div class="col-md-4">
-                    <label class="label">Primer Nombre</label>
+                    <label class="label">Registro Medico</label>
                     <div class="form-group">
 
                       <%= f.text_field :medical_record, class: 'ng-binding form-control', required: true, placeholder: 'Registro Medico' %>
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <label class="label">Segundo Nombre</label>
+                    <label class="label">Email</label>
                     <div class="form-group">
                       <%= f.text_field :email, class: 'form-control', required: true, placeholder: 'Email' %>
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <label class="label">Primer Apellido</label>
+                    <label class="label">Rol</label>
                     <div class="form-group">
                       <%= f.collection_select :rol_id, Rol.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
                     </div>
@@ -175,17 +175,14 @@
                 </div>
 
 
-                <div class="row  well pie_form">
-                  <div class="form-actions ">
-                    <div class="col-md-5">
-                      <%= link_to "Usuarios",  users_path, :class => "btn btn-success color_blanco" %>
-                    </div>
-                    <div class="col-md-5 col-md-push-4">
-                      <button type="reset" class="btn btn-default ">Borrar</button>
-                      <%= f.submit "Guardar", :class => 'btn btn-success' %>
-                    </div>
-                  </div>
+               <div class="well pie_form">
+                <div class="form-actions"  style = "text-align:center!important"> 
+                    
+                        <button type="reset" class="btn btn btn-info " style = "margin-right:20px;">Borrar</button>
+                        <%= f.submit "Guardar", :class => 'btn btn btn-info  ' %>
+                    
                 </div>
+              </div>
             <% end %>
 
 
@@ -193,7 +190,7 @@
 
       </div>
 
-
+ 
 
 
 

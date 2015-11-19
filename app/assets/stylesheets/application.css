@@ -13,12 +13,20 @@
  *= require_tree .
  *= require_self
  *= require switchery
- *= require bootstrap-datepicker3
  *= require jasny-bootstrap
  *= require rails_bootstrap_forms
  *= require lazybox
  */
 
+.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+
+
+.custom {
+    width: 208px !important;
+}
 
 
 .label{

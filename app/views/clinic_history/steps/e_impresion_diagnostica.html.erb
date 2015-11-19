@@ -1,18 +1,20 @@
+ <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+
+    <%= link_to "1. Informacion General", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "2. Antesedentes Personales", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "3. Revisión por Sistemas", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
 
 
+    <%= link_to "4. Examen Fisico", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
 
 
+    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
 
- <div class="col-md-12" style = "margin:25px!important">
 
-                <%= link_to "Listado de Pacientes",  root_path, :class => "btn btn-info color_blanco  pull-left" %>
 </div>
 
-
-
-
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
 <div class="container-fluid">    
         
@@ -52,17 +54,6 @@
 
 
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-
-
-
-<div class="panel-heading">
-    <div class="panel-title">  <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 5</div>
-</div>   
-
-
-
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
 <%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
@@ -85,6 +76,15 @@
 
 
 
+
+
+
+
+
+<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 5 Impresión Diagnostica</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
 
 
 
@@ -148,33 +148,21 @@
 <br/>
 
 
+         <div class="well pie_form">
 
-
-
-            <div class="row  well pie_form">
-
-
-
-        <div class="form-actions ">
-              
-
-              <div class="col-md-5">
-
-
-                    <%= link_to "Regresar al Paso 4", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.fourth), :class=>"btn btn-success color_blanco" %>
-
+                <div class="form-actions"  style = "text-align:center!important"> 
+                    <%= link_to "Regresar al Paso 4", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.fourth), :class=>"btn btn-info color_blanco custom" %>
+                    
+                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px; ">Borrar</button>
+                        <%= f.submit 'Guardar', :class => 'btn btn-info custom' %>
+                    
+                </div>
               </div>
 
 
-              <div class="col-md-5 col-md-push-4">
-
-                <button type="reset" class="btn btn-default ">Borrar</button>
+            
 
 
-                <%= f.submit 'Guardar', :class => 'btn btn-success' %>
-
-
-              </div>
 
 
         </div>

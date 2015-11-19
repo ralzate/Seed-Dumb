@@ -38,18 +38,18 @@
             <%= @patients.count %>
 				  	<%= form_tag request.path, :method => 'get', :class => '' do %>
 		              <div class="container">
-                  <h2 style = "color:#38C8FF !important;font-size:25px!impotant;text-align:center!important">Buscar Paciente</h2>
+                  <h2 style = "color:#969696 !important;font-size:45px!important;text-align:center!important">Buscar Paciente</h2>
 		                <div class="row">
 		                  <div class="col-md-12">
 		                    <div class="input-group" id="adv-search">
 		                        <%= text_field_tag :search, params[:search], :placeholder => "Ingresa Nombre o Cedula", :class => 'form-control' %>
 		                        <div class="input-group-btn">
 		                            <div class="btn-group" role="group">
-		                             	<%= submit_tag "Consultar", :name => nil, :class=>"btn btn-primary" %>
+		                             	<%= submit_tag "Consultar", :name => nil, :class=>"btn btn-primary bs" %>
 		                            </div>
 		                        </div>
 		                    </div>
-                        <% if @patients.count != 0 %> 
+                       
 
                                                  <div class="row">
                       <div class="col-md-12" style = "text-align:center">
@@ -57,7 +57,7 @@
                          </div>
                     </div>
 
-                    <% end %>
+                  
 		                  </div>
 		                </div>
 		                <br>
@@ -72,35 +72,26 @@
 
 					<br/>  
 <% @patients.each do |patient| %>
-<table class="table table-striped table-bordered table-hover" style="width:100%;margin-bottom:30px!important;">
+<table class="table table-striped table-bordered table-hover" style="width:100%;margin-bottom:30px!important;background:white!important;    border: 2px dashed #ACACAC;">
   <thead>
-    <tr>
-      <th style = "background-image: linear-gradient(to bottom,#fafafa 2%, #efefef 98%)!important;width:8%!important">#</th>
-      <th style = "background-image: linear-gradient(to bottom,#fafafa 2%, #efefef 98%)!important;width:50%!important">Nombre</th>
-      <th style = "background-image: linear-gradient(to bottom,#fafafa 2%, #efefef 98%)!important;width:20%!important">Cedula</th>
-      <th style = "background-image: linear-gradient(to bottom,#fafafa 2%, #efefef 98%)!important;width:2%!important">Email</th>
-      <th style = "background-image: linear-gradient(to bottom,#fafafa 2%, #efefef 98%)!important;width:8%!important">Edad</th>
-      
-     
-    </tr>
+   
   </thead>
 
   <tbody>
    
-      <tr>
-        <td><%= patient.id %></td>
-        <td><%= patient.first_name.capitalize %> <%= patient.second_name.capitalize %> <%= patient.first_surname.capitalize %></td>
-        <td><%= patient.document %></td>
-        <td><%= patient.email %></td>
-        <td><%= patient.years_age %></td>
-
-        
-      </tr>
+      
     <tr>
-<td colspan ="5" style = "text-align:center;padding:20px!important;">
-<%= link_to ' Ver Paciente' , patient_clinic_histories_path(patient), :class => "btn principal" %> 
-        <%= link_to ' Nueva Historia Clinica',  new_patient_clinic_history_path(patient), :class => "btn btn-primary color_blanco"  %>  
-        <%= link_to ' Ver Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "color_blanco btn btn-primary" %> 
+<td colspan ="5" style = "text-align:center;padding:20px!important;"><span class = "glyphicon glyphicon-user" style = "font-size:25px!important;text-align:left!important"></span><span style = "font-size:25px!important;margin-right:10px;">
+
+<%= patient.first_name.capitalize %> <%= patient.second_name.capitalize %> <%= patient.first_surname.capitalize %> </span> CC:<%= patient.document %>  
+ <%= link_to '| Ver Paciente ' , patient_clinic_histories_path(patient), :class => "marg" %> 
+       
+        <%= link_to '| Ver Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "marg" %> 
+ <br> <br>
+
+ <%= link_to ' Nueva Historia Clinica',  new_patient_clinic_history_path(patient), :class => "btn principal"  %> 
+  <br> 
+
         </td>
 </tr>
 
@@ -137,10 +128,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+ .marg
+ {
+margin-left: 15px
+
+ }
+ .bs
+ {
+background: #B3B3B3!important;
+border-color: #B3B3B3!important;
+
+
+ }
 .Cr
 {
 
   margin-top: 20px;
+  padding: 20px 45px !important;
+  background-color: #22BEC9!important;
+  font-size: 16px;
+  border-color: #22BEC9!important;
 }
 .blog-card:hover .details {
   left: 0;
@@ -395,12 +402,7 @@
 </div>
 <br>
 
-  <div class="row">
-  <div class="col-md-12 "></div>
-    <div class="col-md-4 "></div>
-    <div class="col-md-4 xw" style = "text-align:center; margin-bottom:40px;!important"> <%= link_to 'Crear Paciente', new_patient_path , :class => "btn btn-info color_blanco pdin"%></div>
-    <div class="col-md-4"></div>
-    </div>
+  
   </div>
   
 

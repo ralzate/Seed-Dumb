@@ -41,35 +41,48 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.string :phone
       t.text :reason_for_consultation
       t.text :current_illness
-      t.boolean :neunatales
+      t.boolean :neunatales_true
+      t.boolean :neunatales_false
       t.text :neunatales_description
-      t.boolean :patologicos
+      t.boolean :patologicos_true
+      t.boolean :patologicos_false
       t.text :patologicos_description
-      t.boolean :quirurgicos
+      t.boolean :quirurgicos_true
+      t.boolean :quirurgicos_false
       t.text :quirurgicos_description
-      t.boolean :farmacologicos
+      t.boolean :farmacologicos_true
+      t.boolean :farmacologicos_false
       t.text :farmacologicos_description
-      t.boolean :alergicos
+      t.boolean :alergicos_true
+      t.boolean :alergicos_false
       t.text :alergicos_description
-      t.boolean :toxicos
+      t.boolean :toxicos_true
+      t.boolean :toxicos_false
       t.text :toxicos_description
-      t.boolean :traumaticos
+      t.boolean :traumaticos_true
+      t.boolean :traumaticos_false
       t.text :traumaticos_description
-      t.boolean :hospitables
+      t.boolean :hospitables_true
+      t.boolean :hospitables_false
       t.text :hospitables_description
-      t.boolean :atep_laboral
+      t.boolean :atep_laboral_true
+      t.boolean :atep_laboral_false
       t.text :atep_laboral_description
-      t.boolean :familiar
+      t.boolean :familiar_true
+      t.boolean :familiar_false
       t.text :familiar_description
-      t.boolean :inmunologicos
+      t.boolean :inmunologicos_true
+      t.boolean :inmunologicos_false
       t.text :inmunologios_description
-      t.boolean :asociado_viajes_de_vuelo
+      t.boolean :asociado_viajes_de_vuelo_true
+      t.boolean :asociado_viajes_de_vuelo_false
       t.text :asociado_viajes_de_vuelo_description
       t.integer :menstrual_cycle
       t.string :gestational_age
       t.string :eco
       t.integer :fum
-      t.boolean :pregnancy
+      t.boolean :pregnancy_true
+      t.boolean :pregnancy_false
       t.string :g
       t.string :p
       t.string :c
@@ -77,23 +90,32 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.string :m
       t.string :v
       t.string :e
-      t.boolean :cardiovascular
+      t.boolean :cardiovascular_true
+      t.boolean :cardiovascular_false
       t.text :cardiovascular_description
-      t.boolean :respiratory
+      t.boolean :respiratory_true
+      t.boolean :respiratory_false
       t.text :respiratory_description
-      t.boolean :abdominal
+      t.boolean :abdominal_true
+      t.boolean :abdominal_false
       t.text :abdominal_description
-      t.boolean :genito_urinario
+      t.boolean :genito_urinario_true
+      t.boolean :genito_urinario_false
       t.text :genito_urinario_description
-      t.string :neurological
+      t.string :neurological_true
+      t.string :neurological_false
       t.text :neurological_description
-      t.boolean :mental
+      t.boolean :mental_true
+      t.boolean :mental_false
       t.text :mental_description
-      t.boolean :sense_organ
+      t.boolean :sense_organ_true
+      t.boolean :sense_organ_false
       t.text :sense_organ_description
-      t.boolean :skeletal_muscle
+      t.boolean :skeletal_muscle_true
+      t.boolean :skeletal_muscle_false
       t.text :skeletal_muscle_description
-      t.string :skin_and_appendages
+      t.string :skin_and_appendages_true
+      t.string :skin_and_appendages_false
       t.text :skin_and_appendages_description
       t.string :ta_mmgh
       t.string :heart_rate
@@ -103,35 +125,47 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.string :temperature
       t.string :weight_in_kilograms
       t.string :height_in_centimeters
-      t.string :glucose
-      t.string :measurement
-      t.boolean :head
+      t.boolean :head_true
+      t.boolean :head_false
       t.text :head_description
-      t.boolean :sense_organ
+      t.boolean :sense_organ_true
+      t.boolean :sense_organ_false
       t.string :sense_organ_description
-      t.boolean :neck
+      t.boolean :neck_true
+      t.boolean :neck_false
       t.text :neck_description
-      t.boolean :rib_cage
+      t.boolean :rib_cage_true
+      t.boolean :rib_cage_false
       t.text :rib_cage_description
-      t.boolean :heart
+      t.boolean :heart_true
+      t.boolean :heart_false
       t.text :heart_description
-      t.boolean :lungs
+      t.boolean :lungs_true
+      t.boolean :lungs_false
       t.text :lungs_description
-      t.boolean :abdomen
+      t.boolean :abdomen_true
+      t.boolean :abdomen_false
       t.text :abdomen_description
-      t.boolean :genitourinary
+      t.boolean :genitourinary_true
+      t.boolean :genitourinary_false
       t.text :genitourinary_description
-      t.boolean :rectum
+      t.boolean :rectum_true
+      t.boolean :rectum_false
       t.text :rectum_description
-      t.boolean :extremities
+      t.boolean :extremities_true
+      t.boolean :extremities_false
       t.text :extremities_description
-      t.boolean :skin_and_appendages
+      t.boolean :skin_and_appendages_true
+      t.boolean :skin_and_appendages_false
       t.text :skin_and_appendages_description
-      t.boolean :skeletal_muscle
+      t.boolean :skeletal_muscle_true
+      t.boolean :skeletal_muscle_false
       t.text :skeletal_muscle_description
-      t.boolean :mental
+      t.boolean :mental_true
+      t.boolean :mental_false
       t.text :mental_description
-      t.boolean :neurological
+      t.boolean :neurological_true
+      t.boolean :neurological_false
       t.text :neurological_description
       t.integer :alteration
       t.integer :eye_opening

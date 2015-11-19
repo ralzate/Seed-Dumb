@@ -18,10 +18,8 @@
 //= require switchery
 //= require jquery.purr
 //= require jasny-bootstrap
-//= require bootstrap-datepicker
 //= require best_in_place
 //= require garlic
-
 //= require turbolinks
 //= require_tree .
 

@@ -1,209 +1,42 @@
+<br/><br/><br/><br/>
 
-
-<div class="container">
-    <div>
-        <div class="well">
-        <h1 class="text-center">Listado de Pascientes</h1>
-        <p class="text-center">Listado de los pascientes que se encuentran registrados</p>
-        
-<style type="text/css">
-  .avatar-pasciente:hover{
-    background-color: transparent !important;
-  }
-</style>
-    <div>
-        <div>
-            
-            <div class="row">
-              <div class="col-md-12">
-              </div>
-            </div>
-            <% @patients.each do |patient| %>
-            <div class="row">
-                
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-<div>
-  <div class="row">
-      <div class="col-md-12">
-      <div class="panel panel-success">
-            <div class="panel-body">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-8">
-                            <h2 class="text-primary"><b><span class="glyphicon glyphicon-user"></span> <%= patient.first_name %> <%= patient.second_name %> <%= patient.first_surname %> <%= patient.second_surname %></b></h2>
-                            <p><strong><span class="glyphicon glyphicon-ok-circle"></span>Email: </strong> <%= patient.email %></p>
-                               <p><strong><span class="glyphicon glyphicon-ok-circle"></span>Email: </strong> <%= patient.birthdate%></p>
-                            <p><strong><span class="glyphicon glyphicon-certificate"></span>Hobbies: </strong>write rap, listen to rap music</p>
-                            <p><strong><span class="glyphicon glyphicon-thumbs-up"></span>Skills: </strong>
-                                <span class="label label-info tags">html5</span> 
-                                <span class="label label-info tags">css3</span>
-                                <span class="label label-info tags">jquery</span>
-                                <span class="label label-info tags">bootstrap3</span>
-                            </p>
-                        </div><!--/col-->          
-                        <div class="col-xs-12 col-sm-4 text-center">
-                                <img src="http://s.ytimg.com/yts/img/avatar_720-vflYJnzBZ.png" style="width:100px;height:100px; border-radius: 55px;" alt="" class="center-block img-circle img-responsive profile-img">
-                               
-                        </div><!--/col-->
-
-                                                <div class="col-xs-12 col-sm-4">
-                            <h2></h2>                    
-                            <p></p>
-                            <button type="button" class="btn btn-default btn-block"><span class="fa fa-list-alt"></span> <%= link_to 'Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient) %> </button>  
-                        </div><!--/col-->
-
-
-                        <div class="col-xs-12 col-sm-4">
-                            <h2><strong>35</strong></h2>                    
-
-<style type="text/css">
-    .crud{
-        color:white !important;
-    }
-</style>
-
-                            <%= link_to patient, class: "btn btn-info btn-block crud" do %>
-                                <i class="fa fa-user"> Ver</i>
-                            <% end %>
-
-                        </div><!--/col-->
-
-
-<div class="col-xs-12 col-sm-4">
-                            <h2><strong> 10,7K </strong></h2>                    
+<div class="row">
+<div class="full col-sm-9 full2">
 
 
 
 
-                            <%= link_to edit_patient_path(patient), class: "btn btn-success btn-block crud" do %>
-                                <i class="fa fa-user"> Editar</i>
-                            <% end %>
 
-                        </div><!--/col-->
+    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Listado de  <span>Pacientes</span></h1></span>
 
-<div class="col-xs-12 col-sm-4">
-                            <h2><strong> 10,7K </strong></h2>                    
-                            
-                            <%= link_to patient, method: :delete, data: { confirm: 'Are you sure?' } , :class => "btn btn-danger btn-block crud" do %>
-                                <i class="fa fa-user"> Eliminar</i>
-                            <% end %>
 
-                        </div><!--/col-->
+    <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</span>
 
-                    </div><!--/row-->
-              </div><!--/panel-body-->
-          </div><!--/panel-->
-    </div>
-  </div>
-</div>                                        
-
-<style type="text/css">
-    
-.profile-img{box-shadow: 0 5px 15px rgba(0,0,0,.5)}
-</style>
+    <span  class="btn btn-link btn-xs  pagination pagination pull-right"><%= link_to 'Nuevo Paciente', new_patient_path, :class => "btn  principal" %></span>
 
 
 
-            </div><!-- End row -->
-            <% end %>
-                              <%= link_to 'Nuevo Pasciente', new_patient_path %>
-
-        </div><!-- End container -->
-    </div>
-
-<style type="text/css">
-  /**** BASE ****/
-body {
-    color: #888;   
-}
-a {
-    color: #03a1d1;
-    text-decoration: none!important;
-}
-
-/**** LAYOUT ****/
-.list-inline>li {
-    padding: 0 10px 0 0;
-}
-.container-pad {
-    padding: 30px 15px;
-}
-
-
-/**** MODULE ****/
-.bgc-fff {
-    background-color: #fff!important;
-}
-.box-shad {
-    -webkit-box-shadow: 1px 1px 0 rgba(0,0,0,.2);
-    box-shadow: 1px 1px 0 rgba(0,0,0,.2);
-}
-.brdr {
-    border: 1px solid #ededed;
-}
-
-/* Font changes */
-.fnt-smaller {
-    font-size: .9em;
-}
-.fnt-lighter {
-    color: #bbb;
-}
-
-/* Padding - Margins */
-.pad-10 {
-    padding: 10px!important;
-}
-.mrg-0 {
-    margin: 0!important;
-}
-.btm-mrg-10 {
-    margin-bottom: 10px!important;
-}
-.btm-mrg-20 {
-    margin-bottom: 20px!important;
-}
-
-/* Color  */
-.clr-535353 {
-    color: #535353;
-}
-
-
-
-
-/**** MEDIA QUERIES ****/
-@media only screen and (max-width: 991px) {
-    #property-listings .property-listing {
-        padding: 5px!important;
-    }
-    #property-listings .property-listing a {
-        margin: 0;
-    }
-    #property-listings .property-listing .media-body {
-        padding: 10px;
-    }
-}
-
-@media only screen and (min-width: 992px) {
-    #property-listings .property-listing img {
-        max-width: 180px;
-    }
-}
-
-</style>
-        </div>
-    </div>
+<div class="row new_blog">
+<div class="col-md-6" id="task-form" style="display:none;"></div>
 </div>
 
-<style type="text/css">
-    a.list-group-item {
-    height:auto;
-    min-height:220px;
-}
-a.list-group-item.active small {
-    color:#fff;
-}
-.stars {
-    margin:20px auto 1px;    
-}
-</style>
+
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12 " id="tasks">
+    <%= render partial: "display" %>
+  </div>
+</div>
+</div>
+
+
+
+
+
+                                    
+             
