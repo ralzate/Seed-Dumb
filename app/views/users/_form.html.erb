@@ -75,32 +75,7 @@
 
 
 
-                <div class="row">
-                  <div class="col-md-4">
-                    <label class="label">Primer Nombre</label>
-                    <div class="form-group">
 
-                      <%= f.text_field :first_name, class: "form-control ", required: true, placeholder: 'Primer Nombre' %>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <label class="label">Segundo Nombre</label>
-                    <div class="form-group">
-                      <%= f.text_field :second_name, class: "form-control ", required: true, placeholder: 'Segundo Nombre' %>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <label class="label">Tipo Documento</label>
-                    <div class="form-group">
-                      <%= f.input :type_document,
-                              prompt:       'Seleccionar un Documento',
-                              collection: @user.select_document.sort,
-                              error: false, label: false, 
-                              input_html:   {class: 'form-control '},required: true  %>
-                    </div>
-                  </div>
-                                  
-                </div>
 
 
 

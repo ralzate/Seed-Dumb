@@ -8,9 +8,6 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.string :email
       t.string :type_document
       t.string :document
-      t.integer :days_age
-      t.integer :months_age
-      t.integer :years_age
       t.date :birthdate
       t.string :gender
       t.string :profession
@@ -21,7 +18,7 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.string :address
       t.integer :condition
       t.string :accompanist_name
-      t.integer :relationship
+      t.string :relationship
       t.string :phone
       t.references :city, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
@@ -114,9 +111,6 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.boolean :skeletal_muscle_true
       t.boolean :skeletal_muscle_false
       t.text :skeletal_muscle_description
-      t.string :skin_and_appendages_true
-      t.string :skin_and_appendages_false
-      t.text :skin_and_appendages_description
       t.string :ta_mmgh
       t.string :heart_rate
       t.string :breathing_frequency
@@ -158,6 +152,9 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.boolean :skin_and_appendages_true
       t.boolean :skin_and_appendages_false
       t.text :skin_and_appendages_description
+      t.boolean :piel_y_faneras2_true
+      t.boolean :piel_y_faneras2_false
+      t.text :piel_y_faneras2_descripcion
       t.boolean :skeletal_muscle_true
       t.boolean :skeletal_muscle_false
       t.text :skeletal_muscle_description

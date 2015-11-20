@@ -45,9 +45,8 @@
 
 
   <tr class="header">
-    <th>Usuario #</th>
-    <th>Nombres</th>
-    <th>Tipo Documento</th>
+    <th>Id</th>
+    <th>Usuario</th>
     <th>Documento</th>
     <th>Opciones</th>
   </tr>
@@ -58,8 +57,7 @@
 
 
     <td><%= user.id %></td>
-    <td><%= user.first_name %> <%= user.first_surname %></td>
-    <td><%= user.label_documento %></td>
+    <td><%= user.names %> <%= user.surnames %></td>
     <td><%= user.document %></td>
 
 <td>

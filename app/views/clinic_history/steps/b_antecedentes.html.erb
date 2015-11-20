@@ -359,10 +359,19 @@
       </div>
 
       <div class="col-md-2">
-        <label class="control-label" for="firstname">Embarazo</label><br/>
-         <%= f.check_box :pregnancy_true, class: 'Embarazo', :name => "approve[]" %>
+      <h5>Esta en Embarazo</h5>
 
+      <div class="col-md-1">
+        <label class="control-label" for="firstname">Si</label><br/>
+         <%= f.check_box :pregnancy_true, class: 'Embarazo', :name => "approve[]" %>
       </div>
+            <div class="col-md-1">
+        <label class="control-label" for="firstname">No</label><br/>
+         <%= f.check_box :pregnancy_false, class: 'Embarazo2', :name => "approve[]" %>
+      </div>
+      </div>
+
+
       <div class="col-md-2" id="MostrarEmbarazo" style="display:none">
         <label class="control-label" for="firstname">Edad Gestacional</label>
         <%= f.text_field :gestational_age, class: 'form-control', :name => "approve[]", placeholder: 'Edad Gestacional' %>
@@ -526,7 +535,18 @@ $('#checkAll2').click(function () {
                 $("#MostrarEmbarazo6").show();
                 $("#MostrarEmbarazo7").show();
                 $("#MostrarEmbarazo8").show();
-            } else {
+            } 
+
+
+
+        });
+    });
+
+
+    $(function () {
+
+        $(".Embarazo2").click(function () {
+            if ($(this).is(":checked")) {
                 $("#MostrarEmbarazo").hide();
                 $("#MostrarEmbarazo2").hide();
                 $("#MostrarEmbarazo3").hide();
@@ -535,7 +555,8 @@ $('#checkAll2').click(function () {
                 $("#MostrarEmbarazo6").hide();
                 $("#MostrarEmbarazo7").hide();
                 $("#MostrarEmbarazo8").hide();
-            }
+            } 
+
         });
     });
 

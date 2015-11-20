@@ -60,6 +60,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'garlicjs-rails'
 gem 'localstorageshim-rails'
+gem 'seed_dump'
 
 gem 'best_in_place'
 gem 'bootstrap_form'

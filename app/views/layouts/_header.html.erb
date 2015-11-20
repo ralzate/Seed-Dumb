@@ -439,7 +439,7 @@ small.text-muted {
                 </ul>
                 <br>
                 <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Bienvenido <%= truncate(current_user.first_name, :length => 12)
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Bienvenido <%= truncate(current_user.names, :length => 12)
  %>
   <span class="caret"></span></button>
   <ul class="dropdown-menu">

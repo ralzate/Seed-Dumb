@@ -6,9 +6,6 @@
 
 
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-
 <div class="container-fluid">    
         
     <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
@@ -47,17 +44,6 @@
 
 
 
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-
-
-
-        <div class="panel-heading">
-            <div class="panel-title">  
-            <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Crear Paciente
-            </div>
-        </div>   
-
 
 
 
@@ -69,88 +55,175 @@
       <div class="row">
             <%= simple_form_for(@patient, :html => { :class => 'contact-form', :id => 'contact-form' }) do |f| %>
 
-
-
-
-
-
+<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Crear Paciente</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
 
                 <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <label class="label">Primer Nombre</label>
                     <div class="form-group">
 
                       <%= f.text_field :first_name, class: "form-control ", required: true, placeholder: 'Primer Nombre' %>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <label class="label">Segundo Nombre</label>
                     <div class="form-group">
                       <%= f.text_field :second_name, class: "form-control ", required: true, placeholder: 'Segundo Nombre' %>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <label class="label">Tipo Documento</label>
+
+
+                  <div class="col-md-3">
+                    <label class="label">Primer Apellido</label>
                     <div class="form-group">
+
+                      <%= f.text_field :first_surname, class: "form-control ", required: true, placeholder: 'Primer Apellido' %>
                     </div>
                   </div>
-                                  
-                </div>
+                  <div class="col-md-3">
+                    <label class="label">Segundo Apellido</label>
+                    <div class="form-group">
+                      <%= f.text_field :second_surname, class: "form-control ", required: true, placeholder: 'Segundo Apellido' %>
+                    </div>
+                  </div>
 
-
-
-
-
-
-
+               </div>
 
                 <div class="row">
 
-<div class="col-md-4">
-                    <label class="label">Documento</label>
-                    <div class="form-group">
-                        <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
-                    </div>
-                  </div>  
-
-                  <div class="col-md-4">
-                    <label class="label">Registro Medico</label>
-                    <div class="form-group">
-
-                    </div>
-                  </div>
                   <div class="col-md-4">
                     <label class="label">Email</label>
                     <div class="form-group">
                       <%= f.text_field :email, class: 'form-control', required: true, placeholder: 'Email' %>
                     </div>
                   </div>
+  
+     
                   <div class="col-md-4">
-                    <label class="label">Rol</label>
+                    <label class="label">Tipo Documento</label>
                     <div class="form-group">
+                      <%= f.input :type_document,
+                              prompt:       'Seleccionar un Documento',
+                              collection: @patient.select_document.sort,
+                              error: false, label: false, 
+                              input_html:   {class: 'form-control '},
+                              required: true, :selected => '1'   %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label class="label">Documento</label>
+                    <div class="form-group">
+                        <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
+                    </div>
+                  </div>  
+
+
+
+                  <div class="col-md-4">
+                    <label class="label">Genero</label>
+                    <div class="form-group">
+                      <%= f.input :gender,
+                              prompt:       'Seleccionar un Genero',
+                              collection: @patient.select_genre.sort,
+                              error: false, label: false, 
+                              input_html:   {class: 'form-control '},required: true  %>
+
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <label class="label">Primer Apellido</label>
+                    <label class="label">Documento</label>
                     <div class="form-group">
                         <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
                     </div>
                   </div> 
 
-                  <div class="col-xs-4 col-sm-4 col-md-4">
+                <div class="col-md-4">
+                  <label class="label">Fecha de Nacimiento</label>
                     <div class="form-group">
-                      <label class="control-label">Cargar Imagen:</label>
-                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div>
-                          <span class="btn btn-default btn-file"><span class="fileinput-new"><%= f.file_field :picture, class: "form-control", id: 'button' %></span><span class="fileinput-exists">Cambiar</span><input type="file" name="..."></span>
-                          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Eliminar</a>
-                        </div>
-                      </div>
-                      
+                      <%= f.date_select :birthdate,{
+                        :start_year => Time.now.year,
+                        :end_year => 1900,
+                        :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'],
+                        :use_short_month => true,
+                        :order => [:day, :month, :year],
+                        :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
+                        {:class => 'year form-control line1',
+                        :id => 'user_birthday'}
+                      %>                             
+                    </div>
+                </div>
+
+
+                </div>
+
+                <div class="row">
+                  
+
+                  <div class="col-md-4">
+                    <label class="label">Tipo Sanguineo</label>
+                    <div class="form-group">
+                      <%= f.input :blood_type,
+                          prompt:       'Seleccionar un Tipo de Sangre',
+                          collection: @patient.select_blood.sort,
+                          error: false, label: false, 
+                          input_html:   {class: 'form-control fontf'} %>
                     </div>
                   </div>
 
+
+
+
+                  <div class="col-md-4">
+                    <label class="label">Profesion</label>
+                    <div class="form-group">
+                      <%= f.input :profession,
+                          prompt:       'Seleccionar una Profesión',
+                          collection: @patient.select_profession.sort,
+                          error: false, label: false, 
+                          input_html:   {class: 'form-control fontf'} %>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label class="label">Direccion</label>
+                    <div class="form-group">
+                      <%= f.text_field :address, class: 'form-control fontf', required: true, placeholder: 'Dirección' %>
+                    </div>
+                  </div>
+
+
                 </div>
+
+                <div class="row">
+                  
+
+                  <div class="col-md-4">
+                      <label class="label">Pais</label>
+                      <div class="form-group">
+                        <%= f.country_select :country_code, {object: f.object, prompt: 'País'}, class: 'form-control fontf' %>
+                      </div>
+
+                  </div> 
+
+                  
+                <div class="col-md-4">
+                  <label class="label">Ciudad</label>
+                  <div class="form-group">
+                    <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"}  %>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                      <%= f.hidden_field :user_id, :value => current_user.id %>
+                  </div>
+                </div>
+
+              </div>
 
 
 
@@ -158,8 +231,8 @@
                <div class="well pie_form">
                 <div class="form-actions"  style = "text-align:center!important"> 
                     
-                        <button type="reset" class="btn btn btn-info " style = "margin-right:20px;">Borrar</button>
-                        <%= f.submit "Guardar", :class => 'btn btn btn-info  ' %>
+                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;">Borrar</button>
+                        <%= f.submit "Guardar", :class => 'btn btn btn-info custom ' %>
                     
                 </div>
               </div>
@@ -179,7 +252,6 @@
        
        
 
-        </fieldset>
     </div>
   </div>
 </div>
@@ -190,15 +262,6 @@
 
 
 
-<script type="text/javascript">
-  $("#document").keyup(function(){
-    $("#password1").val(this.value);
-    $("#password2").val(this.value);
-    $("#document").val(this.value);
-});
-</script>
 
 
 
-
-                    

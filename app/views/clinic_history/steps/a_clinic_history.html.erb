@@ -24,26 +24,7 @@
     <style type="text/css">
         @import url(https://fonts.googleapis.com/css?family=Roboto);
         @import url(https://fonts.googleapis.com/css?family=Montserrat);
-        .panel-heading {
-            background-image: none;
-            background-color: #ECECEC;
-            color: #5bc0de;
-            font-family: 'Roboto', sans-serif;
-        }
 
-          .panel-title{
-            font-size: 30px;   
-          }
-          .pie_form{
-            background-image: none;
-            background-color: #ECECEC;
-            color: white;   
-          }
-          .line1
-          {
-            display: inline-block;
-            width: 30% !important;
-          }
     </style>
 
 
@@ -52,6 +33,8 @@
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
 <%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+
+
 
 
 
@@ -78,7 +61,7 @@
           </div>
           <div class="col-md-3">
               <label>Aeropuerto:</label> 
-              <%= f.collection_select :airport_id, Airport.all, :id, :name, {prompt: "Select a category"}, {class: "form-control"} %>
+              <%= f.collection_select :airport_id, Airport.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
           </div>
 
           <div class="col-md-3">
@@ -95,7 +78,7 @@
         <br/>        <br/>
         <br/>
         <div class="col-md-12">
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Tipo Servicio:</label> 
                     <%= f.input :type_service,
                     prompt:       'Campo Obligatorio',
@@ -103,19 +86,16 @@
                     error: false, label: false, 
                     input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Origen:</label> 
                   <%= f.input :origin,  :input_html => { :class => 'form-control', id: "origin" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Destino:</label> 
                 <%= f.input :destination,  :input_html => { :class => 'form-control', id: "destination" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
-          <div class="col-md-3">
-              <label>Empresa:</label> 
-              <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
-          </div>
+          
         </div>
 
         <br/>
@@ -123,11 +103,17 @@
         <br/>
 
         <div class="col-md-12">
-          <div class="col-md-3">
+
+<div class="col-md-4">
+              <label>Empresa:</label> 
+              <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+          </div>
+
+          <div class="col-md-4">
               <label>Nombre Acompañante:</label> 
                 <%= f.input :accompanist_name,  :input_html => { :class => 'form-control', id: "accompanist_name" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Selecciona el parentesco:</label> 
                 <%= f.input :relationship,
                               prompt:       'Campo Obligatorio',
@@ -136,21 +122,54 @@
                               input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
           </div>
 
-          <div class="col-md-3">
-              <label>Razón de la consulta:</label> 
-                <%= f.text_area :reason_for_consultation, :class => 'form-control', id: "reason_for_consultation" ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
-          </div>
-          <div class="col-md-3">
-              <label>Enfermedad Actual:</label> 
-                <%= f.text_area :current_illness, :class => 'form-control', id: "current_illness" ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
-          </div>
+          
+         
         </div>
+                <br/>
+        <br/>   
+                <br/>
+        <br/>   
+         <div class="col-md-12">
+
+<div class="col-md-4">
+              <label>Telefono Acompañante:</label> 
+                <%= f.input :phone,  :input_html => { :class => 'form-control' } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+
+          </div>
+
+          <div class="col-md-4">
+              <label>Arl:</label> 
+              <%= f.collection_select :arl_id, Arl.all, :id, :name, {prompt: "Selecciones una Arl"}, {class: "form-control"} %>
+          </div>
+
+
+<div class="col-md-4">
+              <label>Eps:</label> 
+              <%= f.collection_select :eps_id, Eps.all, :id, :name, {prompt: "Selecciones una Eps"}, {class: "form-control"} %>
+          </div>
+
+
+
+         </div>
 
         <br/>
         <br/>        <br/>
         <br/>
 
+         <div class="row">
+                  <div class="col-md-12">
 
+            <div class="col-md-6">
+              <label>Razón de la consulta:</label> 
+                <%= f.text_area :reason_for_consultation, :class => 'form-control', id: "reason_for_consultation" ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+          </div>
+          <div class="col-md-6">
+              <label>Enfermedad Actual:</label> 
+                <%= f.text_area :current_illness, :class => 'form-control', id: "current_illness" ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+          </div>
+          </div>
+
+         </div>
     </div>
 </div>
         
@@ -168,9 +187,6 @@
 <%= f.hidden_field :email, :value => @patient.email %>
 <%= f.hidden_field :type_document, :value => @patient.label_documento %>
 <%= f.hidden_field :document, :value => @patient.document %>
-<%= f.hidden_field :days_age, :value => @patient.days_age %>
-<%= f.hidden_field :months_age, :value => @patient.months_age %>
-<%= f.hidden_field :years_age, :value => @patient.years_age %>
 <%= f.hidden_field :birthdate, :value => @patient.birthdate %>
 <%= f.hidden_field :gender, :value => @patient.label_genre %>
 <%= f.hidden_field :profession, :value => @patient.label_profession %>
@@ -178,6 +194,11 @@
 <%= f.hidden_field :nacionality, :value => @patient.nacionality %>
 <%= f.hidden_field :address, :value => @patient.address %>
 <% f.hidden_field :user_id, :value => current_user.id %>
+
+
+
+
+
 
 
 
