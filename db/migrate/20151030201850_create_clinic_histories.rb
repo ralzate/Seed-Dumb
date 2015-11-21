@@ -164,11 +164,12 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.boolean :neurological_true
       t.boolean :neurological_false
       t.text :neurological_description
-      t.integer :alteration
+      t.string :alteration
       t.integer :eye_opening
       t.integer :verbal_answer
       t.integer :motor_response
-      t.integer :other_signs
+      t.string :other_signs
+      t.integer  :escala_de_glasgow
       t.text :analysis
       t.text :print_diagnosed
       t.text :plan_and_treatment

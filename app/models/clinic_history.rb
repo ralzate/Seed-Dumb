@@ -160,9 +160,12 @@ class ClinicHistory < ActiveRecord::Base
     or first_surname like '%#{search}%'  or second_surname like '%#{search}%' 
     or email like '%#{search}%' or document like '%#{search}%' or address like 
     '%#{search}%'")
-
-
   end
+
+   before_save do
+      self.alteration.gsub!(/[\[\]\"]/, "") if attribute_present?("alteration")
+      self.other_signs.gsub!(/[\[\]\"]/, "") if attribute_present?("other_signs")
+   end
 
 
 end

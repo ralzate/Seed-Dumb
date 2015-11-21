@@ -473,6 +473,11 @@
 
 
 
+       
+
+
+
+
 
 
 
@@ -483,37 +488,190 @@
 
 
         <div class="col-md-12">
+
           <div class="col-md-3">
+
               <label>Alteración:</label> 
-              <%= f.input :alteration, :input_html => { :class => 'form-control fs1' }, label: false %>
+
+
+    <%= label_tag 'alteration_de_sensibilidad', 'De Sensibilidad' %>
+    <%= check_box_tag 'clinic_history[alteration][]', 'De Sensibilidad', checked('De Sensibilidad'), id: 'alteration_de_sensibilidad' %>
+
+
+    <%= label_tag 'alteration_de_motricidad', 'De Motricidad' %>
+    <%= check_box_tag 'clinic_history[alteration][]', 'De Motricidad', checked('De Motricidad'), id: 'alteration_de_motricidad' %>
+
+
+    <%= label_tag 'alteration_cognitiva', 'Cognitiva' %>
+    <%= check_box_tag 'clinic_history[alteration][]', 'Cognitiva', checked('Cognitiva'), id: 'alteration_cognitiva' %>
+
+
+    <%= label_tag 'alteration_sensorial', 'Sensorial' %>
+    <%= check_box_tag 'clinic_history[alteration][]', 'Sensorial', checked('Sensorial'), id: 'alteration_sensorial' %>
+
+
+    <%= label_tag 'alteration_del_lenguaje', 'Del Lenguaje' %>
+    <%= check_box_tag 'clinic_history[alteration][]', 'Del Lenguaje', checked('Del Lenguaje'), id: 'alteration_del_lenguaje' %>
+
+
+
 
           </div>
           <div class="col-md-3">
-              <label>Ojo abierto:</label> 
-              <%= f.input :eye_opening, :input_html => { :class => 'form-control fs1' }, label: false %>
+              <label>Ojoa bierto:</label> 
+
+
+
+            <div class="field">
+                <%= f.label :espontanea_4 %>
+                <%= f.radio_button(:eye_opening, "4".to_i )%>
+<br/>
+                <%= f.label :al_llamado_3 %>
+                <%= f.radio_button(:eye_opening, "3".to_i )%>
+<br/>                
+                <%= f.label :al_dolor_2 %>
+                <%= f.radio_button(:eye_opening, "2".to_i )%>
+<br/>                
+                <%= f.label :no_apertura_1 %>
+                <%= f.radio_button(:eye_opening, "1".to_i )%>
+
+              </div>
+
+
           </div>
 
           <div class="col-md-3">
               <label>Respuesta Verbal:</label> 
-              <%= f.input :verbal_answer, :input_html => { :class => 'form-control fs1' }, label: false %>
+
+
+            <div class="field">
+
+                <%= f.label :orientada_5 %>
+                <%= f.radio_button(:verbal_answer, "5".to_i )%>
+<br/>
+                <%= f.label :confusa_4 %>
+                <%= f.radio_button(:verbal_answer, "4".to_i )%>
+<br/>
+                <%= f.label :palabras_3 %>
+                <%= f.radio_button(:verbal_answer, "3".to_i )%>
+<br/>                
+                <%= f.label :sonidos_2 %>
+                <%= f.radio_button(:verbal_answer, "2".to_i )%>
+<br/>                
+                <%= f.label :ninguna_1 %>
+                <%= f.radio_button(:verbal_answer, "1".to_i )%>
+
+              </div>
+
+
+
           </div>
           <div class="col-md-3">
+
+
+
+
+
+            <div class="field">
               <label>Respuesta Motora:</label> 
-              <%= f.input :motor_response, :input_html => { :class => 'form-control fs1' }, label: false %>
+
+                <%= f.label :obedece_ordenes_6 %>
+                <%= f.radio_button(:motor_response, "6".to_i )%>
+<br/>
+                <%= f.label :localiza_estimulos_5 %>
+                <%= f.radio_button(:motor_response, "5".to_i )%>
+<br/>
+                <%= f.label :retira_el_dolor_4 %>
+                <%= f.radio_button(:motor_response, "4".to_i )%>
+<br/>
+                <%= f.label :retira_en_flexión_3 %>
+                <%= f.radio_button(:motor_response, "3".to_i )%>
+<br/>                
+                <%= f.label :retira_en_extensión_2 %>
+                <%= f.radio_button(:motor_response, "2".to_i )%>
+<br/>                
+                <%= f.label :sin_respuesta_1 %>
+                <%= f.radio_button(:motor_response, "1".to_i )%>
+
+              </div>
+
+
+
           </div>
         </div>
 
 
 
         <br/>
-        <br/>        <br/>
+        <br/>        
         <br/>
+        <br/>
+
+
+
 
 
         <div class="col-md-12">
           <div class="col-md-3">
-              <label>Otros Signos :</label> 
-                      <%= f.input :other_signs, :input_html => { :class => 'form-control fs1' }, label: false %>
+
+
+
+
+
+
+
+    <%= label_tag 'other_signs_discoria', 'Discoria' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Discoria', checked('Discoria'), id: 'other_signs_discoria' %>
+
+    <%= label_tag 'other_signs_miosis', 'Miosis' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Miosis', checked('Miosis'), id: 'other_signs_miosis' %>
+
+
+    <%= label_tag 'other_signs_midriosis', 'Midriosis' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Midriosis', checked('Midriosis'), id: 'other_signs_midriosis' %>
+
+
+    <%= label_tag 'other_signs_pupilas_fijas', 'Pupilas Fijas' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Pupilas Fijas', checked('Pupilas Fijas'), id: 'other_signs_pupilas_fijas' %>
+
+
+    <%= label_tag 'other_signs_nistagmus', 'Nistagmus' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Nistagmus', checked('Nistagmus'), id: 'other_signs_nistagmus' %>
+
+
+
+    <%= label_tag 'other_signs_fotomotor', 'FotoMotor' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'FotoMotor', checked('FotoMotor'), id: 'other_signs_fotomotor' %>
+
+
+    <%= label_tag 'other_signs_consciente', 'Consciente' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Consciente', checked('Consciente'), id: 'other_signs_consciente' %>
+
+
+    <%= label_tag 'other_signs_orientado', 'Orientado' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Orientado', checked('Orientado'), id: 'other_signs_orientado' %>
+
+
+
+
+    <%= label_tag 'other_signs_desorientado', 'Desorientado' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Desorientado', checked('Desorientado'), id: 'other_signs_desorientado' %>
+
+
+    <%= label_tag 'other_signs_agitado', 'Agitado' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Agitado', checked('Agitado'), id: 'other_signs_agitado' %>
+
+
+    <%= label_tag 'other_signs_deprimido', 'Deprimido' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Deprimido', checked('Deprimido'), id: 'other_signs_deprimido' %>
+
+
+
+    <%= label_tag 'other_signs_inconsciente', 'Inconsciente' %>
+    <%= check_box_tag 'clinic_history[other_signs][]', 'Inconsciente', checked('Inconsciente'), id: 'other_signs_inconsciente' %>
+
+
+
 
           </div>
 
@@ -586,5 +744,48 @@ $('#checkAll2').click(function () {
  });
 
 
+
+</script>
+
+
+
+
+
+
+<select name='anch1'>
+ <option value='10'>10 ++</option>
+ <option value='20'>20 ++</option>
+ <option value='30'>30 ++</option>
+ <option value='40'>40 ++</option>
+ <option value='50'>50 ++</option>
+</select>
+
+<select name='anch2'>
+ <option value='10'>10 ++</option>
+ <option value='20'>20 ++</option>
+ <option value='30'>30 ++</option>
+ <option value='40'>40 ++</option>
+ <option value='50'>50 ++</option>
+</select>
+
+<select name='anch3'>
+ <option value='10'>10 ++</option>
+ <option value='20'>20 ++</option>
+ <option value='30'>30 ++</option>
+ <option value='40'>40 ++</option>
+ <option value='50'>50 ++</option>
+</select>
+
+<div id='sum'>SUM OF SELECTED OPTIONS</div>
+
+
+<script type="text/javascript">
+  $('select').change(function(){
+    var sum = 0;
+    $('select :selected').each(function() {
+        sum += Number($(this).val());
+    });
+     $("#sum").html(sum);
+});
 
 </script>

@@ -50,8 +50,8 @@ class ClinicHistory::StepsController < ApplicationController
           :rib_cage_description, :heart, :heart_description, :lungs, :lungs_description, :abdomen, :abdomen_description, 
           :genitourinary, :genitourinary_description, :rectum, :rectum_description, :extremities, :extremities_description, 
           :skin_and_appendages, :skin_and_appendages_description, :skeletal_muscle, :skeletal_muscle_description, :mental, 
-          :mental_description, :neurological, :neurological_description, :alteration, :eye_opening, :verbal_answer, 
-          :motor_response, :other_signs] 
+          :mental_description, :neurological, :neurological_description,  :eye_opening, :verbal_answer, 
+          :motor_response, :other_signs, :escala_de_glasgow, alteration:[], other_signs:[]] 
 
        when "e_impresion_diagnostica"
           [:analysis, :print_diagnosed, :plan_and_treatment, :observations_recommendations]
