@@ -41,10 +41,19 @@ class User < ActiveRecord::Base
   acts_as_messageable
   has_many :products, dependent: :destroy
   has_many :clinic_histories, dependent: :destroy
+     has_many :clinic_histories
+
   before_save { self.email = email.downcase }
   mount_uploader :picture, PictureUploader
 
-  validates :password,  confirmation: true, if: :new_user?
+
+  EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i
+  PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+\z/
+
+
+  validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
+  validates :password, :presence  => true, :confirmation => true, :on => :update
+
 
 
    def self.search(search)

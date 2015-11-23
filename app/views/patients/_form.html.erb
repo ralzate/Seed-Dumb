@@ -1,7 +1,4 @@
 
-<div class="col-md-12" style = "margin:25px!important">
-    <%= link_to "Listado de Pacientes",  patients_path, :class => "btn btn-info color_blanco  pull-left" %>
-</div>
 
 
 
@@ -56,7 +53,7 @@
             <%= simple_form_for(@patient, :html => { :class => 'contact-form', :id => 'contact-form' }) do |f| %>
 
 <div class="container" style="margin-top:10px; margin-bottom:-8px;">
-        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Crear Paciente</h1></div>
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Datos Paciente</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
 
@@ -134,12 +131,7 @@
 
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <label class="label">Documento</label>
-                    <div class="form-group">
-                        <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
-                    </div>
-                  </div> 
+              
 
                 <div class="col-md-4">
                   <label class="label">Fecha de Nacimiento</label>
@@ -158,10 +150,7 @@
                 </div>
 
 
-                </div>
 
-                <div class="row">
-                  
 
                   <div class="col-md-4">
                     <label class="label">Tipo Sanguineo</label>
@@ -175,7 +164,10 @@
                   </div>
 
 
+                </div>
 
+                <div class="row">
+                  
 
                   <div class="col-md-4">
                     <label class="label">Profesion</label>
@@ -195,20 +187,6 @@
                     </div>
                   </div>
 
-
-                </div>
-
-                <div class="row">
-                  
-
-                  <div class="col-md-4">
-                      <label class="label">Pais</label>
-                      <div class="form-group">
-                        <%= f.country_select :country_code, {object: f.object, prompt: 'País'}, class: 'form-control fontf' %>
-                      </div>
-
-                  </div> 
-
                   
                 <div class="col-md-4">
                   <label class="label">Ciudad</label>
@@ -219,11 +197,17 @@
 
                 <div class="col-md-4">
                   <div class="form-group">
+                  <label class="label">Nacionalidad</label>
+
+                        <%= f.country_select :nacionality, {object: f.object, prompt: 'Campo Obligatorio'}, class: 'form-control' %>
+
+
                       <%= f.hidden_field :user_id, :value => current_user.id %>
                   </div>
                 </div>
 
               </div>
+
 
 
 

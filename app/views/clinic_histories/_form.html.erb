@@ -90,12 +90,15 @@
           </div>
           <div class="col-md-4">
               <label>Origen:</label> 
-                  <%= f.input :origin,  :input_html => { :class => 'form-control', id: "origin" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+                  <%= f.collection_select :origin, City.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
           </div>
 
           <div class="col-md-4">
               <label>Destino:</label> 
-                <%= f.input :destination,  :input_html => { :class => 'form-control', id: "destination" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+                  <%= f.collection_select :destination, City.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+
           </div>
           
         </div>
@@ -117,11 +120,9 @@
           </div>
           <div class="col-md-4">
               <label>Selecciona el parentesco:</label> 
-                <%= f.input :relationship,
-                              prompt:       'Campo Obligatorio',
-                              collection: @clinic_history.select_relationship.sort,
-                              error: false, label: false, 
-                              input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
+
+                <%= f.input :relationship,  :input_html => { :class => 'form-control', id: "accompanist_name" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+
           </div>
 
           
@@ -177,22 +178,23 @@
 
 
 
-
 <!-- Codigo que Duplica la información del Paciente -->
 <%= f.hidden_field :first_name, :value => @patient.first_name %>
 <%= f.hidden_field :second_name, :value => @patient.second_name %>
 <%= f.hidden_field :first_surname, :value => @patient.first_surname %>
 <%= f.hidden_field :second_surname, :value => @patient.second_surname %>
 <%= f.hidden_field :email, :value => @patient.email %>
-<%= f.hidden_field :type_document, :value => @patient.label_documento %>
+<%= f.hidden_field :type_document, :value => @patient.document %>
 <%= f.hidden_field :document, :value => @patient.document %>
 <%= f.hidden_field :birthdate, :value => @patient.birthdate %>
-<%= f.hidden_field :gender, :value => @patient.label_genre %>
+<%= f.hidden_field :gender, :value => @patient.gender %>
 <%= f.hidden_field :profession, :value => @patient.label_profession %>
-<%= f.hidden_field :blood_type, :value => @patient.label_blood %>
+<%= f.hidden_field :blood_type, :value => @patient.blood_type %>
 <%= f.hidden_field :nacionality, :value => @patient.nacionality %>
 <%= f.hidden_field :address, :value => @patient.address %>
-<% f.hidden_field :user_id, :value => current_user.id %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.hidden_field :country_code, :value => @patient.city.country_code %>
+
 
 
 

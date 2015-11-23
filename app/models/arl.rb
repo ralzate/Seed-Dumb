@@ -9,6 +9,10 @@
 #
 
 class Arl < ActiveRecord::Base
+
+   has_many :clinic_histories
+
+	
   def self.search(search)
     where("name like '%#{search}%'")
   end

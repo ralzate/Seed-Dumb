@@ -136,9 +136,11 @@
 
 class ClinicHistory < ActiveRecord::Base
 
-
+  belongs_to :arl
+  belongs_to :eps
   belongs_to :user
   belongs_to :patient
+  belongs_to :airport
 
   cattr_accessor :form_steps do
     %w(a_clinic_history b_antecedentes c_revision_sistemas d_examen_fisico e_impresion_diagnostica)

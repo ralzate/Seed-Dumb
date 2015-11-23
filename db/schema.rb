@@ -51,22 +51,22 @@ ActiveRecord::Schema.define(version: 20151113135559) do
     t.string   "gender"
     t.string   "profession"
     t.string   "blood_type"
+    t.string   "country_code"
     t.string   "nacionality"
     t.integer  "eps_id"
     t.integer  "arl_id"
     t.string   "address"
-    t.integer  "condition"
+    t.string   "condition"
     t.string   "accompanist_name"
-    t.integer  "relationship"
+    t.string   "relationship"
     t.string   "phone"
-    t.integer  "city_id"
     t.integer  "user_id"
     t.string   "city"
     t.string   "department"
     t.string   "cove"
     t.string   "mobiel_service"
     t.integer  "airport_id"
-    t.integer  "type_service"
+    t.string   "type_service"
     t.integer  "patient_id"
     t.string   "origin"
     t.string   "destination"
@@ -203,7 +203,6 @@ ActiveRecord::Schema.define(version: 20151113135559) do
 
   add_index "clinic_histories", ["airport_id"], name: "index_clinic_histories_on_airport_id", using: :btree
   add_index "clinic_histories", ["arl_id"], name: "index_clinic_histories_on_arl_id", using: :btree
-  add_index "clinic_histories", ["city_id"], name: "index_clinic_histories_on_city_id", using: :btree
   add_index "clinic_histories", ["eps_id"], name: "index_clinic_histories_on_eps_id", using: :btree
   add_index "clinic_histories", ["patient_id"], name: "index_clinic_histories_on_patient_id", using: :btree
   add_index "clinic_histories", ["user_id"], name: "index_clinic_histories_on_user_id", using: :btree
@@ -290,18 +289,15 @@ ActiveRecord::Schema.define(version: 20151113135559) do
     t.string   "first_surname"
     t.string   "second_surname"
     t.string   "email"
-    t.integer  "type_document"
+    t.string   "type_document"
     t.string   "document"
-    t.integer  "days_age"
-    t.integer  "months_age"
-    t.integer  "years_age"
     t.date     "birthdate"
-    t.integer  "gender"
+    t.string   "gender"
     t.string   "profession"
-    t.integer  "blood_type"
-    t.integer  "nacionality"
+    t.string   "blood_type"
+    t.string   "nacionality"
     t.string   "address"
-    t.integer  "condition"
+    t.string   "condition"
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
@@ -345,7 +341,7 @@ ActiveRecord::Schema.define(version: 20151113135559) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                                           null: false
+    t.string   "email",                                       null: false
     t.string   "names"
     t.string   "surnames"
     t.integer  "type_document"
@@ -366,7 +362,6 @@ ActiveRecord::Schema.define(version: 20151113135559) do
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"
     t.string   "picture"
-    t.boolean  "admin",                           default: false
     t.integer  "failed_logins_count",             default: 0
     t.datetime "lock_expires_at"
     t.string   "unlock_token"
@@ -386,7 +381,6 @@ ActiveRecord::Schema.define(version: 20151113135559) do
   add_foreign_key "airports", "cities"
   add_foreign_key "clinic_histories", "airports"
   add_foreign_key "clinic_histories", "arles"
-  add_foreign_key "clinic_histories", "cities"
   add_foreign_key "clinic_histories", "epses"
   add_foreign_key "clinic_histories", "patients"
   add_foreign_key "clinic_histories", "users"

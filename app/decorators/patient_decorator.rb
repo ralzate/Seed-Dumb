@@ -2,54 +2,37 @@ module PatientDecorator
 
   	def select_genre
     	[
-	        ['Masculino', 1],
-	        ['Femenino', 2],
-	        ['Transexual', 3]
+	        ['Masculino', 'Masculino'],
+	        ['Femenino', 'Femenino'],
+	        ['Transexual', 'Transexual']
     	]
   	end
 
-	def label_genre
-	    if select_genre.flatten.include?(gender.to_i)
-	      select_genre.each { |first_name, id| return first_name if gender.to_i == id }
-	    end
-	end
   	
   	def select_document
     	[
-	        ['Cedula de Ciudadania', 1],
-	        ['Tarjeta de Identidad', 2],
-	        ['Cedula de Extranjeria', 3],
-	        ['Pasaporte', 4],
-	        ['Documento nacional de identificación', 5],
-	        ['Registro Civil', 6]
+	        ['Cedula de Ciudadania', 'Cedula de Ciudadania'],
+	        ['Tarjeta de Identidad', 'Tarjeta de Identidad'],
+	        ['Cedula de Extranjeria', 'Cedula de Extranjeria'],
+	        ['Pasaporte', 'Pasaporte'],
+	        ['Documento nacional de identificación', 'Documento nacional de identificación'],
+	        ['Registro Civil', 'Registro Civil']
     	]
   	end
 
-	def label_documento
-	    if select_document.flatten.include?(type_document.to_i)
-	      select_document.each { |first_name, id| return first_name if type_document.to_i == id }
-	    end
-	end
-  	
+
   	def select_blood
     	[
-	        ['O-', 1],
-	        ['O+', 2],
-	        ['A-', 3],
-	        ['A+', 4],
-	        ['B-', 5],
-	        ['B+', 6],
-	        ['AB-', 7],
-	        ['AB+', 8]
+	        ['O-', 'O-'],
+	        ['O+', 'O+'],
+	        ['A-', 'A-'],
+	        ['A+', 'A+'],
+	        ['B-', 'B-'],
+	        ['B+', 'B+'],
+	        ['AB-', 'AB-'],
+	        ['AB+', 'AB+']
     	]
   	end
-
-	def label_blood
-	    if select_blood.flatten.include?(blood_type.to_i)
-	      select_blood.each { |first_name, id| return first_name if blood_type.to_i == id }
-	    end
-	end
-
 
 
 

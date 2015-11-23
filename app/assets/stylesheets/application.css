@@ -18,6 +18,38 @@
  *= require lazybox
  */
 
+
+
+
+
+.actualizar {
+  height: 100%;
+  text-align: center;
+}
+
+.titulo {
+  margin-top: 5%;
+  font-size: 25px;
+  display: inline-block;
+  text-transform: uppercase;
+
+}
+.titulo div {
+  position: relative;
+  float: left;
+}
+.titulo div:first-child {
+  color: #3498db;
+  margin-right: 1rem;
+}
+
+.delay-1 {
+  -moz-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+
 .disabled {
    pointer-events: none;
    cursor: default;

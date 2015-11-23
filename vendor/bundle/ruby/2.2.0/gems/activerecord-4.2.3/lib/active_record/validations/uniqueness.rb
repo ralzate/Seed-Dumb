@@ -139,7 +139,7 @@ module ActiveRecord
       # Configuration options:
       #
       # * <tt>:message</tt> - Specifies a custom error message (default is:
-      #   "has already been taken").
+      #   "No es valido").
       # * <tt>:scope</tt> - One or more columns by which to limit the scope of
       #   the uniqueness constraint.
       # * <tt>:conditions</tt> - Specify the conditions to be included as a

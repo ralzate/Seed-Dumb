@@ -48,6 +48,7 @@
     <th>Arl #</th>
     <th>Nombre</th>
     <th>Pais</th>
+    <th>Fecha</th>
     <th>Opciones</th>
   </tr>
   
@@ -58,6 +59,7 @@
     <td><%= city.id %></td>
     <td> <%= best_in_place city, :name, :ok_button => "Guardar", :ok_button_class => "btn btn-success", :cancel_button => 'Cerrar', :cancel_button_class => "btn btn-primary"  %></td>
     <td><%=  city.country_code %></td>
+    <td><%= city.created_at.strftime('%b %d. %Y') %></td>
 
     <td>
     <%= link_to 'Editar', edit_city_path(city),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>

@@ -620,7 +620,7 @@ end
 WARNING. Note that some databases are configured to perform case-insensitive
 searches anyway.
 
-The default error message is _"has already been taken"_.
+The default error message is _"No es Valido"_.
 
 ### `validates_with`
 

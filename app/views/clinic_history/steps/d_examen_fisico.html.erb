@@ -96,7 +96,7 @@
           </div>
           <div class="col-md-3">
               <label>% SAT. de 02 Ambiente:</label> 
-              <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
+              <%= f.input :sat_of_o_ambiente, :input_html => { :class => 'form-control fs1' }, label: false %>
           </div>
         </div>
 
@@ -189,6 +189,32 @@
 
 
         <tbody>
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Cabeza
+            </td>
+            <td align="center">
+              <%= f.check_box :head_true, class: 'checkItem myCheckbox' %>
+            </td>
+            <td align="center">
+              <%= f.check_box :head_false, class: 'checkItem2 myCheckbox' %>
+            </td>
+            <td>
+            <%= f.text_field :head_description, class: 'form-control' %>
+
+            </td>
+          </tr>
+
+          <tr id='addr1'></tr>
+
+
+
+
+
+
           <tr id='addr0' class="selectme">
             <td align="center">
             Cuello
@@ -250,6 +276,8 @@
             </td>
             <td>
             <%= f.text_field :rib_cage_description, class: 'form-control' %>
+
+
             </td>
           </tr>
 
@@ -489,9 +517,8 @@
 
         <div class="col-md-12">
 
-          <div class="col-md-3">
 
-              <label>Alteración:</label> 
+              <label>Alteración:</label><br/> 
 
 
     <%= label_tag 'alteration_de_sensibilidad', 'De Sensibilidad' %>
@@ -517,81 +544,89 @@
 
 
           </div>
-          <div class="col-md-3">
-              <label>Ojoa bierto:</label> 
+
+        </div> 
+        
+        <br/>        
+
+    <div class="row">
+
+          <div class="col-md-4">
+              <label>Ojo bierto:</label> 
 
 
 
             <div class="field">
                 <%= f.label :espontanea_4 %>
-                <%= f.radio_button(:eye_opening, "4".to_i )%>
+                <%= f.radio_button(:eye_opening, "4".to_i, class: "calc" )%>
 <br/>
                 <%= f.label :al_llamado_3 %>
-                <%= f.radio_button(:eye_opening, "3".to_i )%>
+                <%= f.radio_button(:eye_opening, "3".to_i, class: "calc" )%>
 <br/>                
                 <%= f.label :al_dolor_2 %>
-                <%= f.radio_button(:eye_opening, "2".to_i )%>
+                <%= f.radio_button(:eye_opening, "2".to_i, class: "calc" )%>
 <br/>                
                 <%= f.label :no_apertura_1 %>
-                <%= f.radio_button(:eye_opening, "1".to_i )%>
+                <%= f.radio_button(:eye_opening, "1".to_i, class: "calc" )%>
 
               </div>
 
 
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Respuesta Verbal:</label> 
 
 
             <div class="field">
 
                 <%= f.label :orientada_5 %>
-                <%= f.radio_button(:verbal_answer, "5".to_i )%>
+                <%= f.radio_button(:verbal_answer, "5".to_i, class: "calc" )%>
 <br/>
                 <%= f.label :confusa_4 %>
-                <%= f.radio_button(:verbal_answer, "4".to_i )%>
+                <%= f.radio_button(:verbal_answer, "4".to_i, class: "calc" )%>
 <br/>
                 <%= f.label :palabras_3 %>
-                <%= f.radio_button(:verbal_answer, "3".to_i )%>
+                <%= f.radio_button(:verbal_answer, "3".to_i, class: "calc" )%>
 <br/>                
                 <%= f.label :sonidos_2 %>
-                <%= f.radio_button(:verbal_answer, "2".to_i )%>
+                <%= f.radio_button(:verbal_answer, "2".to_i, class: "calc" )%>
 <br/>                
                 <%= f.label :ninguna_1 %>
-                <%= f.radio_button(:verbal_answer, "1".to_i )%>
+                <%= f.radio_button(:verbal_answer, "1".to_i, class: "calc" )%>
 
               </div>
 
 
 
           </div>
-          <div class="col-md-3">
-
-
+          <div class="col-md-4">
 
 
 
             <div class="field">
-              <label>Respuesta Motora:</label> 
+              <label>Respuesta Motora:</label> <br/>
 
                 <%= f.label :obedece_ordenes_6 %>
-                <%= f.radio_button(:motor_response, "6".to_i )%>
+                <%= f.radio_button(:motor_response, "6".to_i , class: "calc") %>
 <br/>
                 <%= f.label :localiza_estimulos_5 %>
-                <%= f.radio_button(:motor_response, "5".to_i )%>
+                <%= f.radio_button(:motor_response, "5".to_i , class: "calc")%>
 <br/>
                 <%= f.label :retira_el_dolor_4 %>
-                <%= f.radio_button(:motor_response, "4".to_i )%>
+                <%= f.radio_button(:motor_response, "4".to_i , class: "calc")%>
 <br/>
                 <%= f.label :retira_en_flexión_3 %>
-                <%= f.radio_button(:motor_response, "3".to_i )%>
+                <%= f.radio_button(:motor_response, "3".to_i , class: "calc")%>
 <br/>                
                 <%= f.label :retira_en_extensión_2 %>
-                <%= f.radio_button(:motor_response, "2".to_i )%>
+                <%= f.radio_button(:motor_response, "2".to_i , class: "calc")%>
 <br/>                
                 <%= f.label :sin_respuesta_1 %>
-                <%= f.radio_button(:motor_response, "1".to_i )%>
+                <%= f.radio_button(:motor_response, "1".to_i , class: "calc")%>
+
+
+
 
               </div>
 
@@ -600,23 +635,24 @@
           </div>
         </div>
 
+    <div class="row">
+
+        <div class="col-md-6">
+            <label>Escala De Glasgow / 15:</label> <br/>
+  
+<%= f.number_field :escala_de_glasgow, class: 'form-control' , :readonly => true, id: 'sum' %>
+
+        </div>
 
 
+        </div>    
+
+
+    <div class="row">
+          <div class="col-md-12">
         <br/>
-        <br/>        
-        <br/>
-        <br/>
 
-
-
-
-
-        <div class="col-md-12">
-          <div class="col-md-3">
-
-
-
-
+              <label>Otros Signos:</label><br/> 
 
 
 
@@ -752,40 +788,19 @@ $('#checkAll2').click(function () {
 
 
 
-<select name='anch1'>
- <option value='10'>10 ++</option>
- <option value='20'>20 ++</option>
- <option value='30'>30 ++</option>
- <option value='40'>40 ++</option>
- <option value='50'>50 ++</option>
-</select>
-
-<select name='anch2'>
- <option value='10'>10 ++</option>
- <option value='20'>20 ++</option>
- <option value='30'>30 ++</option>
- <option value='40'>40 ++</option>
- <option value='50'>50 ++</option>
-</select>
-
-<select name='anch3'>
- <option value='10'>10 ++</option>
- <option value='20'>20 ++</option>
- <option value='30'>30 ++</option>
- <option value='40'>40 ++</option>
- <option value='50'>50 ++</option>
-</select>
-
-<div id='sum'>SUM OF SELECTED OPTIONS</div>
-
 
 <script type="text/javascript">
-  $('select').change(function(){
-    var sum = 0;
-    $('select :selected').each(function() {
-        sum += Number($(this).val());
+  function calcscore(){
+    var score = 0;
+    $(".calc:checked").each(function(){
+        score+=parseInt($(this).val(),10);
     });
-     $("#sum").html(sum);
+    $("#sum" ).val(score)
+}
+$().ready(function(){
+    $(".calc").change(function(){
+        calcscore()
+    });
 });
 
 </script>

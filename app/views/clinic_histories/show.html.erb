@@ -1,707 +1,1781 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @clinic_history.first_name %>
-</p>
-
-<p>
-  <strong>Second name:</strong>
-  <%= @clinic_history.second_name %>
-</p>
-
-<p>
-  <strong>First surname:</strong>
-  <%= @clinic_history.first_surname %>
-</p>
-
-<p>
-  <strong>Second surname:</strong>
-  <%= @clinic_history.second_surname %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @clinic_history.email %>
-</p>
-
-<p>
-  <strong>Type document:</strong>
-  <%= @clinic_history.type_document %>
-</p>
-
-<p>
-  <strong>Document:</strong>
-  <%= @clinic_history.document %>
-</p>
-
-<p>
-  <strong>Days age:</strong>
-  <%= @clinic_history.days_age %>
-</p>
-
-<p>
-  <strong>Months age:</strong>
-  <%= @clinic_history.months_age %>
-</p>
-
-<p>
-  <strong>Years age:</strong>
-  <%= @clinic_history.years_age %>
-</p>
-
-<p>
-  <strong>Birthdate:</strong>
-  <%= @clinic_history.birthdate %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @clinic_history.gender %>
-</p>
-
-<p>
-  <strong>Profession:</strong>
-  <%= @clinic_history.profession %>
-</p>
-
-<p>
-  <strong>Blood type:</strong>
-  <%= @clinic_history.blood_type %>
-</p>
-
-<p>
-  <strong>Nacionality:</strong>
-  <%= @clinic_history.nacionality %>
-</p>
-
-<p>
-  <strong>Eps:</strong>
-  <%= @clinic_history.eps %>
-</p>
-
-<p>
-  <strong>Arl:</strong>
-  <%= @clinic_history.arl %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @clinic_history.address %>
-</p>
-
-<p>
-  <strong>Condition:</strong>
-  <%= @clinic_history.condition %>
-</p>
-
-<p>
-  <strong>Accompanist name:</strong>
-  <%= @clinic_history.accompanist_name %>
-</p>
-
-<p>
-  <strong>Relationship:</strong>
-  <%= @clinic_history.relationship %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @clinic_history.phone %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @clinic_history.city %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @clinic_history.user %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @clinic_history.city %>
-</p>
-
-<p>
-  <strong>Department:</strong>
-  <%= @clinic_history.department %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @clinic_history.user %>
-</p>
-
-<p>
-  <strong>Cove:</strong>
-  <%= @clinic_history.cove %>
-</p>
-
-<p>
-  <strong>Mobiel service:</strong>
-  <%= @clinic_history.mobiel_service %>
-</p>
-
-<p>
-  <strong>Airport:</strong>
-  <%= @clinic_history.airport %>
-</p>
-
-<p>
-  <strong>Type service:</strong>
-  <%= @clinic_history.type_service %>
-</p>
-
-<p>
-  <strong>Patient:</strong>
-  <%= @clinic_history.patient %>
-</p>
-
-<p>
-  <strong>Origin:</strong>
-  <%= @clinic_history.origin %>
-</p>
-
-<p>
-  <strong>Destination:</strong>
-  <%= @clinic_history.destination %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @clinic_history.company %>
-</p>
-
-<p>
-  <strong>Accompanist name:</strong>
-  <%= @clinic_history.accompanist_name %>
-</p>
-
-<p>
-  <strong>Relationship:</strong>
-  <%= @clinic_history.relationship %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @clinic_history.phone %>
-</p>
-
-<p>
-  <strong>Reason for consultation:</strong>
-  <%= @clinic_history.reason_for_consultation %>
-</p>
-
-<p>
-  <strong>Current illness:</strong>
-  <%= @clinic_history.current_illness %>
-</p>
-
-<p>
-  <strong>Neunatales:</strong>
-  <%= @clinic_history.neunatales %>
-</p>
-
-<p>
-  <strong>Neunatales description:</strong>
-  <%= @clinic_history.neunatales_description %>
-</p>
-
-<p>
-  <strong>Patologicos:</strong>
-  <%= @clinic_history.patologicos %>
-</p>
-
-<p>
-  <strong>Patologicos description:</strong>
-  <%= @clinic_history.patologicos_description %>
-</p>
-
-<p>
-  <strong>Quirurgicos:</strong>
-  <%= @clinic_history.quirurgicos %>
-</p>
-
-<p>
-  <strong>Quirurgicos description:</strong>
-  <%= @clinic_history.quirurgicos_description %>
-</p>
-
-<p>
-  <strong>Farmacologicos:</strong>
-  <%= @clinic_history.farmacologicos %>
-</p>
-
-<p>
-  <strong>Farmacologicos description:</strong>
-  <%= @clinic_history.farmacologicos_description %>
-</p>
-
-<p>
-  <strong>Alergicos:</strong>
-  <%= @clinic_history.alergicos %>
-</p>
-
-<p>
-  <strong>Alergicos description:</strong>
-  <%= @clinic_history.alergicos_description %>
-</p>
-
-<p>
-  <strong>Toxicos:</strong>
-  <%= @clinic_history.toxicos %>
-</p>
-
-<p>
-  <strong>Toxicos description:</strong>
-  <%= @clinic_history.toxicos_description %>
-</p>
-
-<p>
-  <strong>Traumaticos:</strong>
-  <%= @clinic_history.traumaticos %>
-</p>
-
-<p>
-  <strong>Traumaticos description:</strong>
-  <%= @clinic_history.traumaticos_description %>
-</p>
-
-<p>
-  <strong>Hospitables:</strong>
-  <%= @clinic_history.hospitables %>
-</p>
-
-<p>
-  <strong>Hospitables description:</strong>
-  <%= @clinic_history.hospitables_description %>
-</p>
-
-<p>
-  <strong>Atep laboral:</strong>
-  <%= @clinic_history.atep_laboral %>
-</p>
-
-<p>
-  <strong>Atep laboral description:</strong>
-  <%= @clinic_history.atep_laboral_description %>
-</p>
-
-<p>
-  <strong>Familiar:</strong>
-  <%= @clinic_history.familiar %>
-</p>
-
-<p>
-  <strong>Familiar description:</strong>
-  <%= @clinic_history.familiar_description %>
-</p>
-
-<p>
-  <strong>Inmunologicos:</strong>
-  <%= @clinic_history.inmunologicos %>
-</p>
-
-<p>
-  <strong>Inmunologios description:</strong>
-  <%= @clinic_history.inmunologios_description %>
-</p>
-
-<p>
-  <strong>Asociado viajes de vuelo:</strong>
-  <%= @clinic_history.asociado_viajes_de_vuelo %>
-</p>
-
-<p>
-  <strong>Asociado viajes de vuelo description:</strong>
-  <%= @clinic_history.asociado_viajes_de_vuelo_description %>
-</p>
-
-<p>
-  <strong>Menstrual cycle:</strong>
-  <%= @clinic_history.menstrual_cycle %>
-</p>
-
-<p>
-  <strong>Gestational age:</strong>
-  <%= @clinic_history.gestational_age %>
-</p>
-
-<p>
-  <strong>Eco:</strong>
-  <%= @clinic_history.eco %>
-</p>
-
-<p>
-  <strong>Fum:</strong>
-  <%= @clinic_history.fum %>
-</p>
-
-<p>
-  <strong>Pregnancy:</strong>
-  <%= @clinic_history.pregnancy %>
-</p>
-
-<p>
-  <strong>G:</strong>
-  <%= @clinic_history.g %>
-</p>
-
-<p>
-  <strong>P:</strong>
-  <%= @clinic_history.p %>
-</p>
-
-<p>
-  <strong>C:</strong>
-  <%= @clinic_history.c %>
-</p>
-
-<p>
-  <strong>A:</strong>
-  <%= @clinic_history.a %>
-</p>
-
-<p>
-  <strong>M:</strong>
-  <%= @clinic_history.m %>
-</p>
-
-<p>
-  <strong>V:</strong>
-  <%= @clinic_history.v %>
-</p>
-
-<p>
-  <strong>E:</strong>
-  <%= @clinic_history.e %>
-</p>
-
-<p>
-  <strong>Cardiovascular:</strong>
-  <%= @clinic_history.cardiovascular %>
-</p>
-
-<p>
-  <strong>Cardiovascular description:</strong>
-  <%= @clinic_history.cardiovascular_description %>
-</p>
-
-<p>
-  <strong>Respiratory:</strong>
-  <%= @clinic_history.respiratory %>
-</p>
-
-<p>
-  <strong>Respiratory description:</strong>
-  <%= @clinic_history.respiratory_description %>
-</p>
-
-<p>
-  <strong>Abdominal:</strong>
-  <%= @clinic_history.abdominal %>
-</p>
-
-<p>
-  <strong>Abdominal description:</strong>
-  <%= @clinic_history.abdominal_description %>
-</p>
-
-<p>
-  <strong>Genito urinario:</strong>
-  <%= @clinic_history.genito_urinario %>
-</p>
-
-<p>
-  <strong>Genito urinario description:</strong>
-  <%= @clinic_history.genito_urinario_description %>
-</p>
-
-<p>
-  <strong>Neurological:</strong>
-  <%= @clinic_history.neurological %>
-</p>
-
-<p>
-  <strong>Neurological description:</strong>
-  <%= @clinic_history.neurological_description %>
-</p>
-
-<p>
-  <strong>Mental:</strong>
-  <%= @clinic_history.mental %>
-</p>
-
-<p>
-  <strong>Mental description:</strong>
-  <%= @clinic_history.mental_description %>
-</p>
-
-<p>
-  <strong>Sense organ:</strong>
-  <%= @clinic_history.sense_organ %>
-</p>
-
-<p>
-  <strong>Sense organ description:</strong>
-  <%= @clinic_history.sense_organ_description %>
-</p>
-
-<p>
-  <strong>Skeletal muscle:</strong>
-  <%= @clinic_history.skeletal_muscle %>
-</p>
-
-<p>
-  <strong>Skeletal muscle description:</strong>
-  <%= @clinic_history.skeletal_muscle_description %>
-</p>
-
-<p>
-  <strong>Skin and appendages:</strong>
-  <%= @clinic_history.skin_and_appendages %>
-</p>
-
-<p>
-  <strong>Skin and appendages description:</strong>
-  <%= @clinic_history.skin_and_appendages_description %>
-</p>
-
-<p>
-  <strong>Ta mmgh:</strong>
-  <%= @clinic_history.ta_mmgh %>
-</p>
-
-<p>
-  <strong>Heart rate:</strong>
-  <%= @clinic_history.heart_rate %>
-</p>
-
-<p>
-  <strong>Breathing frequency:</strong>
-  <%= @clinic_history.breathing_frequency %>
-</p>
-
-<p>
-  <strong>Sat of o ambiente:</strong>
-  <%= @clinic_history.sat_of_o_ambiente %>
-</p>
-
-<p>
-  <strong>Sat of o supplementary:</strong>
-  <%= @clinic_history.sat_of_o_supplementary %>
-</p>
-
-<p>
-  <strong>Temperature:</strong>
-  <%= @clinic_history.temperature %>
-</p>
-
-<p>
-  <strong>Weight in kilograms:</strong>
-  <%= @clinic_history.weight_in_kilograms %>
-</p>
-
-<p>
-  <strong>Height in centimeters:</strong>
-  <%= @clinic_history.height_in_centimeters %>
-</p>
-
-<p>
-  <strong>Glucose:</strong>
-  <%= @clinic_history.glucose %>
-</p>
-
-<p>
-  <strong>Measurement:</strong>
-  <%= @clinic_history.measurement %>
-</p>
-
-<p>
-  <strong>Head:</strong>
-  <%= @clinic_history.head %>
-</p>
-
-<p>
-  <strong>Head description:</strong>
-  <%= @clinic_history.head_description %>
-</p>
-
-<p>
-  <strong>Sense organ:</strong>
-  <%= @clinic_history.sense_organ %>
-</p>
-
-<p>
-  <strong>Sense organ description:</strong>
-  <%= @clinic_history.sense_organ_description %>
-</p>
-
-<p>
-  <strong>Neck:</strong>
-  <%= @clinic_history.neck %>
-</p>
-
-<p>
-  <strong>Neck description:</strong>
-  <%= @clinic_history.neck_description %>
-</p>
-
-<p>
-  <strong>Rib cage:</strong>
-  <%= @clinic_history.rib_cage %>
-</p>
-
-<p>
-  <strong>Rib cage description:</strong>
-  <%= @clinic_history.rib_cage_description %>
-</p>
-
-<p>
-  <strong>Heart:</strong>
-  <%= @clinic_history.heart %>
-</p>
-
-<p>
-  <strong>Heart description:</strong>
-  <%= @clinic_history.heart_description %>
-</p>
-
-<p>
-  <strong>Lungs:</strong>
-  <%= @clinic_history.lungs %>
-</p>
-
-<p>
-  <strong>Lungs description:</strong>
-  <%= @clinic_history.lungs_description %>
-</p>
-
-<p>
-  <strong>Abdomen:</strong>
-  <%= @clinic_history.abdomen %>
-</p>
-
-<p>
-  <strong>Abdomen description:</strong>
-  <%= @clinic_history.abdomen_description %>
-</p>
-
-<p>
-  <strong>Genitourinary:</strong>
-  <%= @clinic_history.genitourinary %>
-</p>
-
-<p>
-  <strong>Genitourinary description:</strong>
-  <%= @clinic_history.genitourinary_description %>
-</p>
-
-<p>
-  <strong>Rectum:</strong>
-  <%= @clinic_history.rectum %>
-</p>
-
-<p>
-  <strong>Rectum description:</strong>
-  <%= @clinic_history.rectum_description %>
-</p>
-
-<p>
-  <strong>Extremities:</strong>
-  <%= @clinic_history.extremities %>
-</p>
-
-<p>
-  <strong>Extremities description:</strong>
-  <%= @clinic_history.extremities_description %>
-</p>
-
-<p>
-  <strong>Skin and appendages:</strong>
-  <%= @clinic_history.skin_and_appendages %>
-</p>
-
-<p>
-  <strong>Skin and appendages description:</strong>
-  <%= @clinic_history.skin_and_appendages_description %>
-</p>
-
-<p>
-  <strong>Skeletal muscle:</strong>
-  <%= @clinic_history.skeletal_muscle %>
-</p>
-
-<p>
-  <strong>Skeletal muscle description:</strong>
-  <%= @clinic_history.skeletal_muscle_description %>
-</p>
-
-<p>
-  <strong>Mental:</strong>
-  <%= @clinic_history.mental %>
-</p>
-
-<p>
-  <strong>Mental description:</strong>
-  <%= @clinic_history.mental_description %>
-</p>
-
-<p>
-  <strong>Neurological:</strong>
-  <%= @clinic_history.neurological %>
-</p>
-
-<p>
-  <strong>Neurological description:</strong>
-  <%= @clinic_history.neurological_description %>
-</p>
-
-<p>
-  <strong>Alteration:</strong>
-  <%= @clinic_history.alteration %>
-</p>
-
-<p>
-  <strong>Eye opening:</strong>
-  <%= @clinic_history.eye_opening %>
-</p>
-
-<p>
-  <strong>Verbal answer:</strong>
-  <%= @clinic_history.verbal_answer %>
-</p>
-
-<p>
-  <strong>Motor response:</strong>
-  <%= @clinic_history.motor_response %>
-</p>
-
-<p>
-  <strong>Other signs:</strong>
-  <%= @clinic_history.other_signs %>
-</p>
-
-<p>
-  <strong>Analysis:</strong>
-  <%= @clinic_history.analysis %>
-</p>
-
-<p>
-  <strong>Print diagnosed:</strong>
-  <%= @clinic_history.print_diagnosed %>
-</p>
-
-<p>
-  <strong>Plan and treatment:</strong>
-  <%= @clinic_history.plan_and_treatment %>
-</p>
-
-<p>
-  <strong>Observations recommendations:</strong>
-  <%= @clinic_history.observations_recommendations %>
-</p>
+
+<!--
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
+
+<div class="container-fluid">
+    <div class="row profile well">
+    <div class="col-md-12">
+
+
+
+<div class="col-md-12" style = "margin:15px!important;text-align:center;">
+
+
+    <%= link_to 'Volver a Historias Clinicas' , patient_clinic_histories_path(@patient), :class => "btn btn-info color_blanco mrg" %> 
+
+    <a class="btn btn-info color_blanco mrg ">Imprimir Pdf</a>
+
+
+    <a class="btn btn-info color_blanco mrg ">Imprimit Csv</a>
+
+
+</div>
+
+
+
+
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+          HISTORIA CLINICA 
+        </div>
+      </div>
+
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row col-md-12 custyle">
+    <table class="table table-striped custab">
+              <tr >
+                <td class="text-center">
+                  <b>Fecha:</b>              <%= @clinic_history.created_at.strftime('%b %d. %Y') %>
+                </td>
+                <td class="text-center">
+                  <b>Hora:</b>               <%= @clinic_history.created_at.strftime("%H:%M") %>
+                </td>
+                <td class="text-center">
+                  <b>Ciudad:</b>             <%= @clinic_history.city %>
+                </td>
+                <td class="text-center">
+                  <b>Departamento:</b>       <%= @clinic_history.department %>
+                </td>
+              </tr>  
+    </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+DATOS GENERALES
+        </div>
+      </div>
+
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row col-md-12 custyle">
+    <table class="table table-striped custab">
+               <tr >
+                  <td class="text-center">
+                    <b>Medico de Turno:</b>   <%= @clinic_history.user_id %>
+                  </td>
+                  <td class="text-center">
+                    <b>Auxiiar de enfermeria:</b> No Aplica
+                  </td>
+                  <td class="text-center">
+                    <b>Cove:</b>               <%= @clinic_history.cove %>
+                  </td>
+
+                </tr> 
+
+
+                  <tr >
+                                  <td class="text-center">
+                    <b>Movil/Servicio:</b>     <%= @clinic_history.mobiel_service %>
+                  </td>
+                  <td class="text-center">
+                    <b>Aeropuerto:</b>   <%= @clinic_history.airport.name %>
+                  </td>
+                  <td class="text-center">
+                    <b>Ubicación:</b> No Aplica
+                  </td>
+                  <td class="text-center">
+                    <b>Tipo se servicio Solicitado:</b>  <%= @clinic_history.type_service %>
+                  </td>
+                </tr> 
+
+    </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="profile-usertitle">
+        <div class="profile-usertitle-name">
+I. IDENTIFICACIÓN DEL PACIENTE
+        </div>
+      </div>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="span12">
+            <table class="table table-striped table-condensed">
+                
+              <tbody>
+                <tr >
+                  <td class="text-center">
+                    <b>Nombres:</b>   <%= @clinic_history.first_name %> <%= @clinic_history.second_name %>
+                  </td>
+                  <td class="text-center">
+                    <b>Apellidos:</b> <%= @clinic_history.first_surname %> <%= @clinic_history.second_surname %>
+                  </td>
+                  <td class="text-center">
+                    <b>Tipo de Identificación:</b>  <%= @clinic_history.type_document %>
+                  </td>
+                  <td class="text-center">
+                    <b>identificación:</b>     <%= @clinic_history.mobiel_service %>
+                  </td>
+              
+                  <td class="text-center">
+                    <b>Edad:</b>   <%= @clinic_history.airport.name %>
+                  </td>
+                  <td class="text-center">
+                    <b>Fecha de nacimiento:</b> No Aplica
+                  </td>
+                  <td class="text-center">
+                    <b>Tipo sanguineo:</b>  <%= @clinic_history.type_service %>
+                  </td>
+                </tr>                             
+              </tbody>
+
+
+
+
+
+               <tbody>
+                <tr >
+                  <td class="text-center">
+                    <b>Genero:</b>   <%= @clinic_history.gender %>
+                  </td>
+                  <td class="text-center">
+                    <b>Profesión:</b> <%= @clinic_history.profession %>
+                  </td>
+                  <td class="text-center">
+                    <b>Nacionalidad:</b>    <%= @clinic_history.nacionality %>
+                  </td>
+                  <td class="text-center">
+                    <b>Condición:</b>     <%= @clinic_history.condition %>
+                  </td>
+                </tr>
+              </tbody>
+
+
+              <tbody>
+                <tr >
+                  <td class="text-center">
+                    <b>Origen:</b>   <%= @clinic_history.origin %>
+                  </td>
+                  <td class="text-center">
+                    <b>Destino:</b> <%= @clinic_history.destination %>
+                  </td>
+                  <td class="text-center">
+                    <b>Empresa:</b>  <%= @clinic_history.company %>
+                  </td>
+                  <td class="text-center">
+                    <b>Eps:</b>  <%= @clinic_history.eps.name %>
+                  </td>
+                  <td class="text-center">
+                    <b>Arl:</b>  <%= @clinic_history.arl.name %>
+                  </td>
+
+                </tr>
+              </tbody>
+
+              <tbody>
+                <tr >
+                  <td class="text-center">
+                    <b>Dirección:</b>   <%= @clinic_history.address %>
+                  </td>
+                  <td class="text-center">
+                    <b>Ciudad:</b> <%= @clinic_history.city %>
+                  </td>
+                  <td class="text-center">
+                    <b>Pais:</b>  <%= @clinic_history.company %>
+                  </td>
+                  <td class="text-center">
+                    <b>Nombre Acompañante:</b>  <%= @clinic_history.accompanist_name %>
+                  </td>
+                  <td class="text-center">
+                    <b>Parentezco:</b>  <%= @clinic_history.relationship %>
+                  </td>
+                  <td class="text-center">
+                    <b>Telefono:</b>  <%= @clinic_history.phone %>
+                  </td>
+                </tr>
+              </tbody>
+
+
+
+            </table>
+            </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+<br>
+<br>
+
+<style type="text/css">
+
+/* Profile container */
+.profile {
+  margin: 20px 0;
+}
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.profile-usertitle-job {
+  color: #5b9bd1;
+}
+
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+}
+    
+.profile-usermenu {
+  margin-top: 30px;
+}
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+</style>
+
+
+
+
+
+<div class="container-fluid">    
+        
+    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+        
+
+
+
+<div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
+  <div class="row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  I. IDENTIFICACIÓN DEL PACIENTE</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+
+
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+    
+
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  II. MOTIVO DE CONSULTA</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Motivo de la consulta:</b>   <%= @clinic_history.reason_for_consultation %>
+                  </td>
+
+                </tr>
+              </thead>
+
+
+
+
+
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  III. ENFERMEDAD ACTUAL</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Enfermedad Actual:</b>   <%= @clinic_history.current_illness %>
+                  </td>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  IV. ANTECEDENTES PERSONALES</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Neunatales si:</b>   
+                    <% if @clinic_history.neunatales_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Neunatales no:</b>   
+                    <% if @clinic_history.neunatales_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Neunatales Descripción:</b>        
+                     <%= @clinic_history.neunatales_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Patológicos si:</b>   
+                    <% if @clinic_history.patologicos_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Patológicos no:</b>   
+                    <% if @clinic_history.patologicos_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Patológicos Descripción:</b>        
+                     <%= @clinic_history.patologicos_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Quirúrgicos si:</b>   
+                    <% if @clinic_history.quirurgicos_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Quirúrgicos no:</b>   
+                    <% if @clinic_history.quirurgicos_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Quirúrgicos Descripción:</b>        
+                     <%= @clinic_history.quirurgicos_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Farmacologicos si:</b>   
+                    <% if @clinic_history.farmacologicos_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Farmacologicos no:</b>   
+                    <% if @clinic_history.farmacologicos_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Farmacologicos Descripción:</b>        
+                     <%= @clinic_history.farmacologicos_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Alergicos si:</b>   
+                    <% if @clinic_history.alergicos_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Alergicos no:</b>   
+                    <% if @clinic_history.alergicos_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Alergicos Descripción:</b>        
+                     <%= @clinic_history.alergicos_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Tóxicos si:</b>   
+                    <% if @clinic_history.toxicos_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Tóxicos no:</b>   
+                    <% if @clinic_history.toxicos_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Tóxicos Descripción:</b>        
+                     <%= @clinic_history.toxicos_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Traumaticos si:</b>   
+                    <% if @clinic_history.traumaticos_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Traumaticos no:</b>   
+                    <% if @clinic_history.traumaticos_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Traumaticos Descripción:</b>        
+                     <%= @clinic_history.traumaticos_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Hospitalarios si:</b>   
+                    <% if @clinic_history.hospitables_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Hospitalarios no:</b>   
+                    <% if @clinic_history.hospitables_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Hospitalarios Descripción:</b>        
+                     <%= @clinic_history.hospitables_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>(ATEP) Laboral si:</b>   
+                    <% if @clinic_history.atep_laboral_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>(ATEP) Laboral no:</b>   
+                    <% if @clinic_history.atep_laboral_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>(ATEP) Laboral Descripción:</b>        
+                     <%= @clinic_history.atep_laboral_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Familiar si:</b>   
+                    <% if @clinic_history.familiar_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Familiar no:</b>   
+                    <% if @clinic_history.familiar_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Familiar Descripción:</b>        
+                     <%= @clinic_history.familiar_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Inmunológicos si:</b>   
+                    <% if @clinic_history.inmunologicos_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Inmunológicos no:</b>   
+                    <% if @clinic_history.inmunologicos_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Inmunológicos Descripción:</b>        
+                     <%= @clinic_history.inmunologios_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Asociado a viajes de vuelo si:</b>   
+                    <% if @clinic_history.asociado_viajes_de_vuelo_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Asociado a viajes de vuelo no:</b>   
+                    <% if @clinic_history.asociado_viajes_de_vuelo_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Asociado a viajes de vuelo Descripción:</b>        
+                     <%= @clinic_history.asociado_viajes_de_vuelo_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Ciclo Menstrual:</b>   
+                    <%  @clinic_history.menstrual_cycle %>
+                  </td>
+                  <td class="text-center">
+                    <b>eco:</b>   
+                    <% @clinic_history.eco %>                  
+                  </td>
+
+                  <td class="text-center">
+                     <b>Fum:</b>        
+                     <%= @clinic_history.fum %>
+                  </td>
+
+
+                  <td class="text-center">
+                    <b>Esta en Embarazo si:</b>   
+                    <% if @clinic_history.pregnancy_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Esta en Embarazo no:</b>   
+                    <% if @clinic_history.pregnancy_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+
+
+
+                  <td class="text-center">
+                     <b>Edad Gestacional:</b>        
+                     <%= @clinic_history.gestational_age %>
+                  </td>
+
+                  <td class="text-center">
+                     <b>Edad Gestacional:</b>        
+                     <%= @clinic_history.gestational_age %>
+                  </td>
+
+
+                  <td class="text-center">
+                     <b>G:</b>        
+                     <%= @clinic_history.g %>
+                  </td>
+
+
+                  <td class="text-center">
+                     <b>P:</b>        
+                     <%= @clinic_history.p %>
+                  </td>
+
+
+
+                  <td class="text-center">
+                     <b>C:</b>        
+                     <%= @clinic_history.c %>
+                  </td>
+
+
+
+                  <td class="text-center">
+                     <b>A:</b>        
+                     <%= @clinic_history.a %>
+                  </td>
+
+
+                  <td class="text-center">
+                     <b>M:</b>        
+                     <%= @clinic_history.m %>
+                  </td>
+
+
+                  <td class="text-center">
+                     <b>V:</b>        
+                     <%= @clinic_history.v %>
+                  </td>
+
+
+                  <td class="text-center">
+                     <b>E:</b>        
+                     <%= @clinic_history.e %>
+                  </td>
+
+
+
+                </tr>
+              </thead>
+
+
+
+
+
+
+
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  V. REVISIÓN POR SISTEMAS</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+
+
+
+
+                  <td class="text-center">
+                    <b>Cardiovascular si:</b>   
+                    <% if @clinic_history.cardiovascular_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Cardiovascular no:</b>   
+                    <% if @clinic_history.cardiovascular_false == true %>
+                      X
+                    <% end %>                  
+                  </td>
+                  <td class="text-center">
+                     <b>Cardiovascular Descripción:</b>        
+                     <%= @clinic_history.cardiovascular_description %>
+                  </td>
+                </tr >
+
+                <tr >
+
+
+                  <td class="text-center">
+                    <b>Respiratorio si:</b>   
+                    <% if @clinic_history.respiratory_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Respiratorio no:</b>   
+                    <% if @clinic_history.respiratory_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                     <b>Respiratorio Descripción:</b>        
+                     <%= @clinic_history.respiratory_description %>
+                  </td>
+
+                </tr >
+
+                <tr >                  
+                  <td class="text-center">
+                    <b>Abdominal si:</b>   
+                    <% if @clinic_history.abdominal_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Abdominal no:</b>   
+                    <% if @clinic_history.abdominal_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                     <b>Abdominal Descripción:</b>        
+                     <%= @clinic_history.abdominal_description %>
+                  </td>
+
+ 
+                </tr >
+
+                <tr >
+                  <td class="text-center">
+                    <b>Genito Urinario si:</b>   
+                    <% if @clinic_history.genito_urinario_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Genito Urinario no:</b>   
+                    <% if @clinic_history.genito_urinario_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                     <b>Genito Urinario Descripción:</b>        
+                     <%= @clinic_history.genito_urinario_description %>
+                  </td>
+
+
+                </tr >
+
+                <tr >
+ 
+
+                  <td class="text-center">
+                    <b>Neurologico si:</b>   
+                    <% if @clinic_history.neurological_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Neurologico no:</b>   
+                    <% if @clinic_history.neurological_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                     <b>Neurologico Descripción:</b>        
+                     <%= @clinic_history.neurological_description %>
+                  </td>
+
+
+                </tr >
+
+                <tr >
+
+
+                  <td class="text-center">
+                    <b>Mental si:</b>   
+                    <% if @clinic_history.mental_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Mental no:</b>   
+                    <% if @clinic_history.mental_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                     <b>Mental Descripción:</b>        
+                     <%= @clinic_history.mental_description %>
+                  </td>
+
+                </tr >
+
+                <tr >
+                  <td class="text-center">
+                    <b>Organo de los sentidos si:</b>   
+                    <% if @clinic_history.sense_organ_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Organo de los sentidos no:</b>   
+                    <% if @clinic_history.sense_organ_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                     <b>Organo de los sentidos Descripción:</b>   
+                     <%= @clinic_history.sense_organ_description %>
+                  </td>
+                </tr >
+
+                <tr >
+
+                  <td class="text-center">
+                    <b>Musculo-esqueletico si:</b>   
+                    <% if @clinic_history.skeletal_muscle_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Musculo-esqueletico no:</b>   
+                    <% if @clinic_history.skeletal_muscle_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Musculo-esqueletico Descripción:</b>   
+                     <%= @clinic_history.skeletal_muscle_description %>
+                  </td>
+
+                </tr >
+
+                <tr >
+                  <td class="text-center">
+                    <b>Musculo-esqueletico si:</b>   
+                    <% if @clinic_history.skeletal_muscle_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Musculo-esqueletico no:</b>   
+                    <% if @clinic_history.skeletal_muscle_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Musculo-esqueletico Descripción:</b>   
+                     <%= @clinic_history.skeletal_muscle_description %>
+                  </td>
+
+
+                </tr >
+
+                <tr >
+
+
+                  <td class="text-center">
+                    <b>Piel y faneras si:</b>   
+                    <% if @clinic_history.skin_and_appendages_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Piel y faneras no:</b>   
+                    <% if @clinic_history.skin_and_appendages_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Piel y faneras Descripción:</b>   
+                     <%= @clinic_history.skin_and_appendages_description %>
+                  </td>
+
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  VI. EXÁMEN FISICO</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Ta_mmgh:</b>   <%= @clinic_history.ta_mmgh %>
+                  </td>
+                  <td class="text-center">
+                    <b>Frecuencía Cardiaca:</b>  <%= @clinic_history.heart_rate %>
+                  </td>
+                  <td class="text-center">
+                    <b>Frecuencía Respiratoria:</b>  <%= @clinic_history.breathing_frequency %>
+                  </td>
+                  <td class="text-center">
+                    <b>% SAT. de 02 Ambiente:</b>     <%= @clinic_history.sat_of_o_ambiente %>
+                  </td>
+                </tr>
+              </thead>
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>% SAT. de 02 Suplementario:</b>     <%= @clinic_history.sat_of_o_supplementary %>
+                  </td>
+                  <td class="text-center">
+                    <b>Temperatura:</b>     <%= @clinic_history.temperature %>
+                  </td>
+                  <td class="text-center">
+                    <b>Peso en Kgs:</b>  <%= @clinic_history.weight_in_kilograms %>
+                  </td>
+                  <td class="text-center">
+                    <b>Talla en cms:</b>  <%= @clinic_history.height_in_centimeters %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Cabeza si:</b>   
+                    <% if @clinic_history.head_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Cabeza no:</b>   
+                    <% if @clinic_history.head_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Cabeza Descripción:</b>   
+                     <%= @clinic_history.head_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Organo de los sentidos si:</b>   
+                    <% if @clinic_history.head_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Organo de los sentidos no:</b>   
+                    <% if @clinic_history.head_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Organo de los sentidos Descripción:</b>   
+                     <%= @clinic_history.head_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Cuello si:</b>   
+                    <% if @clinic_history.neck_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Cuello no:</b>   
+                    <% if @clinic_history.neck_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Cuello Descripción:</b>   
+                     <%= @clinic_history.neck_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Corazón si:</b>   
+                    <% if @clinic_history.heart_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Corazón no:</b>   
+                    <% if @clinic_history.heart_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Corazón Descripción:</b>   
+                     <%= @clinic_history.heart_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Pulmones si:</b>   
+                    <% if @clinic_history.lungs_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Pulmones no:</b>   
+                    <% if @clinic_history.lungs_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Pulmones Descripción:</b>   
+                     <%= @clinic_history.lungs_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Abdomen si:</b>   
+                    <% if @clinic_history.abdomen_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Abdomen no:</b>   
+                    <% if @clinic_history.abdomen_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Abdomen Descripción:</b>   
+                     <%= @clinic_history.abdomen_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Genito Urinario si:</b>   
+                    <% if @clinic_history.genitourinary_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Genito Urinario no:</b>   
+                    <% if @clinic_history.genitourinary_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Genito Urinario Descripción:</b>   
+                     <%= @clinic_history.genitourinary_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Recto si:</b>   
+                    <% if @clinic_history.rectum_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Recto no:</b>   
+                    <% if @clinic_history.rectum_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Recto Descripción:</b>   
+                     <%= @clinic_history.rectum_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Extremidades si:</b>   
+                    <% if @clinic_history.extremities_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Extremidades no:</b>   
+                    <% if @clinic_history.extremities_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Extremidades Descripción:</b>   
+                     <%= @clinic_history.extremities_description %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Piel y Faneras si:</b>   
+                    <% if @clinic_history.piel_y_faneras2_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Piel y Faneras no:</b>   
+                    <% if @clinic_history.piel_y_faneras2_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Piel y Faneras Descripción:</b>   
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Musculo esqueletico si:</b>   
+                    <% if @clinic_history.piel_y_faneras2_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Musculo esqueletico no:</b>   
+                    <% if @clinic_history.piel_y_faneras2_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Musculo esqueletico Descripción:</b>   
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Mental si:</b>   
+                    <% if @clinic_history.piel_y_faneras2_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Mental no:</b>   
+                    <% if @clinic_history.piel_y_faneras2_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Mental Descripción:</b>   
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Neurologico si:</b>   
+                    <% if @clinic_history.piel_y_faneras2_true == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Neurologico no:</b>   
+                    <% if @clinic_history.piel_y_faneras2_false == true %>
+                      X
+                    <% end %>
+                  </td>
+                  <td class="text-center">
+                    <b>Neurologico Descripción:</b>   
+                  </td>
+                </tr>
+              </thead>
+
+
+
+              <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Alteración:</b>   
+                    <%= @clinic_history.alteration %>
+                  </td>
+                  <td class="text-center">
+                    <b>Apertura Ocular:</b>   
+                    <%= @clinic_history.eye_opening %>
+                  </td>
+                  <td class="text-center">
+                    <b>Respuesta Verbal:</b>   
+                    <%= @clinic_history.verbal_answer %>
+                  </td>
+                  <td class="text-center">
+                    <b>Respuesta Motora:</b>   
+                    <%= @clinic_history.motor_response %>
+                  </td>
+                  <td class="text-center">
+                    <b>Otros Signos:</b>   
+                    <%= @clinic_history.other_signs %>
+                  </td>
+                </tr>
+              </thead>
+
+
+
+
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  VII. ANALISIS</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Analisis:</b>   <%= @clinic_history.analysis %>
+                  </td>
+    
+                </tr>
+              </thead>
+
+
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  VIII. IMPRESIÓN DIAGNOSTICA</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Impresión Diagnostica:</b>   <%= @clinic_history.print_diagnosed %>
+                  </td>
+
+                </tr>
+              </thead>
+
+
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  IX. PLAN Y TRATAMIENTO</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Plan y Tratamiento:</b>   <%= @clinic_history.plan_and_treatment %>
+                  </td>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  X. OBSERVACIONES Y /O RECOMENDACIONES</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+               <thead>
+                <tr >
+                  <td class="text-center">
+                    <b>Observaciones Y/O Recomendacioens:</b>   <%= @clinic_history.observations_recommendations %>
+                  </td>
+
+                </tr>
+              </thead>
+
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  XI. DESENLACE</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+ 
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+
+     <div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:20px;">  XII. CONSENTIMIENTO INFORMADO</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+      <div class="container-fluid">
+          <div class="row clearfix">
+          <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+
+
+
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 

@@ -7,7 +7,7 @@ en:
   # Default error messages
   errors:
     messages:
-      taken: "has already been taken"
+      taken: "No es valido"
 
   # Active Record models configuration
   activerecord:

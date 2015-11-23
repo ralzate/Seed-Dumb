@@ -12,30 +12,26 @@ class CreateClinicHistories < ActiveRecord::Migration
       t.string :gender
       t.string :profession
       t.string :blood_type
+      t.string :country_code
       t.string :nacionality
       t.references :eps, index: true, foreign_key: true
       t.references :arl, index: true, foreign_key: true
       t.string :address
-      t.integer :condition
+      t.string :condition
       t.string :accompanist_name
       t.string :relationship
       t.string :phone
-      t.references :city, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
       t.string :city
       t.string :department
-      t.references :user, index: true, foreign_key: true
       t.string :cove
       t.string :mobiel_service
       t.references :airport, index: true, foreign_key: true
-      t.integer :type_service
+      t.string :type_service
       t.references :patient, index: true, foreign_key: true
       t.string :origin
       t.string :destination
       t.string :company
-      t.string :accompanist_name
-      t.integer :relationship
-      t.string :phone
       t.text :reason_for_consultation
       t.text :current_illness
       t.boolean :neunatales_true

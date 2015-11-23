@@ -75,7 +75,7 @@ class ClinicHistoriesController < ApplicationController
          params.require(:clinic_history).permit(:first_name, :second_name, :first_surname, :second_surname, 
           :email, :type_document, :label_document, :document, :days_age, :months_age, :years_age, :birthdate, :gender, :profession, 
           :blood_type, :nacionality, :eps_id, :arl_id, :address, :condition, :accompanist_name, :relationship, 
-          :phone, :city_id, :user_id, :city, :department, :user_id, :cove, :mobiel_service, :airport_id, :type_service, 
+          :phone, :user_id, :city, :department, :user_id, :cove, :mobiel_service, :airport_id, :type_service, 
           :patient_id, :origin, :destination, :company, :accompanist_name, :relationship, :phone, :reason_for_consultation, 
           :current_illness, :neunatales, :neunatales_description, :patologicos, :patologicos_description, :quirurgicos, 
           :quirurgicos_description, :farmacologicos, :farmacologicos_description, :alergicos, :alergicos_description, 
@@ -93,7 +93,7 @@ class ClinicHistoriesController < ApplicationController
           :genitourinary, :genitourinary_description, :rectum, :rectum_description, :extremities, :extremities_description, 
           :skin_and_appendages, :skin_and_appendages_description, :skeletal_muscle, :skeletal_muscle_description, :mental, 
           :mental_description, :neurological, :neurological_description, :eye_opening, :verbal_answer, 
-          :motor_response, :analysis, :print_diagnosed, :plan_and_treatment, :observations_recommendations, alteration:[], other_signs:[])
+          :motor_response, :analysis, :print_diagnosed, :plan_and_treatment, :observations_recommendations, :country_code, alteration:[], other_signs:[])
 
     end
 end

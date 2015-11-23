@@ -109,16 +109,19 @@
 
 
 
+
+
+
         <tbody>
           <tr id='addr0' class="selectme">
             <td align="center">
             Neonatales
             </td>
             <td align="center">
-              <%= f.check_box :neunatales_true, :name => "approve[]", class: 'checkItem myCheckbox' %>
+              <%= f.check_box :neunatales_true, class: 'checkItem myCheckbox' %>
             </td>
             <td align="center">
-              <%= f.check_box :neunatales_false, :name => "approve[]", class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :neunatales_false, class: 'checkItem2 myCheckbox' %>
             </td>
             <td>
               <%= f.text_field :neunatales_description, class: 'form-control' %>
@@ -133,10 +136,10 @@
             Patológicos
             </td>
             <td align="center">
-              <%= f.check_box :patologicos_true,  :name => "approve[]", class: 'checkItem myCheckbox2' %>
+              <%= f.check_box :patologicos_true,  class: 'checkItem myCheckbox2' %>
             </td>
             <td align="center">
-              <%= f.check_box :patologicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox2' %>
+              <%= f.check_box :patologicos_false, class: 'checkItem2 myCheckbox2' %>
             </td>
             <td>
               <%= f.text_field :patologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -150,10 +153,10 @@
             Quirúrgicos
             </td>
             <td align="center">
-              <%= f.check_box :quirurgicos_true, :name => "approve[]", class: 'checkItem myCheckbox3' %>
+              <%= f.check_box :quirurgicos_true, class: 'checkItem myCheckbox3' %>
             </td>
             <td align="center">
-              <%= f.check_box :quirurgicos_false,  :name => "approve[]", class: 'checkItem2 myCheckbox3' %>
+              <%= f.check_box :quirurgicos_false,  class: 'checkItem2 myCheckbox3' %>
             </td>
             <td>
               <%= f.text_field :quirurgicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -167,10 +170,10 @@
             Farmacologicos
             </td>
             <td align="center">
-              <%= f.check_box :farmacologicos_true, :name => "approve[]", class: 'checkItem myCheckbox4' %>
+              <%= f.check_box :farmacologicos_true, class: 'checkItem myCheckbox4' %>
             </td>
             <td align="center">
-              <%= f.check_box :farmacologicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox4' %>
+              <%= f.check_box :farmacologicos_false, class: 'checkItem2 myCheckbox4' %>
             </td>
             <td>
               <%= f.text_field :farmacologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -184,10 +187,10 @@
             Alergicos
             </td>
             <td align="center">
-              <%= f.check_box :alergicos_true, :name => "approve[]", class: 'checkItem myCheckbox5' %>
+              <%= f.check_box :alergicos_true, class: 'checkItem myCheckbox5' %>
             </td>
             <td align="center">
-              <%= f.check_box :alergicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox5' %>
+              <%= f.check_box :alergicos_false, class: 'checkItem2 myCheckbox5' %>
             </td>
             <td>
               <%= f.text_field :alergicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -201,10 +204,10 @@
             Tóxicos
             </td>
             <td align="center">
-              <%= f.check_box :toxicos_true, :name => "approve[]", class: 'checkItem myCheckbox6' %>
+              <%= f.check_box :toxicos_true, class: 'checkItem myCheckbox6' %>
             </td>
             <td align="center">
-              <%= f.check_box :toxicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox6' %>
+              <%= f.check_box :toxicos_false, class: 'checkItem2 myCheckbox6' %>
             </td>
             <td>
               <%= f.text_field :toxicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -220,10 +223,10 @@
             Traumaticos
             </td>
             <td align="center">
-              <%= f.check_box :traumaticos_true, :name => "approve[]", class: 'checkItem myCheckbox7' %>
+              <%= f.check_box :traumaticos_true, class: 'checkItem myCheckbox7' %>
             </td>
             <td align="center">
-              <%= f.check_box :traumaticos_false, :name => "approve[]", class: 'checkItem2 myCheckbox7' %>
+              <%= f.check_box :traumaticos_false, class: 'checkItem2 myCheckbox7' %>
             </td>
             <td>
               <%= f.text_field :traumaticos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -238,10 +241,10 @@
             Hospitalarios
             </td>
             <td align="center">
-              <%= f.check_box :hospitables_true, :name => "approve[]", class: 'checkItem myCheckbox8' %>
+              <%= f.check_box :hospitables_true, class: 'checkItem myCheckbox8' %>
             </td>
             <td align="center">
-              <%= f.check_box :hospitables_false, :name => "approve[]", class: 'checkItem2 myCheckbox8' %>
+              <%= f.check_box :hospitables_false, class: 'checkItem2 myCheckbox8' %>
             </td>
             <td>
               <%= f.text_field :hospitables_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -256,10 +259,10 @@
             (ATEP) Laboral
             </td>
             <td align="center">
-              <%= f.check_box :atep_laboral_true, :name => "approve[]", class: 'checkItem myCheckbox9' %>
+              <%= f.check_box :atep_laboral_true, class: 'checkItem myCheckbox9' %>
             </td>
             <td align="center">
-              <%= f.check_box :atep_laboral_false, :name => "approve[]", class: 'checkItem2 myCheckbox9' %>
+              <%= f.check_box :atep_laboral_false, class: 'checkItem2 myCheckbox9' %>
             </td>
             <td>
               <%= f.text_field :atep_laboral_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -275,10 +278,10 @@
             Familiar
             </td>
             <td align="center">
-              <%= f.check_box :familiar_true, :name => "approve[]", class: 'checkItem myCheckbox10' %>
+              <%= f.check_box :familiar_true, class: 'checkItem myCheckbox10' %>
             </td>
             <td align="center">
-              <%= f.check_box :familiar_false, :name => "approve[]", class: 'checkItem2 myCheckbox10' %>
+              <%= f.check_box :familiar_false, class: 'checkItem2 myCheckbox10' %>
             </td>
             <td>
               <%= f.text_field :familiar_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -293,10 +296,10 @@
             Inmunológicos
             </td>
             <td align="center">
-              <%= f.check_box :inmunologicos_true, :name => "approve[]", class: 'checkItem myCheckbox11' %>
+              <%= f.check_box :inmunologicos_true, class: 'checkItem myCheckbox11' %>
             </td>
             <td align="center">
-              <%= f.check_box :inmunologicos_false, :name => "approve[]", class: 'checkItem2 myCheckbox11' %>
+              <%= f.check_box :inmunologicos_false, class: 'checkItem2 myCheckbox11' %>
             </td>
             <td>
               <%= f.text_field :inmunologios_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -316,10 +319,10 @@
             Asociado a viajes de vuelo
             </td>
             <td align="center">
-              <%= f.check_box :asociado_viajes_de_vuelo_true, :name => "approve[]", class: 'checkItem myCheckbox myCheckbox12' %>
+              <%= f.check_box :asociado_viajes_de_vuelo_true, class: 'checkItem myCheckbox myCheckbox12' %>
             </td>
             <td align="center">
-              <%= f.check_box :asociado_viajes_de_vuelo_false, :name => "approve[]", class: 'checkItem2 myCheckbox myCheckbox12' %>
+              <%= f.check_box :asociado_viajes_de_vuelo_false, class: 'checkItem2 myCheckbox myCheckbox12' %>
             </td>
             <td>
               <%= f.text_field :asociado_viajes_de_vuelo_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -363,18 +366,18 @@
 
       <div class="col-md-1">
         <label class="control-label" for="firstname">Si</label><br/>
-         <%= f.check_box :pregnancy_true, class: 'Embarazo', :name => "approve[]" %>
+         <%= f.check_box :pregnancy_true, class: 'Embarazo' %>
       </div>
             <div class="col-md-1">
         <label class="control-label" for="firstname">No</label><br/>
-         <%= f.check_box :pregnancy_false, class: 'Embarazo2', :name => "approve[]" %>
+         <%= f.check_box :pregnancy_false, class: 'Embarazo2' %>
       </div>
       </div>
 
 
       <div class="col-md-2" id="MostrarEmbarazo" style="display:none">
         <label class="control-label" for="firstname">Edad Gestacional</label>
-        <%= f.text_field :gestational_age, class: 'form-control', :name => "approve[]", placeholder: 'Edad Gestacional' %>
+        <%= f.text_field :gestational_age, class: 'form-control', placeholder: 'Edad Gestacional' %>
 
       </div>
 
@@ -439,23 +442,9 @@
 </div>
 
 
-   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%= f.hidden_field :city, :value => @clinic_history.airport.city.name %>
+<%= f.hidden_field :department, :value => @clinic_history.airport.department %>
 
 
 
