@@ -13,7 +13,7 @@
     <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @clinic_histories, renderer: BootstrapPagination::Rails %>
 </span>
 
-    <span  class="btn btn-link btn-xs  pagination pagination pull-right"><%= link_to 'Nueva Eps', new_eps_path, remote: true, :class => "btn  principal" %></span>
+    <span  class="btn btn-link btn-xs  pagination pagination pull-right"> <%= link_to ' Nueva Historia Clinica',  new_patient_clinic_history_path(@patient), :class => "btn principal"  %> </span>
 
 
 

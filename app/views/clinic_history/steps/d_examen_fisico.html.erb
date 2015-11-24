@@ -96,6 +96,68 @@
 
 
 <div class="container-fluid">
+    <div class="row">
+          <div class="col-md-3">
+              <label>TA mm/HG:</label> 
+              <%= f.input :ta_mmgh, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>   
+ 
+          <div class="col-md-3">
+                  <label >% SAT. de O2 Ambiente </label>
+                      <%= f.input :sat_of_o_ambiente, :input_html => { :class => 'form-control fs1' }, label: false %>
+              </div>
+
+          <div class="col-md-3">
+                  <label >Temperatura</label>
+                      <%= f.input :temperature, :input_html => { :class => 'form-control fs1' }, label: false %>
+              </div>
+
+
+          <div class="col-md-3">
+              <label>Frecuencía Cardiaca:</label> 
+              <%= f.input :heart_rate, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+
+ </div>
+
+
+    <div class="row">
+
+
+
+
+          <div class="col-md-3">
+              <label>Frecuencía Respiratoria:</label> 
+              <%= f.input :breathing_frequency, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+
+          <div class="col-md-3">
+              <label>% SAT. de 02 Suplementario:</label> 
+              <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+ 
+
+        <div class="col-md-3">
+              <label>Peso en Kilogramos:</label> 
+                      <%= f.input :weight_in_kilograms, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+
+
+          <div class="col-md-3">
+              <label>Altura en Centimetros:</label> 
+              <%= f.input :height_in_centimeters, :input_html => { :class => 'form-control fs1' }, label: false %>
+ 
+        </div>
+ 
+ 
+    </div>
+
+    <br/>
+         </div>
+
+
+
+<div class="container-fluid">
     <div class="row clearfix">
     <div class="col-md-12 column">
       <table class="table table-bordered table-hover" id="tab_logic">
@@ -997,5 +1059,23 @@ $('.myCheckbox142').click(function () {
     
 
  });
+
+
+
+
+  function calcscore(){
+    var score = 0;
+    $(".calc:checked").each(function(){
+        score+=parseInt($(this).val(),10);
+    });
+    $("#sum" ).val(score)
+}
+$().ready(function(){
+    $(".calc").change(function(){
+        calcscore()
+    });
+});
+
+
 
 </script>
