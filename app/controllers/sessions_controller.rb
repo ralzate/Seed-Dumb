@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password], params[:remember_me])
-           redirect_to root_path
+      flash[:success] = "Welcome, #{@user.name}!"
+      redirect_back_or_to @user
     else
       flash.now[:danger] = "Login failed! Please check your email and password."
       render 'new'
@@ -16,6 +17,6 @@ class SessionsController < ApplicationController
   def destroy
     logout
     flash[:success] = "Logged out."
-    redirect_to root_path
+    redirect_to login_url
   end
 end

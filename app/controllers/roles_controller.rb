@@ -5,7 +5,7 @@ class RolesController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-     @roles = Rol.search(params[:search]).page(params[:page]).per_page(2)
+     @roles = Rol.search(params[:search]).page(params[:page]).per_page(3)
     respond_to do |format|
       format.html
       format.json

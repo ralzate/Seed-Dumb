@@ -50,6 +50,24 @@
     display: inline-block;
     width: 30% !important;
   }
+  .sig
+  {
+
+    text-align: left!important,
+  }
+  .gls
+  {
+
+    width: 15%!important;
+    display: inline-block!important;
+    text-align: right;
+    padding: 0px;
+  }
+  .ult th 
+  {
+
+    text-align: left!important;
+  }
 
 </style>
 
@@ -151,11 +169,11 @@
 
 
             <th  colspan="1">
-               &nbsp;Seleccionar todos Si &nbsp;<input type="checkbox" id="checkAll"  />
+               &nbsp;Seleccionar todos&nbsp;<input type="checkbox" id="checkAll"  />
             </th>
 
             <th  colspan="1">
-               &nbsp;Seleccionar todos No &nbsp;<input type="checkbox" id="checkAll2"  />
+               &nbsp;Seleccionar todos &nbsp;<input type="checkbox" id="checkAll2"  />
             </th>
             <th  colspan="1">
             </th>
@@ -168,10 +186,10 @@
               Nombre
             </th>
             <th class="text-center" style="width:10%">
-              Si
+              Normal
             </th>
             <th class="text-center" style="width:10%">
-              No
+              Anormal
             </th>
             <th class="text-center" style="width:60%">
               Ampliar Información
@@ -499,220 +517,287 @@
     </div>
   </div>
 
+ <table class="table table-bordered table-hover" id="tab_logic">
 
+        <thead>
+          <tr >
+            
+            <th  colspan="10" style = "text-align:left!important;">
+           ALTERACION
+            </th>
+      </tr>
+      <tr >
+            <th  colspan="1" style = "text-align:right!important;">
+            <%= label_tag 'alteration_de_sensibilidad', 'De Sensibilidad' %>
+            </th>
+            <th  colspan="1" >
+             <%= check_box_tag 'clinic_history[alteration][]', 'De Sensibilidad', checked('De Sensibilidad'), id: 'alteration_de_sensibilidad' %>
+            </th>
 
-       
+             <th  colspan="1" style = "text-align:right!important;">
+           <%= label_tag 'alteration_de_motricidad', 'De Motricidad' %>
+            </th>
+            <th  colspan="1" >
+             <%= check_box_tag 'clinic_history[alteration][]', 'De Motricidad', checked('De Motricidad'), id: 'alteration_de_motricidad' %>
+            </th>
 
+            <th  colspan="1" style = "text-align:right!important;">
+           <%= label_tag 'alteration_cognitiva', 'Cognitiva' %>
+            </th>
+            <th  colspan="1" >
+            <%= check_box_tag 'clinic_history[alteration][]', 'Cognitiva', checked('Cognitiva'), id: 'alteration_cognitiva' %>
+            </th>
 
+             <th  colspan="1" style = "text-align:right!important;">
+           <%= label_tag 'alteration_sensorial', 'Sensorial' %>
+            </th>
+            <th  colspan="1" >
+            <%= check_box_tag 'clinic_history[alteration][]', 'Sensorial', checked('Sensorial'), id: 'alteration_sensorial' %>
+            </th>
 
-
-
-
-
-
-
-<div class="container-fluid">
-    <div class="row">
-
-
-        <div class="col-md-12">
-
-
-              <label>Alteración:</label><br/> 
-
-
-    <%= label_tag 'alteration_de_sensibilidad', 'De Sensibilidad' %>
-    <%= check_box_tag 'clinic_history[alteration][]', 'De Sensibilidad', checked('De Sensibilidad'), id: 'alteration_de_sensibilidad' %>
-
-
-    <%= label_tag 'alteration_de_motricidad', 'De Motricidad' %>
-    <%= check_box_tag 'clinic_history[alteration][]', 'De Motricidad', checked('De Motricidad'), id: 'alteration_de_motricidad' %>
-
-
-    <%= label_tag 'alteration_cognitiva', 'Cognitiva' %>
-    <%= check_box_tag 'clinic_history[alteration][]', 'Cognitiva', checked('Cognitiva'), id: 'alteration_cognitiva' %>
-
-
-    <%= label_tag 'alteration_sensorial', 'Sensorial' %>
-    <%= check_box_tag 'clinic_history[alteration][]', 'Sensorial', checked('Sensorial'), id: 'alteration_sensorial' %>
-
-
-    <%= label_tag 'alteration_del_lenguaje', 'Del Lenguaje' %>
-    <%= check_box_tag 'clinic_history[alteration][]', 'Del Lenguaje', checked('Del Lenguaje'), id: 'alteration_del_lenguaje' %>
-
-
-
-
-          </div>
-
-        </div> 
-        
-        <br/>        
-
-    <div class="row">
-
-          <div class="col-md-4">
-              <label>Ojo bierto:</label> 
+             <th  colspan="1" style = "text-align:right!important;">
+          <%= label_tag 'alteration_del_lenguaje', 'Del Lenguaje' %>
+            </th>
+            <th  colspan="1" >
+             <%= check_box_tag 'clinic_history[alteration][]', 'Del Lenguaje', checked('Del Lenguaje'), id: 'alteration_del_lenguaje' %>
+            </th>
 
 
 
-            <div class="field">
-                <%= f.label :espontanea_4 %>
+      </tr>
+
+
+      </thead>
+  </table>
+<hr>
+   <table class="table table-bordered table-hover sig" id="tab_logic">
+
+        <thead>
+          <tr >
+            <th  colspan="1" style = "width:33%!important;">
+           APERTURA OCULAR
+            </th>
+            <th  colspan="1" style = "width:33%!important;">
+            RESPUESTA VERBAL
+            </th>
+
+             <th  colspan="1" style = "width:33%!important;">
+           RESPUESTA MOTORA
+           </th>
+
+      </tr>
+      <tr >
+            <td  colspan="1" style = "width:33%!important;">
+            <%= f.label "4 - espontanea" %>
                 <%= f.radio_button(:eye_opening, "4".to_i, class: "calc" )%>
-<br/>
-                <%= f.label :al_llamado_3 %>
-                <%= f.radio_button(:eye_opening, "3".to_i, class: "calc" )%>
-<br/>                
-                <%= f.label :al_dolor_2 %>
-                <%= f.radio_button(:eye_opening, "2".to_i, class: "calc" )%>
-<br/>                
-                <%= f.label :no_apertura_1 %>
-                <%= f.radio_button(:eye_opening, "1".to_i, class: "calc" )%>
-
-              </div>
-
-
-          </div>
-
-          <div class="col-md-4">
-              <label>Respuesta Verbal:</label> 
-
-
-            <div class="field">
-
-                <%= f.label :orientada_5 %>
+            </th>
+            <td  colspan="1" style = "width:33%!important;">
+             <%= f.label "5 - orientada" %>
                 <%= f.radio_button(:verbal_answer, "5".to_i, class: "calc" )%>
-<br/>
-                <%= f.label :confusa_4 %>
-                <%= f.radio_button(:verbal_answer, "4".to_i, class: "calc" )%>
-<br/>
-                <%= f.label :palabras_3 %>
-                <%= f.radio_button(:verbal_answer, "3".to_i, class: "calc" )%>
-<br/>                
-                <%= f.label :sonidos_2 %>
-                <%= f.radio_button(:verbal_answer, "2".to_i, class: "calc" )%>
-<br/>                
-                <%= f.label :ninguna_1 %>
-                <%= f.radio_button(:verbal_answer, "1".to_i, class: "calc" )%>
+            </th>
 
-              </div>
-
-
-
-          </div>
-          <div class="col-md-4">
-
-
-
-            <div class="field">
-              <label>Respuesta Motora:</label> <br/>
-
-                <%= f.label :obedece_ordenes_6 %>
+             <td  colspan="1" style = "width:33%!important;">
+          
+                <%= f.label "6 - obedece ordenes" %>
                 <%= f.radio_button(:motor_response, "6".to_i , class: "calc") %>
-<br/>
-                <%= f.label :localiza_estimulos_5 %>
+            </th>
+            
+
+      </tr>
+  <tr >
+            <td  colspan="1" style = "width:33%!important;">
+              <%= f.label "3 - al llamado" %>
+                <%= f.radio_button(:eye_opening, "3".to_i, class: "calc" )%>
+            </th>
+            <td  colspan="1" style = "width:33%!important;">
+           <%= f.label "4 - confusa" %>
+                <%= f.radio_button(:verbal_answer, "4".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;"t>
+          
+                
+                <%= f.label "5 - localiza estimulos" %>
                 <%= f.radio_button(:motor_response, "5".to_i , class: "calc")%>
-<br/>
-                <%= f.label :retira_el_dolor_4 %>
+            </th>
+            
+
+      </tr>
+       <tr >
+            <td  colspan="1" style = "width:33%!important;">
+               <%= f.label "2 - aldolor" %>
+                <%= f.radio_button(:eye_opening, "2".to_i, class: "calc" )%>
+            </th>
+            <td  colspan="1" style = "width:33%!important;">
+             <%= f.label "3 - palabras" %>
+                <%= f.radio_button(:verbal_answer, "3".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                
+                <%= f.label "4 - retira el dolor" %>
                 <%= f.radio_button(:motor_response, "4".to_i , class: "calc")%>
-<br/>
-                <%= f.label :retira_en_flexión_3 %>
+            </th>
+            
+
+      </tr>
+      <tr >
+            <td  colspan="1" style = "width:33%!important;">
+               <%= f.label "1 - no apertura" %>
+                <%= f.radio_button(:eye_opening, "1".to_i, class: "calc" )%>
+            </th>
+            <td  colspan="1" style = "width:33%!important;">
+              <%= f.label "2- sonidos" %>
+                <%= f.radio_button(:verbal_answer, "2".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                
+                 <%= f.label "3 - retira en flexión" %>
                 <%= f.radio_button(:motor_response, "3".to_i , class: "calc")%>
-<br/>                
-                <%= f.label :retira_en_extensión_2 %>
+            </th>
+            
+
+      </tr>
+       <tr >
+            <td  colspan="1" style = "width:33%!important;">
+       
+            </th>
+            <td  colspan="1" >
+              <%= f.label "1- ninguna" %>
+                <%= f.radio_button(:verbal_answer, "1".to_i, class: "calc" )%>
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                
+                     
+                <%= f.label "2- retira en extensión" %>
                 <%= f.radio_button(:motor_response, "2".to_i , class: "calc")%>
-<br/>                
-                <%= f.label :sin_respuesta_1 %>
+            </td>
+            
+
+      </tr>
+      <tr >
+            <td  colspan="1" style = "width:33%!important;">
+       
+            </th>
+            <td  colspan="1" >
+             
+            </th>
+
+             <td  colspan="1" style = "width:33%!important;">
+          
+                
+              <%= f.label "1 - sin_respuesta" %>
                 <%= f.radio_button(:motor_response, "1".to_i , class: "calc")%>
+            </th>
+            
 
-
-
-
-              </div>
-
-
-
-          </div>
-        </div>
-
-    <div class="row">
-
-        <div class="col-md-6">
-            <label>Escala De Glasgow / 15:</label> <br/>
+      </tr>
+      <tr >
+            <td  colspan="1" style = "width:33%!important;">
+        <label>Escala De Glasgow </label> <br/>
   
-<%= f.number_field :escala_de_glasgow, class: 'form-control' , :readonly => true, id: 'sum' %>
+<%= f.number_field :escala_de_glasgow, class: 'form-control gls' , :readonly => true, id: 'sum'  %><span sytle = "font-size:20px!important;"> /15</span> 
+            </th>
+           
 
-        </div>
+      </tr>
 
-
-        </div>    
-
-
-    <div class="row">
-          <div class="col-md-12">
-        <br/>
-
-              <label>Otros Signos:</label><br/> 
+      </thead>
+  </table>
 
 
 
-    <%= label_tag 'other_signs_discoria', 'Discoria' %>
+
+<table class="table table-bordered table-hover ult" id="tab_logic">
+
+        <thead>
+          <tr >
+            
+            <th  colspan="10" style = "text-align:left!important;">
+           OTROS SIGNOS
+            </th>
+      </tr>
+      <tr >
+            <th  colspan="1" >
+            <%= label_tag 'other_signs_discoria', 'Discoria' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Discoria', checked('Discoria'), id: 'other_signs_discoria' %>
 
-    <%= label_tag 'other_signs_miosis', 'Miosis' %>
+            </th>
+            <th  colspan="1" >
+            <%= label_tag 'other_signs_miosis', 'Miosis' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Miosis', checked('Miosis'), id: 'other_signs_miosis' %>
+            </th>
 
-
-    <%= label_tag 'other_signs_midriosis', 'Midriosis' %>
+             <th  colspan="1" >
+         <%= label_tag 'other_signs_midriosis', 'Midriosis' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Midriosis', checked('Midriosis'), id: 'other_signs_midriosis' %>
-
-
-    <%= label_tag 'other_signs_pupilas_fijas', 'Pupilas Fijas' %>
+            </th>
+            <th  colspan="1" >
+             <%= label_tag 'other_signs_pupilas_fijas', 'Pupilas Fijas' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Pupilas Fijas', checked('Pupilas Fijas'), id: 'other_signs_pupilas_fijas' %>
 
-
-    <%= label_tag 'other_signs_nistagmus', 'Nistagmus' %>
+            </th>
+            <th  colspan="1" >
+             <%= label_tag 'other_signs_nistagmus', 'Nistagmus' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Nistagmus', checked('Nistagmus'), id: 'other_signs_nistagmus' %>
 
-
-
-    <%= label_tag 'other_signs_fotomotor', 'FotoMotor' %>
+            </th>
+            <th  colspan="1" >
+            <%= label_tag 'other_signs_fotomotor', 'FotoMotor' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'FotoMotor', checked('FotoMotor'), id: 'other_signs_fotomotor' %>
 
+            </th>
+</tr >
+ <tr >
 
-    <%= label_tag 'other_signs_consciente', 'Consciente' %>
+
+            <th  colspan="1" >
+          <%= label_tag 'other_signs_consciente', 'Consciente' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Consciente', checked('Consciente'), id: 'other_signs_consciente' %>
 
-
-    <%= label_tag 'other_signs_orientado', 'Orientado' %>
+            </th>
+            <th  colspan="1" >
+          <%= label_tag 'other_signs_orientado', 'Orientado' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Orientado', checked('Orientado'), id: 'other_signs_orientado' %>
 
+            </th>
 
-
-
-    <%= label_tag 'other_signs_desorientado', 'Desorientado' %>
+             <th  colspan="1" >
+          <%= label_tag 'other_signs_desorientado', 'Desorientado' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Desorientado', checked('Desorientado'), id: 'other_signs_desorientado' %>
 
-
+            </th>
+            <th  colspan="1" >
+          
     <%= label_tag 'other_signs_agitado', 'Agitado' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Agitado', checked('Agitado'), id: 'other_signs_agitado' %>
 
 
-    <%= label_tag 'other_signs_deprimido', 'Deprimido' %>
+            </th>
+                <th  colspan="1" >
+          <%= label_tag 'other_signs_deprimido', 'Deprimido' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Deprimido', checked('Deprimido'), id: 'other_signs_deprimido' %>
-
-
-
-    <%= label_tag 'other_signs_inconsciente', 'Inconsciente' %>
+            </th>
+            <th  colspan="1" >
+            <%= label_tag 'other_signs_inconsciente', 'Inconsciente' %>
     <%= check_box_tag 'clinic_history[other_signs][]', 'Inconsciente', checked('Inconsciente'), id: 'other_signs_inconsciente' %>
 
 
+            </th>
+</tr >
 
 
-          </div>
+      </thead>
+  </table>
 
-    </div>
-</div>
+
+
+
 
 
 

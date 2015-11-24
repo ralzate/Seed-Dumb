@@ -118,10 +118,10 @@
             Neonatales
             </td>
             <td align="center">
-              <%= f.check_box :neunatales_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :neunatales_true, class: 'checkItem myCheckbox1' %>
             </td>
             <td align="center">
-              <%= f.check_box :neunatales_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :neunatales_false, class: 'checkItem2 myCheckbox12' %>
             </td>
             <td>
               <%= f.text_field :neunatales_description, class: 'form-control' %>
@@ -139,7 +139,7 @@
               <%= f.check_box :patologicos_true,  class: 'checkItem myCheckbox2' %>
             </td>
             <td align="center">
-              <%= f.check_box :patologicos_false, class: 'checkItem2 myCheckbox2' %>
+              <%= f.check_box :patologicos_false, class: 'checkItem2 myCheckbox22' %>
             </td>
             <td>
               <%= f.text_field :patologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -156,7 +156,7 @@
               <%= f.check_box :quirurgicos_true, class: 'checkItem myCheckbox3' %>
             </td>
             <td align="center">
-              <%= f.check_box :quirurgicos_false,  class: 'checkItem2 myCheckbox3' %>
+              <%= f.check_box :quirurgicos_false,  class: 'checkItem2 myCheckbox32' %>
             </td>
             <td>
               <%= f.text_field :quirurgicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -173,7 +173,7 @@
               <%= f.check_box :farmacologicos_true, class: 'checkItem myCheckbox4' %>
             </td>
             <td align="center">
-              <%= f.check_box :farmacologicos_false, class: 'checkItem2 myCheckbox4' %>
+              <%= f.check_box :farmacologicos_false, class: 'checkItem2 myCheckbox42' %>
             </td>
             <td>
               <%= f.text_field :farmacologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -190,7 +190,7 @@
               <%= f.check_box :alergicos_true, class: 'checkItem myCheckbox5' %>
             </td>
             <td align="center">
-              <%= f.check_box :alergicos_false, class: 'checkItem2 myCheckbox5' %>
+              <%= f.check_box :alergicos_false, class: 'checkItem2 myCheckbox52' %>
             </td>
             <td>
               <%= f.text_field :alergicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -207,7 +207,7 @@
               <%= f.check_box :toxicos_true, class: 'checkItem myCheckbox6' %>
             </td>
             <td align="center">
-              <%= f.check_box :toxicos_false, class: 'checkItem2 myCheckbox6' %>
+              <%= f.check_box :toxicos_false, class: 'checkItem2 myCheckbox62' %>
             </td>
             <td>
               <%= f.text_field :toxicos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -226,7 +226,7 @@
               <%= f.check_box :traumaticos_true, class: 'checkItem myCheckbox7' %>
             </td>
             <td align="center">
-              <%= f.check_box :traumaticos_false, class: 'checkItem2 myCheckbox7' %>
+              <%= f.check_box :traumaticos_false, class: 'checkItem2 myCheckbox72' %>
             </td>
             <td>
               <%= f.text_field :traumaticos_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -244,7 +244,7 @@
               <%= f.check_box :hospitables_true, class: 'checkItem myCheckbox8' %>
             </td>
             <td align="center">
-              <%= f.check_box :hospitables_false, class: 'checkItem2 myCheckbox8' %>
+              <%= f.check_box :hospitables_false, class: 'checkItem2 myCheckbox82' %>
             </td>
             <td>
               <%= f.text_field :hospitables_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -262,7 +262,7 @@
               <%= f.check_box :atep_laboral_true, class: 'checkItem myCheckbox9' %>
             </td>
             <td align="center">
-              <%= f.check_box :atep_laboral_false, class: 'checkItem2 myCheckbox9' %>
+              <%= f.check_box :atep_laboral_false, class: 'checkItem2 myCheckbox92' %>
             </td>
             <td>
               <%= f.text_field :atep_laboral_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -281,7 +281,7 @@
               <%= f.check_box :familiar_true, class: 'checkItem myCheckbox10' %>
             </td>
             <td align="center">
-              <%= f.check_box :familiar_false, class: 'checkItem2 myCheckbox10' %>
+              <%= f.check_box :familiar_false, class: 'checkItem2 myCheckbox102' %>
             </td>
             <td>
               <%= f.text_field :familiar_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -299,7 +299,7 @@
               <%= f.check_box :inmunologicos_true, class: 'checkItem myCheckbox11' %>
             </td>
             <td align="center">
-              <%= f.check_box :inmunologicos_false, class: 'checkItem2 myCheckbox11' %>
+              <%= f.check_box :inmunologicos_false, class: 'checkItem2 myCheckbox112' %>
             </td>
             <td>
               <%= f.text_field :inmunologios_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -322,7 +322,7 @@
               <%= f.check_box :asociado_viajes_de_vuelo_true, class: 'checkItem myCheckbox myCheckbox12' %>
             </td>
             <td align="center">
-              <%= f.check_box :asociado_viajes_de_vuelo_false, class: 'checkItem2 myCheckbox myCheckbox12' %>
+              <%= f.check_box :asociado_viajes_de_vuelo_false, class: 'checkItem2 myCheckbox myCheckbox122' %>
             </td>
             <td>
               <%= f.text_field :asociado_viajes_de_vuelo_description, class: 'form-control', :id => "txtPassportNumber" %>
@@ -510,6 +510,166 @@ $('#checkAll2').click(function () {
 
  });
 
+////////////////
+$('.myCheckbox1').click(function () {    
+    $('.myCheckbox1').prop('checked', this.checked);    
+    $('.myCheckbox12').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox12').click(function () {    
+    $('.myCheckbox12').prop('checked', this.checked);    
+    $('.myCheckbox1').prop('checked', false);    
+    
+
+ });
+///////////////
+
+$('.myCheckbox2').click(function () {    
+    $('.myCheckbox2').prop('checked', this.checked);    
+    $('.myCheckbox22').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox22').click(function () {    
+    $('.myCheckbox22').prop('checked', this.checked);    
+    $('.myCheckbox2').prop('checked', false);    
+    
+
+ });
+///////////////
+$('.myCheckbox3').click(function () {    
+    $('.myCheckbox3').prop('checked', this.checked);    
+    $('.myCheckbox32').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox32').click(function () {    
+    $('.myCheckbox32').prop('checked', this.checked);    
+    $('.myCheckbox3').prop('checked', false);    
+    
+
+ });
+
+$('.myCheckbox4').click(function () {    
+    $('.myCheckbox4').prop('checked', this.checked);    
+    $('.myCheckbox42').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox42').click(function () {    
+    $('.myCheckbox42').prop('checked', this.checked);    
+    $('.myCheckbox4').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox5').click(function () {    
+    $('.myCheckbox5').prop('checked', this.checked);    
+    $('.myCheckbox52').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox52').click(function () {    
+    $('.myCheckbox52').prop('checked', this.checked);    
+    $('.myCheckbox5').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox6').click(function () {    
+    $('.myCheckbox6').prop('checked', this.checked);    
+    $('.myCheckbox62').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox62').click(function () {    
+    $('.myCheckbox62').prop('checked', this.checked);    
+    $('.myCheckbox6').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox7').click(function () {    
+    $('.myCheckbox7').prop('checked', this.checked);    
+    $('.myCheckbox72').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox72').click(function () {    
+    $('.myCheckbox72').prop('checked', this.checked);    
+    $('.myCheckbox7').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox8').click(function () {    
+    $('.myCheckbox8').prop('checked', this.checked);    
+    $('.myCheckbox82').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox82').click(function () {    
+    $('.myCheckbox82').prop('checked', this.checked);    
+    $('.myCheckbox8').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox9').click(function () {    
+    $('.myCheckbox9').prop('checked', this.checked);    
+    $('.myCheckbox92').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox92').click(function () {    
+    $('.myCheckbox92').prop('checked', this.checked);    
+    $('.myCheckbox9').prop('checked', false);    
+    
+
+ });
+
+$('.myCheckbox10').click(function () {    
+    $('.myCheckbox10').prop('checked', this.checked);    
+    $('.myCheckbox102').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox102').click(function () {    
+    $('.myCheckbox102').prop('checked', this.checked);    
+    $('.myCheckbox10').prop('checked', false);    
+    
+
+ });
+
+$('.myCheckbox11').click(function () {    
+    $('.myCheckbox11').prop('checked', this.checked);    
+    $('.myCheckbox112').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox112').click(function () {    
+    $('.myCheckbox112').prop('checked', this.checked);    
+    $('.myCheckbox11').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox12').click(function () {    
+    $('.myCheckbox12').prop('checked', this.checked);    
+    $('.myCheckbox122').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox122').click(function () {    
+    $('.myCheckbox122').prop('checked', this.checked);    
+    $('.myCheckbox12').prop('checked', false);    
+    
+
+ });
+
 
 
 
@@ -524,6 +684,7 @@ $('#checkAll2').click(function () {
                 $("#MostrarEmbarazo6").show();
                 $("#MostrarEmbarazo7").show();
                 $("#MostrarEmbarazo8").show();
+                $('.Embarazo2').prop('checked', false);   
             } 
 
 
@@ -544,6 +705,7 @@ $('#checkAll2').click(function () {
                 $("#MostrarEmbarazo6").hide();
                 $("#MostrarEmbarazo7").hide();
                 $("#MostrarEmbarazo8").hide();
+                $('.Embarazo').prop('checked', false);
             } 
 
         });

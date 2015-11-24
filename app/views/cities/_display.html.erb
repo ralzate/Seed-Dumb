@@ -49,6 +49,7 @@
     <th>Nombre</th>
     <th>Pais</th>
     <th>Fecha</th>
+    
     <th>Opciones</th>
   </tr>
   
@@ -58,7 +59,8 @@
 
     <td><%= city.id %></td>
     <td> <%= best_in_place city, :name, :ok_button => "Guardar", :ok_button_class => "btn btn-success", :cancel_button => 'Cerrar', :cancel_button_class => "btn btn-primary"  %></td>
-    <td><%=  city.country_code %></td>
+   
+     <td><%=  to_country_code(city.country_code)  %></td>
     <td><%= city.created_at.strftime('%b %d. %Y') %></td>
 
     <td>

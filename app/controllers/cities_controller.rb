@@ -4,12 +4,20 @@ class CitiesController < ApplicationController
 
   # GET /users
   # GET /users.json
+
+
+
   def index
-     @cities = City.search(params[:search]).page(params[:page]).per_page(2)
+   
+     @cities = City.search(params[:search]).page(params[:page]).per_page(10)
+     
     respond_to do |format|
       format.html
       format.json
     end
+
+    
+
   end
   # GET /blogs/1
   # GET /blogs/1.json
@@ -31,7 +39,7 @@ class CitiesController < ApplicationController
   # POST /epss.json
   def create
     @city = City.create(city_params)
-  end
+     end
 
   # PATCH/PUT /epss/
   # PATCH/PUT /epss/1.json
@@ -64,11 +72,12 @@ class CitiesController < ApplicationController
     end
 
     def get_all
-      @cities = City.search(params[:search]).page(params[:page]).per_page(2)
+      @cities = City.search(params[:search]).page(params[:page]).per_page(10)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
       params.require(:city).permit(:name, :country_code)
     end
+
 end

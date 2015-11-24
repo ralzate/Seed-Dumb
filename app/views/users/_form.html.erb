@@ -96,42 +96,78 @@
 
                 <div class="row">
 
-<div class="col-md-4">
+
+<div class="col-md-3">
+                    <label class="label">Nombres</label>
+                    <div class="form-group">
+                        <%= f.text_field :names, class: "form-control ", required: true, placeholder: 'Nombres',  id: 'document'  %>
+                    </div>
+                  </div>  
+
+<div class="col-md-3">
+                    <label class="label">Apellidos</label>
+                    <div class="form-group">
+                        <%= f.text_field :surnames, class: "form-control ", required: true, placeholder: 'Apellidos',  id: 'document'  %>
+                    </div>
+                  </div>  
+
+
+
+ 
+                  <div class="col-md-3">
+                    <label class="label">Tipo Documento</label>
+                    <div class="form-group">
+                      <%= f.input :type_document,
+                              prompt:       'Seleccionar un Documento',
+                              collection: @user.select_document.sort,
+                              error: false, label: false, 
+                              input_html:   {class: 'form-control '},
+                              required: true, :selected => '1'   %>
+                    </div>
+                  </div>
+
+
+
+                <div class="col-md-3">
                     <label class="label">Documento</label>
                     <div class="form-group">
                         <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
                     </div>
                   </div>  
 
-                  <div class="col-md-4">
+</div>
+
+                <div class="row">
+
+
+                  <div class="col-md-3">
+                    <label class="label">Rol</label>
+                    <div class="form-group">
+                      <%= f.collection_select :rol_id, Rol.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                    </div>
+                  </div>
+
+                  
+                  <div class="col-md-3">
                     <label class="label">Registro Medico</label>
                     <div class="form-group">
 
                       <%= f.text_field :medical_record, class: 'ng-binding form-control', required: true, placeholder: 'Registro Medico' %>
                     </div>
                   </div>
-                  <div class="col-md-4">
+
+                  <div class="col-md-3">
                     <label class="label">Email</label>
                     <div class="form-group">
                       <%= f.text_field :email, class: 'form-control', required: true, placeholder: 'Email' %>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <label class="label">Rol</label>
-                    <div class="form-group">
-                      <%= f.collection_select :rol_id, Rol.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <label class="label">Primer Apellido</label>
-                    <div class="form-group">
-                        <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
-                    </div>
-                  </div> 
 
-                  <div class="col-xs-4 col-sm-4 col-md-4">
+         
+
+                  <div class="col-xs-3 col-sm-3 col-md-3">
                     <div class="form-group">
-                      <label class="control-label">Cargar Imagen:</label>
+                      <label class="label">Cargar Imagen:</label>
                       <div class="fileinput fileinput-new" data-provides="fileinput">
                         <div>
                           <span class="btn btn-default btn-file"><span class="fileinput-new"><%= f.file_field :picture, class: "form-control", id: 'button' %></span><span class="fileinput-exists">Cambiar</span><input type="file" name="..."></span>
@@ -147,17 +183,20 @@
 
 
                 <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <%= f.hidden_field :password, class: 'form-control', id: 'password1', placeholder: 'Contraseña', :autocomplete => :off  %>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      <%= f.hidden_field :password_confirmation, class: 'form-control', id: 'password2', placeholder: 'Confirma tu Contraseña', :autocomplete => :off  %>
-                    </div>
-                  </div>
-                </div>
+
+
+                  <div class="col-md-3">
+                    <label class="label">Contraseña</label>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+
+
+
+                  <div class="col-md-3">
+                    <label class="label">Confirmar Contraseña</label>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+    </div>
 
 
                <div class="well pie_form">
@@ -192,18 +231,3 @@
 
 
    
-
-
-
-<script type="text/javascript">
-  $("#document").keyup(function(){
-    $("#password1").val(this.value);
-    $("#password2").val(this.value);
-    $("#document").val(this.value);
-});
-</script>
-
-
-
-
-                    
