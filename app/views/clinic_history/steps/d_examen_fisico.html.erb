@@ -96,67 +96,6 @@
 
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-3">
-              <label>TA mm/HG:</label> 
-              <%= f.input :ta_mmgh, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-          </div>
-          <div class="col-md-3">
-              <label>Frecuencía Cardiaca:</label> 
-              <%= f.input :heart_rate, :input_html => { :class => 'form-control fs1' }, label: false %>
-          </div>
-
-          <div class="col-md-3">
-              <label>Frecuencía Respiratoria:</label> 
-              <%= f.input :breathing_frequency, :input_html => { :class => 'form-control fs1' }, label: false %>
-          </div>
-          <div class="col-md-3">
-              <label>% SAT. de 02 Ambiente:</label> 
-              <%= f.input :sat_of_o_ambiente, :input_html => { :class => 'form-control fs1' }, label: false %>
-          </div>
-        </div>
-
-
-
-        <br/>
-        <br/>        <br/>
-        <br/>
-
-        <div class="col-md-12">
-          <div class="col-md-3">
-              <label>% SAT. de O2 Suplement:</label> 
-              <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
-
-          </div>
-          <div class="col-md-3">
-              <label>Temperatura:</label> 
-              <%= f.input :temperature, :input_html => { :class => 'form-control fs1' }, label: false %>
-          </div>
-
-          <div class="col-md-3">
-              <label>Peso en Kilogramos:</label> 
-              <%= f.input :weight_in_kilograms, :input_html => { :class => 'form-control fs1' }, label: false %>
-          </div>
-          <div class="col-md-3">
-              <label>Talla en Centimetros:</label> 
-              <%= f.input :height_in_centimeters, :input_html => { :class => 'form-control fs1' }, label: false %>
-          </div>
-        </div>
-
-
-    </div>
-</div>
-
-
-
-
-<br/>
-
-
-
-<div class="container-fluid">
     <div class="row clearfix">
     <div class="col-md-12 column">
       <table class="table table-bordered table-hover" id="tab_logic">
@@ -202,23 +141,16 @@
 
 
 
-
-
-
-
         <tbody>
-
-
-
           <tr id='addr0' class="selectme">
             <td align="center">
             Cabeza
             </td>
             <td align="center">
-              <%= f.check_box :head_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :head_true, class: 'checkItem myCheckbox1' %>
             </td>
             <td align="center">
-              <%= f.check_box :head_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :head_false, class: 'checkItem2 myCheckbox12' %>
             </td>
             <td>
             <%= f.text_field :head_description, class: 'form-control' %>
@@ -230,6 +162,10 @@
 
 
 
+   
+
+
+
 
 
 
@@ -238,10 +174,10 @@
             Cuello
             </td>
             <td align="center">
-              <%= f.check_box :neck_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :neck_true, class: 'checkItem myCheckbox2' %>
             </td>
             <td align="center">
-              <%= f.check_box :neck_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :neck_false, class: 'checkItem2 myCheckbox22' %>
             </td>
             <td>
             <%= f.text_field :neck_description, class: 'form-control' %>
@@ -265,10 +201,10 @@
             Organo de los Sentidos
             </td>
             <td align="center">
-              <%= f.check_box :sense_organ_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :sense_organ_true, class: 'checkItem myCheckbox3' %>
             </td>
             <td align="center">
-              <%= f.check_box :sense_organ_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :sense_organ_false, class: 'checkItem2 myCheckbox32' %>
             </td>
             <td>
             <%= f.text_field :sense_organ_description, class: 'form-control' %>
@@ -287,10 +223,10 @@
             Caja Toracica
             </td>
             <td align="center">
-              <%= f.check_box :rib_cage_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :rib_cage_true, class: 'checkItem myCheckbox4' %>
             </td>
             <td align="center">
-              <%= f.check_box :rib_cage_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :rib_cage_false, class: 'checkItem2 myCheckbox42' %>
             </td>
             <td>
             <%= f.text_field :rib_cage_description, class: 'form-control' %>
@@ -318,10 +254,10 @@
             Corazón
             </td>
             <td align="center">
-              <%= f.check_box :heart_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :heart_true, class: 'checkItem myCheckbox5' %>
             </td>
             <td align="center">
-              <%= f.check_box :heart_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :heart_false, class: 'checkItem2 myCheckbox52' %>
             </td>
             <td>
             <%= f.text_field :heart_description, class: 'form-control' %>
@@ -337,10 +273,10 @@
             Pulmones
             </td>
             <td align="center">
-              <%= f.check_box :lungs_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :lungs_true, class: 'checkItem myCheckbox6' %>
             </td>
             <td align="center">
-              <%= f.check_box :lungs_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :lungs_false, class: 'checkItem2 myCheckbox62' %>
             </td>
             <td>
             <%= f.text_field :lungs_description, class: 'form-control' %>
@@ -356,10 +292,10 @@
             Abdomen
             </td>
             <td align="center">
-              <%= f.check_box :abdomen_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :abdomen_true, class: 'checkItem myCheckbox7' %>
             </td>
             <td align="center">
-              <%= f.check_box :abdomen_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :abdomen_false, class: 'checkItem2 myCheckbox72' %>
             </td>
             <td>
             <%= f.text_field :abdomen_description, class: 'form-control' %>
@@ -375,10 +311,10 @@
             Genito urinario
             </td>
             <td align="center">
-              <%= f.check_box :genitourinary_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :genitourinary_true, class: 'checkItem myCheckbox8' %>
             </td>
             <td align="center">
-              <%= f.check_box :genitourinary_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :genitourinary_false, class: 'checkItem2 myCheckbox82' %>
             </td>
             <td>
             <%= f.text_field :genitourinary_description, class: 'form-control' %>
@@ -394,10 +330,10 @@
             Recto
             </td>
             <td align="center">
-              <%= f.check_box :rectum_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :rectum_true, class: 'checkItem myCheckbox9' %>
             </td>
             <td align="center">
-              <%= f.check_box :rectum_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :rectum_false, class: 'checkItem2 myCheckbox92' %>
             </td>
             <td>
             <%= f.text_field :rectum_description, class: 'form-control' %>
@@ -415,10 +351,10 @@
             Extremidades
             </td>
             <td align="center">
-              <%= f.check_box :extremities_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :extremities_true, class: 'checkItem myCheckbox10' %>
             </td>
             <td align="center">
-              <%= f.check_box :extremities_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :extremities_false, class: 'checkItem2 myCheckbox102' %>
             </td>
             <td>
             <%= f.text_field :extremities_description, class: 'form-control' %>
@@ -447,10 +383,10 @@
             Piel y Faneras
             </td>
             <td align="center">
-              <%= f.check_box :piel_y_faneras2_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :piel_y_faneras2_true, class: 'checkItem myCheckbox11' %>
             </td>
             <td align="center">
-              <%= f.check_box :piel_y_faneras2_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :piel_y_faneras2_false, class: 'checkItem2 myCheckbox112' %>
             </td>
             <td>
             <%= f.text_field :piel_y_faneras2_descripcion, class: 'form-control' %>
@@ -464,10 +400,10 @@
             Musculo esqueletico
             </td>
             <td align="center">
-              <%= f.check_box :skeletal_muscle_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :skeletal_muscle_true, class: 'checkItem myCheckbox12' %>
             </td>
             <td align="center">
-              <%= f.check_box :skeletal_muscle_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :skeletal_muscle_false, class: 'checkItem2 myCheckbox122' %>
             </td>
             <td>
             <%= f.text_field :skeletal_muscle_description, class: 'form-control' %>
@@ -481,10 +417,10 @@
             Mental
             </td>
             <td align="center">
-              <%= f.check_box :mental_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :mental_true, class: 'checkItem myCheckbox13' %>
             </td>
             <td align="center">
-              <%= f.check_box :mental_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :mental_false, class: 'checkItem2 myCheckbox132' %>
             </td>
             <td>
             <%= f.text_field :mental_description, class: 'form-control' %>
@@ -499,10 +435,10 @@
             Nuurologico
             </td>
             <td align="center">
-              <%= f.check_box :neurological_true, class: 'checkItem myCheckbox' %>
+              <%= f.check_box :neurological_true, class: 'checkItem myCheckbox14' %>
             </td>
             <td align="center">
-              <%= f.check_box :neurological_false, class: 'checkItem2 myCheckbox' %>
+              <%= f.check_box :neurological_false, class: 'checkItem2 myCheckbox142' %>
             </td>
             <td>
             <%= f.text_field :neurological_description, class: 'form-control' %>
@@ -523,7 +459,7 @@
           <tr >
             
             <th  colspan="10" style = "text-align:left!important;">
-           ALTERACION
+           ALTERACIÓN
             </th>
       </tr>
       <tr >
@@ -803,6 +739,10 @@
 
 
 
+
+
+
+
 <br/>
 <br/>
 
@@ -815,7 +755,7 @@
                 <div class="form-actions"  style = "text-align:center!important"> 
                 <%= link_to "Regresar", patient_clinic_history_steps_path(@patient, @clinic_history, ClinicHistory.form_steps.third), :class=>"btn btn-info color_blanco custom" %>
                     
-                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px; ">Borrar</button>
+                        <button type="rese  t" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px;">Borrar</button>
                         <%= f.submit "Siguiente", :class => 'btn btn btn-info  custom' %>
                     
                 </div>
@@ -866,26 +806,196 @@ $('#checkAll2').click(function () {
 
 
 
-</script>
+////////////////
+$('.myCheckbox1').click(function () {    
+    $('.myCheckbox1').prop('checked', this.checked);    
+    $('.myCheckbox12').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox12').click(function () {    
+    $('.myCheckbox12').prop('checked', this.checked);    
+    $('.myCheckbox1').prop('checked', false);    
+    
+
+ });
+///////////////
+
+$('.myCheckbox2').click(function () {    
+    $('.myCheckbox2').prop('checked', this.checked);    
+    $('.myCheckbox22').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox22').click(function () {    
+    $('.myCheckbox22').prop('checked', this.checked);    
+    $('.myCheckbox2').prop('checked', false);    
+    
+
+ });
+///////////////
+$('.myCheckbox3').click(function () {    
+    $('.myCheckbox3').prop('checked', this.checked);    
+    $('.myCheckbox32').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox32').click(function () {    
+    $('.myCheckbox32').prop('checked', this.checked);    
+    $('.myCheckbox3').prop('checked', false);    
+    
+
+ });
+
+$('.myCheckbox4').click(function () {    
+    $('.myCheckbox4').prop('checked', this.checked);    
+    $('.myCheckbox42').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox42').click(function () {    
+    $('.myCheckbox42').prop('checked', this.checked);    
+    $('.myCheckbox4').prop('checked', false);    
+    
+
+ });
 
 
+$('.myCheckbox5').click(function () {    
+    $('.myCheckbox5').prop('checked', this.checked);    
+    $('.myCheckbox52').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox52').click(function () {    
+    $('.myCheckbox52').prop('checked', this.checked);    
+    $('.myCheckbox5').prop('checked', false);    
+    
+
+ });
 
 
+$('.myCheckbox6').click(function () {    
+    $('.myCheckbox6').prop('checked', this.checked);    
+    $('.myCheckbox62').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox62').click(function () {    
+    $('.myCheckbox62').prop('checked', this.checked);    
+    $('.myCheckbox6').prop('checked', false);    
+    
+
+ });
 
 
+$('.myCheckbox7').click(function () {    
+    $('.myCheckbox7').prop('checked', this.checked);    
+    $('.myCheckbox72').prop('checked', false);    
+    
 
-<script type="text/javascript">
-  function calcscore(){
-    var score = 0;
-    $(".calc:checked").each(function(){
-        score+=parseInt($(this).val(),10);
-    });
-    $("#sum" ).val(score)
-}
-$().ready(function(){
-    $(".calc").change(function(){
-        calcscore()
-    });
-});
+ });
+$('.myCheckbox72').click(function () {    
+    $('.myCheckbox72').prop('checked', this.checked);    
+    $('.myCheckbox7').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox8').click(function () {    
+    $('.myCheckbox8').prop('checked', this.checked);    
+    $('.myCheckbox82').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox82').click(function () {    
+    $('.myCheckbox82').prop('checked', this.checked);    
+    $('.myCheckbox8').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox9').click(function () {    
+    $('.myCheckbox9').prop('checked', this.checked);    
+    $('.myCheckbox92').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox92').click(function () {    
+    $('.myCheckbox92').prop('checked', this.checked);    
+    $('.myCheckbox9').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox10').click(function () {    
+    $('.myCheckbox10').prop('checked', this.checked);    
+    $('.myCheckbox102').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox102').click(function () {    
+    $('.myCheckbox102').prop('checked', this.checked);    
+    $('.myCheckbox10').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox11').click(function () {    
+    $('.myCheckbox11').prop('checked', this.checked);    
+    $('.myCheckbox112').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox112').click(function () {    
+    $('.myCheckbox112').prop('checked', this.checked);    
+    $('.myCheckbox11').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox12').click(function () {    
+    $('.myCheckbox12').prop('checked', this.checked);    
+    $('.myCheckbox122').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox122').click(function () {    
+    $('.myCheckbox122').prop('checked', this.checked);    
+    $('.myCheckbox12').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox13').click(function () {    
+    $('.myCheckbox13').prop('checked', this.checked);    
+    $('.myCheckbox132').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox132').click(function () {    
+    $('.myCheckbox132').prop('checked', this.checked);    
+    $('.myCheckbox13').prop('checked', false);    
+    
+
+ });
+
+
+$('.myCheckbox14').click(function () {    
+    $('.myCheckbox14').prop('checked', this.checked);    
+    $('.myCheckbox142').prop('checked', false);    
+    
+
+ });
+$('.myCheckbox142').click(function () {    
+    $('.myCheckbox142').prop('checked', this.checked);    
+    $('.myCheckbox14').prop('checked', false);    
+    
+
+ });
 
 </script>

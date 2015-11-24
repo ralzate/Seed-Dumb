@@ -90,13 +90,13 @@
           </div>
           <div class="col-md-4">
               <label>Origen:</label> 
-                  <%= f.collection_select :origin, City.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                  <%= f.collection_select :origin, City.all, :name, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
 
           </div>
 
           <div class="col-md-4">
               <label>Destino:</label> 
-                  <%= f.collection_select :destination, City.all, :id, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                  <%= f.collection_select :destination, City.all, :name, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
 
 
           </div>
