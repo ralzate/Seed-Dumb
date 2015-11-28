@@ -15,6 +15,8 @@ class PatientsController < ApplicationController
   # GET /patients/new
   def new
     @patient = Patient.new
+    @patient.build_city    
+
   end
 
   # GET /patients/1/edit
@@ -25,7 +27,14 @@ class PatientsController < ApplicationController
   # POST /patients.json
   def create
     @patient = Patient.new(patient_params)
-
+    @nom = @patient.first_name
+    @patient.first_name = @nom.capitalize
+    @nom1 = @patient.second_name
+    @patient.second_name = @nom1.capitalize
+    @nom = @patient.first_surname
+    @patient.first_surname = @nom.capitalize
+    @nom1 = @patient.second_surname
+    @patient.second_surname = @nom1.capitalize
     respond_to do |format|
       if @patient.save
         format.html { redirect_to new_patient_clinic_history_path(@patient), notice: 'Historia Clinica was successfully created.' }
@@ -69,7 +78,7 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:first_name, :second_name, :first_surname, :second_surname, :email, :type_document, :document, :days_age, :months_age, :years_age, :birthdate, :gender, :profession, :blood_type, :nacionality, :eps_id, :arl_id, :address, :condition, :city_id, :user_id)
+      params.require(:patient).permit!
     end
 
 

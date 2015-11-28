@@ -28,6 +28,8 @@ class CitiesController < ApplicationController
   # GET /epss/new
   def new
     @city = City.new
+    @arl.clinic_histories.build    
+
   end
 
   # GET /epss/1/edit
@@ -77,7 +79,7 @@ class CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def city_params
-      params.require(:city).permit(:name, :country_code)
+      params.require(:city).permit!
     end
 
 end

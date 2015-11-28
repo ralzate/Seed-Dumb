@@ -342,6 +342,7 @@ ActiveRecord::Schema.define(version: 20151113135559) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                                       null: false
+    t.string   "nombre_usuario"
     t.string   "names"
     t.string   "surnames"
     t.integer  "type_document"

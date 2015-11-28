@@ -58,7 +58,7 @@
   .gls
   {
 
-    width: 15%!important;
+    width: 45%!important;
     display: inline-block!important;
     text-align: right;
     padding: 0px;
@@ -88,7 +88,7 @@
 
 
 <div class="container" style="margin-top:10px; margin-bottom:-8px;">
-        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 4 Examen Fisico</h1></div>
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> 4 Examen Fisico</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
 
@@ -101,22 +101,26 @@
               <label>TA mm/HG:</label> 
               <%= f.input :ta_mmgh, :input_html => { :class => 'form-control fs1' }, label: false %>
           </div>   
+
+          <div class="col-md-3">
+              <label>Frecuencía Cardiaca/Min:</label> 
+              <%= f.input :heart_rate, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
+
+
+          <div class="col-md-3">
+              <label>Frecuencía Respiratoria/Min:</label> 
+              <%= f.input :breathing_frequency, :input_html => { :class => 'form-control fs1' }, label: false %>
+          </div>
  
           <div class="col-md-3">
                   <label >% SAT. de O2 Ambiente </label>
                       <%= f.input :sat_of_o_ambiente, :input_html => { :class => 'form-control fs1' }, label: false %>
               </div>
 
-          <div class="col-md-3">
-                  <label >Temperatura</label>
-                      <%= f.input :temperature, :input_html => { :class => 'form-control fs1' }, label: false %>
-              </div>
+ 
 
-
-          <div class="col-md-3">
-              <label>Frecuencía Cardiaca:</label> 
-              <%= f.input :heart_rate, :input_html => { :class => 'form-control fs1' }, label: false %>
-          </div>
+ 
 
  </div>
 
@@ -125,17 +129,17 @@
 
 
 
-
-          <div class="col-md-3">
-              <label>Frecuencía Respiratoria:</label> 
-              <%= f.input :breathing_frequency, :input_html => { :class => 'form-control fs1' }, label: false %>
-          </div>
-
           <div class="col-md-3">
               <label>% SAT. de 02 Suplementario:</label> 
               <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
           </div>
  
+         <div class="col-md-3">
+                  <label >Temperatura C°</label>
+                      <%= f.input :temperature, :input_html => { :class => 'form-control fs1' }, label: false %>
+              </div>
+
+
 
         <div class="col-md-3">
               <label>Peso en Kilogramos:</label> 
@@ -144,7 +148,7 @@
 
 
           <div class="col-md-3">
-              <label>Altura en Centimetros:</label> 
+              <label>Talla en Centimetros:</label> 
               <%= f.input :height_in_centimeters, :input_html => { :class => 'form-control fs1' }, label: false %>
  
         </div>
@@ -568,6 +572,25 @@
       </thead>
   </table>
 <hr>
+
+
+
+
+
+
+<style type="text/css">
+  .size{
+    font-size: 10px !important;
+  }
+  .optional{
+    text-transform: capitalize;
+  }
+</style>
+
+
+
+
+
    <table class="table table-bordered table-hover sig" id="tab_logic">
 
         <thead>
@@ -582,21 +605,22 @@
              <th  colspan="1" style = "width:33%!important;">
            RESPUESTA MOTORA
            </th>
+      </thead>
 
       </tr>
       <tr >
             <td  colspan="1" style = "width:33%!important;">
-            <%= f.label "4 - espontanea" %>
+            <%= f.label "4 - Espontanea" %>
                 <%= f.radio_button(:eye_opening, "4".to_i, class: "calc" )%>
             </th>
             <td  colspan="1" style = "width:33%!important;">
-             <%= f.label "5 - orientada" %>
+             <%= f.label "5 - Orientada" %>
                 <%= f.radio_button(:verbal_answer, "5".to_i, class: "calc" )%>
             </th>
 
              <td  colspan="1" style = "width:33%!important;">
           
-                <%= f.label "6 - obedece ordenes" %>
+                <%= f.label "6 - Obedece ordenes" %>
                 <%= f.radio_button(:motor_response, "6".to_i , class: "calc") %>
             </th>
             
@@ -604,18 +628,18 @@
       </tr>
   <tr >
             <td  colspan="1" style = "width:33%!important;">
-              <%= f.label "3 - al llamado" %>
+              <%= f.label "3 - Al llamado" %>
                 <%= f.radio_button(:eye_opening, "3".to_i, class: "calc" )%>
             </th>
             <td  colspan="1" style = "width:33%!important;">
-           <%= f.label "4 - confusa" %>
+           <%= f.label "4 - Confusa" %>
                 <%= f.radio_button(:verbal_answer, "4".to_i, class: "calc" )%>
             </th>
 
              <td  colspan="1" style = "width:33%!important;"t>
           
                 
-                <%= f.label "5 - localiza estimulos" %>
+                <%= f.label "5 - Localiza estimulos" %>
                 <%= f.radio_button(:motor_response, "5".to_i , class: "calc")%>
             </th>
             
@@ -623,18 +647,18 @@
       </tr>
        <tr >
             <td  colspan="1" style = "width:33%!important;">
-               <%= f.label "2 - aldolor" %>
+               <%= f.label "2 - Al dolor" %>
                 <%= f.radio_button(:eye_opening, "2".to_i, class: "calc" )%>
             </th>
             <td  colspan="1" style = "width:33%!important;">
-             <%= f.label "3 - palabras" %>
+             <%= f.label "3 - Palabras" %>
                 <%= f.radio_button(:verbal_answer, "3".to_i, class: "calc" )%>
             </th>
 
              <td  colspan="1" style = "width:33%!important;">
           
                 
-                <%= f.label "4 - retira el dolor" %>
+                <%= f.label "4 - Retira el dolor" %>
                 <%= f.radio_button(:motor_response, "4".to_i , class: "calc")%>
             </th>
             
@@ -642,18 +666,18 @@
       </tr>
       <tr >
             <td  colspan="1" style = "width:33%!important;">
-               <%= f.label "1 - no apertura" %>
+               <%= f.label "1 - No apertura" %>
                 <%= f.radio_button(:eye_opening, "1".to_i, class: "calc" )%>
             </th>
             <td  colspan="1" style = "width:33%!important;">
-              <%= f.label "2- sonidos" %>
+              <%= f.label "2- Sonidos" %>
                 <%= f.radio_button(:verbal_answer, "2".to_i, class: "calc" )%>
             </th>
 
              <td  colspan="1" style = "width:33%!important;">
           
                 
-                 <%= f.label "3 - retira en flexión" %>
+                 <%= f.label "3 - Retira en flexión" %>
                 <%= f.radio_button(:motor_response, "3".to_i , class: "calc")%>
             </th>
             
@@ -664,7 +688,7 @@
        
             </th>
             <td  colspan="1" >
-              <%= f.label "1- ninguna" %>
+              <%= f.label "1- Ninguna" %>
                 <%= f.radio_button(:verbal_answer, "1".to_i, class: "calc" )%>
             </th>
 
@@ -672,7 +696,7 @@
           
                 
                      
-                <%= f.label "2- retira en extensión" %>
+                <%= f.label "2- Retira en extensión" %>
                 <%= f.radio_button(:motor_response, "2".to_i , class: "calc")%>
             </td>
             
@@ -689,24 +713,26 @@
              <td  colspan="1" style = "width:33%!important;">
           
                 
-              <%= f.label "1 - sin_respuesta" %>
+              <%= f.label "1 - Sin_respuesta" %>
                 <%= f.radio_button(:motor_response, "1".to_i , class: "calc")%>
             </th>
             
 
       </tr>
-      <tr >
-            <td  colspan="1" style = "width:33%!important;">
+<tr >
+            <th  colspan="1" >
         <label>Escala De Glasgow </label> <br/>
   
 <%= f.number_field :escala_de_glasgow, class: 'form-control gls' , :readonly => true, id: 'sum'  %><span sytle = "font-size:20px!important;"> /15</span> 
-            </th>
+            </td>
            
 
       </tr>
 
-      </thead>
+
   </table>
+
+
 
 
 
@@ -1075,7 +1101,6 @@ $().ready(function(){
         calcscore()
     });
 });
-
 
 
 </script>

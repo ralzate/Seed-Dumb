@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { login(params[:user][:email], params[:user][:password])
+        format.html { login(params[:user][:nombre_usuario], params[:user][:password])
                       flash[:success] = "Registration successful. Please check your email for activation."
                       redirect_to root_path  }
         format.json { render :show, status: :created, location: @user }
@@ -78,14 +78,16 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.where(names: params[:id]).first
+      unless @user
+        return redirect_back_or_to root_path, notice: 'could not find user'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:names, :surnames , :type_document, :document, :rol_id,
-      :medical_record, :email, :password, :password_confirmation, :picture)
+      params.require(:user).permit(:nombre_usuario, :names, :surnames , :type_document, :document, :rol_id,
+      :medical_record, :email, :password, :password_confirmation, :picture, :username)
     end
 end

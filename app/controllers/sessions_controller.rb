@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if @user = login(params[:email], params[:password], params[:remember_me])
+    if @user = login(params[:nombre_usuario], params[:password], params[:remember_me])
       flash[:success] = "Welcome, #{@user.name}!"
       redirect_back_or_to @user
     else
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
   def destroy
     logout
     flash[:success] = "Logged out."
-    redirect_to login_url
+    redirect_to root_url
   end
 end

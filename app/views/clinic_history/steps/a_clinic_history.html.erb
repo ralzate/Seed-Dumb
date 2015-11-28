@@ -1,18 +1,3 @@
- <div class="col-md-12" style = "margin:15px!important;text-align:center;">
-
-    <a class="btn btn-info color_blanco mrg disabled">1. Informacion General</a>
-
-    <a class="btn btn-info color_blanco mrg disabled">2. Antesedentes Personales</a>
-
-    <a class="btn btn-info color_blanco mrg disabled">3. Revisión por Sistemas</a>
-
-    <a class="btn btn-info color_blanco mrg disabled">4. Examen Fisico</a>
-
-    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
-
-
-
-</div>
 
 
 
@@ -24,7 +9,26 @@
     <style type="text/css">
         @import url(https://fonts.googleapis.com/css?family=Roboto);
         @import url(https://fonts.googleapis.com/css?family=Montserrat);
+        .panel-heading {
+            background-image: none;
+            background-color: #ECECEC;
+            color: #5bc0de;
+            font-family: 'Roboto', sans-serif;
+        }
 
+          .panel-title{
+            font-size: 30px;   
+          }
+          .pie_form{
+            background-image: none;
+            background-color: #ECECEC;
+            color: white;   
+          }
+          .line1
+          {
+            display: inline-block;
+            width: 30% !important;
+          }
     </style>
 
 
@@ -32,9 +36,7 @@
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
-<%= simple_form_for([@patient, @clinic_history], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
-
-
+  <%= simple_form_for([@patient, @clinic_history], :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
 
 
 
@@ -44,7 +46,7 @@
 
 
 <div class="container" style="margin-top:10px; margin-bottom:-8px;">
-        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Paso 1 Información General</h1></div>
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span>  1 Información General</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
          
@@ -88,12 +90,15 @@
           </div>
           <div class="col-md-4">
               <label>Origen:</label> 
-                  <%= f.input :origin,  :input_html => { :class => 'form-control', id: "origin" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+                  <%= f.collection_select :origin, City.all, :name, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
           </div>
 
           <div class="col-md-4">
               <label>Destino:</label> 
-                <%= f.input :destination,  :input_html => { :class => 'form-control', id: "destination" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
+                  <%= f.collection_select :destination, City.all, :name, :name, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+
           </div>
           
         </div>
@@ -116,9 +121,7 @@
           <div class="col-md-4">
               <label>Selecciona el parentesco:</label> 
 
-               <%= f.input :relationship,  :input_html => { :class => 'form-control', id: "origin" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
-
-
+                <%= f.input :relationship,  :input_html => { :class => 'form-control', id: "accompanist_name" } ,  :required => true , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
 
@@ -172,12 +175,6 @@
          </div>
     </div>
 </div>
-        
-        
-
-
-
-
 
 
 
@@ -191,15 +188,12 @@
 <%= f.hidden_field :document, :value => @patient.document %>
 <%= f.hidden_field :birthdate, :value => @patient.birthdate %>
 <%= f.hidden_field :gender, :value => @patient.gender %>
-<%= f.hidden_field :profession, :value => @patient.label_profession %>
+<%= f.hidden_field :profession, :value => @patient.profession %>
 <%= f.hidden_field :blood_type, :value => @patient.blood_type %>
 <%= f.hidden_field :nacionality, :value => @patient.nacionality %>
 <%= f.hidden_field :address, :value => @patient.address %>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 <%= f.hidden_field :country_code, :value => @patient.city.country_code %>
-
-
-
 
 
 
@@ -241,7 +235,6 @@
 
 
 </div>
-
 
 
 

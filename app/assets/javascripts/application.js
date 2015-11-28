@@ -12,6 +12,7 @@
 //
 
 
+
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
@@ -27,7 +28,35 @@
 
 
 
+$(document).ready(function() {
+  
+  // $('a#show_profesion_link').lazybox({closeImg: true});
+  
+  $('a[rel*=lazybox]').lazybox({close: false, modal: false, opacity: 0.7, klass: 'lazybox', speed: 200});
+  $.lazybox.settings = {cancelClass: "button green", submitClass: 'button red', closeImg: false, niceClose: false}
+  $.rails.allowAction = $.lazybox.confirm;
+ 
+});
 
+$('#teams').tooltip('show')
+
+
+
+
+
+$(document).on("ready page:load", function() {
+$('.js-filter').on("ajax:success", function (e,data,status,xhr){
+alert("hola")
+$('.personal').html(data)
+});
+
+
+function () {
+$('.js-filter').click(function (){
+alert("hola");
+});
+
+});
 
 
 

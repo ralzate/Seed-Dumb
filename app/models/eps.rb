@@ -9,10 +9,12 @@
 #
 
 class Eps < ActiveRecord::Base
-   has_many :clinic_histories
-   has_many :patients
+	   has_many :patients
 
-validates :name, presence: true
+   has_many :clinic_histories
+
+	accepts_nested_attributes_for :clinic_histories
+
 
 
 
