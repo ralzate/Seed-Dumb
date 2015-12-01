@@ -318,15 +318,23 @@ small.text-muted {
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
               
   
-                                   <% if current_user %>
+                                   
 
                 <ul class="nav hidden-xs" id="lg-menu">
-</li>
 
-                    <li><span class = "glyphicon glyphicon-user">
+
+<% if current_user %>
+
+
+ <li><span class = "glyphicon glyphicon-user">
                         <%= link_to "Inicio", root_path, :class => "color_blanco fs" %>
                           
                     </li>
+
+                                   <% if current_user.rol_id === 1 %>
+
+
+                   
 
                     <li><span class = "glyphicon glyphicon-stats">
                         <%= link_to "Epses", epses_path, :class => "color_blanco fs" %>
@@ -370,6 +378,7 @@ small.text-muted {
 
                 </ul>
                 <% end %>
+                <% end %>
                 <ul class="list-unstyled hidden-xs" id="sidebar-footer">
                     <li><%= link_to image_tag('Logo/logo.png',:size => "160x80", :class =>"ember-view "), root_path %></li>
                 </ul>
@@ -378,17 +387,21 @@ small.text-muted {
               <ul class="nav visible-xs" id="xs-menu">
 
 
-                    <% if current_user %>
-
-                        <% end %>
+<% if current_user %>
 
 
-                    <li>
+    <li>
                         <%= link_to root_path, :class => "ember-view color_blanco" do %>
                             <i class="glyphicon glyphicon-home"></i>
                         <% end %>
                     </li>
 
+
+                                   <% if current_user.rol_id === 1 %>
+                   
+
+
+                
 
                     <li >
                         <%= link_to epses_path, :class => "ember-view color_blanco text-center" do %>
@@ -432,7 +445,8 @@ small.text-muted {
                         <br>
                     </li>
 
-
+     <% end %>
+                        <% end %>
 
 
                 </ul>

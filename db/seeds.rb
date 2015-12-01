@@ -51,9 +51,9 @@ Arl.create!([
 ])
 
 Rol.create!([
-  { name: "Administrador", restrictions: "Acceso Total" },
-  { name: "Medico", restrictions: "Acceso Parcial" },
-  { name: "Enfermera", restrictions: "Acceso Limitado" }
+  { name: "Administrador", restricciones: "Acceso Total" },
+  { name: "Medico", restricciones: "Acceso Parcial" },
+  { name: "Enfermera", restricciones: "Acceso Limitado" }
 ])
 
 City.create!([
@@ -132,17 +132,3 @@ City.create!([
 
 
 
-
-
-
-
-
-
-
-
-
-Airport.create!([
-  { name: "Aeropuerto Internacional El Edén", city_id: "Acceso Total" },
-  { name: "Aeropuerto Internacional Ernesto Cortissoz", restrictions: "Acceso Parcial" },
-  { name: "Aeropuerto Internacional El Dorado", restrictions: "Acceso Limitado" }
-])

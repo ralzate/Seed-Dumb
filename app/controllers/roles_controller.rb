@@ -1,5 +1,6 @@
 class RolesController < ApplicationController
  # before_action :set_rol, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
 
 
   respond_to :html

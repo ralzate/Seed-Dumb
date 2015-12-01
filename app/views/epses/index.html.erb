@@ -10,14 +10,15 @@
 
 
 
-
     <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Epses</h1></span>
 
 
     <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @epses, renderer: BootstrapPagination::Rails %>
 </span>
+<% if admin? %>
 
     <span  class="btn btn-link btn-xs  pagination pagination pull-right"><%= link_to 'Nueva Eps', new_eps_path, remote: true, :class => "btn  principal" %></span>
+<% end %>
 
 
 

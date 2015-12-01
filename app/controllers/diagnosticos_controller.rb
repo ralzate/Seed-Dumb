@@ -1,5 +1,5 @@
 class DiagnosticosController < ApplicationController
-  before_action :set_diagnostico, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
 
   #autocomplete :material, :nombre, full: false
   # GET /diagnosticos

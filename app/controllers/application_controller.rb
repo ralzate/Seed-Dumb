@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   include UsersHelper
-  before_filter :require_login
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   # Prevent CSRF attacks by raising an exception.
@@ -10,17 +9,16 @@ class ApplicationController < ActionController::Base
 
 
   protected
-  # Is Admin
+  # Permisos Admin
   def admin?
-    #if current_user.rol_id === 1
-     #flash[:notice] = "Bienvenido #{current_user.email}"
-    #end
-    true
+    if current_user.rol_id === 1
+     flash[:notice] = "Bienvenido #{current_user.email}"
+    end  
   end
-  # Permisos
+
   def authorize
     unless admin?
-      flash[:error] = "Acceso no Permitido"
+      flash[:error] = "unauthorized access"
       redirect_to root_path
       false
     end
