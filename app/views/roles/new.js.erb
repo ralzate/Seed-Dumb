@@ -1,5 +1,1 @@
-
-$('.new_blog').html("<%= j (render 'form') %>");
-$('.new_blog').slideDown(350);
-
-
+$.lazybox("<%= escape_javascript(render :partial => 'form') %>");

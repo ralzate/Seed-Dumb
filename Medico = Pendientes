@@ -3,12 +3,22 @@ Administrador = Todo
 Auxiliar = Hc NOTA DE EVOLUCION
 
 
+
+
+
 Opciones Eliminar
+
+
+
+
 
 
 NOmbres valido vacio
 Correo Vacio
 Telefono
+
+
+
 
 Empresa Aerolinea
 
@@ -24,12 +34,11 @@ Condicion EMpleado empresa de trabajo
 
 
 Paso 1 Auxiliar 
+Aeropuerto
 Movil
 Cove
-Ciudad
-Departamento
-Aeropuerto
 Auxiliar
+Ubicacion
 
 
 Condicion
@@ -38,12 +47,7 @@ Tipo de servicio
 Origen destino
 Arl
 Eps
-
 Pasajero ARL no aplica
-
-
-
-Otro Ciudad Eps Arl
 
 
 

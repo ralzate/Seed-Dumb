@@ -1,3 +1,7 @@
+
+
+
+
 <br/><br/><br/><br/>
 
 <div class="row">
@@ -7,7 +11,7 @@
 
 
 
-    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Listado de  <span>Arl</span></h1></span>
+    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Arles</h1></span>
 
 
     <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @arles, renderer: BootstrapPagination::Rails %>
@@ -24,19 +28,27 @@
 
 
 
+<%= form_tag request.path, :method => 'get' do %>
+<%= content_tag :label do %>
+Buscar:
+<%= text_field_tag :search, params[:search], :placeholder => "Buscador Profesiones Usuarios" %>
+<%= submit_tag "Consultar", :name => nil %>
+<% end %>
+<% end %>
+<br />
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @arles %>
+  </tbody>
+</table>
 
 
 
-<div class="row">
-  <div class="col-md-12 " id="tasks">
-    <%= render partial: "display" %>
-  </div>
-</div>
-</div>
-
-
-
-
-
-                                    
-             

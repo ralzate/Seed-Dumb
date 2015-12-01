@@ -1,4 +1,4 @@
-json.array!(@epses) do |eps|
-  json.extract! eps, :id, :name
-  json.url eps_url(eps, format: :json)
+json.array!(@cities) do |city|
+  json.extract! city, :id, :country, :name
+  json.url city_url(city, format: :json)
 end

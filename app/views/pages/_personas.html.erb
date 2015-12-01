@@ -1,5 +1,5 @@
-<% if @patients != nil%>
-<% @patients.each do |patient| %>
+<% if @pacientes != nil%>
+<% @pacientes.each do |paciente| %>
 
         
 <table class="table table-striped table-bordered table-hover" style="width:100%;margin-bottom:30px!important;background:white!important;    border: 2px solid #ACD6DD;">
@@ -14,13 +14,13 @@
     <tr>
 <td colspan ="5" style = "text-align:center;padding:20px!important;"><span class = "glyphicon glyphicon-user" style = "font-size:25px!important;text-align:left!important"></span><br> <span style = "font-size:25px!important;margin-right:10px;">
 
-<%= patient.first_name %> <%= patient.second_name %> <%= patient.first_surname %><br> </span> CC:<%= patient.document %>  
- <%= link_to '| Ver Paciente ' , patient_clinic_histories_path(patient), :class => "marg" %> 
+<%= paciente.primer_nombre %> <%= paciente.segundo_nombre %> <%= paciente.primer_apellido %><br> </span> CC:<%= paciente.documento %>  
+ <%= link_to '| Ver Paciente ' , paciente_path(paciente), :class => "marg" %> 
        
-        <%= link_to '| Ver Historias Clinicas(' + patient.clinic_histories.count.to_s + ')' , patient_clinic_histories_path(patient), :class => "marg" %> 
+        <%= link_to '| Ver Historias Clinicas(' + paciente.historias_clinicas.count.to_s + ')' , paciente_historias_clinicas_path(paciente), :class => "marg" %> 
  <br> <br>
 
- <%= link_to ' Nueva Historia Clinica',  new_patient_clinic_history_path(patient), :class => "btn principal"  %> 
+ <%= link_to ' Nueva Historia Clinica',  new_paciente_historia_clinica_path(paciente), :class => "btn principal"  %> 
   <br> 
 
         </td>
@@ -36,7 +36,7 @@
 
   <% end %>
 
-  <% if @patients.blank?%>
+  <% if @pacientes.blank?%>
   <div class="row">
     <div class="col-md-12 jm">
        

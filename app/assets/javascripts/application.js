@@ -12,7 +12,6 @@
 //
 
 
-
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
@@ -22,6 +21,12 @@
 //= require best_in_place
 //= require garlic
 //= require turbolinks
+//= require cocoon
+
+//= require twitter/bootstrap
+//= require lazybox
+//= require turbolinks
+
 //= require_tree .
 
 

@@ -19,6 +19,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 # https://github.com/activebridge/lazybox
 gem 'lazybox', '0.2.3'
+gem 'remotipart', '~> 1.2'
+
 # https://github.com/apeacox/simple_form_fancy_uploads
 gem 'simple_form_fancy_uploads'
 # https://github.com/thoughtbot/paperclip
@@ -126,6 +128,7 @@ gem 'ransack'
 gem 'populator'
 # https://github.com/mdedetrich/jasny-bootstrap-extension-rails
 gem 'jasny-bootstrap-rails'
+gem "cocoon"
 
 group :development do
   # https://github.com/presidentbeef/brakeman

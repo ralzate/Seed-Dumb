@@ -10,8 +10,15 @@
 #
 
 class Rol < ActiveRecord::Base
+
+
+  validates :nombre, :presence => { :message => " es un Campo Obligatorio"}
+  validates :restricciones, :presence => { :message => " es un Campo Obligatorio"}
+
+
+
    def self.search(search)
-    where("name like '%#{search}%'  or restrictions like '%#{search}%'")
+    where("nombre like '%#{search}%'  or restricciones like '%#{search}%'")
   end
 
 end

@@ -1,0 +1,36 @@
+<div class="nested-fields">
+
+	<div class="row">
+
+	    <div class="col-sm-4 col-md-4">
+	        <div class="fielset">
+	          <%= f.label :codigo %><br>
+
+	        <%= f.collection_select :codigo, Diagnostico.all, :codigo, :codigo, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+	        </div>
+	    </div>
+
+	    <div class="col-sm-6 col-md-6">
+	        <div class="fielset">
+			<%= f.label :descripcion %><br>
+
+	        <%= f.collection_select :descripcion, Diagnostico.all, :descripcion, :descripcion, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+	        </div>
+	    </div>
+	    <div class="col-sm-2 col-md-2">
+	    	        <div class="fielset">
+			<% f.label :descripcion %><br>
+
+			    <%= link_to_remove_association 'Eliminar', f, :class => "
+		       btn btn-danger color_blanco custom" %>
+		     </div>
+
+        </div>
+
+	</div>
+
+
+
+</div>
+
+

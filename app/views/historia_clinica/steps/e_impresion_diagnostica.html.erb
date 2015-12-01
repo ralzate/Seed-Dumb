@@ -1,0 +1,421 @@
+ <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+
+    <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "3. Revisión por Sistemas", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
+
+    <%= link_to "4. Examen Fisico", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
+
+
+    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
+
+
+</div>
+
+
+<div class="container-fluid">    
+        
+    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+        
+
+        
+
+<style type="text/css">
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+.panel-heading {
+    background-image: none;
+    background-color: #ECECEC;
+    color: #5bc0de;
+    font-family: 'Roboto', sans-serif;
+}
+
+  .panel-title{
+    font-size: 30px;   
+  }
+  .pie_form{
+    background-image: none;
+    background-color: #ECECEC;
+    color: white;   
+  }
+  .line1
+  {
+    display: inline-block;
+    width: 30% !important;
+  }
+
+</style>
+
+
+
+
+
+
+<div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
+  <div class="row">
+<%= simple_form_for([@paciente, @historia_clinica], :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+
+<br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <hr class="featurette-divider"></hr>
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <form class="form-horizontal span6">
+        <fieldset>
+       
+
+       
+          <div class="form-group">
+            <div class="controls">
+              <div class="row">
+                <div class="col-sm-12 col-md-12">
+        <div class="centered title"> <h1 style=" font-size:25px;">7 Analisis</h1></div>
+
+                        <%= f.text_area :analysis, class: 'form-control' %>
+
+
+                </div>
+                
+
+
+                
+              </div>
+            </div>
+          </div>
+
+
+        <div class="form-group">
+          <div class="controls">
+            <div class="row">
+              
+              <div class="col-sm-12 col-md-12">
+        <div class="centered title"> <h1 style=" font-size:25px;">8 Impresión Diagnostica</h1></div>
+
+
+                  <div class="fielset">
+                    <%= f.fields_for :diagnosticos do |diagnosticos| %>
+                        <%= render "diagnostico_fields", f: diagnosticos %>
+                    <% end %>
+
+
+                  <div class="modal-footer">
+                    <%= link_to_add_association 'Agregar', f, :diagnosticos, {data: {'association-insertion-method' => 'after'}, :class => "btn btn-info color_blanco custom" } %>
+                  </div>
+
+                  </div>
+
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+       
+        <div class="form-group">
+          <div class="controls">
+            <div class="row">
+              
+              <div class="col-sm-12 col-md-12">
+        <div class="centered title"> <h1 style=" font-size:25px;">9 Procedimientos</h1></div>
+
+
+                  <div class="fielset">
+                      <%= f.fields_for :procedimientos do |procedimientos| %>
+                          <%= render "procedimiento_fields", f: procedimientos %>
+                      <% end %>
+
+
+                  <div class="modal-footer">
+                    <%= link_to_add_association 'Agregar', f, :procedimientos, {data: {'association-insertion-method' => 'after'}, :class => "btn btn-info color_blanco custom" } %>
+                  </div>
+
+                  </div>
+
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+          <div class="form-group">
+            <div class="controls">
+              <div class="row">
+                <div class="col-sm-12 col-md-12">
+        <div class="centered title"> <h1 style=" font-size:25px;">10 Observaciones / Recomendaciones</h1></div>
+
+                        <%= f.text_area :observations_recommendations, class: 'form-control'  %>
+
+
+                </div>
+                
+
+
+                
+              </div>
+            </div>
+          </div>
+
+      
+
+
+
+
+
+
+
+<div class="form-group">
+  <div class="controls">
+    <div class="row">
+      
+      <div class="col-sm-12 col-md-12">
+        <div class="centered title"> <h1 style=" font-size:25px;">11 Desenlace</h1></div>
+
+          <%= f.label :evento_adverso %><br />
+          <%= f.text_area :evento_adverso, class: 'form-control' %>
+
+
+
+
+
+
+
+
+
+
+ <table class="table table-bordered table-hover" id="tab_logic">
+
+  
+
+      <tr >
+            <td  colspan="1"  style = "width:25%!important; text-align:right;" >
+               <%= f.label "Translado a Sanidad" %>
+            </td>
+            <td style = "width:2%!important;">
+              <%= f.radio_button(:estado, "translado a sanidad", class: "calc" )%>
+
+            </td>
+            <td  colspan="1" style = "width:25%!important;  text-align:right;">
+              <%= f.label "Translado a Urgencias" %>
+            </th>
+
+            <td style = "width:2%!important;">
+              <%= f.radio_button(:estado, "translado a urgencias", class: "calc" )%>
+
+            </td>
+             <td  colspan="1" style = "width:25%!important;  text-align:right;">
+                 <%= f.label "Fallecido durante el Translado" %>
+            </th>
+
+            <td style = "width:2%!important;">
+              <%= f.radio_button(:estado, "fallecido durante el translado" , class: "calc")%>
+
+            </td>
+           
+
+      </tr>
+
+      <tr >
+
+             <td  colspan="1" style = " text-align:right;">
+                 <%= f.label "Dado de alta a Domicilio" %>
+            </td> 
+            <td>
+              <%= f.radio_button(:estado, "dado de alta a domicilio" , class: "calc")%>
+
+            </td>
+
+           
+             <td  colspan="1" style = " text-align:right;">
+                 <%= f.label "Se Otorga Permiso de Vuelo" %>
+            </td>
+            <td>
+                <%= f.radio_button(:estado, "se otorga permiso de vuelo" , class: "calc")%>
+
+            </td> 
+
+
+           
+             <td  colspan="1" style = " text-align:right;">
+                 <%= f.label "Retirado por Propios Medios sin concluir tratamiento" %>
+            </td>
+            <td>
+                              <%= f.radio_button(:estado, "retirado por propios medios" , class: "calc")%>
+
+            </td> 
+
+      </tr>
+
+
+
+      
+
+
+      </thead>
+  </table>
+<hr>
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+             
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+          <div class="controls">
+            <div class="row">
+              
+              <div class="col-sm-4 col-md-4">
+
+                <div class="field">
+                  <%= f.label :glucometria1 %><br>
+                  <%= f.text_field :glucometria1, class: 'form-control' %>
+                </div>
+
+
+              </div>
+
+              <div class="col-sm-4 col-md-4">
+
+                <div class="field">
+                  <%= f.label :glucometria2 %><br>
+                  <%= f.text_field :glucometria2, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="col-sm-4 col-md-4">
+
+                <div class="field">
+                  <%= f.label :electrocardiograma %><br>
+                  <%= f.text_field :electrocardiograma, class: 'form-control' %>
+                </div>
+              </div>
+</div></div></div>
+
+
+
+
+
+
+<br/>
+
+
+         <div class="well pie_form">
+
+                <div class="form-actions"  style = "text-align:center!important"> 
+                    <%= link_to "Regresar al Paso 4", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco custom" %>
+                    
+                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px; ">Borrar</button>
+                        <%= f.submit 'Guardar', :class => 'btn btn-info custom' %>
+                    
+                </div>
+              </div>
+
+
+            
+
+
+
+
+        </div>
+
+
+  </div>
+</div>
+            <% end %>
+
+
+
+
+</div>
+
+
+
+
+
+
+          
+       
+       
+
+        </fieldset>
+    </div>
+  </div>
+</div>
+
+
+
+   
+
+
+
+
+
+
+
+                    

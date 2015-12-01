@@ -1,0 +1,20 @@
+
+
+
+<tr id=<%= "ciudad_#{ciudad.id}" %>>
+	<td><%= link_to ciudad.id, edit_ciudad_path(ciudad), :remote => true %></td>
+	<td><%= ciudad.nombre.capitalize %></td>
+	
+	<td>
+
+
+    <%= link_to 'Mostrar',  ciudad, :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-primary btn-xs color_blanco principal'%>
+
+
+
+    <%= link_to 'Editar', edit_ciudad_path(ciudad),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal',  :remote => true %>
+
+
+
+	</td>
+</tr>

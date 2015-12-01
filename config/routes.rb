@@ -1,18 +1,22 @@
 PetThing::Application.routes.draw do
 
 
+  resources :procedimientos
+  resources :diagnosticos
   resources :roles
-  resources :airports , :path => "aeropuertos"
-  resources :cities , :path => "ciudades"
+  resources :aeropuertos
+  resources :ciudades
   resources :arles
   resources :epses
   resources :users, :path => "usuarios"
   resources :roles, :path => "roles"
-  resources :departments, :path => "departamentos"
-  resources :countries, :path => "paises"
   resources :arles, :path => "arls"
   resources :epses, :path => "eps"
   
+  resources :sheets
+  resources :material_sheets
+
+
 
   get 'reset_passwords/new'
 
@@ -20,7 +24,6 @@ PetThing::Application.routes.draw do
   get 'pages/contact'
   get 'pages/help'
   
-  resources :products
   resources :sessions
   resources :reset_passwords, only: [:new, :create, :update, :edit]
 
@@ -50,9 +53,9 @@ PetThing::Application.routes.draw do
 
 
 
-  resources :patients, :path => "pascientes", only: [:new, :create, :index, :destroy, :show, :edit, :update]  do
-    resources :clinic_histories, :path => "historias_clinicas", only: [:new, :create, :index, :destroy, :show, :edit, :update] do
-      resources :steps, only: [:show, :update, :edit], controller: 'clinic_history/steps'
+  resources :pacientes, only: [:new, :create, :index, :destroy, :show, :edit, :update]  do
+    resources :historias_clinicas, only: [:new, :create, :index, :destroy, :show, :edit, :update] do
+      resources :steps, only: [:show, :update, :edit], controller: 'historia_clinica/steps'
       resources :progress_notes, :path => "nota_de_evolucion"
     end
   end

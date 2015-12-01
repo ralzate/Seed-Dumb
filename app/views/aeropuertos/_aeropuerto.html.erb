@@ -1,0 +1,20 @@
+
+
+
+<tr id=<%= "aeropuerto_#{aeropuerto.id}" %>>
+	<td><%= link_to aeropuerto.id, edit_aeropuerto_path(aeropuerto), :remote => true %></td>
+	<td><%= aeropuerto.nombre.capitalize %></td>
+	
+	<td>
+
+
+    <%= link_to 'Mostrar',  aeropuerto, :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-primary btn-xs color_blanco principal'%>
+
+
+
+    <%= link_to 'Editar', edit_aeropuerto_path(aeropuerto),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal',  :remote => true %>
+
+
+
+	</td>
+</tr>

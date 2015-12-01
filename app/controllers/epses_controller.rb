@@ -1,11 +1,11 @@
 class EpsesController < ApplicationController
-  before_action :set_eps, only: [:show, :edit, :update, :destroy]
-  before_action :get_all, only: [:index, :create, :update, :destroy]
+ # before_action :set_eps, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
+
+  respond_to :html
+
   def index
-     @epses = Eps.search(params[:search]).page(params[:page]).per_page(10)
+     @epses = Eps.search(params[:search]).page(params[:page]).per_page(2)
     respond_to do |format|
       format.html
       format.json
@@ -14,65 +14,52 @@ class EpsesController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @eps = Eps.find_by(id: params[:id])
+    @eps = Eps.find(params[:id])
   end
 
   # GET /epss/new
   def new
     @eps = Eps.new
-    @eps.clinic_histories.build    
+    @eps.historias_clinicas.build    
   end
 
   # GET /epss/1/edit
   def edit
-    @eps = Eps.find_by(id: params[:id])
+    @eps = Eps.find(params[:id])
   end
 
   # POST /epss
   # POST /epss.json
   def create
-    @eps = Eps.create(eps_params)
-
-    
+    @eps = Eps.new(eps_params)
+    render :action => :new unless @eps.save
   end
 
-  # PATCH/PUT /epss/
-  # PATCH/PUT /epss/1.json
+
+
   def update
-    respond_to do |format|
-      if @eps.update(eps_params)
-        format.html { redirect_to @eps, notice: 'eps was successfully updated.' }
-        format.json { render :show, status: :ok, location: @eps }
-      else
-        format.html { render :edit }
-        format.json { render json: @eps.errors, status: :unprocessable_entity }
-      end
-    end
+    @eps = Eps.find(params[:id])
+    render :action => :edit unless @eps.update_attributes(eps_params)
+  end
+ 
+
+  def update
+    @eps = Eps.find(params[:id])
+    render :action => :edit unless @eps.update_attributes(eps_params)
   end
 
-  # DELETE /users/1
-  # DELETE /epss/1
-  # DELETE /epss/1.json
   def destroy
-    @eps = Eps.find_by(id: params[:id])
-    if @eps.destroy
-      redirect_to epses_url
-    end
+    @eps = eps.find(params[:id])
+    @eps.destroy
   end
+  
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_eps
-      @eps = Eps.find(params[:id])
-    end
+  def set_eps
+    @eps = eps.find(params[:id])
+  end
 
-
-    def get_all
-      @epses = Eps.search(params[:search]).page(params[:page]).per_page(12)
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def eps_params
-      params.require(:eps).permit!
-    end
+  def eps_params
+    params.require(:eps).permit!
+  end
 end

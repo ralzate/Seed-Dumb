@@ -15,7 +15,7 @@ module ApplicationHelper
 
 
    def self.search(search)
-    where("first_name like '%#{search}%'  ")
+    where("primer_nombre like '%#{search}%'  ")
    end
   COUNTRY_CODES = {
 'AF'=>'Afghanistan',

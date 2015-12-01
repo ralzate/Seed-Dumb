@@ -13,10 +13,9 @@ class PagesController < ApplicationController
 if params[:search].present?
   	search1 = (params[:search])
   	search = search1.capitalize
-  	@patients = Patient. where("first_name like '%#{search}%'  or second_name like '%#{search}%' 
-    or first_surname like '%#{search}%'  or second_surname like '%#{search}%' 
-    or email like '%#{search}%' or document like '%#{search}%' or address like 
-    '%#{search}%'")
+  	@pacientes = Paciente.where("primer_nombre like '%#{search}%'  or segundo_nombre like '%#{search}%' 
+    or primer_apellido like '%#{search}%'  or segundo_apellido like '%#{search}%' 
+    or email like '%#{search}%' or documento like '%#{search}%'")
 end
 
 

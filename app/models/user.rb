@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
   validates :names, presence: true, length: { minimum:4 }
 
    def self.search(search)
-    where("first_name like '%#{search}%'  or second_name like '%#{search}%' 
+    where("primer_nombre like '%#{search}%'  or second_name like '%#{search}%' 
     or first_surname like '%#{search}%'  or second_surname like '%#{search}%' 
     or email like '%#{search}%' or document like '%#{search}%'")
    end

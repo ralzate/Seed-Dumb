@@ -9,6 +9,8 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
     inflect.irregular 'eps', 'epses'
     inflect.irregular 'arl', 'arles'
     inflect.irregular 'rol', 'roles'
+    inflect.irregular 'ciudad', 'ciudades'
+    inflect.irregular 'historia_clinica', 'historias_clinicas'
 #   inflect.uncountable %w( fish sheep )
 end
 

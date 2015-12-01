@@ -54,7 +54,7 @@
 
                                                  <div class="row">
                       <div class="col-md-12" style = "text-align:center">
-                        <%= link_to 'Nuevo Paciente', new_patient_path , :class=>"btn btn-primary Cr js-filter"%>
+                        <%= link_to 'Nuevo Paciente', new_paciente_path , :class=>"btn btn-primary Cr js-filter"%>
                          </div>
                     </div>
 
@@ -348,7 +348,7 @@ border-color: #B3B3B3!important;
 
 
 
-<% if Patient.search(params[:search]).blank? %>
+<% if Paciente.search(params[:search]).blank? %>
 
 
 
@@ -690,7 +690,7 @@ background-image: url('/assets/06.jpg')  ;
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
 
-                <%= text_field_tag :nombre_usuario, nil, class: 'form-control', required: true, :placeholder => "Nombre" %>
+                <%= text_field_tag :email, nil, class: 'form-control', required: true, :placeholder => "Nombres" %>
                 <%= password_field_tag :password, nil, class: 'form-control', required: true, :placeholder => "Clave" %>
                 <div id="remember" class="checkbox">
                     <label>

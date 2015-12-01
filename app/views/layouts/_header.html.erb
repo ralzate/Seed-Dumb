@@ -212,7 +212,6 @@ h1,h2,h3 {
   padding-top: 9px;
   border-top:1px solid #eeeeee;
   font-weight:700;
-  text-transform:uppercase;
   letter-spacing:2px;
 }
 
@@ -340,12 +339,12 @@ small.text-muted {
                     </li>
 
                     <li><span class = "glyphicon glyphicon-stats">
-                        <%= link_to "Aeropuertos", airports_path, :class => "color_blanco fs" %>
+                        <%= link_to "Aeropuertos", aeropuertos_path, :class => "color_blanco fs" %>
                           
                     </li>
 
                     <li><span class = "glyphicon glyphicon-signal">
-                        <%= link_to "Ciudades", cities_path, :class => "ember-view color_blanco fs" %>
+                        <%= link_to "Ciudades", ciudades_path, :class => "ember-view color_blanco fs" %>
                            
                     </li>
 
@@ -363,7 +362,7 @@ small.text-muted {
 
 
                     <li><span class = "glyphicon glyphicon-user">
-                        <%= link_to "Pacientes", patients_path, :class => "ember-view color_blanco fs"  %>
+                        <%= link_to "Pacientes", pacientes_path, :class => "ember-view color_blanco fs"  %>
                            
                         <br>
                     </li>
@@ -404,13 +403,13 @@ small.text-muted {
                     </li>
 
                     <li>
-                        <%= link_to airports_path, :class => "ember-view color_blanco text-center" do %>
+                        <%= link_to aeropuertos_path, :class => "ember-view color_blanco text-center" do %>
                             <i class="glyphicon glyphicon-plane"> </i>
                         <% end %>
                     </li>
 
                     <li>
-                        <%= link_to cities_path, :class => "ember-view color_blanco text-center" do %>
+                        <%= link_to ciudades_path, :class => "ember-view color_blanco text-center" do %>
                             <i class="glyphicon glyphicon-road"> </i>
                         <% end %>
                     </li>
@@ -428,7 +427,7 @@ small.text-muted {
                         <br>
                     </li>
                     <li><span class = "glyphicon glyphicon-user">
-                        <%= link_to "Pacientes", patients_path, :class => "ember-view color_blanco fs"  %>
+                        <%= link_to "Pacientes", pacientes_path, :class => "ember-view color_blanco fs"  %>
                            
                         <br>
                     </li>

@@ -7,7 +7,7 @@ class CreateProgressNotes < ActiveRecord::Migration
       t.integer :age
       t.string :medical_record
       t.text :description
-      t.references :clinic_history, index: true, foreign_key: true
+      t.references :historia_clinica, index: true, foreign_key: true
 
       t.timestamps null: false
     end

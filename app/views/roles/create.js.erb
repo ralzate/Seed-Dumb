@@ -1,4 +1,2 @@
-$(".new_blog").slideUp(350);
-$('#tasks').html("<%= j render partial: 'display'%>");
-
-
+$('table tbody').append("<%= escape_javascript(render @rol) %>")
+$.lazybox.close()

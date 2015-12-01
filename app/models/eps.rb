@@ -1,25 +1,26 @@
 # == Schema Information
 #
-# Table name: epses
+# Table nombre: epses
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  nombre       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 class Eps < ActiveRecord::Base
-	   has_many :patients
-
-   has_many :clinic_histories
-
-	accepts_nested_attributes_for :clinic_histories
+	   has_many :pacientes
 
 
+	has_many :historias_clinicas
+	accepts_nested_attributes_for :historias_clinicas, :reject_if => proc { |attributes| attributes.any? {|k,v| v.blank?} }
+
+
+  #validates :nombre, :presence => { :message => " es un Campo Obligatorio"}
 
 
    def self.search(search)
-    search.present? ? where(["name LIKE ?" ,"%#{search}%"]) : all
+    search.present? ? where(["nombre LIKE ?" ,"%#{search}%"]) : all
   end
 
 end

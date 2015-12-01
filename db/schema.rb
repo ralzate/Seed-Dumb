@@ -11,53 +11,87 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113135559) do
+ActiveRecord::Schema.define(version: 20151201123619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "airports", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "city_id"
-    t.string   "department"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "airports", ["city_id"], name: "index_airports_on_city_id", using: :btree
-
-  create_table "arles", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string   "name"
+  create_table "aeropuertos", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "ciudad_id"
+    t.string   "departamento"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "country_code"
   end
 
-  create_table "clinic_histories", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "second_name"
-    t.string   "first_surname"
-    t.string   "second_surname"
+  add_index "aeropuertos", ["ciudad_id"], name: "index_aeropuertos_on_ciudad_id", using: :btree
+
+  create_table "arles", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ciudades", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "pais_codigo"
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "diagnosticos", force: :cascade do |t|
+    t.string   "familia"
+    t.string   "codigo"
+    t.string   "simbolo"
+    t.text     "descripcion"
+    t.integer  "historia_clinica_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "diagnosticos", ["historia_clinica_id"], name: "index_diagnosticos_on_historia_clinica_id", using: :btree
+
+  create_table "epses", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "historias_clinicas", force: :cascade do |t|
+    t.string   "primer_nombre"
+    t.string   "segundo_nombre"
+    t.string   "primer_apellido"
+    t.string   "segundo_apellido"
     t.string   "email"
-    t.string   "type_document"
-    t.string   "document"
-    t.date     "birthdate"
-    t.string   "gender"
-    t.string   "profession"
-    t.string   "blood_type"
-    t.string   "country_code"
-    t.string   "nacionality"
+    t.string   "tipo_documento"
+    t.string   "documento"
+    t.date     "fecha_nacimiento"
+    t.string   "genero"
+    t.string   "profesion"
+    t.string   "tipo_sangre"
+    t.string   "pais_codigo"
+    t.string   "nacionalidad"
     t.integer  "eps_id"
     t.integer  "arl_id"
-    t.string   "address"
-    t.string   "condition"
-    t.string   "accompanist_name"
+    t.string   "direccion"
+    t.string   "condicion"
+    t.string   "nombre_acompañante"
     t.string   "relationship"
     t.string   "phone"
     t.integer  "user_id"
@@ -65,9 +99,11 @@ ActiveRecord::Schema.define(version: 20151113135559) do
     t.string   "department"
     t.string   "cove"
     t.string   "mobiel_service"
-    t.integer  "airport_id"
+    t.integer  "aeropuerto_id"
     t.string   "type_service"
-    t.integer  "patient_id"
+    t.integer  "paciente_id"
+    t.string   "auxiliar"
+    t.string   "ubicacion"
     t.string   "origin"
     t.string   "destination"
     t.string   "company"
@@ -112,6 +148,9 @@ ActiveRecord::Schema.define(version: 20151113135559) do
     t.integer  "menstrual_cycle"
     t.string   "gestational_age"
     t.string   "eco"
+    t.string   "menarquia"
+    t.date     "fecha_ultima_citologia"
+    t.date     "fecha_ultima_mamografia"
     t.integer  "fum"
     t.boolean  "pregnancy_true"
     t.boolean  "pregnancy_false"
@@ -146,7 +185,9 @@ ActiveRecord::Schema.define(version: 20151113135559) do
     t.boolean  "skeletal_muscle_true"
     t.boolean  "skeletal_muscle_false"
     t.text     "skeletal_muscle_description"
-    t.string   "ta_mmgh"
+    t.string   "ta_mmgh_diastole"
+    t.string   "ta_mmgh_sistole"
+    t.string   "glucometria"
     t.string   "heart_rate"
     t.string   "breathing_frequency"
     t.string   "sat_of_o_ambiente"
@@ -197,37 +238,20 @@ ActiveRecord::Schema.define(version: 20151113135559) do
     t.text     "print_diagnosed"
     t.text     "plan_and_treatment"
     t.text     "observations_recommendations"
+    t.text     "evento_adverso"
+    t.string   "estado"
+    t.integer  "glucometria1"
+    t.integer  "glucometria2"
+    t.text     "electrocardiograma"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
   end
 
-  add_index "clinic_histories", ["airport_id"], name: "index_clinic_histories_on_airport_id", using: :btree
-  add_index "clinic_histories", ["arl_id"], name: "index_clinic_histories_on_arl_id", using: :btree
-  add_index "clinic_histories", ["eps_id"], name: "index_clinic_histories_on_eps_id", using: :btree
-  add_index "clinic_histories", ["patient_id"], name: "index_clinic_histories_on_patient_id", using: :btree
-  add_index "clinic_histories", ["user_id"], name: "index_clinic_histories_on_user_id", using: :btree
-
-  create_table "delayed_jobs", force: :cascade do |t|
-    t.integer  "priority",   default: 0, null: false
-    t.integer  "attempts",   default: 0, null: false
-    t.text     "handler",                null: false
-    t.text     "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string   "locked_by"
-    t.string   "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
-
-  create_table "epses", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "historias_clinicas", ["aeropuerto_id"], name: "index_historias_clinicas_on_aeropuerto_id", using: :btree
+  add_index "historias_clinicas", ["arl_id"], name: "index_historias_clinicas_on_arl_id", using: :btree
+  add_index "historias_clinicas", ["eps_id"], name: "index_historias_clinicas_on_eps_id", using: :btree
+  add_index "historias_clinicas", ["paciente_id"], name: "index_historias_clinicas_on_paciente_id", using: :btree
+  add_index "historias_clinicas", ["user_id"], name: "index_historias_clinicas_on_user_id", using: :btree
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
@@ -282,30 +306,51 @@ ActiveRecord::Schema.define(version: 20151113135559) do
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
-  create_table "patients", force: :cascade do |t|
-    t.integer  "city_id"
-    t.string   "first_name"
-    t.string   "second_name"
-    t.string   "first_surname"
-    t.string   "second_surname"
-    t.string   "email"
-    t.string   "type_document"
-    t.string   "document"
-    t.date     "birthdate"
-    t.string   "gender"
-    t.string   "profession"
-    t.string   "blood_type"
-    t.string   "nacionality"
-    t.string   "address"
-    t.string   "condition"
-    t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "country_code"
+  create_table "material_sheets", force: :cascade do |t|
+    t.string   "material_id"
+    t.integer  "cantidad"
+    t.integer  "sheet_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "patients", ["city_id"], name: "index_patients_on_city_id", using: :btree
-  add_index "patients", ["user_id"], name: "index_patients_on_user_id", using: :btree
+  add_index "material_sheets", ["sheet_id"], name: "index_material_sheets_on_sheet_id", using: :btree
+
+  create_table "pacientes", force: :cascade do |t|
+    t.integer  "ciudad_id"
+    t.string   "primer_nombre"
+    t.string   "segundo_nombre"
+    t.string   "primer_apellido"
+    t.string   "segundo_apellido"
+    t.string   "email"
+    t.string   "tipo_documento"
+    t.string   "documento"
+    t.date     "fecha_nacimiento"
+    t.string   "genero"
+    t.string   "profesion"
+    t.string   "tipo_sangre"
+    t.string   "nacionalidad"
+    t.string   "direccion"
+    t.string   "condicion"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "pais_codigo"
+  end
+
+  add_index "pacientes", ["ciudad_id"], name: "index_pacientes_on_ciudad_id", using: :btree
+  add_index "pacientes", ["user_id"], name: "index_pacientes_on_user_id", using: :btree
+
+  create_table "procedimientos", force: :cascade do |t|
+    t.string   "tratamiento"
+    t.string   "via_acceso"
+    t.text     "descripcion"
+    t.integer  "historia_clinica_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "procedimientos", ["historia_clinica_id"], name: "index_procedimientos_on_historia_clinica_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "title"
@@ -326,18 +371,25 @@ ActiveRecord::Schema.define(version: 20151113135559) do
     t.integer  "age"
     t.string   "medical_record"
     t.text     "description"
-    t.integer  "clinic_history_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "historia_clinica_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
-  add_index "progress_notes", ["clinic_history_id"], name: "index_progress_notes_on_clinic_history_id", using: :btree
+  add_index "progress_notes", ["historia_clinica_id"], name: "index_progress_notes_on_historia_clinica_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name"
-    t.string   "restrictions"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "nombre"
+    t.string   "restricciones"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "sheets", force: :cascade do |t|
+    t.string   "nombre"
+    t.text     "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -379,16 +431,19 @@ ActiveRecord::Schema.define(version: 20151113135559) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", using: :btree
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
 
-  add_foreign_key "airports", "cities"
-  add_foreign_key "clinic_histories", "airports"
-  add_foreign_key "clinic_histories", "arles"
-  add_foreign_key "clinic_histories", "epses"
-  add_foreign_key "clinic_histories", "patients"
-  add_foreign_key "clinic_histories", "users"
+  add_foreign_key "aeropuertos", "ciudades"
+  add_foreign_key "diagnosticos", "historias_clinicas"
+  add_foreign_key "historias_clinicas", "aeropuertos"
+  add_foreign_key "historias_clinicas", "arles"
+  add_foreign_key "historias_clinicas", "epses"
+  add_foreign_key "historias_clinicas", "pacientes"
+  add_foreign_key "historias_clinicas", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
-  add_foreign_key "patients", "users"
+  add_foreign_key "material_sheets", "sheets"
+  add_foreign_key "pacientes", "users"
+  add_foreign_key "procedimientos", "historias_clinicas"
   add_foreign_key "products", "users"
-  add_foreign_key "progress_notes", "clinic_histories"
+  add_foreign_key "progress_notes", "historias_clinicas"
 end

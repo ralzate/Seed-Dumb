@@ -1,36 +1,36 @@
-
-<div class="container-fluid">
-    
-      <div class="col-md-12 col-md-offset" style = "margin-bottom:10px;">
-      
-          <div class="panel-body navbar navbar-default">
-
-            <%= simple_form_for(@eps,html: { class: "form-inline pull-right"} ,:remote => true) do |f| %>
-                   <div class="form-group">
-                  <label class='control-label new_blog'>Nombre:</label>                
-                  <%= f.input :name,  placeholder: 'Campo Obligatorio', input_html: {class: "form-control new_blog"}, label: false,  :required => true %>
-
-                    </div>
-  
+<%= form_for(@eps, html: { multipart: true, :remote => true  }) do |f| %>
 
 
+<% if @eps.errors.any? %>
+  <div id="error_explanation">
+    <h2>Por Favor Verificar:</h2>
 
-                 
- 
-                <div class="form-group">
-                  <label class='control-label new_blog'></label>      
-                  <div class="input">        
-                        <%= f.submit "Guardar", :class => 'btn btn-primary' %>
-                  </div>
-                 </div>
+    <ul>
+    <% @eps.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 
 
-
-              
-
-              <% end %>
-          </div>
-      </div>
+<div class="user">
+  <div class="modal-header">
+    <h4 class="modal-title"><h3>Datos Eps</h3></h4>
+  </div><br>
+  <div class="row">
+    <div class="col-md-4">
+      Nombre:
     </div>
- 
+    <div class="col-md-6">
+      <%= f.text_field :nombre, :label => false %>
+    </div>
+
+  </div>
+</div>
+<div class="modal-footer">
+  <%= f.submit "Guardar", :class => 'btn btn-primary' %>
+  <a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
+</div>
+<% end %>

@@ -23,3 +23,6 @@ skin_and_appendages_description:text ta_mmgh:string heart_rate:string breathing_
 rails g scaffold progress_note patient_name:string patient_document:string type_document:integer age:integer medical_record:string description:text clinic_history:references
 
 
+
+
+rails g scaffold diagnostico familia:string codigo:string simbolo:string descripcion:text codigo:string historia_clinica:references
