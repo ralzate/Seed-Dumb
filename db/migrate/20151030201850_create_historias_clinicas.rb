@@ -31,6 +31,7 @@ class CreateHistoriasClinicas < ActiveRecord::Migration
       t.references :paciente, index: true, foreign_key: true
       t.string :auxiliar
       t.string :ubicacion
+      t.string :lugar_de_atencion
       t.string :origin
       t.string :destination
       t.string :company

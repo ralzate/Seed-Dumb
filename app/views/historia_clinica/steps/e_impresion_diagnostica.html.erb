@@ -1,6 +1,6 @@
  <div class="col-md-12" style = "margin:15px!important;text-align:center;">
 
-    <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+   <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
     <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
 
@@ -8,8 +8,8 @@
 
     <%= link_to "4. Examen Fisico", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
 
+    <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
 
 
 </div>
@@ -45,6 +45,11 @@
     display: inline-block;
     width: 30% !important;
   }
+  .centered{
+    text-align: left;
+  }
+
+
 
 </style>
 
@@ -170,6 +175,37 @@
             </div>
           </div>
         </div>
+
+        <div class="form-group">
+          <div class="controls">
+            <div class="row">
+              
+              <div class="col-sm-4 col-md-4">
+
+                <div class="field">
+                  <%= f.label :glucometria1 %><br>
+                  <%= f.text_field :glucometria1, class: 'form-control' %>
+                </div>
+
+
+              </div>
+
+              <div class="col-sm-4 col-md-4">
+
+                <div class="field">
+                  <%= f.label :glucometria2 %><br>
+                  <%= f.text_field :glucometria2, class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="col-sm-4 col-md-4">
+
+                <div class="field">
+                  <%= f.label :electrocardiograma %><br>
+                  <%= f.text_field :electrocardiograma, class: 'form-control' %>
+                </div>
+              </div>
+</div></div></div>
 
 
 
@@ -326,36 +362,7 @@
 
 
 
-        <div class="form-group">
-          <div class="controls">
-            <div class="row">
-              
-              <div class="col-sm-4 col-md-4">
 
-                <div class="field">
-                  <%= f.label :glucometria1 %><br>
-                  <%= f.text_field :glucometria1, class: 'form-control' %>
-                </div>
-
-
-              </div>
-
-              <div class="col-sm-4 col-md-4">
-
-                <div class="field">
-                  <%= f.label :glucometria2 %><br>
-                  <%= f.text_field :glucometria2, class: 'form-control' %>
-                </div>
-              </div>
-
-              <div class="col-sm-4 col-md-4">
-
-                <div class="field">
-                  <%= f.label :electrocardiograma %><br>
-                  <%= f.text_field :electrocardiograma, class: 'form-control' %>
-                </div>
-              </div>
-</div></div></div>
 
 
 

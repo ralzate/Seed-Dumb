@@ -7,16 +7,16 @@
 
  <div class="col-md-12" style = "margin:15px!important;text-align:center;">
 
-    <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+   <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
+    <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">2. Antesedentes Personales</a>
+    <%= link_to "3. Revisión por Sistemas", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">3. Revisión por Sistemas</a>
+    <%= link_to "4. Examen Fisico", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">4. Examen Fisico</a>
+    <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
 
 
 
@@ -58,6 +58,9 @@
   margin-top: 20px;
   margin-bottom: -8px;
 }
+  .centered{
+    text-align: left;
+  }
 </style>
 
 
@@ -69,19 +72,11 @@
 
 
 
-
-<div class="cabezera">
-<h1 class="titulo" >
-    
-    <div class="animated fadeInLeft" align="center"><span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span>4 </div><div class="animated fadeInRight">ANTECEDENTES PERSONALES</div>
-
-</h1>
-</div>
-
-
-
-
+<div >
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> 4 ANTECEDENTES PERSONALES</h1></div>
+     </div>
      <hr class="featurette-divider"></hr>
+
 
 <div class="container-fluid">
     <div class="row clearfix">
@@ -368,18 +363,18 @@
     <center>
       <h2>Gineco-Obstétricos</h2>
     </center>
-      <div class="col-md-2">
-        <label class="control-label" for="firstname">Ciclo Menstrual</label>
+      <div class="col-md-3">
+        <label class="label" for="firstname">Ciclo Menstrual</label>
         <%= f.text_field :menstrual_cycle, class: 'form-control', placeholder: 'Ciclo Menstrual', :id => "ciclo" %>
 
       </div>
       <div class="col-md-2">
-        <label class="control-label" for="lastname">Eco</label>
+        <label class="label" for="lastname">Eco</label>
         <%= f.text_field :eco, class: 'form-control', placeholder: 'Eco', :id => "eco" %>
 
       </div>
       <div class="col-md-2">
-        <label class="control-label" for="firstname">FUM</label>
+        <label class="label" for="firstname">FUM</label>
         <%= f.text_field :fum, class: 'form-control', placeholder: 'Fum', :id => "fum" %>
       </div>
 
@@ -387,11 +382,11 @@
       <h5>Esta en Embarazo?</h5>
 
       <div class="col-md-1">
-        <label class="control-label" for="firstname">Si</label><br/>
+        <label class="label" for="firstname">Si</label><br/>
          <%= f.check_box :pregnancy_true, :id => "yes" %>
       </div>
             <div class="col-md-1">
-        <label class="control-label" for="firstname">No</label><br/>
+        <label class="label" for="firstname">No</label><br/>
          <%= f.check_box :pregnancy_false, :id => "no" %>
       </div>
       </div>
@@ -400,14 +395,14 @@
 
 
       <div class="col-md-2" id="MostrarEmbarazo" >
-        <label class="control-label" for="firstname">Edad Gestacional</label>
+        <label class="label" for="firstname">Edad Gestacional</label>
         <%= f.text_field :gestational_age, class: 'form-control', placeholder: 'Edad Gestacional', :disabled => true, :id => "txt1" %>
 
       </div>
 
 
       <div class="col-md-2" id="MostrarEmbarazo2">
-        <label class="control-label" for="lastname">G</label>
+        <label class="label" for="lastname">G</label>
         <%= f.text_field :g, class: 'form-control', placeholder: 'G', :disabled => true, :id => "txt2" %>
 
       </div>
@@ -425,34 +420,34 @@
     <div class="row">
 
       <div class="col-md-2" >
-        <label class="control-label" for="firstname">P</label>
+        <label class="label" for="firstname">P</label>
         <%= f.text_field :p, class: 'form-control', placeholder: 'P', :disabled => true, :id => "txt3" %>
       </div>
 
       <div class="col-md-2"  >
-        <label class="control-label" for="firstname">C</label><br/>
+        <label class="label" for="firstname">C</label><br/>
           <%= f.text_field :c, class: 'form-control', placeholder: 'C', :disabled => true, :id => "txt4" %>
 
       </div>
 
 
       <div class="col-md-2"  >
-        <label class="control-label" for="firstname">A</label>
+        <label class="label" for="firstname">A</label>
           <%= f.text_field :a, class: 'form-control', placeholder: 'A', :disabled => true, :id => "txt5" %>
 
       </div>
       <div class="col-md-2" >
-        <label class="control-label" for="lastname">M</label>
+        <label class="label" for="lastname">M</label>
           <%= f.text_field :m, class: 'form-control', placeholder: 'M', :disabled => true, :id => "txt6" %>
 
       </div>
       <div class="col-md-2"  >
-        <label class="control-label" for="firstname">V</label>
+        <label class="label" for="firstname">V</label>
           <%= f.text_field :v, class: 'form-control', placeholder: 'V', :disabled => true, :id => "txt7" %>
       </div>
 
       <div class="col-md-2" >
-        <label class="control-label" for="firstname">E</label><br/>
+        <label class="label" for="firstname">E</label><br/>
           <%= f.text_field :e, class: 'form-control', placeholder: 'E', :disabled => true, :id => "txt8" %>
 
       </div>
@@ -499,129 +494,36 @@
 <% if @paciente.genero == "Femenino" %>
 
 
-
-
-
-
-
 <div class="container-fluid">
-    <div class=" clearfix">
+  <div class=" clearfix">
 
     <div class="row">
     <center>
       <h2>Gineco-Obstétricos</h2>
     </center>
-      <div class="col-md-2">
-        <label class="control-label" for="firstname">Ciclo Menstrual</label>
+      <div class="col-md-3">
+        <label class="label" for="firstname">Ciclo Menstrual</label>
         <%= f.text_field :menstrual_cycle, class: 'form-control', placeholder: 'Ciclo Menstrual', :id => "ciclo" %>
-
       </div>
-      <div class="col-md-2">
-        <label class="control-label" for="lastname">Eco</label>
+      <div class="col-md-3">
+        <label class="label" for="lastname">Eco</label>
         <%= f.text_field :eco, class: 'form-control', placeholder: 'Eco' %>
-
       </div>
-      <div class="col-md-2">
-        <label class="control-label" for="firstname">FUM</label>
+      <div class="col-md-3">
+        <label class="label" for="firstname">FUM</label>
         <%= f.text_field :fum, class: 'form-control', placeholder: 'Fum' %>
       </div>
-
-      <div class="col-md-2" id="chkboxes">
-      <h5>Esta en Embarazo?</h5>
-
-      <div class="col-md-1">
-        <label class="control-label" for="firstname">Si</label><br/>
-         <%= f.check_box :pregnancy_true, :id => "yes" %>
-      </div>
-            <div class="col-md-1">
-        <label class="control-label" for="firstname">No</label><br/>
-         <%= f.check_box :pregnancy_false, :id => "no" %>
-      </div>
-      </div>
-
-
-
-
-      <div class="col-md-2" id="MostrarEmbarazo" >
-        <label class="control-label" for="firstname">Edad Gestacional</label>
-        <%= f.text_field :gestational_age, class: 'form-control', placeholder: 'Edad Gestacional', :disabled => true, :id => "txt1" %>
-
-      </div>
-
-
-      <div class="col-md-2" id="MostrarEmbarazo2">
-        <label class="control-label" for="lastname">G</label>
-        <%= f.text_field :g, class: 'form-control', placeholder: 'G', :disabled => true, :id => "txt2" %>
-
+      <div class="col-md-3" >
+        <label class="label" for="firstname">Menarquia</label>
+        <%= f.text_field :menarquia, class: 'form-control', placeholder: 'Menarquia' %>
       </div>
     </div>
+    
+    <br/>
 
-  </div>
-</div>
-
-
-
-
-
-<div class="container-fluid">
-    <div class=" clearfix">
     <div class="row">
-
-      <div class="col-md-2" >
-        <label class="control-label" for="firstname">P</label>
-        <%= f.text_field :p, class: 'form-control', placeholder: 'P', :disabled => true, :id => "txt3" %>
-      </div>
-
-      <div class="col-md-2"  >
-        <label class="control-label" for="firstname">C</label><br/>
-          <%= f.text_field :c, class: 'form-control', placeholder: 'C', :disabled => true, :id => "txt4" %>
-
-      </div>
-
-
-      <div class="col-md-2"  >
-        <label class="control-label" for="firstname">A</label>
-          <%= f.text_field :a, class: 'form-control', placeholder: 'A', :disabled => true, :id => "txt5" %>
-
-      </div>
-      <div class="col-md-2" >
-        <label class="control-label" for="lastname">M</label>
-          <%= f.text_field :m, class: 'form-control', placeholder: 'M', :disabled => true, :id => "txt6" %>
-
-      </div>
-      <div class="col-md-2"  >
-        <label class="control-label" for="firstname">V</label>
-          <%= f.text_field :v, class: 'form-control', placeholder: 'V', :disabled => true, :id => "txt7" %>
-      </div>
-
-      <div class="col-md-2" >
-        <label class="control-label" for="firstname">E</label><br/>
-          <%= f.text_field :e, class: 'form-control', placeholder: 'E', :disabled => true, :id => "txt8" %>
-
-      </div>
-
-
-
-
-    </div>
-
-  </div>
-</div>
-
-<br/>
-
-<div class="container-fluid">
-    <div class=" clearfix">
-    <div class="row">
-
-      <div class="col-md-2" >
-        <label class="control-label" for="firstname">Menarquia</label>
-        <%= f.text_field :menarquia, class: 'form-control', placeholder: 'P', :disabled => true, :id => "txt3" %>
-      </div>
-
-      <div class="col-md-5"  >
-
-          <label class="label">Fecha de la Ultima Cotología</label>
+      <div class="col-md-6"  >
+          <label class="label">Fecha de la Ultima Citología</label>
             <div class="form-group">
               <%= f.date_select :fecha_ultima_citologia,{
                 :start_year => Time.now.year,
@@ -630,17 +532,12 @@
                 :use_short_month => true,
                 :order => [:day, :month, :year],
                 :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
-                {:class => 'year form-control line1',
-                :id => 'user_birthday'}
+                {:class => 'form-control line1'}
               %>                             
             </div>
-
       </div>
 
-
-
-      <div class="col-md-5"  >
-
+      <div class="col-md-6"  >
           <label class="label">Fecha de la Ultima Mamografia</label>
             <div class="form-group">
               <%= f.date_select :fecha_ultima_mamografia,{
@@ -650,20 +547,76 @@
                 :use_short_month => true,
                 :order => [:day, :month, :year],
                 :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
-                {:class => 'year form-control line1',
-                :id => 'user_birthday2'}
+                {:class => 'form-control line1'}
               %>                             
             </div>
 
       </div>
-
-
-
-
     </div>
 
+    <div class="row">
+      <div class="col-md-5" id="chkboxes">
+      <h5>Esta en Embarazo?</h5>
+
+      <div class="col-md-3">
+        <label class="label" for="firstname">Si</label>
+         <%= f.check_box :pregnancy_true, :id => "yes" %>
+      </div>
+      <div class="col-md-3" style="margin-left:-30px;">
+        <label class="label" for="firstname">No</label>
+         <%= f.check_box :pregnancy_false, :id => "no" %>
+      </div>
+
+      </div>
+    </div>
+      
+    <div class="row">
+      <div class="col-md-2" >
+        <label class="label" for="firstname">P</label>
+        <%= f.text_field :p, class: 'form-control', placeholder: 'P', :disabled => true, :id => "txt3" %>
+      </div>
+      <div class="col-md-2"  >
+        <label class="label" for="firstname">C</label><br/>
+          <%= f.text_field :c, class: 'form-control', placeholder: 'C', :disabled => true, :id => "txt4" %>
+
+      </div>
+      <div class="col-md-2"  >
+        <label class="label" for="firstname">A</label>
+          <%= f.text_field :a, class: 'form-control', placeholder: 'A', :disabled => true, :id => "txt5" %>
+
+      </div>
+      <div class="col-md-2" >
+        <label class="label" for="lastname">M</label>
+          <%= f.text_field :m, class: 'form-control', placeholder: 'M', :disabled => true, :id => "txt6" %>
+
+      </div>
+      <div class="col-md-2"  >
+        <label class="label" for="firstname">V</label>
+          <%= f.text_field :v, class: 'form-control', placeholder: 'V', :disabled => true, :id => "txt7" %>
+      </div>
+
+      <div class="col-md-2" >
+        <label class="label" for="firstname">E</label><br/>
+          <%= f.text_field :e, class: 'form-control', placeholder: 'E', :disabled => true, :id => "txt8" %>
+
+      </div>
+    </div>
+
+    <br/>
+    <div class="row">
+      <div class="col-md-2" id="MostrarEmbarazo" >
+        <label class="label" for="firstname">Edad Gestacional</label>
+        <%= f.text_field :gestational_age, class: 'form-control', placeholder: 'Edad Gestacional', :disabled => true, :id => "txt1" %>
+
+      </div>
+
+    </div>
   </div>
 </div>
+
+<br/>
+
+
 
 
 <% end %>
@@ -909,8 +862,6 @@ $(function(){
            $('#txt7').prop('disabled', false);
            $('#txt8').prop('disabled', false);
            $('#txt9').prop('disabled', false);
-           $('.year').prop('disabled', false);
-           $('#user_birthday2').prop('disabled', false);
            $('#chkno input:checkbox').prop('disabled', true)
            .prop('checked', false);
            $('#no').prop('checked', false);  
@@ -926,8 +877,6 @@ $(function(){
            $('#txt7').val('').prop('disabled', true);
            $('#txt8').val('').prop('disabled', true);
            $('#txt9').val('').prop('disabled', true);
-           $('.year').prop('disabled', 'disabled');
-           $('#user_birthday2').prop('disabled', true);           
            $('#chkno input:checkbox').prop('disabled', false);   
            $('#yes').prop('checked', false);             
 

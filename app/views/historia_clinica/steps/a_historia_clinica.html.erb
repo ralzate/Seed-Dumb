@@ -9,14 +9,15 @@
 
     <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
+    <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">2. Antesedentes Personales</a>
+    <%= link_to "3. Revisión por Sistemas", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">3. Revisión por Sistemas</a>
+    <%= link_to "4. Examen Fisico", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">4. Examen Fisico</a>
+    <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
+
 
 
 
@@ -58,6 +59,9 @@
   margin-top: 20px;
   margin-bottom: -8px;
 }
+  .centered{
+    text-align: left;
+  }
 </style>
 
 
@@ -67,7 +71,8 @@
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
-  <%= simple_form_for([@paciente, @historia_clinica], :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+
+<%= simple_form_for([@paciente, @historia_clinica], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
 
 
 
@@ -78,8 +83,7 @@
 
 
 
-
-<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+<div >
         <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> DATOS GENERALES</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
@@ -140,29 +144,37 @@
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+<div>
         <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span>  1 IDENTIFICACIÓN DEL PACIENTE</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
          
+
+
+
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-md-12">
 
 
 
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Condición:</label> 
               <%= f.input :condicion,
               prompt:       'Campo Obligatorio',
               collection: @historia_clinica.select_condition.sort,
               error: false, label: false, 
-              input_html:   {class: 'form-control', maxlengt: "4"} %>
+              input_html:   {class: 'form-control', maxlengt: "4", id: 'select'} %>
+
           </div>
 
 
-          <div class="col-md-3">
+
+  
+
+
+
+          <div class="col-md-4">
               <label>Tipo Servicio:</label> 
                     <%= f.input :type_service,
                     prompt:       'Campo Obligatorio',
@@ -170,51 +182,63 @@
                     error: false, label: false, 
                     input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
 
-              <label>Origen:</label> 
-                    <%= f.input :origin,
-                    prompt:       'Campo Obligatorio',
-                    collection: @historia_clinica.select_origen.sort,
-                    error: false, label: false, 
-                    input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
-
-
+              <label>Empresa:</label> 
+              <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
 
-          <div class="col-md-3">
-              <label>Destino:</label> 
-                  <%= f.collection_select :destination, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
-
-
-          </div>
 
           
         </div>
 
         <br/>
-        <br/>        <br/>
-        <br/>
-
-        <div class="col-md-12">
+   
+    <div class="row">
 
 
 
-          <div class="col-md-3">
-              <label>Empresa:</label> 
-              <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } , placeholder: 'Campo Obligatorio', label: false  %>
+          <div class="col-md-4">
+
+          <label>Lugar de Atención:</label> 
+              <%= f.input :lugar_de_atencion,
+                prompt:       'Campo Obligatorio',
+                collection: @historia_clinica.select_lugar.sort,
+                error: false, label: false, 
+                input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
           </div>
-          <div class="col-md-3">
+
+
+          <div class="col-md-4">
+
+
+ <label>Origen:</label> 
+                  <%= f.collection_select :origin, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                  </div>
+
+          <div class="col-md-4">
+              <label>Destino:</label> 
+                  <%= f.collection_select :destination, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+
+          </div>
+           </div>
+
+             
+     <br/>
+    <div class="row">
+
+          <div class="col-md-4">
               <label>Nombre Acompañante:</label> 
                 <%= f.input :nombre_acompañante,  :input_html => { :class => 'form-control', id: "accompanist_name" } , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Selecciona el parentesco:</label> 
 
                 <%= f.input :relationship,  :input_html => { :class => 'form-control', id: "accompanist_name" }  , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
-<div class="col-md-3">
+<div class="col-md-4">
               <label>Telefono Acompañante:</label> 
                 <%= f.input :phone,  :input_html => { :class => 'form-control' }  , placeholder: 'Campo Obligatorio', label: false  %>
 
@@ -223,24 +247,12 @@
          
         </div>
                 <br/>
-        <br/>   
-
-
-
-
-
-
-
-
-                <br/>
-        <br/>   
+        
         <div class="col-md-12">
-
-
 
                     <div class="col-md-4">
                         <label>Arl:</label> 
-                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl"} %>
+                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado"} %>
                     </div>
 
 
@@ -331,19 +343,21 @@
 
 
         <br/>
-        <br/>        <br/>
+        <br/> 
+
+
+
+
+               <br/>
         <br/>
 
 
 
- 
 
 
 
 
-
-
-<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+<div>
         <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> 2 MOTIVO DE LA CONSULTA</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
@@ -364,7 +378,7 @@
 </div>
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+<div>
         <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span>3 ENFERMEDAD ACTUAL</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
@@ -401,18 +415,8 @@
 <%= f.hidden_field :tipo_sangre, :value => @paciente.tipo_sangre %>
 <%= f.hidden_field :nacionalidad, :value => @paciente.nacionalidad %>
 <%= f.hidden_field :direccion, :value => @paciente.direccion %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
 
 
-
-
-
-
-
-
-
-<br/>
-<br/>
 
 
 

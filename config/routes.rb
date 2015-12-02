@@ -55,7 +55,7 @@ PetThing::Application.routes.draw do
 
   resources :pacientes, only: [:new, :create, :index, :destroy, :show, :edit, :update]  do
     resources :historias_clinicas, only: [:new, :create, :index, :destroy, :show, :edit, :update] do
-      resources :steps, only: [:show, :update, :edit], controller: 'historia_clinica/steps'
+      resources :steps, only: [:new, :create, :index, :destroy, :show, :edit, :update], controller: 'historia_clinica/steps'
       resources :progress_notes, :path => "nota_de_evolucion"
     end
   end

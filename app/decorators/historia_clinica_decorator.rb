@@ -29,7 +29,7 @@ module HistoriaClinicaDecorator
   	end
 
 
-  	def select_origen
+  	def select_lugar
     	[
 	        ['Interno(Sanidad)', 'Interno(Sanidad)'],
 	        ['Externo', 'Externo'],

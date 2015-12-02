@@ -110,24 +110,32 @@
      </div>
      <hr class="featurette-divider"></hr>
          
+
+
+
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-md-12">
 
 
 
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Condición:</label> 
               <%= f.input :condicion,
               prompt:       'Campo Obligatorio',
               collection: @historia_clinica.select_condition.sort,
               error: false, label: false, 
-              input_html:   {class: 'form-control', maxlengt: "4"} %>
+              input_html:   {class: 'form-control', maxlengt: "4", id: 'select'} %>
+
           </div>
 
 
-          <div class="col-md-3">
+
+  
+
+
+
+          <div class="col-md-4">
               <label>Tipo Servicio:</label> 
                     <%= f.input :type_service,
                     prompt:       'Campo Obligatorio',
@@ -135,51 +143,63 @@
                     error: false, label: false, 
                     input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
 
-              <label>Origen:</label> 
-                    <%= f.input :origin,
-                    prompt:       'Campo Obligatorio',
-                    collection: @historia_clinica.select_origen.sort,
-                    error: false, label: false, 
-                    input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
-
-
+              <label>Empresa:</label> 
+              <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
 
-          <div class="col-md-3">
-              <label>Destino:</label> 
-                  <%= f.collection_select :destination, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
-
-
-          </div>
 
           
         </div>
 
         <br/>
-        <br/>        <br/>
-        <br/>
-
-        <div class="col-md-12">
+   
+    <div class="row">
 
 
 
-          <div class="col-md-3">
-              <label>Empresa:</label> 
-              <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } , placeholder: 'Campo Obligatorio', label: false  %>
+          <div class="col-md-4">
+
+          <label>Lugar de Atención:</label> 
+              <%= f.input :lugar_de_atencion,
+                prompt:       'Campo Obligatorio',
+                collection: @historia_clinica.select_lugar.sort,
+                error: false, label: false, 
+                input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
           </div>
-          <div class="col-md-3">
+
+
+          <div class="col-md-4">
+
+
+ <label>Origen:</label> 
+                  <%= f.collection_select :origin, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                  </div>
+
+          <div class="col-md-4">
+              <label>Destino:</label> 
+                  <%= f.collection_select :destination, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+
+          </div>
+           </div>
+
+             
+     <br/>
+    <div class="row">
+
+          <div class="col-md-4">
               <label>Nombre Acompañante:</label> 
                 <%= f.input :nombre_acompañante,  :input_html => { :class => 'form-control', id: "accompanist_name" } , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
               <label>Selecciona el parentesco:</label> 
 
                 <%= f.input :relationship,  :input_html => { :class => 'form-control', id: "accompanist_name" }  , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
-<div class="col-md-3">
+<div class="col-md-4">
               <label>Telefono Acompañante:</label> 
                 <%= f.input :phone,  :input_html => { :class => 'form-control' }  , placeholder: 'Campo Obligatorio', label: false  %>
 
@@ -188,24 +208,12 @@
          
         </div>
                 <br/>
-        <br/>   
-
-
-
-
-
-
-
-
-                <br/>
-        <br/>   
+        
         <div class="col-md-12">
-
-
 
                     <div class="col-md-4">
                         <label>Arl:</label> 
-                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl"} %>
+                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado"} %>
                     </div>
 
 
@@ -296,12 +304,14 @@
 
 
         <br/>
-        <br/>        <br/>
+        <br/> 
+
+
+
+
+               <br/>
         <br/>
 
-
-
- 
 
 
 
@@ -366,7 +376,6 @@
 <%= f.hidden_field :tipo_sangre, :value => @paciente.tipo_sangre %>
 <%= f.hidden_field :nacionalidad, :value => @paciente.nacionalidad %>
 <%= f.hidden_field :direccion, :value => @paciente.direccion %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
 
 
 
@@ -424,35 +433,46 @@
 <script type="text/javascript">
 
 
-// Ocultar la arl para pasajero
+
+
+
+
 jQuery(document).ready(function() {
-   jQuery("#tagtype").change(function() {
-      if(jQuery(this).find("option:selected").val() == "1" ) {
-         jQuery(".multiples").prop('disabled', true);
+   jQuery("#select").change(function() {
+      if(jQuery(this).find("option:selected").val() == "Empleado" ) {
+         jQuery(".habilitado").prop('disabled', false);
+      }
+      else if (jQuery(this).find("option:selected").val() != "Empleado" ) {
+         jQuery(".habilitado").prop('disabled', true);
       }
    });
 
-  jQuery("#tagtype").change(function() {
-      if(jQuery(this).find("option:selected").val() == "3" ) {
-         jQuery(".multiples").prop('disabled', true);
+  jQuery("#select").change(function() {
+      if(jQuery(this).find("option:selected").val() == "Pasajero" ) {
+         jQuery(".habilitado").prop('disabled', false);
       }
+
+
    });
 
-  jQuery("#tagtype").change(function() {
-      if(jQuery(this).find("option:selected").val() == "2" ) {
-         jQuery(".multiples").prop('disabled', false);
-      }
-   });
 
 
 });
 
-// Ocultar la arl para pasajero
-$("#myselect").change(function() {
-    var val = $(this).val();
-    $("#company, #dock").prop("disabled", val == "shipping" || val == "Storage");
-}).change();
 
+// Ocultar la arl para pasajero
+$(document).ready(function() {
+$('#disabled_input').attr('disabled','disabled');        
+$('select[name="historia_clinica[condicion]"]').on('change',function(){
+var  others = $(this).val();
+    if(others == "2"){           
+    $('#disabled_input').removeAttr('disabled');          
+     }else{
+     $('#disabled_input').attr('disabled','disabled'); 
+    }  
+
+  });
+});
 
 
 

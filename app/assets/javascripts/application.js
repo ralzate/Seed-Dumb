@@ -23,7 +23,6 @@
 //= require turbolinks
 //= require cocoon
 
-//= require twitter/bootstrap
 //= require lazybox
 //= require turbolinks
 

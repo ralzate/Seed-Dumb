@@ -1,6 +1,5 @@
 class PacientesController < ApplicationController
   before_action :set_paciente, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
 
   # before_filter :find_paciente_clinic_histories
   # GET /pacientes

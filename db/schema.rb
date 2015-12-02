@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20151201123619) do
     t.integer  "paciente_id"
     t.string   "auxiliar"
     t.string   "ubicacion"
+    t.string   "lugar_de_atencion"
     t.string   "origin"
     t.string   "destination"
     t.string   "company"

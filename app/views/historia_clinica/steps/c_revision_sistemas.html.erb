@@ -1,15 +1,15 @@
  <div class="col-md-12" style = "margin:15px!important;text-align:center;">
 
-    <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+   <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
     <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
 
+    <%= link_to "3. Revisión por Sistemas", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">3. Revisión por Sistemas</a>
+    <%= link_to "4. Examen Fisico", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">4. Examen Fisico</a>
+    <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
 
-    <a class="btn btn-info color_blanco mrg disabled">5. Impresión Diagnostica</a>
 
 
 
@@ -49,6 +49,9 @@
     display: inline-block;
     width: 30% !important;
   }
+  .centered{
+    text-align: left;
+  }
 
 </style>
 
@@ -68,7 +71,7 @@
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+<div>
         <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> 5 Revisión por Sistemas</h1></div>
      </div>
      <hr class="featurette-divider"></hr>

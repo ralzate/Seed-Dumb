@@ -59,7 +59,7 @@
     <td><%= link_to 'Ver Historia Clinica', paciente_historia_clinica_path(@paciente,historia_clinica), :class => "btn btn-info blanco btn-sm" %>
 
 
-     &nbsp;  <%= link_to 'Editar Historia Clinica', edit_paciente_historia_clinica_path(@paciente,historia_clinica), :class => "btn btn-success blanco btn-sm" %>
+     &nbsp;  <%= link_to 'Editar Historia Clinica', paciente_historia_clinica_steps_path(@paciente, historia_clinica, HistoriaClinica.form_steps.first), :class => "btn btn-success blanco btn-sm" %>
 
 
     </td>
