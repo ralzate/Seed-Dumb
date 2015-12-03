@@ -183,6 +183,7 @@ class CreateHistoriasClinicas < ActiveRecord::Migration
       t.integer :glucometria1
       t.integer :glucometria2
       t.text :electrocardiograma
+      t.boolean :estado
       t.timestamps null: false
     end
   end

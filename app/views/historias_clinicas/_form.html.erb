@@ -1,4 +1,13 @@
 
+
+
+
+
+
+
+
+
+
 <div class="container-fluid">    
         
     <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
@@ -34,11 +43,21 @@
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
-  <%= simple_form_for([@paciente, @historia_clinica], :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+<%= form_for([@paciente, @historia_clinica]) do |f| %>
 
 
 
+  <% if @historia_clinica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@historia_clinica.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
+      <ul>
+      <% @historia_clinica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
 
@@ -57,7 +76,8 @@
               <label>Auxiliar:</label> 
 
 
-              <%= f.input :auxiliar,  :input_html => { class: 'form-control' } , placeholder: 'Campo Obligatorio', label: false  %>
+
+              <%= f.text_field :auxiliar, class: 'form-control' , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
 
@@ -67,20 +87,22 @@
           <div class="col-md-3">
               <label>Aeropuerto:</label> 
 
-              <%= f.collection_select :aeropuerto_id, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
 
+              <%= f.collection_select :aeropuerto_id, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
 
           </div>
 
           <div class="col-md-3">
               <label>Cove:</label> 
-              <%= f.input :cove,  :input_html => { class: 'form-control' } , placeholder: 'Campo Obligatorio', label: false  %>
+              <%= f.text_field :cove, class: 'form-control', placeholder: 'Campo Obligatorio', label: false  %>
+
+
           </div>
          
 
           <div class="col-md-3">
               <label>Movil/Servicio:</label> 
-              <%= f.input :mobiel_service,  :input_html => { class: 'form-control' }  , placeholder: 'Campo Obligatorio', label: false  %>
+              <%= f.text_field :mobiel_service, class: 'form-control', placeholder: 'Campo Obligatorio', label: false  %>
           </div>
         </div>
 
@@ -91,6 +113,7 @@
 
     </div>
 </div>
+
 
 
 
@@ -121,32 +144,26 @@
 
           <div class="col-md-4">
               <label>Condición:</label> 
-              <%= f.input :condicion,
-              prompt:       'Campo Obligatorio',
-              collection: @historia_clinica.select_condition.sort,
-              error: false, label: false, 
-              input_html:   {class: 'form-control', maxlengt: "4", id: 'select'} %>
+              <%= f.select :condicion, [ 'Pasajero', 'Tripulante', 'Empleado', 'Visitante', 'Otro' ], {prompt: "Campo Obligatorio"},  {class: "form-control"} %>
 
           </div>
 
 
 
-  
 
 
 
           <div class="col-md-4">
               <label>Tipo Servicio:</label> 
-                    <%= f.input :type_service,
-                    prompt:       'Campo Obligatorio',
-                    collection: @historia_clinica.select_type_service.sort,
-                    error: false, label: false, 
-                    input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
+                    <%= f.select :type_service, [ 'Atención prehospitalaria', 'Valoración aptitud de vuelo', 'Enfermedad general', 'Evento laboral', 'Accidente de transito', 'Traslado', 'Otro tipo de accidente', 'Remisión'], {prompt: "Campo Obligatorio"},  {class: "form-control"} %>
           </div>
           <div class="col-md-4">
 
               <label>Empresa:</label> 
-              <%= f.input :company,  :input_html => { :class => 'form-control', id: "company" } , placeholder: 'Campo Obligatorio', label: false  %>
+
+              <%= f.collection_select :company, Empresa.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+
           </div>
 
 
@@ -159,14 +176,11 @@
 
 
 
+
           <div class="col-md-4">
 
           <label>Lugar de Atención:</label> 
-              <%= f.input :lugar_de_atencion,
-                prompt:       'Campo Obligatorio',
-                collection: @historia_clinica.select_lugar.sort,
-                error: false, label: false, 
-                input_html:   {class: 'form-control'}, 'aria-required' => 'true' %>
+              <%= f.select :lugar_de_atencion, [ 'Interno(Sanidad)', 'Externo' ], {prompt: "Campo Obligatorio"}, {class: "form-control"}  %>
           </div>
 
 
@@ -191,17 +205,17 @@
 
           <div class="col-md-4">
               <label>Nombre Acompañante:</label> 
-                <%= f.input :nombre_acompañante,  :input_html => { :class => 'form-control', id: "accompanist_name" } , placeholder: 'Campo Obligatorio', label: false  %>
+                <%= f.text_field :nombre_acompañante, :class => 'form-control', id: "accompanist_name"  , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
           <div class="col-md-4">
               <label>Selecciona el parentesco:</label> 
 
-                <%= f.input :relationship,  :input_html => { :class => 'form-control', id: "accompanist_name" }  , placeholder: 'Campo Obligatorio', label: false  %>
+                <%= f.text_field :relationship, :class => 'form-control', id: "accompanist_name"   , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
 <div class="col-md-4">
               <label>Telefono Acompañante:</label> 
-                <%= f.input :phone,  :input_html => { :class => 'form-control' }  , placeholder: 'Campo Obligatorio', label: false  %>
+                <%= f.text_field :phone, :class => 'form-control' , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
           
@@ -330,6 +344,7 @@
           <div class="col-md-12">
 
                 <%= f.text_area :reason_for_consultation, :class => 'form-control', id: "reason_for_consultation"  , placeholder: 'Campo Obligatorio', label: false  %>
+
           </div>
         </div>
         <br/>
@@ -344,6 +359,10 @@
      </div>
      <hr class="featurette-divider"></hr>
          
+
+
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -548,8 +567,21 @@ $('.eps').change(function(e) {
         
 
     <style type="text/css">
+       
+
+
         @import url(https://fonts.googleapis.com/css?family=Roboto);
         @import url(https://fonts.googleapis.com/css?family=Montserrat);
+       
+
+
+        #current_illness{
+          width: 870px !important;
+        }
+        #reason_for_consultation{
+          width: 870px !important;
+        }
+
         .panel-heading {
             background-image: none;
             background-color: #ECECEC;

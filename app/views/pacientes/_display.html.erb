@@ -44,13 +44,13 @@
 </tr>
 
 
-  <tr class="header">
-    <th>Paciente #</th>
-    <th>Nombres</th>
-    <th>Documento</th>
-    <th>Opciones</th>
-  </tr>
-  
+    <tr>
+      <th width="4% !important;">Id</th>
+      <th width="31% !important;">Nombres</th>
+      <th width="31% !important;">Documento</th>
+      <th width="34% !important;">Opciones</th>
+    </tr>
+
 <% @pacientes.each do |paciente| %>
 
   <tr>
@@ -61,7 +61,17 @@
     <td><%= paciente.documento %></td>
 
 <td>
+
+    <%= link_to 'Mostrar',  paciente,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-primary btn-xs color_blanco principal'%>
+
     <%= link_to 'Editar', edit_paciente_path(paciente),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>
+
+
+        <%= link_to 'Ver Historias Clinicas(' + paciente.historias_clinicas.count.to_s + ')' , paciente_historias_clinicas_path(paciente), :class => 'btn btn-primary btn-xs color_blanco principal' %> 
+
+
+
+
 </td>
 
   </tr>

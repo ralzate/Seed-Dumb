@@ -1,26 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Material Sheets</h1>
+<h1>Listing Diagnosticos</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Material</th>
-      <th>Cantidad</th>
-      <th>Sheet</th>
+      <th>Familia</th>
+      <th>Codigo</th>
+      <th>Simbolo</th>
+      <th>Descripcion</th>
+      <th>Codigo</th>
+      <th>Historia clinica</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @material_sheets.each do |material_sheet| %>
+    <% @diagnosticos.each do |diagnostico| %>
       <tr>
-        <td><%= material_sheet.material_id %></td>
-        <td><%= material_sheet.cantidad %></td>
-        <td><%= material_sheet.sheet %></td>
-        <td><%= link_to 'Show', material_sheet %></td>
-        <td><%= link_to 'Edit', edit_material_sheet_path(material_sheet) %></td>
-        <td><%= link_to 'Destroy', material_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= diagnostico.familia %></td>
+        <td><%= diagnostico.codigo %></td>
+        <td><%= diagnostico.simbolo %></td>
+        <td><%= diagnostico.descripcion %></td>
+        <td><%= diagnostico.codigo %></td>
+        <td><%= diagnostico.historia_clinica %></td>
+        <td><%= link_to 'Show', diagnostico %></td>
+        <td><%= link_to 'Edit', edit_diagnostico_path(diagnostico) %></td>
+        <td><%= link_to 'Destroy', diagnostico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Material sheet', new_material_sheet_path %>
+<%= link_to 'New Diagnostico', new_diagnostico_path %>

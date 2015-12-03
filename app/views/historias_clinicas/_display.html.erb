@@ -40,7 +40,7 @@
 
 
   <tr class="header">
-    <th>HC #</th>
+    <th>Id</th>
     <th>Nombre</th>
     <th>Identificación</th>
     <th>Fecha</th>
@@ -59,7 +59,12 @@
     <td><%= link_to 'Ver Historia Clinica', paciente_historia_clinica_path(@paciente,historia_clinica), :class => "btn btn-info blanco btn-sm" %>
 
 
+
+<% if historia_clinica.estado != TRUE %>
      &nbsp;  <%= link_to 'Editar Historia Clinica', paciente_historia_clinica_steps_path(@paciente, historia_clinica, HistoriaClinica.form_steps.first), :class => "btn btn-success blanco btn-sm" %>
+<% end %>
+
+     &nbsp; <%= link_to 'Notas de Evolución', paciente_historia_clinica_notas_progreso_path(@paciente,historia_clinica), :class => "btn btn-primary blanco btn-sm" %></td>
 
 
     </td>
@@ -86,7 +91,7 @@
 
 <style type="text/css">
 
-
+ 
 .pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
       z-index: 2;
     color: #fff;

@@ -3,7 +3,7 @@
 # Table name: epses
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  nombre     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

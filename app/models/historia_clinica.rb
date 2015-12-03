@@ -1,73 +1,89 @@
 # == Schema Information
 #
-# Table name: clinic_histories
+# Table name: historias_clinicas
 #
 #  id                                   :integer          not null, primary key
-#  first_name                           :string
-#  second_name                          :string
-#  first_surname                        :string
-#  second_surname                       :string
+#  primer_nombre                        :string
+#  segundo_nombre                       :string
+#  primer_apellido                      :string
+#  segundo_apellido                     :string
 #  email                                :string
-#  type_document                        :string
-#  document                             :string
-#  days_age                             :integer
-#  months_age                           :integer
-#  years_age                            :integer
-#  birthdate                            :date
-#  gender                               :string
-#  profession                           :string
-#  blood_type                           :string
-#  nacionality                          :string
+#  tipo_documento                       :string
+#  documento                            :string
+#  fecha_nacimiento                     :date
+#  genero                               :string
+#  profesion                            :string
+#  tipo_sangre                          :string
+#  pais_codigo                          :string
+#  nacionalidad                         :string
 #  eps_id                               :integer
 #  arl_id                               :integer
-#  address                              :string
-#  condition                            :integer
-#  accompanist_name                     :string
-#  relationship                         :integer
+#  direccion                            :string
+#  condicion                            :string
+#  nombre_acompañante                   :string
+#  relationship                         :string
 #  phone                                :string
-#  city_id                              :integer
 #  user_id                              :integer
 #  city                                 :string
 #  department                           :string
 #  cove                                 :string
 #  mobiel_service                       :string
-#  airport_id                           :integer
-#  type_service                         :integer
-#  patient_id                           :integer
+#  aeropuerto_id                        :integer
+#  type_service                         :string
+#  paciente_id                          :integer
+#  auxiliar                             :string
+#  ubicacion                            :string
+#  lugar_de_atencion                    :string
 #  origin                               :string
 #  destination                          :string
 #  company                              :string
 #  reason_for_consultation              :text
 #  current_illness                      :text
-#  neunatales                           :boolean
+#  neunatales_true                      :boolean
+#  neunatales_false                     :boolean
 #  neunatales_description               :text
-#  patologicos                          :boolean
+#  patologicos_true                     :boolean
+#  patologicos_false                    :boolean
 #  patologicos_description              :text
-#  quirurgicos                          :boolean
+#  quirurgicos_true                     :boolean
+#  quirurgicos_false                    :boolean
 #  quirurgicos_description              :text
-#  farmacologicos                       :boolean
+#  farmacologicos_true                  :boolean
+#  farmacologicos_false                 :boolean
 #  farmacologicos_description           :text
-#  alergicos                            :boolean
+#  alergicos_true                       :boolean
+#  alergicos_false                      :boolean
 #  alergicos_description                :text
-#  toxicos                              :boolean
+#  toxicos_true                         :boolean
+#  toxicos_false                        :boolean
 #  toxicos_description                  :text
-#  traumaticos                          :boolean
+#  traumaticos_true                     :boolean
+#  traumaticos_false                    :boolean
 #  traumaticos_description              :text
-#  hospitables                          :boolean
+#  hospitables_true                     :boolean
+#  hospitables_false                    :boolean
 #  hospitables_description              :text
-#  atep_laboral                         :boolean
+#  atep_laboral_true                    :boolean
+#  atep_laboral_false                   :boolean
 #  atep_laboral_description             :text
-#  familiar                             :boolean
+#  familiar_true                        :boolean
+#  familiar_false                       :boolean
 #  familiar_description                 :text
-#  inmunologicos                        :boolean
+#  inmunologicos_true                   :boolean
+#  inmunologicos_false                  :boolean
 #  inmunologios_description             :text
-#  asociado_viajes_de_vuelo             :boolean
+#  asociado_viajes_de_vuelo_true        :boolean
+#  asociado_viajes_de_vuelo_false       :boolean
 #  asociado_viajes_de_vuelo_description :text
 #  menstrual_cycle                      :integer
 #  gestational_age                      :string
 #  eco                                  :string
+#  menarquia                            :string
+#  fecha_ultima_citologia               :date
+#  fecha_ultima_mamografia              :date
 #  fum                                  :integer
-#  pregnancy                            :boolean
+#  pregnancy_true                       :boolean
+#  pregnancy_false                      :boolean
 #  g                                    :string
 #  p                                    :string
 #  c                                    :string
@@ -75,25 +91,33 @@
 #  m                                    :string
 #  v                                    :string
 #  e                                    :string
-#  cardiovascular                       :boolean
+#  cardiovascular_true                  :boolean
+#  cardiovascular_false                 :boolean
 #  cardiovascular_description           :text
-#  respiratory                          :boolean
+#  respiratory_true                     :boolean
+#  respiratory_false                    :boolean
 #  respiratory_description              :text
-#  abdominal                            :boolean
+#  abdominal_true                       :boolean
+#  abdominal_false                      :boolean
 #  abdominal_description                :text
-#  genito_urinario                      :boolean
+#  genito_urinario_true                 :boolean
+#  genito_urinario_false                :boolean
 #  genito_urinario_description          :text
-#  neurological                         :boolean
+#  neurological_true                    :boolean
+#  neurological_false                   :boolean
 #  neurological_description             :text
-#  mental                               :boolean
+#  mental_true                          :boolean
+#  mental_false                         :boolean
 #  mental_description                   :text
-#  sense_organ                          :boolean
+#  sense_organ_true                     :boolean
+#  sense_organ_false                    :boolean
 #  sense_organ_description              :string
-#  skeletal_muscle                      :boolean
+#  skeletal_muscle_true                 :boolean
+#  skeletal_muscle_false                :boolean
 #  skeletal_muscle_description          :text
-#  skin_and_appendages                  :boolean
-#  skin_and_appendages_description      :text
-#  ta_mmgh                              :string
+#  ta_mmgh_diastole                     :string
+#  ta_mmgh_sistole                      :string
+#  glucometria                          :string
 #  heart_rate                           :string
 #  breathing_frequency                  :string
 #  sat_of_o_ambiente                    :string
@@ -101,38 +125,59 @@
 #  temperature                          :string
 #  weight_in_kilograms                  :string
 #  height_in_centimeters                :string
-#  glucose                              :string
-#  measurement                          :string
-#  head                                 :boolean
+#  head_true                            :boolean
+#  head_false                           :boolean
 #  head_description                     :text
-#  neck                                 :boolean
+#  neck_true                            :boolean
+#  neck_false                           :boolean
 #  neck_description                     :text
-#  rib_cage                             :boolean
+#  rib_cage_true                        :boolean
+#  rib_cage_false                       :boolean
 #  rib_cage_description                 :text
-#  heart                                :boolean
+#  heart_true                           :boolean
+#  heart_false                          :boolean
 #  heart_description                    :text
-#  lungs                                :boolean
+#  lungs_true                           :boolean
+#  lungs_false                          :boolean
 #  lungs_description                    :text
-#  abdomen                              :boolean
+#  abdomen_true                         :boolean
+#  abdomen_false                        :boolean
 #  abdomen_description                  :text
-#  genitourinary                        :boolean
+#  genitourinary_true                   :boolean
+#  genitourinary_false                  :boolean
 #  genitourinary_description            :text
-#  rectum                               :boolean
+#  rectum_true                          :boolean
+#  rectum_false                         :boolean
 #  rectum_description                   :text
-#  extremities                          :boolean
+#  extremities_true                     :boolean
+#  extremities_false                    :boolean
 #  extremities_description              :text
-#  alteration                           :integer
+#  skin_and_appendages_true             :boolean
+#  skin_and_appendages_false            :boolean
+#  skin_and_appendages_description      :text
+#  piel_y_faneras2_true                 :boolean
+#  piel_y_faneras2_false                :boolean
+#  piel_y_faneras2_descripcion          :text
+#  alteration                           :string
 #  eye_opening                          :integer
 #  verbal_answer                        :integer
 #  motor_response                       :integer
-#  other_signs                          :integer
+#  other_signs                          :string
+#  escala_de_glasgow                    :integer
 #  analysis                             :text
 #  print_diagnosed                      :text
 #  plan_and_treatment                   :text
 #  observations_recommendations         :text
+#  evento_adverso                       :text
+#  estado                               :boolean
+#  glucometria1                         :integer
+#  glucometria2                         :integer
+#  electrocardiograma                   :text
 #  created_at                           :datetime         not null
 #  updated_at                           :datetime         not null
 #
+
+
 
 class HistoriaClinica < ActiveRecord::Base
 
@@ -148,12 +193,25 @@ class HistoriaClinica < ActiveRecord::Base
 
   has_many :diagnosticos
   has_many :procedimientos
+  has_many :notas_progreso
 
   accepts_nested_attributes_for :diagnosticos, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :procedimientos, reject_if: :all_blank, allow_destroy: true
 
- 
- 
+  validates :aeropuerto_id, :presence => { message: " Es un Campo Obligatorio" }
+  validates :condicion, :presence => { message: " Es un Campo Obligatorio" }
+  validates :type_service, :presence => { message: " Es un Campo Obligatorio" }
+  validates :company, :presence => { message: " Es un Campo Obligatorio" }
+  validates :lugar_de_atencion, :presence => { message: " Es un Campo Obligatorio" }
+  validates :origin, :presence => { message: " Es un Campo Obligatorio" }
+  validates :destination, :presence => { message: " Es un Campo Obligatorio" }
+  validates :reason_for_consultation, :presence => { message: " Es un Campo Obligatorio" }
+  validates :current_illness, :presence => { message: " Es un Campo Obligatorio" }
+
+
+
+
+
 
   cattr_accessor :form_steps do
     %w(a_historia_clinica b_antecedentes c_revision_sistemas d_examen_fisico e_impresion_diagnostica)

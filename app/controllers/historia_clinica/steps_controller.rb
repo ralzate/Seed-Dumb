@@ -66,7 +66,7 @@ class HistoriaClinica::StepsController < ApplicationController
 
        when "e_impresion_diagnostica"
           [:analysis, :print_diagnosed, :plan_and_treatment, :observations_recommendations, :evento_adverso, :estado,
-            :glucometria1, :glucometria2, :electrocardiograma]
+            :glucometria1, :glucometria2, :electrocardiograma,  :estado]
        end
 
 

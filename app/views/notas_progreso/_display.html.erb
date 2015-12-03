@@ -1,0 +1,95 @@
+<div>
+
+<div>
+    <div>
+    <table class="table table-bordered">
+    <thead>
+
+
+
+
+<table class="table table-bordered" style="margin-top:-30px;">
+  
+
+<tr>
+      <th  colspan="5">
+        
+                            <%= form_tag request.path, :method => 'get', :class => '' do %>
+
+<div>
+  <div class="row">
+
+    <div class="col-lg-5 ">
+
+            <div class="input-group custom-search-form">
+              <%= text_field_tag :search, params[:search], :placeholder => "Busca por el Nombre", :class => 'form-control' %>
+              <span class="input-group-btn">
+
+
+<%= button_tag(type: "submit", class: "btn principal") do %>
+              <span class="glyphicon glyphicon-search"></span>
+                          <% end %>
+
+             </span>
+             </div><!-- /input-group -->
+        </div>
+  </div>
+</div>
+                    <% end %>
+
+
+
+      </th>
+
+</tr>
+
+
+    <tr>
+      <th width="4% !important;">Id</th>
+      <th width="41% !important;">Nombres</th>
+      <th width="41% !important;">Documento</th>
+      <th width="14% !important;">Opciones</th>
+    </tr>
+
+<% @notas_progreso.each do |nota_progreso| %>
+
+  <tr>
+
+
+    <td><%= nota_progreso.id %></td>
+    <td><%= nota_progreso.nombre_paciente %></td> 
+    <td><%= nota_progreso.documento_paciente %></td>
+
+<td>
+
+    <%= link_to 'Mostrar',  paciente_historia_clinica_nota_progreso_path(@paciente,@historia_clinica,nota_progreso),  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-primary btn-xs color_blanco principal'%>
+
+
+
+
+
+    <%= link_to 'Editar', edit_paciente_historia_clinica_nota_progreso_path(@paciente,@historia_clinica,nota_progreso),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>
+</td>
+
+  </tr>
+  
+<% end %>
+
+</table>
+
+
+<style type="text/css">
+
+.eliminar {
+    color: red;
+}
+
+</style>
+
+
+</div>
+<style type="text/css">
+    @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+body{margin-top:20px;}
+.fa-fw {width: 2em;}
+</style>

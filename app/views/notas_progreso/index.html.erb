@@ -1,0 +1,43 @@
+<br/><br/><br/><br/>
+
+<div class="row">
+<div class="full col-sm-9 full2">
+
+
+
+
+
+    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Listado de  <span>Notas de Progreso</span></h1></span>
+
+
+    <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @notas_progreso, renderer: BootstrapPagination::Rails %>
+</span>
+
+
+
+
+    <span  class="btn btn-link btn-xs  pagination pagination pull-right"><%= link_to 'Nueva Nota de Progreso', new_paciente_historia_clinica_nota_progreso_path(@paciente,@historia_clinica,@nota_progreso), :class => "btn  principal" %></span>
+
+<div class="row new_blog">
+<div class="col-md-6" id="task-form" style="display:none;"></div>
+</div>
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12 " id="tasks">
+    <%= render partial: "display" %>
+  </div>
+</div>
+</div>
+
+
+
+
+
+                                    
+             

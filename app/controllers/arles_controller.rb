@@ -6,7 +6,7 @@ class ArlesController < ApplicationController
   respond_to :html
 
   def index
-     @arles = Arl.search(params[:search]).page(params[:page]).per_page(2)
+     @arles = Arl.search(params[:search]).page(params[:page]).per_page(10)
     respond_to do |format|
       format.html
       format.json

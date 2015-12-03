@@ -26,3 +26,6 @@ rails g scaffold progress_note patient_name:string patient_document:string type_
 
 
 rails g scaffold diagnostico familia:string codigo:string simbolo:string descripcion:text codigo:string historia_clinica:references
+
+
+rails g scaffold empresa nombre:string

@@ -49,16 +49,40 @@ $('#teams').tooltip('show')
 
 
 $(document).on("ready page:load", function() {
-$('.js-filter').on("ajax:success", function (e,data,status,xhr){
-alert("hola")
-$('.personal').html(data)
+
+function capitalize(s)
+{
+    return s[0].toUpperCase() + s.slice(1);
+}
+
+$('.trs1').on("keyup", function (){
+    a = capitalize($('.trs1').val())
+$('.trs1').val(a);
+
+});
+
+$('.trs2').on("keyup", function (){
+    a = capitalize($('.trs2').val())
+$('.trs2').val(a);
+
+});
+
+$('.trs3').on("keyup", function (){
+    a = capitalize($('.trs3').val())
+$('.trs3').val(a);
+
+});
+
+$('.trs4').on("keyup", function (){
+    a = capitalize($('.trs4').val())
+$('.trs4').val(a);
+
 });
 
 
-function () {
-$('.js-filter').click(function (){
-alert("hola");
-});
+
+
+
 
 });
 

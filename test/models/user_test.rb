@@ -4,10 +4,9 @@
 #
 #  id                              :integer          not null, primary key
 #  email                           :string           not null
-#  first_name                      :string
-#  second_name                     :string
-#  first_surname                   :string
-#  second_surname                  :string
+#  nombre_usuario                  :string
+#  names                           :string
+#  surnames                        :string
 #  type_document                   :integer
 #  document                        :string
 #  medical_record                  :string
@@ -26,7 +25,6 @@
 #  activation_token                :string
 #  activation_token_expires_at     :datetime
 #  picture                         :string
-#  admin                           :boolean          default(FALSE)
 #  failed_logins_count             :integer          default(0)
 #  lock_expires_at                 :datetime
 #  unlock_token                    :string

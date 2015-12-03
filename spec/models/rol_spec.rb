@@ -2,11 +2,11 @@
 #
 # Table name: roles
 #
-#  id           :integer          not null, primary key
-#  name         :string
-#  restrictions :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id          :integer          not null, primary key
+#  nombre      :string
+#  descripcion :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 require 'rails_helper'

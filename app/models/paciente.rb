@@ -1,31 +1,30 @@
 # == Schema Information
 #
-# Table name: patients
+# Table name: pacientes
 #
-#  id             :integer          not null, primary key
-#  city_id        :integer
-#  first_name     :string
-#  second_name    :string
-#  first_surname  :string
-#  second_surname :string
-#  email          :string
-#  type_document  :integer
-#  document       :string
-#  days_age       :integer
-#  months_age     :integer
-#  years_age      :integer
-#  birthdate      :date
-#  gender         :integer
-#  profession     :string
-#  blood_type     :integer
-#  nacionality    :integer
-#  address        :string
-#  condition      :integer
-#  user_id        :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  country_code   :string
+#  id               :integer          not null, primary key
+#  ciudad_id        :integer
+#  primer_nombre    :string
+#  segundo_nombre   :string
+#  primer_apellido  :string
+#  segundo_apellido :string
+#  email            :string
+#  tipo_documento   :string
+#  documento        :string
+#  fecha_nacimiento :date
+#  genero           :string
+#  profesion        :string
+#  tipo_sangre      :string
+#  nacionalidad     :string
+#  direccion        :string
+#  condicion        :string
+#  user_id          :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  pais_codigo      :string
 #
+
+
 
 class Paciente < ActiveRecord::Base
   belongs_to :eps
@@ -63,7 +62,7 @@ class Paciente < ActiveRecord::Base
     where("primer_nombre like '%#{search}%'  or segundo_nombre like '%#{search}%' 
     or primer_apellido like '%#{search}%'  or segundo_apellido like '%#{search}%' 
     or email like '%#{search}%' or documento like '%#{search}%' or direccion like 
-    '%#{search}%'")
+    '%#{search}%'").order(:id)
 
 
   end

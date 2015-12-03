@@ -1,12 +1,14 @@
 # == Schema Information
 #
-# Table nombre: arles
+# Table name: arles
 #
 #  id         :integer          not null, primary key
-#  nombre       :string
+#  nombre     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+
+
 
 class Arl < ActiveRecord::Base
 
@@ -18,7 +20,7 @@ class Arl < ActiveRecord::Base
 
 
 
-  #validates :nombre, :presence => { :message => " es un Campo Obligatorio"}
+   #validates :nombre, :presence => { :message => " es un Campo Obligatorio"}
 
 	
   def self.search(search)

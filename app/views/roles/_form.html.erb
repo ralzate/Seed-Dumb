@@ -1,4 +1,9 @@
-<%= form_for(@rol, html: { multipart: true, :remote => true  }) do |f| %>
+
+
+<%= simple_form_for(@rol, :html => { :class => 'contact-form', :id => 'contact-form',  multipart: true, :remote => true }) do |f| %>
+
+
+
 
 
 <% if @rol.errors.any? %>
@@ -15,31 +20,63 @@
 
 
 
-<div class="user">
+<div class="user" >
   <div class="modal-header">
-    <h4 class="modal-title"><h3>Datos rol</h3></h4>
+    <h4 class="modal-title"><h3>Datos Rol</h3></h4>
   </div><br>
   <div class="row">
     <div class="col-md-4">
       Nombre:
     </div>
-    <div class="col-md-6">
-      <%= f.text_field :nombre,  placeholder: 'Campo Obligatorio', class: "form-control" %>
+    <div class="col-md-8">
+      <%= f.input :nombre,  placeholder: 'Campo Obligatorio', input_html: {class: "form-control new_blog"}, label: false,  :required => true %>
+
     </div>
   </div>
 
+<br>
   <div class="row">
     <div class="col-md-4">
-      Restricciones:
+      Descripción:
     </div>
-    <div class="col-md-6">
-      <%= f.text_area :restricciones,  placeholder: 'Campo Obligatorio', class: "form-control" %>
+    <div class="col-md-8">
+      <%= f.text_area :descripcion,  placeholder: 'Campo Obligatorio', class: "form-control new_blog", label: false,  :required => true %>
+
     </div>
   </div>
+
+
+
+
+ 
 
 </div>
 <div class="modal-footer">
-  <%= f.submit "Guardar", :class => 'btn btn-primary' %>
+  <%= f.submit "Guardar", :class => 'btn btn-info color_blanco custom' %>
   <a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
 </div>
+
+
+
 <% end %>
+
+<style type="text/css">
+  .modal-header{
+    background-color: #20B4BF !important;
+    color: #FFFFFF;
+  }
+
+  .custom{
+    background-color: #20B4BF !important;
+    color: #FFFFFF;
+  }
+
+
+  .panel{
+    border-color: #20B4BF;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+  }
+</style>

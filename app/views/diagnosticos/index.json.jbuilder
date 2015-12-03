@@ -1,4 +1,4 @@
-json.array!(@material_sheets) do |material_sheet|
-  json.extract! material_sheet, :id, :material_id, :cantidad, :sheet_id
-  json.url material_sheet_url(material_sheet, format: :json)
+json.array!(@diagnosticos) do |diagnostico|
+  json.extract! diagnostico, :id, :familia, :codigo, :simbolo, :descripcion, :codigo, :historia_clinica_id
+  json.url diagnostico_url(diagnostico, format: :json)
 end

@@ -1,11 +1,11 @@
 
-
+    
 
 
 
 <div class="container-fluid">    
         
-    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+    <div id="loginbox" style = "margin-top: 30px;" class="mainbox col-md-12 col-sm-12"> 
         
 
         
@@ -68,8 +68,9 @@
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px;">
-        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> Datos Paciente</h1></div>
+<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
+    margin-left: 0px!important;">
+        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <%= link_to "Regresar", root_path, :class=>"btn btn-info color_blanco mrg" %><br><br><span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> Datos Paciente</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
 
@@ -79,13 +80,13 @@
                     <label class="label">Primer Nombre</label>
                     <div class="form-group">
 
-                      <%= f.text_field :primer_nombre, class: "form-control ", placeholder: 'Primer Nombre' %>
+                      <%= f.text_field :primer_nombre, class: "form-control trs1"%>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <label class="label">Segundo Nombre</label>
                     <div class="form-group">
-                      <%= f.text_field :segundo_nombre, class: "form-control ", placeholder: 'Segundo Nombre' %>
+                      <%= f.text_field :segundo_nombre, class: "form-control trs2" %>
                     </div>
                   </div>
 
@@ -94,24 +95,24 @@
                     <label class="label">Primer Apellido</label>
                     <div class="form-group">
 
-                      <%= f.text_field :primer_apellido, class: "form-control ", placeholder: 'Primer Apellido' %>
+                      <%= f.text_field :primer_apellido, class: "form-control trs3" %>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <label class="label">Segundo Apellido</label>
                     <div class="form-group">
-                      <%= f.text_field :segundo_apellido, class: "form-control ", placeholder: 'Segundo Apellido' %>
+                      <%= f.text_field :segundo_apellido, class: "form-control trs4"%>
                     </div>
                   </div>
 
                </div>
 
-                <div class="row">
+                <div class="row sir">
 
                   <div class="col-md-4">
                     <label class="label">Email</label>
                     <div class="form-group">
-                      <%= f.text_field :email, class: 'form-control',  placeholder: 'Email' %>
+                      <%= f.text_field :email, class: 'form-control'%>
                     </div>
                   </div>
   
@@ -131,17 +132,17 @@
                   <div class="col-md-4">
                     <label class="label">Documento</label>
                     <div class="form-group">
-                        <%= f.text_field :documento, class: "form-control ",  placeholder: 'Documento',  id: 'document'  %>
+                        <%= f.text_field :documento, class: "form-control ",  id: 'document'  %>
                     </div>
                   </div>  
 
 
 
-                  <div class="col-md-4">
+                  <div class="col-md-4 sir">
                     <label class="label">Genero</label>
                     <div class="form-group">
                       <%= f.input :genero,
-                              prompt:       'Seleccionar un Genero',
+                              prompt:       'Seleccionar',
                               collection: @paciente.select_genero.sort,
                               error: false, label: false, 
                               input_html:   {class: 'form-control '}  %>
@@ -150,7 +151,7 @@
                   </div>
               
 
-                <div class="col-md-4">
+                <div class="col-md-4 sir">
                   <label class="label">Fecha de Nacimiento</label>
                     <div class="form-group">
                       <%= f.date_select :fecha_nacimiento,{
@@ -169,11 +170,11 @@
 
 
 
-                  <div class="col-md-4">
+                  <div class="col-md-4 sir">
                     <label class="label">Tipo Sanguineo</label>
                     <div class="form-group">
                       <%= f.input :tipo_sangre,
-                          prompt:       'Seleccionar un Tipo de Sangre',
+                          prompt:       'Seleccionar',
                           collection: @paciente.select_sangre.sort,
                           error: false, label: false, 
                           input_html:   {class: 'form-control fontf'} %>
@@ -183,7 +184,7 @@
 
                 </div>
 
-                <div class="row">
+                <div class="row sir">
                   
 
                   <div class="col-md-4">
@@ -191,7 +192,7 @@
                     <div class="form-group">
      
 
-                        <%= f.text_field :profesion, class: "form-control ",  placeholder: 'profession',  id: 'document'  %>
+                        <%= f.text_field :profesion, class: "form-control ",  id: 'document'  %>
 
 
 
@@ -201,7 +202,7 @@
                   <div class="col-md-4">
                     <label class="label">Direccion</label>
                     <div class="form-group">
-                      <%= f.text_field :direccion, class: 'form-control fontf',  placeholder: 'Dirección' %>
+                      <%= f.text_field :direccion, class: 'form-control fontf' %>
                     </div>
                   </div>
 
@@ -210,7 +211,7 @@
                   <div class="form-group">
                   <label class="label">Nacionalidad</label>
 
-                        <%= f.country_select :nacionalidad, {object: f.object, prompt: 'Campo Obligatorio'}, class: 'form-control' %>
+                        <%= f.country_select :nacionalidad, {object: f.object,:selected => 'CO'  }, class: 'form-control' %>
 
 
                       <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -223,12 +224,12 @@
 
 
 
-              <div class="row">
+              <div class="row sir">
 
                 <div class="col-md-4">
                   <label class="label">Ciudad</label>
                   <div class="form-group">
-                    <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control city"}  %>
+                    <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, {prompt: "Seleccionar"}, {class: "form-control city"}  %>
                   </div>
                 </div>
 
@@ -277,7 +278,7 @@
                <div class="well pie_form">
                 <div class="form-actions"  style = "text-align:center!important"> 
                     
-                        <%= link_to "Volver al inicio", root_path, :class=>"btn btn-info color_blanco mrg" %>
+                       
                         <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;">Borrar</button>
                         <%= f.submit "Guardar", :class => 'btn btn btn-info custom ' %>
                     

@@ -1,6 +1,6 @@
 module AeropuertoDecorator
 
-  	def select_department
+  	def select_departamento
     	[
 	        ['Amazonas', 'Amazonas'],
 	        ['Antioquia', 'Antioquia'],

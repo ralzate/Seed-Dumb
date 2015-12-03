@@ -22,20 +22,14 @@ class PacientesController < ApplicationController
 
   # GET /pacientes/1/edit
   def edit
+    
   end
 
   # POST /pacientes
   # POST /pacientes.json
   def create
     @paciente = Paciente.new(paciente_params)
-    @nom = @paciente.primer_nombre
-    @paciente.primer_nombre = @nom.capitalize
-    @nom1 = @paciente.segundo_nombre
-    @paciente.segundo_nombre = @nom1.capitalize
-    @nom = @paciente.primer_apellido
-    @paciente.primer_apellido = @nom.capitalize
-    @nom1 = @paciente.segundo_apellido
-    @paciente.segundo_apellido = @nom1.capitalize
+  
     respond_to do |format|
       if @paciente.save
         format.html { redirect_to new_paciente_historia_clinica_path(@paciente), notice: 'Historia Clinica was successfully created.' }
@@ -50,8 +44,10 @@ class PacientesController < ApplicationController
   # PATCH/PUT /pacientes/1
   # PATCH/PUT /pacientes/1.json
   def update
+ 
     respond_to do |format|
       if @paciente.update(paciente_params)
+
         format.html { redirect_to @paciente, notice: 'paciente was successfully updated.' }
         format.json { render :show, status: :ok, location: @paciente }
       else
@@ -75,6 +71,7 @@ class PacientesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_paciente
       @paciente = Paciente.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

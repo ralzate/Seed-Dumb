@@ -6,7 +6,7 @@ class EpsesController < ApplicationController
   respond_to :html
 
   def index
-     @epses = Eps.search(params[:search]).page(params[:page]).per_page(2)
+     @epses = Eps.search(params[:search]).page(params[:page]).per_page(10)
     respond_to do |format|
       format.html
       format.json

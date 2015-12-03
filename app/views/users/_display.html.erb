@@ -44,12 +44,15 @@
 </tr>
 
 
-  <tr class="header">
-    <th>Id</th>
-    <th>Usuario</th>
-    <th>Documento</th>
-    <th>Opciones</th>
-  </tr>
+
+
+    <tr>
+      <th width="4% !important;">Id</th>
+      <th width="41% !important;">Usuario</th>
+      <th width="41% !important;">Documento</th>
+      <th width="14% !important;">Opciones</th>
+    </tr>
+  
   
 <% @users.each do |user| %>
 
@@ -61,8 +64,11 @@
     <td><%= user.document %></td>
 
 <td>
+
+    <%= link_to 'Mostrar',  user,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-primary btn-xs color_blanco principal'%>
+
+
     <%= link_to 'Editar', edit_user_path(user),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>
-    <%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-xs color_blanco ' %>
 </td>
 
   </tr>

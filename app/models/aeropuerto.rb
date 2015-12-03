@@ -1,14 +1,15 @@
 # == Schema Information
 #
-# Table name: airports
+# Table name: aeropuertos
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  city_id    :integer
-#  department :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  nombre       :string
+#  ciudad_id    :integer
+#  departamento :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
+
 
 class Aeropuerto < ActiveRecord::Base
   belongs_to :ciudad

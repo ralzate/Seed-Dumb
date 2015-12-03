@@ -8,7 +8,7 @@
   </thead>
 
   <tbody>
-   
+  
       
          
     <tr>
@@ -20,9 +20,16 @@
         <%= link_to '| Ver Historias Clinicas(' + paciente.historias_clinicas.count.to_s + ')' , paciente_historias_clinicas_path(paciente), :class => "marg" %> 
  <br> <br>
 
- <%= link_to ' Nueva Historia Clinica',  new_paciente_historia_clinica_path(paciente), :class => "btn principal"  %> 
+ <%= link_to ' Nueva Historia Clinica',  new_paciente_historia_clinica_path(paciente), :class => "btn principal"  %>
 
- 
+<% if paciente.historias_clinicas.count != 0 
+@alejo = paciente.historias_clinicas.last
+  %>
+  
+<%= link_to ' Nueva Nota de Evolucion', new_paciente_historia_clinica_nota_progreso_path(paciente, @alejo.id), :class => "btn principal" %> 
+
+<%end%>
+
   <br> 
 
         </td>

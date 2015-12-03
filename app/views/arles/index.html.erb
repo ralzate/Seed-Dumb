@@ -3,10 +3,10 @@
 
 
 <br/><br/><br/><br/>
+<div class="container-fluid">
 
 <div class="row">
 <div class="full col-sm-9 full2">
-
 
 
 
@@ -16,33 +16,44 @@
 
     <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @arles, renderer: BootstrapPagination::Rails %>
 </span>
+<% if admin? %>
 
     <span  class="btn btn-link btn-xs  pagination pagination pull-right"><%= link_to 'Nueva Arl', new_arl_path, remote: true, :class => "btn  principal" %></span>
+<% end %>
 
 
-
-<div class="row new_blog">
-<div class="col-md-6" id="task-form" style="display:none;"></div>
-</div>
 
 
 
 
 <%= form_tag request.path, :method => 'get' do %>
-<%= content_tag :label do %>
-Buscar:
-<%= text_field_tag :search, params[:search], :placeholder => "Buscador Profesiones Usuarios" %>
-<%= submit_tag "Consultar", :name => nil %>
+  <%= content_tag :label do %>
+
+    <div class="col-lg-6">
+      <div class="input-group custom-search-form">
+        <%= text_field_tag :search, params[:search], :placeholder => "Buscador Arl", :class => "form-control"  %>
+        <span class="input-group-btn">
+        <%= button_tag(type: "submit", class: "btn btn-default") do %>
+            <i class="glyphicon glyphicon-search"></i>
+        <% end %>
+        </span>
+      </div><!-- /input-group -->
+    </div>
+
+  <% end %>
 <% end %>
-<% end %>
+
+
+
+
 <br />
 
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Nombre</th>
-      <th>Opciones</th>
+      <th width="4% !important;">Id</th>
+      <th width="82% !important;">Nombre</th>
+      <th width="14% !important;">Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -52,3 +63,4 @@ Buscar:
 
 
 
+</div>

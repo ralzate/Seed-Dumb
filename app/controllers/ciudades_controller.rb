@@ -6,7 +6,7 @@ class CiudadesController < ApplicationController
   respond_to :html
 
   def index
-     @ciudades = Ciudad.search(params[:search]).page(params[:page]).per_page(2)
+     @ciudades = Ciudad.search(params[:search]).page(params[:page]).per_page(10)
     respond_to do |format|
       format.html
       format.json

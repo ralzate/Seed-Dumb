@@ -11,4 +11,8 @@ $('.query').on("keyup", function (e){
 $('.js-filter').submit();
 
 });
+
+
+
+
 });

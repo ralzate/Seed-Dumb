@@ -1,12 +1,14 @@
 # == Schema Information
 #
-# Table nombre: epses
+# Table name: epses
 #
 #  id         :integer          not null, primary key
-#  nombre       :string
+#  nombre     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+
+
 
 class Eps < ActiveRecord::Base
 	   has_many :pacientes

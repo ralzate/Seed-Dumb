@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201123619) do
+ActiveRecord::Schema.define(version: 20151203151203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,12 @@ ActiveRecord::Schema.define(version: 20151201123619) do
   end
 
   add_index "diagnosticos", ["historia_clinica_id"], name: "index_diagnosticos_on_historia_clinica_id", using: :btree
+
+  create_table "empresas", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "epses", force: :cascade do |t|
     t.string   "nombre"
@@ -240,7 +246,7 @@ ActiveRecord::Schema.define(version: 20151201123619) do
     t.text     "plan_and_treatment"
     t.text     "observations_recommendations"
     t.text     "evento_adverso"
-    t.string   "estado"
+    t.boolean  "estado"
     t.integer  "glucometria1"
     t.integer  "glucometria2"
     t.text     "electrocardiograma"
@@ -317,6 +323,20 @@ ActiveRecord::Schema.define(version: 20151201123619) do
 
   add_index "material_sheets", ["sheet_id"], name: "index_material_sheets_on_sheet_id", using: :btree
 
+  create_table "notas_progreso", force: :cascade do |t|
+    t.string   "nombre_paciente"
+    t.string   "documento_paciente"
+    t.string   "tipo_documento"
+    t.integer  "edad"
+    t.string   "registro_medico"
+    t.text     "descripcion"
+    t.integer  "historia_clinica_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "notas_progreso", ["historia_clinica_id"], name: "index_notas_progreso_on_historia_clinica_id", using: :btree
+
   create_table "pacientes", force: :cascade do |t|
     t.integer  "ciudad_id"
     t.string   "primer_nombre"
@@ -365,25 +385,11 @@ ActiveRecord::Schema.define(version: 20151201123619) do
 
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
-  create_table "progress_notes", force: :cascade do |t|
-    t.string   "patient_name"
-    t.string   "patient_document"
-    t.string   "type_document"
-    t.integer  "age"
-    t.string   "medical_record"
-    t.text     "description"
-    t.integer  "historia_clinica_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
-  add_index "progress_notes", ["historia_clinica_id"], name: "index_progress_notes_on_historia_clinica_id", using: :btree
-
   create_table "roles", force: :cascade do |t|
     t.string   "nombre"
-    t.string   "restricciones"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "sheets", force: :cascade do |t|
@@ -443,8 +449,8 @@ ActiveRecord::Schema.define(version: 20151201123619) do
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "material_sheets", "sheets"
+  add_foreign_key "notas_progreso", "historias_clinicas"
   add_foreign_key "pacientes", "users"
   add_foreign_key "procedimientos", "historias_clinicas"
   add_foreign_key "products", "users"
-  add_foreign_key "progress_notes", "historias_clinicas"
 end

@@ -12,6 +12,7 @@
 #  updated_at  :datetime         not null
 #
 
+
 class Product < ActiveRecord::Base
   belongs_to :user
 
