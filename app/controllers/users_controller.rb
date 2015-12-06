@@ -2,9 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :current_user?, only: [:edit, :update, :destroy]
   skip_before_filter :require_login, only: [:new, :create, :show]
-  before_action :authorize
-
-  
+before_action :authorize
 
   # GET /users
   # GET /users.json
@@ -83,7 +81,7 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      @user = User.where(names: params[:id]).first
+      @user = User.where(nombres: params[:id]).first
       unless @user
         return redirect_back_or_to root_path, notice: 'could not find user'
       end
@@ -91,7 +89,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nombre_usuario, :names, :surnames , :type_document, :document, :rol_id,
-      :medical_record, :email, :password, :password_confirmation, :picture, :username)
+      params.require(:user).permit(:nombre_usuario, :nombres, :apellidos , :tipo_documento, :documento, :rol_id,
+      :registro_medico, :email, :password, :password_confirmation, :picture)
     end
 end

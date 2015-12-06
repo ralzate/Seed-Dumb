@@ -402,11 +402,11 @@ ActiveRecord::Schema.define(version: 20151203151203) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                                       null: false
     t.string   "nombre_usuario"
-    t.string   "names"
-    t.string   "surnames"
-    t.integer  "type_document"
-    t.string   "document"
-    t.string   "medical_record"
+    t.string   "nombres"
+    t.string   "apellidos"
+    t.integer  "tipo_documento"
+    t.string   "documento"
+    t.string   "registro_medico"
     t.integer  "rol_id"
     t.string   "crypted_password"
     t.string   "salt"

@@ -76,18 +76,18 @@
 
 
 
-          <% if @user.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-              <ul>
-              <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
-          <% end %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
 
@@ -105,14 +105,14 @@
                   <div class="col-md-3">
                     <label class="label">Nombres</label>
                     <div class="form-group">
-                        <%= f.text_field :names, class: "form-control ", required: true, placeholder: 'Nombres',  id: 'document'  %>
+                        <%= f.text_field :nombres, class: "form-control ", placeholder: 'Nombres',  id: 'document'  %>
                     </div>
                   </div>  
 
 <div class="col-md-3">
                     <label class="label">Apellidos</label>
                     <div class="form-group">
-                        <%= f.text_field :surnames, class: "form-control ", required: true, placeholder: 'Apellidos',  id: 'document'  %>
+                        <%= f.text_field :apellidos, class: "form-control ", placeholder: 'Apellidos',  id: 'document'  %>
                     </div>
                   </div>  
 
@@ -136,7 +136,7 @@
                 <div class="col-md-3">
                     <label class="label">Documento</label>
                     <div class="form-group">
-                        <%= f.text_field :document, class: "form-control ", required: true, placeholder: 'Documento',  id: 'document'  %>
+                        <%= f.text_field :documento, class: "form-control ", placeholder: 'Documento',  id: 'document'  %>
                     </div>
                   </div>  
 
@@ -163,14 +163,14 @@
                     <label class="label ">Registro Medico</label>
                     <div class="form-group">
 
-                      <%= f.text_field :medical_record, class: 'ng-binding form-control multiples', required: true, placeholder: 'Registro Medico' %>
+                      <%= f.text_field :registro_medico, class: 'ng-binding form-control multiples', placeholder: 'Registro Medico' %>
                     </div>
                   </div>
 
                   <div class="col-md-3">
                     <label class="label">Email</label>
                     <div class="form-group">
-                      <%= f.text_field :email, class: 'form-control', required: true, placeholder: 'Email' %>
+                      <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
                     </div>
                   </div>
 
@@ -198,7 +198,7 @@
              <div class="col-md-3">
                     <label class="label">Nombre de Usuario</label>
                     <div class="form-group">
-                        <%= f.text_field :nombre_usuario, class: "form-control ", required: true, placeholder: 'Nombre de Usuario',  id: 'document'  %>
+                        <%= f.text_field :nombre_usuario, class: "form-control ", placeholder: 'Nombre de Usuario',  id: 'document'  %>
                     </div>
                   </div>  
 

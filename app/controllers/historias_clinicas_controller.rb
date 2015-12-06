@@ -2,19 +2,28 @@ class HistoriasClinicasController < ApplicationController
   # before_action :set_historia_clinica, only: [:show, :edit, :update, :destroy]
   before_action :set_historia_clinica
 
-  # GET /pets
-  # GET /pets.json
   def index
-    # Normally you'd have more complex requirements about
-    # when not to show rows, but we don't show any records that don't have a name
-
     @historias_clinicas = @paciente.historias_clinicas.search(params[:search]).page(params[:page]).per_page(2)
+ 
+   #respond_to do |format|
+    #  format.html
+     # format.pdf do 
+      #  pdf = HistoriasClinicasPdf.new(@historias_clinicas)
+      #  send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', :disposition => "inline"
+    #  end
+   #end
 
   end
 
   # GET /pets/1
   # GET /pets/1.json
   def show
+
+
+ 
+
+
+
   end
 
   # GET /countries/1/edit

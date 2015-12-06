@@ -19,14 +19,54 @@ Licensed under MIT
     <%= link_to 'Volver a Historias Clinicas' , paciente_historias_clinicas_path(@paciente), :class => "btn btn-info color_blanco mrg" %> 
 
 
-    <a class="btn btn-info color_blanco mrg ">Imprimir Pdf</a>
-
+  <%= link_to 'Imprimir Pdf', paciente_historias_clinicas_path(@paciente, @historia_clinica, :format => "pdf"), target: '_blank',  :rel => "tooltip", :title => "Pdf", :class => 'btn btn-info color_blanco mrg' %>
 
     <a class="btn btn-info color_blanco mrg ">Imprimit Csv</a>
 
 
 </div>
 
+    <div class="row col-md-12 custyle">
+    <table class="table table-bordered">
+              <tr>
+                <th rowspan = "3"style="width:25%;">
+                 <%= link_to image_tag('Logo/logo.png',:size => "160x80", :class =>"ember-view "), root_path %>           
+                </th>
+                <th style="width:50%;" colspan="2">
+                 HISTORIA CLINICA             
+                </th>
+                <th style="width:30%;text-align:center;font-size:12px">
+                  Fecha: 20/11/2013<br>
+                  Revision 11-13            
+                </th>
+              </tr>
+              <tr>
+               
+               
+                 <th style="width:30%;">
+                 FECHA         
+                </th>
+                <th style="width:30%;">
+                  HORA MILITAR:             
+                </th>
+                 <th style="width:20%;text-align:center;font-size:12px">
+                  F GS 0RR <br>
+                  Version 5            
+                </th>
+              </tr>
+               <tr>
+               
+               
+                 <th colspan = "3" style="width:100%;">
+                 fDATOS GENERALES          
+                </th>
+                
+              </tr>
+
+
+    </table>
+    </div>
+</div>
 
 
 
@@ -1669,39 +1709,12 @@ Plan y Tratamiento
     </table>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
   </div>
-</div>
+
 
 <br>
 <br>

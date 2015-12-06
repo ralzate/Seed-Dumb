@@ -12,7 +12,7 @@
   
 
 <tr>
-      <th  colspan="5">
+      <th  colspan="6">
         
                             <%= form_tag request.path, :method => 'get', :class => '' do %>
 
@@ -45,10 +45,12 @@
 
 
     <tr>
-      <th width="4% !important;">Id</th>
-      <th width="41% !important;">Nombres</th>
-      <th width="41% !important;">Documento</th>
-      <th width="14% !important;">Opciones</th>
+      <th width="3% !important;">Id</th>
+      <th width="20% !important;">Fecha</th>
+      <th width="40% !important;">Descripción</th>
+      <th width="10% !important;">Responsable</th>
+      <th width="10% !important;">Cargo</th>
+      <th width="15% !important;">Opciones</th>
     </tr>
 
 <% @notas_progreso.each do |nota_progreso| %>
@@ -57,8 +59,10 @@
 
 
     <td><%= nota_progreso.id %></td>
-    <td><%= nota_progreso.nombre_paciente %></td> 
-    <td><%= nota_progreso.documento_paciente %></td>
+    <td><%= nota_progreso.created_at %></td>
+    <td><%= nota_progreso.descripcion %></td>
+    <td><%= current_user.name %></td>
+    <td><%= current_user.name %></td>
 
 <td>
 

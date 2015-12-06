@@ -138,3 +138,7 @@ group :development do
   # https://github.com/railsbp/rails_best_practices
   gem "rails_best_practices"
 end
+
+
+#gem 'prawn', '~> 1.2.1'
+#gem 'prawn-table', '~> 0.1.0'

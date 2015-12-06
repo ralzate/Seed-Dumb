@@ -51,13 +51,24 @@ class User < ActiveRecord::Base
   PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+\z/
 
 
-  # validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
-  validates :password, :presence  => true, :confirmation => true, :on => :update
+
+  validates :email, :presence => { :message => " es un Campo Obligatorio" }
+
+  validates :password, :presence  => { :message => " es un Campo Obligatorio" }, :confirmation => true, :on => :update
+  validates :password, :presence => { :message => " es un Campo Obligatorio" }
 
 
-  validates :password, presence: true, length: { minimum: 3 }, confirmation: true, if: :new_user?
-  # validates :email, uniqueness: true, email_format: { message: 'has invalid format' }
-  validates :names, presence: true, length: { minimum:4 }
+  validates :password,  length: { minimum: 3 }, confirmation: true, if: :new_user?
+  validates :email, uniqueness: true, email_format: { message: "  Ya fue registrado" }
+  validates :apellidos, :presence => {:message => ' es un Campo Obligatorio'}
+  #validates :tipo_documento, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :documento, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :nombres, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :rol_id, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :nombre_usuario, :presence => {:message => ' es un Campo Obligatorio'}
+
+
+
 
    def self.search(search)
     where("primer_nombre like '%#{search}%'  or second_name like '%#{search}%' 

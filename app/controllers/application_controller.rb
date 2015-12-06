@@ -11,24 +11,20 @@ class ApplicationController < ActionController::Base
   protected
   # Permisos Admin
   def admin?
-    #if current_user.rol_id === 1
-     #flash[:notice] = "Bienvenido #{current_user.email}"
-     #end 
-true
+      false
   end
-
 
 
   def authorize
     unless admin?
-      flash[:error] = "unauthorized access"
+      flash[:error] = "Acceso no Permitido"
       redirect_to root_path
       false
     end
   end
 
 
-  # Is Admin
+  # Permisos Medico
   def admin2?
     if current_user.rol_id === 2
      flash[:notice] = "Bienvenido #{current_user.email}"
@@ -42,6 +38,25 @@ true
       false
     end
   end
+
+
+
+  # Permisos Auxiliar
+  def admin3?
+    if current_user.rol_id === 3
+     flash[:notice] = "Bienvenido #{current_user.email}"
+    end
+  end
+  # Permisos
+  def authorize2
+    unless admin3?
+      flash[:error] = "Acceso no Permitido"
+      redirect_to root_path
+      false
+    end
+  end
+
+
 
 
   private
