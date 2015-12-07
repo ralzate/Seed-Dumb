@@ -1,4 +1,5 @@
  <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+<% if not @historia_clinica.errors.any? %>
 
    <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
@@ -9,6 +10,7 @@
     <%= link_to "4. Examen Fisico", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
 
     <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
+<% end %>
 
 
 
@@ -915,8 +917,13 @@
          <div class="well pie_form">
 
                 <div class="form-actions"  style = "text-align:center!important"> 
+
+<% if not @historia_clinica.errors.any? %>
+
+
                 <%= link_to "Regresar", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.third), :class=>"btn btn-info color_blanco custom" %>
                     
+<% end %>
                         <button type="rese  t" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px;">Borrar</button>
                         <%= f.submit "Siguiente", :class => 'btn btn btn-info  custom' %>
                     

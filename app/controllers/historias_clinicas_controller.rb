@@ -48,7 +48,7 @@ class HistoriasClinicasController < ApplicationController
     @historia_clinica.paciente_id = @paciente.id
 
     respond_to do |format|
-      if @historia_clinica.save
+      if @historia_clinica.save(validate: false)
         format.html { redirect_to paciente_historia_clinica_steps_path(@paciente, @historia_clinica,
          HistoriaClinica.form_steps.second), notice: 'Historia Clinica was successfully created.' }
 
@@ -106,13 +106,6 @@ class HistoriasClinicasController < ApplicationController
     end
 
 
-  def load_wizard
-    @wizard = ModelWizard.new(@historia_clinica || HistoriaClinica, session, params)
-    if self.action_name.in? %w[new edit]
-      @wizard.start
-    elsif self.action_name.in? %w[create update]
-      @wizard.process
-    end
-  end
+
 
 end

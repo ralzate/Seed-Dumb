@@ -1,4 +1,5 @@
  <div class="col-md-12" style = "margin:15px!important;text-align:center;">
+<% if not @historia_clinica.errors.any? %>
 
    <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
@@ -10,7 +11,7 @@
 
     <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
 
-
+<% end %>
 
 
 </div>
@@ -63,7 +64,7 @@
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
-<%= simple_form_for([@paciente, @historia_clinica], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+<%= form_for [@paciente, @historia_clinica], method: :put, url: wizard_path do |f| %>
 
 
 
@@ -73,7 +74,17 @@
      </div>
      <hr class="featurette-divider"></hr>
 
+  <% if @historia_clinica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@historia_clinica.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
+      <ul>
+      <% @historia_clinica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
 
@@ -340,8 +351,11 @@
          <div class="well pie_form">
 
                 <div class="form-actions"  style = "text-align:center!important"> 
+                <% if not @historia_clinica.errors.any? %>
+
                 <%= link_to "Regresar", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco custom" %>
-                    
+                                <% end %>
+
                         <button type="rese  t" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px;">Borrar</button>
                         <%= f.submit "Siguiente", :class => 'btn btn btn-info  custom' %>
                     

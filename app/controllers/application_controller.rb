@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   protected
   # Permisos Admin
   def admin?
-      false
+true
   end
 
 
