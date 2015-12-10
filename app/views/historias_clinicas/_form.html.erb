@@ -1,33 +1,630 @@
 
 
+
+
+
+
+
+
+
+
+<div class="container-fluid">    
+        
+    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+        
+
+    <style type="text/css">
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+        .panel-heading {
+            background-image: none;
+            background-color: #ECECEC;
+            color: #5bc0de;
+            font-family: 'Roboto', sans-serif;
+        }
+
+          .panel-title{
+            font-size: 30px;   
+          }
+          .pie_form{
+            background-image: none;
+            background-color: #ECECEC;
+            color: white;   
+          }
+          .line1
+          {
+            display: inline-block;
+            width: 30% !important;
+          }
+    </style>
+
+
+
+
+<div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
+  <div class="row">
 <%= form_for([@paciente, @historia_clinica]) do |f| %>
 
 
 
-  <% if f.object.errors.any? %>
-    <div class="error_messages">
-      <% f.object.errors.full_messages.each do |error| %>
-        <p><%= error %></p>
+  <% if @historia_clinica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@historia_clinica.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+      <% @historia_clinica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
+      </ul>
     </div>
   <% end %>
 
-  <fieldset>
-    <legend>Pet Characteristics</legend>
 
-    <div>
-      <%= f.label :auxiliar %>
-      <br />
-      <%= f.text_area :auxiliar, rows: 10 %>
-    </div>
 
-    <div>
-      <%= f.label :colour%>
-              <%= f.collection_select :aeropuerto_id, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
-    </div>
 
-    <div>
-      <%= f.submit 'Next Step' %>
+
+
+
+<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
+    margin-left: 0px!important;">
+        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <%= link_to "Regresar", pacientes_path, :class=>"btn btn-info color_blanco mrg" %><br><br><span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> DATOS GENERALES</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+
+
+
+         
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+          <div class="col-md-3">
+              <label>Auxiliar:</label> 
+
+
+
+              <%= f.text_field :a_auxiliar, class: 'form-control' , placeholder: 'Campo Obligatorio', label: false  %>
+
+          </div>
+
+
+
+
+          <div class="col-md-3">
+              <label>Aeropuerto:</label> 
+
+
+              <%= f.collection_select :a_aeropuerto, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+          </div>
+
+          <div class="col-md-3">
+              <label>Cove:</label> 
+              <%= f.text_field :a_cove, class: 'form-control', placeholder: 'Campo Obligatorio', label: false  %>
+
+
+          </div>
+         
+
+          <div class="col-md-3">
+              <label>Movil/Servicio:</label> 
+              <%= f.text_field :a_movil_servicio, class: 'form-control', placeholder: 'Campo Obligatorio', label: false  %>
+          </div>
+        </div>
+
+        <br/>
+        <br/>        <br/>
+        <br/>        <br/>
+
+
     </div>
-  </fieldset>
-<% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
+    margin-left: 0px!important;">
+        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 1 IDENTIFICACIÓN DEL PACIENTE</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+
+         
+
+
+
+<div class="container-fluid">
+    <div class="row">
+
+
+
+
+          <div class="col-md-4">
+              <label>Condición:</label> 
+              <%= f.select :a_condicion, [ 'Pasajero', 'Tripulante', 'Empleado', 'Visitante', 'Otro' ], {prompt: "Campo Obligatorio"},  {class: "form-control"} %>
+
+          </div>
+
+
+
+
+
+
+          <div class="col-md-4">
+              <label>Tipo Servicio:</label> 
+                    <%= f.select :a_tipo_servicio, [ 'Atención prehospitalaria', 'Valoración aptitud de vuelo', 'Enfermedad general', 'Evento laboral', 'Accidente de transito', 'Traslado', 'Otro tipo de accidente', 'Remisión'], {prompt: "Campo Obligatorio"},  {class: "form-control"} %>
+          </div>
+          <div class="col-md-4">
+
+              <label>Empresa:</label> 
+
+              <%= f.collection_select :a_empresa, Empresa.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+
+          </div>
+
+
+          
+        </div>
+
+        <br/>
+   
+    <div class="row">
+
+
+
+
+          <div class="col-md-4">
+
+          <label>Lugar de Atención:</label> 
+              <%= f.select :a_lugar_de_atencion, [ 'Interno(Sanidad)', 'Externo' ], {prompt: "Campo Obligatorio"}, {class: "form-control"}  %>
+          </div>
+
+
+          <div class="col-md-4">
+
+
+ <label>Origen:</label> 
+                  <%= f.collection_select :a_origen, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                  </div>
+
+          <div class="col-md-4">
+              <label>Destino:</label> 
+                  <%= f.collection_select :a_destino, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+
+
+          </div>
+           </div>
+
+             
+     <br/>
+    <div class="row">
+
+          <div class="col-md-4">
+              <label>Nombre Acompañante:</label> 
+                <%= f.text_field :a_nombre_acompañante, :class => 'form-control', id: "accompanist_name"  , placeholder: 'Campo Obligatorio', label: false  %>
+          </div>
+          <div class="col-md-4">
+              <label>Parentesco:</label> 
+
+                <%= f.text_field :a_parentesco, :class => 'form-control', id: "accompanist_name"   , placeholder: 'Campo Obligatorio', label: false  %>
+
+          </div>
+<div class="col-md-4">
+              <label>Telefono Acompañante:</label> 
+                <%= f.text_field :a_telefono, :class => 'form-control' , placeholder: 'Campo Obligatorio', label: false  %>
+
+          </div>
+          
+         
+        </div>
+                <br/>
+        
+        <div class="col-md-12">
+
+                    <div class="col-md-4">
+                        <label>Arl:</label> 
+                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado"} %>
+                    </div>
+
+
+
+                  <div class="col-md-4">
+
+              <label for="chkPassport" style="margin-top:30px;">
+                  <input type="checkbox" id="chkPassport" />
+                 La Arl no esta registrada?
+              </label>
+
+                  </div>
+
+              <div id="dvPassport" style="display: none">
+
+                  <%= f.simple_fields_for :arl do |builder| %>
+              <%#= builder.label :account_type %>
+
+                  <div class="col-md-4">
+                    <label class="label">Nueva Arl</label>
+                    <div class="form-group">
+                      <%= builder.text_field :nombre, class: 'form-control' %>
+                    </div>
+                  </div>
+
+
+
+              <%#= builder.label :account_number %>
+              <% end %>
+
+
+              </div>
+
+         </div>
+
+        <br/>
+        <br/>        <br/>
+        <br/>
+ 
+
+        <div class="col-md-12">
+          
+
+              <div class="col-md-4">
+                  <label>Eps:</label> 
+                  <%= f.collection_select :eps_id, Eps.all, :id, :nombre, {prompt: "Selecciones una Eps"}, {class: "form-control eps"} %>
+              </div>
+
+
+
+
+                  <div class="col-md-4">
+
+              <label for="chkPassport2">
+                  <input type="checkbox" id="chkPassport2"  style="margin-top:30px;"/>
+                 La Eps no esta registrada?
+              </label>
+
+                  </div>
+
+              <div id="dvPassport2" style="display: none">
+
+                  <%= f.simple_fields_for :eps do |builder| %>
+              <%#= builder.label :account_type %>
+
+                  <div class="col-md-4">
+                    <label class="label">Nueva Eps</label>
+                    <div class="form-group">
+                      <%= builder.text_field :nombre, class: 'form-control' %>
+                    </div>
+                  </div>
+
+
+
+              <%#= builder.label :account_number %>
+              <% end %>
+
+
+              </div>
+
+
+
+
+
+
+
+        </div>
+
+
+        <br/>
+        <br/> 
+
+
+
+
+               <br/>
+        <br/>
+
+
+
+
+
+
+
+
+<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
+    margin-left: 0px!important;">
+        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 2 MOTIVO DE CONSULTA</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+
+
+         
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+          <div class="col-md-12">
+
+                <%= f.text_area :a_motivo_de_consulta, :class => 'form-control', id: "reason_for_consultation"  , placeholder: 'Campo Obligatorio', label: false  %>
+
+          </div>
+        </div>
+        <br/>
+        <br/>        <br/>
+        <br/>        <br/>
+    </div>
+</div>
+
+
+
+<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
+    margin-left: 0px!important;">
+        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 3 ENFERMEDAD ACTUAL</h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+
+
+
+
+         
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+          <div class="col-md-12">
+
+              <%= f.text_area :a_enfermedad_actual, :class => 'form-control', id: "current_illness", placeholder: 'Campo Obligatorio', label: false  %>
+          </div>
+        </div>
+        <br/>
+        <br/>        <br/>
+        <br/>        <br/>
+    </div>
+</div>
+
+
+
+      <%= f.hidden_field :p_user_id, :value => current_user.id %>
+      <%= f.hidden_field :paciente_id, :value => @paciente.id %>
+      <%= f.hidden_field :p_primer_nombre, :value => @paciente.primer_nombre %>
+      <%= f.hidden_field :p_segundo_nombre, :value => @paciente.segundo_nombre %>
+      <%= f.hidden_field :p_primer_apellido, :value => @paciente.primer_apellido %>
+      <%= f.hidden_field :p_segundo_apellido, :value => @paciente.segundo_apellido %>
+      <%= f.hidden_field :p_email, :value => @paciente.email %>
+      <%= f.hidden_field :p_tipo_documento, :value => @paciente.tipo_documento %>
+      <%= f.hidden_field :p_documento, :value => @paciente.documento %>
+      <%= f.hidden_field :p_fecha_nacimiento, :value => @paciente.fecha_nacimiento %>
+      <%= f.hidden_field :p_genero, :value => @paciente.genero %>
+      <%= f.hidden_field :p_profesion, :value => @paciente.profesion %>
+      <%= f.hidden_field :p_tipo_sangre, :value => @paciente.tipo_sangre %>
+      <%= f.hidden_field :p_nacionalidad, :value => @paciente.nacionalidad %>
+      <%= f.hidden_field :p_direccion, :value => @paciente.direccion %>
+      <%= f.hidden_field :p_ciudad, :value => @paciente.ciudad %>
+
+
+
+
+
+
+
+         <div class="well pie_form">
+
+                <div class="form-actions"  style = "text-align:center!important"> 
+
+
+
+                        <%= f.submit "Siguiente", :class => 'btn btn btn-info  custom' %>
+
+                </div>
+              </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+            <% end %>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+jQuery(document).ready(function() {
+   jQuery("#select").change(function() {
+      if(jQuery(this).find("option:selected").val() == "Empleado" ) {
+         jQuery(".habilitado").prop('disabled', false);
+      }
+      else if (jQuery(this).find("option:selected").val() != "Empleado" ) {
+         jQuery(".habilitado").prop('disabled', true);
+      }
+   });
+
+  jQuery("#select").change(function() {
+      if(jQuery(this).find("option:selected").val() == "Pasajero" ) {
+         jQuery(".habilitado").prop('disabled', false);
+      }
+
+
+   });
+
+
+
+});
+
+
+// Ocultar la arl para pasajero
+$(document).ready(function() {
+$('#disabled_input').attr('disabled','disabled');        
+$('select[name="historia_clinica[condicion]"]').on('change',function(){
+var  others = $(this).val();
+    if(others == "2"){           
+    $('#disabled_input').removeAttr('disabled');          
+     }else{
+     $('#disabled_input').attr('disabled','disabled'); 
+    }  
+
+  });
+});
+
+
+
+// Seleccionar una arl sin registrar una nueva
+$('.arl').change(function(e) {
+  if ($(this).prop("selectedIndex") != 0)
+    {
+        $('#chkPassport').prop('disabled', true);  
+    }
+    else
+    {
+        $('#chkPassport').prop('disabled', false);
+    }
+});
+
+
+
+// Seleccionar una eps sin registrar una nueva
+$('.eps').change(function(e) {
+  if ($(this).prop("selectedIndex") != 0)
+    {
+        $('#chkPassport2').prop('disabled', true);  
+    }
+    else
+    {
+        $('#chkPassport2').prop('disabled', false);
+    }
+});
+
+// Mostrar los Checkbox para agregar
+    $(function () {
+        $("#chkPassport").click(function () {
+            if ($(this).is(":checked")) {
+                $(".arl").prop('disabled', true);
+                $("#dvPassport").show();
+            } else {
+                $(".arl").prop('disabled', false);
+                $("#dvPassport").hide();
+            }
+        });
+    });
+
+    $(function () {
+        $("#chkPassport2").click(function () {
+            if ($(this).is(":checked")) {
+                $(".eps").prop('disabled', true);              
+                $("#dvPassport2").show();
+            } else {
+                $(".eps").prop('disabled', false);                            
+                $("#dvPassport2").hide();
+            }
+        });
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">    
+        
+    <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
+        
+
+    <style type="text/css">
+       
+
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+       
+
+
+        #current_illness{
+          width: 870px !important;
+        }
+        #reason_for_consultation{
+          width: 870px !important;
+        }
+
+        .panel-heading {
+            background-image: none;
+            background-color: #ECECEC;
+            color: #5bc0de;
+            font-family: 'Roboto', sans-serif;
+        }
+
+          .panel-title{
+            font-size: 30px;   
+          }
+          .pie_form{
+            background-image: none;
+            background-color: #ECECEC;
+            color: white;   
+          }
+          .line1
+          {
+            display: inline-block;
+            width: 30% !important;
+          }
+    </style>
+
+

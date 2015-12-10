@@ -6,7 +6,7 @@
 	        <div class="fielset">
 	          <%= f.label :codigo %><br>
 
-	        <%= f.collection_select :codigo, Diagnostico.all, :codigo, :codigo, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+	        <%= f.collection_select :codigo, Cie10.all, :codigo, :codigo, {prompt: "Campo Obligatorio"}, {class: "form-control required"} %>
 	        </div>
 	    </div>
 
@@ -14,7 +14,7 @@
 	        <div class="fielset">
 			<%= f.label :descripcion %><br>
 
-	        <%= f.collection_select :descripcion, Diagnostico.all, :descripcion, :descripcion, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+	        <%= f.collection_select :descripcion, Cie10.all, :descripcion, :descripcion, {prompt: "Campo Obligatorio"}, {class: "form-control required"} %>
 	        </div>
 	    </div>
 	    <div class="col-sm-2 col-md-2">

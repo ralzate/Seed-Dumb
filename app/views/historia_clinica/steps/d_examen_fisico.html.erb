@@ -1,3 +1,87 @@
+ 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+
+
+
+<style type="text/css">
+      body {background: #ccc;
+    font-family: sans-serif;
+      padding:7%;
+    }
+     
+input {margin-bottom: 10px;}
+#signup label.error {
+  font-size: 0.8em;
+  color: #F00;
+  font-weight: bold;
+  display: block;
+    margin-bottom: 10px;
+}
+#signup  input.error, #signup select.error  {
+  background: #FFA9B8;
+  border: 1px solid red;
+}
+</style>
+
+
+<script type="text/javascript">
+   
+$(document).ready(function() {
+ $('#signup').validate({
+   
+   rules: {
+     email: {
+        required: true,
+        email: true
+     },
+     password: {
+        required: true,
+        rangelength:[8,16]
+     },
+     confirm_password: {equalTo:'#password'},
+     spam: "required"
+   }, //end rules
+   messages: {
+      email: {
+         required: "Please supply an e-mail address.",
+         email: "This is not a valid email address."
+       },
+      password: {
+        required: 'Please type a password',
+        rangelength: 'Password must be between 8 and 16 characters long.'
+      },
+      confirm_password: {
+        equalTo: 'The two passwords do not match.'
+      }
+   },
+   errorPlacement: function(error, element) { 
+       if ( element.is(":radio") || element.is(":checkbox")) {
+          error.appendTo( element.parent()); 
+        } else {
+          error.insertAfter(element);
+        } 
+    } 
+
+  }); // end validate 
+}); // end ready
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  <div class="col-md-12" style = "margin:15px!important;text-align:center;">
 <% if not @historia_clinica.errors.any? %>
 
@@ -80,7 +164,173 @@
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
-<%= simple_form_for([@paciente, @historia_clinica], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "checkout" }) do |f| %>
+<%= simple_form_for([@paciente, @historia_clinica], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "signup" }) do |f| %>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#selecctall').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+             document.getElementById('myRadio').checked = true;        
+             document.getElementById('myRadio2').checked = true;        
+             document.getElementById('myRadio3').checked = true;        
+             document.getElementById('myRadio4').checked = true;        
+             document.getElementById('myRadio5').checked = true;        
+             document.getElementById('myRadio6').checked = true;        
+             document.getElementById('myRadio7').checked = true;        
+             document.getElementById('myRadio8').checked = true;        
+             document.getElementById('myRadio9').checked = true;        
+             document.getElementById('myRadio10').checked = true;        
+             document.getElementById('myRadio11').checked = true;        
+             document.getElementById('myRadio12').checked = true;        
+             document.getElementById('myRadio13').checked = true;        
+             document.getElementById('selecctall2').checked = false;         
+             document.getElementById('myRadio14').checked = false;        
+             document.getElementById('myRadio15').checked = false;
+             document.getElementById('myRadio16').checked = false;
+             document.getElementById('myRadio17').checked = false;
+             document.getElementById('myRadio18').checked = false;
+             document.getElementById('myRadio19').checked = false;
+             document.getElementById('myRadio20').checked = false;
+             document.getElementById('myRadio21').checked = false;
+             document.getElementById('myRadio22').checked = false;
+             document.getElementById('myRadio23').checked = false;
+     
+        }
+    });
+
+    $('#selecctall2').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+
+             document.getElementById('myRadio14').checked = true;        
+             document.getElementById('myRadio15').checked = true;
+             document.getElementById('myRadio16').checked = true;
+             document.getElementById('myRadio17').checked = true;
+             document.getElementById('myRadio18').checked = true;
+             document.getElementById('myRadio19').checked = true;
+             document.getElementById('myRadio20').checked = true;
+             document.getElementById('myRadio21').checked = true;
+             document.getElementById('myRadio22').checked = true;
+             document.getElementById('myRadio23').checked = true;
+             document.getElementById('selecctall').checked = false;        
+             document.getElementById('myRadio').checked = false;        
+             document.getElementById('myRadio2').checked = false;        
+             document.getElementById('myRadio3').checked = false;        
+             document.getElementById('myRadio4').checked = false;        
+             document.getElementById('myRadio5').checked = false;        
+             document.getElementById('myRadio6').checked = false;        
+             document.getElementById('myRadio7').checked = false;        
+             document.getElementById('myRadio8').checked = false;        
+             document.getElementById('myRadio9').checked = false;        
+             document.getElementById('myRadio10').checked = false;        
+             document.getElementById('myRadio11').checked = false;        
+             document.getElementById('myRadio12').checked = false;        
+             document.getElementById('myRadio13').checked = false;         
+    
+        }
+    });
+    
+    
+});
+
+
+
+
+
+
+
+$(document).ready(function(){
+      $('#selecctall').click(function(){
+          if($(this).prop("checked") == true){
+               $('#text_requerido').addClass('required');
+               $('#text_requerido2').addClass('required');
+               $('#text_requerido3').addClass('required');
+               $('#text_requerido4').addClass('required');
+               $('#text_requerido5').addClass('required');
+               $('#text_requerido6').addClass('required');
+               $('#text_requerido7').addClass('required');
+               $('#text_requerido8').addClass('required');
+               $('#text_requerido9').addClass('required');
+               $('#text_requerido10').addClass('required');
+               $('#text_requerido11').addClass('required');
+               $('#text_requerido12').addClass('required');
+               $('#text_requerido13').addClass('required');
+
+          }
+      });
+      $('#selecctall2').click(function(){
+          if($(this).prop("checked") == true){
+            $('#text_requerido').removeClass('required');
+            $('#text_requerido').removeClass('error');
+            $('#text_requerido-error').hide(); 
+            $('#text_requerido2').removeClass('required');
+            $('#text_requerido2').removeClass('error');
+            $('#text_requerido2-error').hide(); 
+            $('#text_requerido3').removeClass('required');
+            $('#text_requerido3').removeClass('error');
+            $('#text_requerido3-error').hide(); 
+            $('#text_requerido4').removeClass('required');
+            $('#text_requerido4').removeClass('error');
+            $('#text_requerido4-error').hide();  
+            $('#text_requerido5').removeClass('required');
+            $('#text_requerido5').removeClass('error');
+            $('#text_requerido5-error').hide(); 
+            $('#text_requerido6').removeClass('required');
+            $('#text_requerido6').removeClass('error');
+            $('#text_requerido6-error').hide(); 
+            $('#text_requerido7').removeClass('required');
+            $('#text_requerido7').removeClass('error');
+            $('#text_requerido7-error').hide(); 
+            $('#text_requerido8').removeClass('required');
+            $('#text_requerido8').removeClass('error');
+            $('#text_requerido8-error').hide(); 
+            $('#text_requerido9').removeClass('required');
+            $('#text_requerido9').removeClass('error');
+            $('#text_requerido9-error').hide(); 
+            $('#text_requerido10').removeClass('required');
+            $('#text_requerido10').removeClass('error');
+            $('#text_requerido10-error').hide();                                
+            $('#text_requerido11').removeClass('required');
+            $('#text_requerido11').removeClass('error');
+            $('#text_requerido11-error').hide();            
+            $('#text_requerido12').removeClass('required');
+            $('#text_requerido12').removeClass('error');
+            $('#text_requerido12-error').hide();
+            $('#text_requerido13').removeClass('required');
+            $('#text_requerido13').removeClass('error');
+            $('#text_requerido13-error').hide();
+
+          }
+      });
+
+  });
+
+</script>
+
+
+
+
+
+
+  <% if @historia_clinica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@historia_clinica.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+      <% @historia_clinica.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 
 
@@ -110,26 +360,26 @@
 
          <div class="col-md-6"  style = "padding-right:2px;!important" >
           
-          <%= f.input :ta_mmgh_diastole, placeholder: 'mm', :input_html => { :class => 'form-control fs1' }, label: false %>
+          <%= f.input :d_ta_mmgh_diastole, placeholder: 'mm', :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
            </div>
       
           <div class="col-md-6" style = "padding-left:2px;!important" >
             
-            <%= f.input :ta_mmgh_sistole,placeholder: 'HG', :input_html => { :class => 'form-control fs1' }, label: false %>
+            <%= f.input :d_ta_mmgh_sistole,placeholder: 'HG', :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
              </div>
           </div>
       </div>
 
 
       <div class="col-md-3" >Frecuencía Cardiaca/Min:
-        <%= f.input :heart_rate, :input_html => { :class => 'form-control fs1' }, label: false %>
+        <%= f.input :d_frecuencia_cardiaca, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
       </div>
       <div class="col-md-3" >Frecuencía Respiratoria/Min:
-        <%= f.input :breathing_frequency, :input_html => { :class => 'form-control fs1' }, label: false %>
+        <%= f.input :d_frecuencia_respiratoria, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
       </div>
 
         <div class="col-md-3">Talla en Centimetros:
-        <%= f.input :height_in_centimeters, :input_html => { :class => 'form-control fs1' }, label: false %>
+        <%= f.input :d_talla_en_centimetros, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
       </div>
 
       </div>
@@ -145,16 +395,16 @@
     <div class="row">
       <div class="col-md-3">
         <label class="control-label" for="lastname">% SAT. de O2 Ambiente:</label>
-        <%= f.input :sat_of_o_ambiente, :input_html => { :class => 'form-control fs1' }, label: false %></label>
+        <%= f.input :d_sat_of_o_ambiente, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %></label>
       </div>
       <div class="col-md-3">% SAT. de 02 Suplementario:
-        <%= f.input :sat_of_o_supplementary, :input_html => { :class => 'form-control fs1' }, label: false %>
+        <%= f.input :d_sat_of_o_suplementario, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
       </div>
       <div class="col-md-3">Temperatura C°
-        <%= f.input :temperature, :input_html => { :class => 'form-control fs1' }, label: false %>
+        <%= f.input :d_temperatura, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
       </div>
       <div class="col-md-3">Peso en Kilogramos:
-        <%= f.input :weight_in_kilograms, :input_html => { :class => 'form-control fs1' }, label: false %>
+        <%= f.input :d_peso_en_kilogramos, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
       </div>
     </div>
     <br/>
@@ -164,7 +414,7 @@
       <div class="col-md-3" >
               <label class="control-label" for="lastname">Glucometría:</label>
 
-      <%= f.input :glucometria, :input_html => { :class => 'form-control fs1' }, label: false %>
+      <%= f.input :d_glucometria, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
       </div>
 
     </div>
@@ -193,11 +443,11 @@
 
 
             <th  colspan="1">
-               &nbsp;Seleccionar todos&nbsp;<input type="checkbox" id="checkAll"  />
+               &nbsp;Seleccionar todos Normales&nbsp;<input type="checkbox" id="selecctall">
             </th>
 
             <th  colspan="1">
-               &nbsp;Seleccionar todos &nbsp;<input type="checkbox" id="checkAll2"  />
+               &nbsp;Seleccionar todos Anormales&nbsp;<input type="checkbox" id="selecctall2">
             </th>
             <th  colspan="1">
             </th>
@@ -226,32 +476,28 @@
 
 
 
+
+
+
         <tbody>
           <tr id='addr0' class="selectme">
             <td align="center">
             Cabeza
             </td>
             <td align="center">
-              <%= f.check_box :head_true, class: 'checkItem myCheckbox1' %>
+              <%= f.radio_button(:d_cabeza, "TRUE", class: "required requerido", :title => "Debes Seleccionar una Opción", id: 'myRadio' )%>
             </td>
             <td align="center">
-              <%= f.check_box :head_false, class: 'checkItem2 myCheckbox12' %>
+                <%= f.radio_button(:d_cabeza, "FALSE", class: 'no_requerido', :id => "myRadio14" )%>
+
             </td>
             <td>
-            <%= f.text_field :head_description, class: 'form-control' %>
+            <%= f.text_field :d_cabeza_descripcion, class: 'form-control', :id => "text_requerido" %>
 
             </td>
           </tr>
 
           <tr id='addr1'></tr>
-
-
-
-   
-
-
-
-
 
 
           <tr id='addr0' class="selectme">
@@ -259,13 +505,13 @@
             Cuello
             </td>
             <td align="center">
-              <%= f.check_box :neck_true, class: 'checkItem myCheckbox2' %>
+              <%= f.radio_button(:d_cuello, "TRUE", class: "required requerido2", :title => "Debes Seleccionar una Opción", id: 'myRadio2' )%>
             </td>
             <td align="center">
-              <%= f.check_box :neck_false, class: 'checkItem2 myCheckbox22' %>
+                <%= f.radio_button(:d_cuello, "FALSE", class: 'no_requerido2', :id => "myRadio15" )%>
             </td>
             <td>
-            <%= f.text_field :neck_description, class: 'form-control' %>
+            <%= f.text_field :d_cuello_descripcion, class: 'form-control', :id => "text_requerido2" %>
 
             </td>
           </tr>
@@ -275,29 +521,6 @@
 
 
 
-
-
-
-
-
-
-          <tr id='addr0' class="selectme">
-            <td align="center">
-            Organo de los Sentidos
-            </td>
-            <td align="center">
-              <%= f.check_box :sense_organ_true, class: 'checkItem myCheckbox3' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :sense_organ_false, class: 'checkItem2 myCheckbox32' %>
-            </td>
-            <td>
-            <%= f.text_field :sense_organ_description, class: 'form-control' %>
-
-            </td>
-          </tr>
-
-          <tr id='addr1'></tr>
 
 
 
@@ -308,13 +531,13 @@
             Caja Toracica
             </td>
             <td align="center">
-              <%= f.check_box :rib_cage_true, class: 'checkItem myCheckbox4' %>
+              <%= f.radio_button(:d_caja_toracica, "TRUE", class: "required requerido3", :title => "Debes Seleccionar una Opción", id: 'myRadio3' )%>
             </td>
             <td align="center">
-              <%= f.check_box :rib_cage_false, class: 'checkItem2 myCheckbox42' %>
+              <%= f.radio_button(:d_caja_toracica, "FALSE", class: 'no_requerido3', :id => "myRadio16" )%>
             </td>
             <td>
-            <%= f.text_field :rib_cage_description, class: 'form-control' %>
+            <%= f.text_field :d_caja_toracica_descripcion, class: 'form-control', :id => "text_requerido3" %>
 
 
             </td>
@@ -324,28 +547,18 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
           <tr id='addr0' class="selectme">
             <td align="center">
             Corazón
             </td>
             <td align="center">
-              <%= f.check_box :heart_true, class: 'checkItem myCheckbox5' %>
+              <%= f.radio_button(:d_corazon, "TRUE", class: "required requerido4", :title => "Debes Seleccionar una Opción", id: 'myRadio4' )%>
             </td>
             <td align="center">
-              <%= f.check_box :heart_false, class: 'checkItem2 myCheckbox52' %>
+              <%= f.radio_button(:d_corazon, "FALSE", class: 'no_requerido4', :id => "myRadio17" )%>
             </td>
             <td>
-            <%= f.text_field :heart_description, class: 'form-control' %>
+            <%= f.text_field :d_corazon_descripcion, class: 'form-control', :id => "text_requerido4" %>
 
             </td>
           </tr>
@@ -358,13 +571,13 @@
             Pulmones
             </td>
             <td align="center">
-              <%= f.check_box :lungs_true, class: 'checkItem myCheckbox6' %>
+              <%= f.radio_button(:d_pulmones, "TRUE", class: "required requerido5", :title => "Debes Seleccionar una Opción", id: 'myRadio5' )%>
             </td>
             <td align="center">
-              <%= f.check_box :lungs_false, class: 'checkItem2 myCheckbox62' %>
+              <%= f.radio_button(:d_pulmones, "FALSE", class: 'no_requerido5', :id => "myRadio18" )%>
             </td>
             <td>
-            <%= f.text_field :lungs_description, class: 'form-control' %>
+            <%= f.text_field :d_pulmones_descripcion, class: 'form-control', :id => "text_requerido5" %>
 
             </td>
           </tr>
@@ -377,13 +590,13 @@
             Abdomen
             </td>
             <td align="center">
-              <%= f.check_box :abdomen_true, class: 'checkItem myCheckbox7' %>
+              <%= f.radio_button(:d_abdomen, "TRUE", class: "required requerido6", :title => "Debes Seleccionar una Opción", id: 'myRadio6' )%>
             </td>
             <td align="center">
-              <%= f.check_box :abdomen_false, class: 'checkItem2 myCheckbox72' %>
+              <%= f.radio_button(:d_abdomen, "FALSE", class: 'no_requerido6', :id => "myRadio19" )%>
             </td>
             <td>
-            <%= f.text_field :abdomen_description, class: 'form-control' %>
+            <%= f.text_field :d_abdomen_descripcion, class: 'form-control', :id => "text_requerido6" %>
 
             </td>
           </tr>
@@ -396,13 +609,14 @@
             Genito urinario
             </td>
             <td align="center">
-              <%= f.check_box :genitourinary_true, class: 'checkItem myCheckbox8' %>
+              <%= f.radio_button(:d_genito_urinario, "TRUE", class: "required requerido7", :title => "Debes Seleccionar una Opción", id: 'myRadio7' )%>
             </td>
             <td align="center">
-              <%= f.check_box :genitourinary_false, class: 'checkItem2 myCheckbox82' %>
+              <%= f.radio_button(:d_genito_urinario, "FALSE", class: 'no_requerido7', :id => "myRadio20" )%>
+
             </td>
             <td>
-            <%= f.text_field :genitourinary_description, class: 'form-control' %>
+            <%= f.text_field :d_genito_urinario_descripcion, class: 'form-control', :id => "text_requerido7" %>
 
             </td>
           </tr>
@@ -415,13 +629,13 @@
             Recto
             </td>
             <td align="center">
-              <%= f.check_box :rectum_true, class: 'checkItem myCheckbox9' %>
+              <%= f.radio_button(:d_recto, "TRUE", class: "required requerido8", :title => "Debes Seleccionar una Opción", id: 'myRadio8' )%>
             </td>
             <td align="center">
-              <%= f.check_box :rectum_false, class: 'checkItem2 myCheckbox92' %>
+              <%= f.radio_button(:d_recto, "FALSE", class: 'no_requerido8', :id => "myRadio21" )%>
             </td>
             <td>
-            <%= f.text_field :rectum_description, class: 'form-control' %>
+            <%= f.text_field :d_recto_descripcion, class: 'form-control', :id => "text_requerido8" %>
 
             </td>
           </tr>
@@ -436,31 +650,16 @@
             Extremidades
             </td>
             <td align="center">
-              <%= f.check_box :extremities_true, class: 'checkItem myCheckbox10' %>
+              <%= f.radio_button(:d_extremidades, "TRUE", class: "required requerido9", :title => "Debes Seleccionar una Opción", id: 'myRadio9' )%>
             </td>
             <td align="center">
-              <%= f.check_box :extremities_false, class: 'checkItem2 myCheckbox102' %>
+              <%= f.radio_button(:d_extremidades, "FALSE", class: 'no_requerido9', :id => "myRadio22" )%>
             </td>
             <td>
-            <%= f.text_field :extremities_description, class: 'form-control' %>
+            <%= f.text_field :d_extremidades_descripcion, class: 'form-control', :id => "text_requerido9" %>
 
             </td>
           </tr>
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
           <tr id='addr0' class="selectme">
@@ -468,13 +667,13 @@
             Piel y Faneras
             </td>
             <td align="center">
-              <%= f.check_box :piel_y_faneras2_true, class: 'checkItem myCheckbox11' %>
+              <%= f.radio_button(:d_piel_y_faneras, "TRUE", class: "required requerido10", :title => "Debes Seleccionar una Opción", id: 'myRadio10' )%>
             </td>
             <td align="center">
-              <%= f.check_box :piel_y_faneras2_false, class: 'checkItem2 myCheckbox112' %>
+              <%= f.radio_button(:d_piel_y_faneras, "FALSE", class: 'no_requerido10', :id => "myRadio23" )%>
             </td>
             <td>
-            <%= f.text_field :piel_y_faneras2_descripcion, class: 'form-control' %>
+            <%= f.text_field :d_piel_y_faneras_descripcion, class: 'form-control', :id => "text_requerido10" %>
 
             </td>
           </tr>
@@ -485,13 +684,13 @@
             Musculo esqueletico
             </td>
             <td align="center">
-              <%= f.check_box :skeletal_muscle_true, class: 'checkItem myCheckbox12' %>
+              <%= f.radio_button(:d_musculo_esqueletico, "TRUE", class: "required requerido11", :title => "Debes Seleccionar una Opción", id: 'myRadio11' )%>
             </td>
             <td align="center">
-              <%= f.check_box :skeletal_muscle_false, class: 'checkItem2 myCheckbox122' %>
+              <%= f.radio_button(:d_musculo_esqueletico, "FALSE", class: 'no_requerido11', :id => "myRadio24" )%>
             </td>
             <td>
-            <%= f.text_field :skeletal_muscle_description, class: 'form-control' %>
+            <%= f.text_field :d_musculo_esqueletico_descripcion, class: 'form-control', :id => "text_requerido11" %>
 
             </td>
           </tr>
@@ -502,13 +701,13 @@
             Mental
             </td>
             <td align="center">
-              <%= f.check_box :mental_true, class: 'checkItem myCheckbox13' %>
+              <%= f.radio_button(:d_mental, "TRUE", class: "required requerido12", :title => "Debes Seleccionar una Opción", id: 'myRadio12' )%>
             </td>
             <td align="center">
-              <%= f.check_box :mental_false, class: 'checkItem2 myCheckbox132' %>
+              <%= f.radio_button(:d_mental, "FALSE", class: 'no_requerido12', :id => "myRadio25" )%>
             </td>
             <td>
-            <%= f.text_field :mental_description, class: 'form-control' %>
+            <%= f.text_field :d_mental_descripcion, class: 'form-control', :id => "text_requerido12" %>
 
             </td>
           </tr>
@@ -520,13 +719,13 @@
             Nuurologico
             </td>
             <td align="center">
-              <%= f.check_box :neurological_true, class: 'checkItem myCheckbox14' %>
+              <%= f.radio_button(:d_neurologico, "TRUE", class: "required requerido13", :title => "Debes Seleccionar una Opción", id: 'myRadio13' )%>
             </td>
             <td align="center">
-              <%= f.check_box :neurological_false, class: 'checkItem2 myCheckbox142' %>
+              <%= f.radio_button(:d_neurologico, "FALSE", class: 'no_requerido13', :id => "myRadio26" )%>
             </td>
             <td>
-            <%= f.text_field :neurological_description, class: 'form-control' %>
+            <%= f.text_field :d_neurologico_descripcion, class: 'form-control', :id => "text_requerido13" %>
 
             </td>
           </tr>
@@ -553,35 +752,35 @@
             <%= label_tag 'alteration_de_sensibilidad', 'De Sensibilidad' %>
             </th>
             <th  colspan="1" >
-             <%= check_box_tag 'historia_clinica[alteration][]', 'De Sensibilidad', checked('De Sensibilidad'), id: 'alteration_de_sensibilidad' %>
+             <%= check_box_tag 'historia_clinica[d_alteracion][]', 'De Sensibilidad', checked('De Sensibilidad'), id: 'alteration_de_sensibilidad', class: 'required', :title => "Debes Seleccionar una Opción" %>
             </th>
 
              <th  colspan="1" style = "text-align:right!important;">
-           <%= label_tag 'alteration_de_motricidad', 'De Motricidad' %>
+           <%= label_tag 'alteration_de_motricidad', 'De Motricidad', class: 'required' %>
             </th>
             <th  colspan="1" >
-             <%= check_box_tag 'historia_clinica[alteration][]', 'De Motricidad', checked('De Motricidad'), id: 'alteration_de_motricidad' %>
+             <%= check_box_tag 'historia_clinica[d_alteracion][]', 'De Motricidad', checked('De Motricidad'), id: 'alteration_de_motricidad', class: 'required' %>
             </th>
 
             <th  colspan="1" style = "text-align:right!important;">
            <%= label_tag 'alteration_cognitiva', 'Cognitiva' %>
             </th>
             <th  colspan="1" >
-            <%= check_box_tag 'historia_clinica[alteration][]', 'Cognitiva', checked('Cognitiva'), id: 'alteration_cognitiva' %>
+            <%= check_box_tag 'historia_clinica[d_alteracion][]', 'Cognitiva', checked('Cognitiva'), id: 'alteration_cognitiva', class: 'required' %>
             </th>
 
              <th  colspan="1" style = "text-align:right!important;">
-           <%= label_tag 'alteration_sensorial', 'Sensorial' %>
+           <%= label_tag 'alteration_sensorial', 'Sensorial', class: 'required' %>
             </th>
             <th  colspan="1" >
-            <%= check_box_tag 'historia_clinica[alteration][]', 'Sensorial', checked('Sensorial'), id: 'alteration_sensorial' %>
+            <%= check_box_tag 'historia_clinica[d_alteracion][]', 'Sensorial', checked('Sensorial'), id: 'alteration_sensorial', class: 'required' %>
             </th>
 
              <th  colspan="1" style = "text-align:right!important;">
-          <%= label_tag 'alteration_del_lenguaje', 'Del Lenguaje' %>
+          <%= label_tag 'alteration_del_lenguaje', 'Del Lenguaje', class: 'required' %>
             </th>
             <th  colspan="1" >
-             <%= check_box_tag 'historia_clinica[alteration][]', 'Del Lenguaje', checked('Del Lenguaje'), id: 'alteration_del_lenguaje' %>
+             <%= check_box_tag 'historia_clinica[d_alteracion][]', 'Del Lenguaje', checked('Del Lenguaje'), id: 'alteration_del_lenguaje', class: 'required' %>
             </th>
 
 
@@ -627,37 +826,37 @@
                 <th class="item" colspan="4"  style = "width:40%!important;">Otros Signos</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody>            
               <tr>
                 <td class="item"> 
                 <%= f.label "4 - Espontanea" %>
                 </td>
                 <td>
-                <%= f.radio_button(:eye_opening, "4".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_apertura_ocular, "4".to_i, class: "calc required", :title => "Debes Seleccionar una Opción" )%>
                 </td>
                 <td class="item">
                 <%= f.label "5 - Orientada" %>
                 </td>
                 <td>
-                <%= f.radio_button(:verbal_answer, "5".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_respuesta_verbal, "5".to_i, class: "calc required", :title => "Debes Seleccionar una Opción" )%>
                 </td>
                 <td  class="item">
                 <%= f.label "6 - Obedece ordenes" %>
                 </td>
                 <td>
-                <%= f.radio_button(:motor_response, "6".to_i , class: "calc") %>
+                <%= f.radio_button(:d_respuesta_motora, "6".to_i , class: "calc required", :title => "Debes Seleccionar una Opción") %>
                 </td>
                 <td  class="item">     
                 <%= label_tag 'other_signs_discoria', 'Discoria' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Discoria', checked('Discoria'), id: 'other_signs_discoria' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Discoria', checked('Discoria'), id: 'other_signs_discoria', class: 'required', :title => "Debes Seleccionar una Opción" %>
                 </td>
                 <td  class="item">
                 <%= label_tag 'other_signs_inconsciente', 'Inconsciente' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Inconsciente', checked('Inconsciente'), id: 'other_signs_inconsciente' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Inconsciente', checked('Inconsciente'), id: 'other_signs_inconsciente', class: 'required' %>
                 </td>
               </tr>
               <tr>
@@ -666,32 +865,32 @@
                 <%= f.label "3 - Al llamado" %>
                 </td>
                 <td >
-                <%= f.radio_button(:eye_opening, "3".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_apertura_ocular, "3".to_i, class: "calc required" )%>
                 </td>
                 <td  class="item">
                 <%= f.label "4 - Confusa" %>
                 
                 </td>
                 <td>
-                <%= f.radio_button(:verbal_answer, "4".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_respuesta_verbal, "4".to_i, class: "calc required" )%>
                 </td>
                 <td  class="item">
                 <%= f.label "5 - Localiza estimulos" %>
                 </td>
                 <td>
-                <%= f.radio_button(:motor_response, "5".to_i , class: "calc")%>
+                <%= f.radio_button(:d_respuesta_motora, "5".to_i , class: "calc required")%>
                 </td>
                 <td  class="item">
                 <%= label_tag 'other_signs_miosis', 'Miosis' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Miosis', checked('Miosis'), id: 'other_signs_miosis' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Miosis', checked('Miosis'), id: 'other_signs_miosis', class: 'required' %>
                 </td>
                 <td  class="item">
                 <%= label_tag 'other_signs_midriosis', 'Midriosis' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Midriosis', checked('Midriosis'), id: 'other_signs_midriosis' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Midriosis', checked('Midriosis'), id: 'other_signs_midriosis', class: 'required' %>
                 </td>
        
               </tr>
@@ -703,31 +902,31 @@
                 <%= f.label "2 - Al dolor" %>
                 </td>
                 <td>
-                <%= f.radio_button(:eye_opening, "2".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_apertura_ocular, "2".to_i, class: "calc required" )%>
                 </td>
                 <td  class="item">
                 <%= f.label "3 - Palabras" %>
                 </td>
                 <td>
-                <%= f.radio_button(:verbal_answer, "3".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_respuesta_verbal, "3".to_i, class: "calc required" )%>
                 </td>
                 <td  class="item">
                 <%= f.label "4 - Retira el dolor" %>
                 </td>
                 <td>
-                <%= f.radio_button(:motor_response, "4".to_i , class: "calc")%>
+                <%= f.radio_button(:d_respuesta_motora, "4".to_i , class: "calc required")%>
                 </td>
                 <td   class="item">
                 <%= label_tag 'other_signs_pupilas_fijas', 'Pupilas Fijas' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Pupilas Fijas', checked('Pupilas Fijas'), id: 'other_signs_pupilas_fijas' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Pupilas Fijas', checked('Pupilas Fijas'), id: 'other_signs_pupilas_fijas', class: 'required' %>
                 </td>
                 <td   class="item">
                 <%= label_tag 'other_signs_nistagmus', 'Nistagmus' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Nistagmus', checked('Nistagmus'), id: 'other_signs_nistagmus' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Nistagmus', checked('Nistagmus'), id: 'other_signs_nistagmus', class: 'required' %>
                 </td>
                 
               </tr>
@@ -736,31 +935,31 @@
                 <%= f.label "1 - No apertura" %>
                 </td>
                 <td>
-                <%= f.radio_button(:eye_opening, "1".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_apertura_ocular, "1".to_i, class: "calc" )%>
                 </td>
                 <td  class="item">
                 <%= f.label "2- Sonidos" %>
                 </td>
                 <td>
-                <%= f.radio_button(:verbal_answer, "2".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_respuesta_verbal, "2".to_i, class: "calc" )%>
                 </td>
                 <td  class="item">
                 <%= f.label "3 - Retira en flexión" %>
                 </td>
                 <td>
-                <%= f.radio_button(:motor_response, "3".to_i , class: "calc")%>
+                <%= f.radio_button(:d_respuesta_motora, "3".to_i , class: "calc")%>
                 </td>
                 <td  class="item">
                 <%= label_tag 'other_signs_fotomotor', 'FotoMotor' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'FotoMotor', checked('FotoMotor'), id: 'other_signs_fotomotor' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'FotoMotor', checked('FotoMotor'), id: 'other_signs_fotomotor', class: 'required' %>
                 </td>
                 <td  class="item">
                 <%= label_tag 'other_signs_consciente', 'Consciente' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Consciente', checked('Consciente'), id: 'other_signs_consciente' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Consciente', checked('Consciente'), id: 'other_signs_consciente', class: 'required' %>
                 </td>
               </tr>
               <tr>
@@ -770,25 +969,25 @@
                 <%= f.label "1- Ninguna" %>
                 </td>
                 <td>
-                <%= f.radio_button(:verbal_answer, "1".to_i, class: "calc" )%>
+                <%= f.radio_button(:d_respuesta_verbal, "1".to_i, class: "calc required" )%>
                 </td>
                 <td  class="item">
                 <%= f.label "2- Retira en extensión" %>
                 </td>
                 <td>
-                <%= f.radio_button(:motor_response, "2".to_i , class: "calc")%>
+                <%= f.radio_button(:d_respuesta_motora, "2".to_i , class: "calc required")%>
                 </td>
                 <td  class="item">
                 <%= label_tag 'other_signs_orientado', 'Orientado' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Orientado', checked('Orientado'), id: 'other_signs_orientado' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Orientado', checked('Orientado'), id: 'other_signs_orientado', class: 'required' %>
                 </td>
                 <td  class="item">
                 <%= label_tag 'other_signs_deprimido', 'Deprimido' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Deprimido', checked('Deprimido'), id: 'other_signs_deprimido' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Deprimido', checked('Deprimido'), id: 'other_signs_deprimido', class: 'required' %>
 
                 </td>
               </tr>
@@ -801,19 +1000,19 @@
                 <%= f.label "1 - Sin_respuesta" %>
                 </td>
                 <td>
-                <%= f.radio_button(:motor_response, "1".to_i , class: "calc")%>
+                <%= f.radio_button(:d_respuesta_motora, "1".to_i , class: "calc required")%>
                 </td>
                 <td  class="item">         
                 <%= label_tag 'other_signs_desorientado', 'Desorientado' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Desorientado', checked('Desorientado'), id: 'other_signs_desorientado' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Desorientado', checked('Desorientado'), id: 'other_signs_desorientado', class: 'required' %>
                 </td>
                 <td  class="item">
                 <%= label_tag 'other_signs_agitado', 'Agitado' %>
                 </td>
                 <td>
-                <%= check_box_tag 'historia_clinica[other_signs][]', 'Agitado', checked('Agitado'), id: 'other_signs_agitado' %>
+                <%= check_box_tag 'historia_clinica[d_otros_signos][]', 'Agitado', checked('Agitado'), id: 'other_signs_agitado', class: 'required' %>
                 </td>
               </tr>
 
@@ -827,7 +1026,7 @@
             <td  colspan="2" >
         <label>Escala De Glasgow </label> <br/>
   
-<%= f.number_field :escala_de_glasgow, class: 'form-control gls' , :readonly => true, id: 'sum'  %><span sytle = "font-size:20px!important;"> /15</span> 
+<%= f.number_field :d_escala_de_glasgow, class: 'form-control gls' , :readonly => true, id: 'sum'  %><span sytle = "font-size:20px!important;"> /15</span> 
             </td>
            
 
@@ -880,20 +1079,187 @@
 
 
 
-<table class="table table-bordered table-hover ult" id="tab_logic">
 
- 
-
-         
-     
- 
-
- 
-</tr >
+<script type="text/javascript">
 
 
-      </thead>
-  </table>
+
+
+$('.no_requerido').change(function(){
+  if(this.checked){
+      $('#text_requerido').removeClass('required');
+      $('#text_requerido').removeClass('error');
+      $('#text_requerido-error').hide(); 
+  }
+})
+$('.requerido').change(function(){
+if(this.checked){
+       $('#text_requerido').addClass('required');
+  }  
+})
+
+$('.no_requerido2').change(function(){
+  if(this.checked){
+      $('#text_requerido2').removeClass('required');
+      $('#text_requerido2').removeClass('error');
+      $('#text_requerido2-error').hide(); 
+  }
+})
+$('.requerido2').change(function(){
+if(this.checked){
+       $('#text_requerido2').addClass('required');
+  }  
+})
+
+$('.no_requerido3').change(function(){
+  if(this.checked){
+      $('#text_requerido3').removeClass('required');
+      $('#text_requerido3').removeClass('error');
+      $('#text_requerido3-error').hide(); 
+  }
+})
+$('.requerido3').change(function(){
+if(this.checked){
+       $('#text_requerido3').addClass('required');
+  }  
+})
+
+$('.no_requerido4').change(function(){
+  if(this.checked){
+      $('#text_requerido4').removeClass('required');
+      $('#text_requerido4').removeClass('error');
+      $('#text_requerido4-error').hide(); 
+  }
+})
+$('.requerido4').change(function(){
+if(this.checked){
+       $('#text_requerido4').addClass('required');
+  }  
+})
+
+$('.no_requerido5').change(function(){
+  if(this.checked){
+      $('#text_requerido5').removeClass('required');
+      $('#text_requerido5').removeClass('error');
+      $('#text_requerido5-error').hide(); 
+  }
+})
+$('.requerido5').change(function(){
+if(this.checked){
+       $('#text_requerido5').addClass('required');
+  }  
+})
+
+$('.no_requerido6').change(function(){
+  if(this.checked){
+      $('#text_requerido6').removeClass('required');
+      $('#text_requerido6').removeClass('error');
+      $('#text_requerido6-error').hide(); 
+  }
+})
+$('.requerido6').change(function(){
+if(this.checked){
+       $('#text_requerido6').addClass('required');
+  }  
+})
+
+$('.no_requerido7').change(function(){
+  if(this.checked){
+      $('#text_requerido7').removeClass('required');
+      $('#text_requerido7').removeClass('error');
+      $('#text_requerido7-error').hide(); 
+  }
+})
+$('.requerido7').change(function(){
+if(this.checked){
+       $('#text_requerido7').addClass('required');
+  }  
+})
+
+$('.no_requerido8').change(function(){
+  if(this.checked){
+      $('#text_requerido8').removeClass('required');
+      $('#text_requerido8').removeClass('error');
+      $('#text_requerido8-error').hide(); 
+  }
+})
+$('.requerido8').change(function(){
+if(this.checked){
+       $('#text_requerido8').addClass('required');
+  }  
+})
+
+$('.no_requerido9').change(function(){
+  if(this.checked){
+      $('#text_requerido9').removeClass('required');
+      $('#text_requerido9').removeClass('error');
+      $('#text_requerido9-error').hide(); 
+  }
+})
+$('.requerido9').change(function(){
+if(this.checked){
+       $('#text_requerido9').addClass('required');
+  }  
+})
+$('.no_requerido10').change(function(){
+  if(this.checked){
+      $('#text_requerido10').removeClass('required');
+      $('#text_requerido10').removeClass('error');
+      $('#text_requerido10-error').hide(); 
+  }
+})
+$('.requerido10').change(function(){
+if(this.checked){
+       $('#text_requerido10').addClass('required');
+  }  
+})
+
+$('.no_requerido11').change(function(){
+  if(this.checked){
+      $('#text_requerido11').removeClass('required');
+      $('#text_requerido11').removeClass('error');
+      $('#text_requerido11-error').hide(); 
+  }
+})
+$('.requerido11').change(function(){
+if(this.checked){
+       $('#text_requerido11').addClass('required');
+  }  
+})
+
+$('.no_requerido12').change(function(){
+  if(this.checked){
+      $('#text_requerido12').removeClass('required');
+      $('#text_requerido12').removeClass('error');
+      $('#text_requerido12-error').hide(); 
+  }
+})
+$('.requerido12').change(function(){
+if(this.checked){
+       $('#text_requerido12').addClass('required');
+  }  
+})
+
+$('.no_requerido13').change(function(){
+  if(this.checked){
+      $('#text_requerido13').removeClass('required');
+      $('#text_requerido13').removeClass('error');
+      $('#text_requerido13-error').hide(); 
+  }
+})
+$('.requerido13').change(function(){
+if(this.checked){
+       $('#text_requerido13').addClass('required');
+  }  
+})
+
+
+
+</script>
+
+
+
+
 
 
 

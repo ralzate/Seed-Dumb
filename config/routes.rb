@@ -1,14 +1,15 @@
 PetThing::Application.routes.draw do
 
 
-  resources :empresas
-  resources :procedimientos
-  resources :diagnosticos
-  resources :roles
-  resources :aeropuertos
-  resources :ciudades
-  resources :arles
-  resources :epses
+  resources :cie10s
+  resources :empresas, :path => "empresas"
+  resources :procedimientos, :path => "procedimientos"
+  resources :diagnosticos,  :path => "diagnosticos"
+  resources :roles, :path => "roles"
+  resources :aeropuertos, :path => "aeropuertos"
+  resources :ciudades, :path => "ciudades"
+  resources :arles, :path => "arles"
+  resources :epses, :path => "epses"
   resources :users, :path => "usuarios"
   resources :roles, :path => "roles"
   resources :arles, :path => "arls"
@@ -54,10 +55,10 @@ PetThing::Application.routes.draw do
 
 
 
-  resources :pacientes, only: [:new, :create, :index, :destroy, :show, :edit, :update]  do
-    resources :historias_clinicas, only: [:new, :create, :index, :destroy] do
-      resources :steps, only: [:show, :update], controller: 'historia_clinica/steps'
-      resources :notas_progreso, only: [:new, :create, :index, :destroy, :show, :edit, :update]
+  resources :pacientes, :path => "pacientes",  only: [:new, :create, :index, :destroy, :show, :edit, :update]  do
+    resources :historias_clinicas,  :path => "historias_clinicas", only: [:new, :create, :index, :destroy] do
+      resources :steps,  :path => "steps", only: [:show, :update, :edit], controller: 'historia_clinica/steps'
+      resources :notas_progreso,  :path => "notas_progreso", only: [:new, :create, :index, :destroy, :show, :edit, :update]
     end
   end
 

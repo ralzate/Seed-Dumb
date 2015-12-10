@@ -1,8 +1,8 @@
+
+
  <div class="col-md-12" style = "margin:15px!important;text-align:center;">
 
-
-<% if not @historia_clinica.errors.any? %>
-   <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+    <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
     <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
 
@@ -12,25 +12,28 @@
 
     <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
 
-<% end %>
+
+
+
+
+
 </div>
 
-<br/><br/>
+
+
+
 <div class="container-fluid">    
         
     <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
         
 
         
-
 <style type="text/css">
-@import url(https://fonts.googleapis.com/css?family=Roboto);
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 .panel-heading {
     background-image: none;
     background-color: #ECECEC;
     color: #5bc0de;
-    font-family: 'Roboto', sans-serif;
 }
 
   .panel-title{
@@ -46,11 +49,17 @@
     display: inline-block;
     width: 30% !important;
   }
+.titulo{
+  margin-top: 20px;
+  margin-bottom: -8px;
+}
   .centered{
     text-align: left;
   }
-
 </style>
+
+
+
 
 
 
@@ -61,436 +70,727 @@
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
 
-<%= form_for [@paciente, @historia_clinica], method: :put, url: wizard_path do |f| %>
 
 
-  <% if @historia_clinica.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@historia_clinica.errors.count, "error") %> prohibited this pet from being saved:</h2>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
-      <ul>
-      <% @historia_clinica.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 
-  <div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 4 ANTECEDENTES PERSONALES</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
+
+
+
+<%= simple_form_for([@paciente, @historia_clinica], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "signup" }) do |f| %>
+
+
+
+
+
+
+
+<br/>
+
+
+
+
+
+
+
+<script type="text/javascript">
+// Selecccionar/Deseleccionar todos los radio button
+  $(document).ready(function() {
+    $('#selecctall').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+             document.getElementById('myRadio').checked = true;        
+             document.getElementById('myRadio2').checked = true;        
+             document.getElementById('myRadio3').checked = true;        
+             document.getElementById('myRadio4').checked = true;        
+             document.getElementById('myRadio5').checked = true;        
+             document.getElementById('myRadio6').checked = true;        
+             document.getElementById('myRadio7').checked = true;        
+             document.getElementById('myRadio8').checked = true;        
+             document.getElementById('myRadio9').checked = true;        
+             document.getElementById('myRadio10').checked = true;        
+             document.getElementById('myRadio11').checked = true;        
+             document.getElementById('myRadio12').checked = true;        
+             document.getElementById('selecctall2').checked = false;        
+             document.getElementById('myRadio13').checked = false;        
+             document.getElementById('myRadio14').checked = false;        
+             document.getElementById('myRadio15').checked = false;
+             document.getElementById('myRadio16').checked = false;
+             document.getElementById('myRadio17').checked = false;
+             document.getElementById('myRadio18').checked = false;
+             document.getElementById('myRadio19').checked = false;
+             document.getElementById('myRadio20').checked = false;
+             document.getElementById('myRadio21').checked = false;
+             document.getElementById('myRadio22').checked = false;
+             document.getElementById('myRadio23').checked = false;
+             document.getElementById('myRadio24').checked = false;
+        }
+    });
+
+    $('#selecctall2').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+             document.getElementById('myRadio13').checked = true;        
+             document.getElementById('myRadio14').checked = true;        
+             document.getElementById('myRadio15').checked = true;
+             document.getElementById('myRadio16').checked = true;
+             document.getElementById('myRadio17').checked = true;
+             document.getElementById('myRadio18').checked = true;
+             document.getElementById('myRadio19').checked = true;
+             document.getElementById('myRadio20').checked = true;
+             document.getElementById('myRadio21').checked = true;
+             document.getElementById('myRadio22').checked = true;
+             document.getElementById('myRadio23').checked = true;
+             document.getElementById('myRadio24').checked = true;     
+             document.getElementById('selecctall').checked = false;        
+             document.getElementById('myRadio').checked = false;        
+             document.getElementById('myRadio2').checked = false;        
+             document.getElementById('myRadio3').checked = false;        
+             document.getElementById('myRadio4').checked = false;        
+             document.getElementById('myRadio5').checked = false;        
+             document.getElementById('myRadio6').checked = false;        
+             document.getElementById('myRadio7').checked = false;        
+             document.getElementById('myRadio8').checked = false;        
+             document.getElementById('myRadio9').checked = false;        
+             document.getElementById('myRadio10').checked = false;        
+             document.getElementById('myRadio11').checked = false;        
+             document.getElementById('myRadio12').checked = false;       
+        }
+    });
+    
+    
+});
+
+
+
+$(document).ready(function(){
+      $('#selecctall').click(function(){
+          if($(this).prop("checked") == true){
+               $('#text_requerido').addClass('required');
+               $('#text_requerido2').addClass('required');
+               $('#text_requerido3').addClass('required');
+               $('#text_requerido4').addClass('required');
+               $('#text_requerido5').addClass('required');
+               $('#text_requerido6').addClass('required');
+               $('#text_requerido7').addClass('required');
+               $('#text_requerido8').addClass('required');
+               $('#text_requerido9').addClass('required');
+               $('#text_requerido10').addClass('required');
+               $('#text_requerido11').addClass('required');
+               $('#text_requerido12').addClass('required');
+          }
+      });
+      $('#selecctall2').click(function(){
+          if($(this).prop("checked") == true){
+            $('#text_requerido').removeClass('required');
+            $('#text_requerido').removeClass('error');
+            $('#text_requerido-error').hide(); 
+            $('#text_requerido2').removeClass('required');
+            $('#text_requerido2').removeClass('error');
+            $('#text_requerido2-error').hide(); 
+            $('#text_requerido3').removeClass('required');
+            $('#text_requerido3').removeClass('error');
+            $('#text_requerido3-error').hide(); 
+            $('#text_requerido4').removeClass('required');
+            $('#text_requerido4').removeClass('error');
+            $('#text_requerido4-error').hide();  
+            $('#text_requerido5').removeClass('required');
+            $('#text_requerido5').removeClass('error');
+            $('#text_requerido5-error').hide(); 
+            $('#text_requerido6').removeClass('required');
+            $('#text_requerido6').removeClass('error');
+            $('#text_requerido6-error').hide(); 
+            $('#text_requerido7').removeClass('required');
+            $('#text_requerido7').removeClass('error');
+            $('#text_requerido7-error').hide(); 
+            $('#text_requerido8').removeClass('required');
+            $('#text_requerido8').removeClass('error');
+            $('#text_requerido8-error').hide(); 
+            $('#text_requerido9').removeClass('required');
+            $('#text_requerido9').removeClass('error');
+            $('#text_requerido9-error').hide(); 
+            $('#text_requerido10').removeClass('required');
+            $('#text_requerido10').removeClass('error');
+            $('#text_requerido10-error').hide();                                
+            $('#text_requerido11').removeClass('required');
+            $('#text_requerido11').removeClass('error');
+            $('#text_requerido11-error').hide(); 
+            $('#text_requerido12').removeClass('required');
+            $('#text_requerido12').removeClass('error');
+            $('#text_requerido12-error').hide();                                                                       
+          }
+      });
+
+  });
+
+</script>
+
+
+
+
+
+
 
 
 
 <div class="container-fluid">
-    <div class="row clearfix">
-    <div class="col-md-12 column">
-      <table class="table table-bordered table-hover" id="tab_logic">
+<div class="widget stacked widget-table action-table">
+            
 
-        <thead>
-          <tr >
-            <th  colspan="1">
-            </th>
-
-
-
-            <th  colspan="1">
-               &nbsp;Seleccionar todos Si &nbsp;<input type="checkbox" id="checkAll"  />
-            </th>
-
-            <th  colspan="1">
-               &nbsp;Seleccionar todos No &nbsp;<input type="checkbox" id="checkAll2"  />
-            </th>
-            <th  colspan="1">
-            </th>
-
-          </tr>
-        </thead>
-        <thead>
-          <tr >
-            <th class="text-center" style="width:10%">
-              Nombre
-            </th>
-            <th class="text-center" style="width:10%">
-              Si
-            </th>
-            <th class="text-center" style="width:10%">
-              No
-            </th>
-            <th class="text-center" style="width:60%">
-              Ampliar Información
-            </th>
-          </tr>
-        </thead>
+        
+        <div class="widget-content">
+          
+          <table class="table table-bordered table-hover" >
+            <thead>
+              <tr>
+                <th style="width:10%"  class="text-center"></th>
+                <th style="width:10%"  class="text-center"> Seleccionar todos si <br/><input type="checkbox" id="selecctall"></th>
+                <th style="width:10%"  class="text-center">Seleccionar todos no<br/> <input type="checkbox" id="selecctall2"></th>
+                <th style="width:70%"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="text-center">
+                  Nombre
+                </th>
+                <th class="text-center">
+                  Si
+                </th>
+                <th class="text-center">
+                  No
+                </th>
+                <th class="text-center">
+                  Ampliar Información
+                </th>
+              </tr>
 
 
-
-
-
-
-        <tbody>
           <tr id='addr0' class="selectme">
             <td align="center">
             Neonatales
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_neonatales, "TRUE", class: "required requerido",  id: 'myRadio', :title => "Debes Seleccionar una Opción" )%>
             </td>
             <td align="center">
-              <%= f.check_box :neunatales_true, class: 'checkItem myCheckbox1' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :neunatales_false, class: 'checkItem2 myCheckbox12' %>
+                <%= f.radio_button(:b_neonatales, "FALSE", class: 'no_requerido', :id => "myRadio13" )%>
             </td>
             <td>
-              <%= f.text_field :neunatales_description, class: 'form-control' %>
-
+              <%= f.text_field :b_neonatales_descripcion, class: 'form-control', :id => "text_requerido", :title => "Es un Campo Obligatorio" %>
             </td>
           </tr>
-
-          <tr id='addr1'></tr>
 
           <tr id='addr0' class="selectme">
             <td align="center">
-            Patológicos
+            Patologicos
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_patologicos, "TRUE", class: "required requerido2",  id: 'myRadio2', :title => "Debes Seleccionar una Opción" )%>
             </td>
             <td align="center">
-              <%= f.check_box :patologicos_true,  class: 'checkItem myCheckbox2' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :patologicos_false, class: 'checkItem2 myCheckbox22' %>
+                <%= f.radio_button(:b_patologicos, "FALSE", class: 'no_requerido2', :id => "myRadio14" )%>
             </td>
             <td>
-              <%= f.text_field :patologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
-
+              <%= f.text_field :b_patologicos_descripcion, class: 'form-control', :id => "text_requerido2", :title => "Es un Campo Obligatorio" %>
             </td>
           </tr>
-          <tr id='addr1'></tr>
 
-          <tr id='addr0'  class="selectme">
-            <td align="center">
-            Quirúrgicos
-            </td>
-            <td align="center">
-              <%= f.check_box :quirurgicos_true, class: 'checkItem myCheckbox3' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :quirurgicos_false,  class: 'checkItem2 myCheckbox32' %>
-            </td>
-            <td>
-              <%= f.text_field :quirurgicos_description, class: 'form-control', :id => "txtPassportNumber" %>
 
-            </td>
-          </tr>
-          <tr id='addr1'></tr>
 
           <tr id='addr0' class="selectme">
-            <td align="center"  >
+            <td align="center">
+            Quirurgicos
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_quirurgicos, "TRUE", class: "required requerido3",  id: 'myRadio3', :title => "Debes Seleccionar una Opción" )%>
+            </td>
+            <td align="center">
+                <%= f.radio_button(:b_quirurgicos, "FALSE", class: 'no_requerido3', :id => "myRadio15" )%>
+            </td>
+            <td>
+              <%= f.text_field :b_quirurgicos_descripcion, class: 'form-control', :id => "text_requerido3", :title => "Es un Campo Obligatorio" %>
+            </td>
+          </tr>
+
+
+
+
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
             Farmacologicos
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_farmacologicos, "TRUE", class: "required requerido4",  id: 'myRadio4', :title => "Debes Seleccionar una Opción" )%>
             </td>
             <td align="center">
-              <%= f.check_box :farmacologicos_true, class: 'checkItem myCheckbox4' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :farmacologicos_false, class: 'checkItem2 myCheckbox42' %>
+                <%= f.radio_button(:b_farmacologicos, "FALSE", class: 'no_requerido4', :id => "myRadio16" )%>
             </td>
             <td>
-              <%= f.text_field :farmacologicos_description, class: 'form-control', :id => "txtPassportNumber" %>
-
+              <%= f.text_field :b_farmacologicos_descripcion, class: 'form-control', :id => "text_requerido4", :title => "Es un Campo Obligatorio" %>
             </td>
           </tr>
-          <tr id='addr1'></tr>
 
           <tr id='addr0' class="selectme">
-            <td align="center" >
-            Alergicos
+            <td align="center">
+            Farmacologicos
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_alergicos, "TRUE", class: "required requerido5",  id: 'myRadio5', :title => "Debes Seleccionar una Opción" )%>
             </td>
             <td align="center">
-              <%= f.check_box :alergicos_true, class: 'checkItem myCheckbox5' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :alergicos_false, class: 'checkItem2 myCheckbox52' %>
+                <%= f.radio_button(:b_alergicos, "FALSE", class: 'no_requerido5', :id => "myRadio17" )%>
             </td>
             <td>
-              <%= f.text_field :alergicos_description, class: 'form-control', :id => "txtPassportNumber" %>
-
+              <%= f.text_field :b_alergicos_descripcion, class: 'form-control', :id => "text_requerido5", :title => "Es un Campo Obligatorio" %>
             </td>
           </tr>
-          <tr id='addr1'></tr>
 
-          <tr id='addr0'  class="selectme">
+          <tr id='addr0' class="selectme">
             <td align="center">
-            Tóxicos
+            Toxicos
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_toxicos, "TRUE", class: "required requerido6",  id: 'myRadio6', :title => "Debes Seleccionar una Opción" )%>
             </td>
             <td align="center">
-              <%= f.check_box :toxicos_true, class: 'checkItem myCheckbox6' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :toxicos_false, class: 'checkItem2 myCheckbox62' %>
+                <%= f.radio_button(:b_toxicos, "FALSE", class: 'no_requerido6', :id => "myRadio18" )%>
             </td>
             <td>
-              <%= f.text_field :toxicos_description, class: 'form-control', :id => "txtPassportNumber" %>
-
+              <%= f.text_field :b_toxicos_descripcion, class: 'form-control', :id => "text_requerido6", :title => "Es un Campo Obligatorio" %>
             </td>
           </tr>
-          <tr id='addr1'></tr>
 
 
 
           <tr id='addr0' class="selectme">
             <td align="center">
             Traumaticos
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_traumaticos, "TRUE", class: "required requerido7",  id: 'myRadio7', :title => "Debes Seleccionar una Opción" )%>
             </td>
             <td align="center">
-              <%= f.check_box :traumaticos_true, class: 'checkItem myCheckbox7' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :traumaticos_false, class: 'checkItem2 myCheckbox72' %>
+                <%= f.radio_button(:b_traumaticos, "FALSE", class: 'no_requerido7', :id => "myRadio19" )%>
             </td>
             <td>
-              <%= f.text_field :traumaticos_description, class: 'form-control', :id => "txtPassportNumber" %>
-
+              <%= f.text_field :b_traumaticos_descripcion, class: 'form-control', :id => "text_requerido7", :title => "Es un Campo Obligatorio" %>
             </td>
           </tr>
-          <tr id='addr1'></tr>
-
-
-          <tr id='addr0'  class="selectme">
-            <td align="center">
-            Hospitalarios
-            </td>
-            <td align="center">
-              <%= f.check_box :hospitables_true, class: 'checkItem myCheckbox8' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :hospitables_false, class: 'checkItem2 myCheckbox82' %>
-            </td>
-            <td>
-              <%= f.text_field :hospitables_description, class: 'form-control', :id => "txtPassportNumber" %>
-
-            </td>
-          </tr>
-          <tr id='addr1'></tr>
-
-
-          <tr id='addr0'  class="selectme">
-            <td align="center">
-            (ATEP) Laboral
-            </td>
-            <td align="center">
-              <%= f.check_box :atep_laboral_true, class: 'checkItem myCheckbox9' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :atep_laboral_false, class: 'checkItem2 myCheckbox92' %>
-            </td>
-            <td>
-              <%= f.text_field :atep_laboral_description, class: 'form-control', :id => "txtPassportNumber" %>
-
-            </td>
-          </tr>
-          <tr id='addr1'></tr>
-
-
-
-          <tr id='addr0'  class="selectme">
-            <td align="center">
-            Familiar
-            </td>
-            <td align="center">
-              <%= f.check_box :familiar_true, class: 'checkItem myCheckbox10' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :familiar_false, class: 'checkItem2 myCheckbox102' %>
-            </td>
-            <td>
-              <%= f.text_field :familiar_description, class: 'form-control', :id => "txtPassportNumber" %>
-
-            </td>
-          </tr>
-          <tr id='addr1'></tr>
-
-
-          <tr id='addr0'  class="selectme">
-            <td align="center">
-            Inmunológicos
-            </td>
-            <td align="center">
-              <%= f.check_box :inmunologicos_true, class: 'checkItem myCheckbox11' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :inmunologicos_false, class: 'checkItem2 myCheckbox112' %>
-            </td>
-            <td>
-              <%= f.text_field :inmunologios_description, class: 'form-control', :id => "txtPassportNumber" %>
-
-            </td>
-          </tr>
-          <tr id='addr1'></tr>
-
-
-
-
-
 
 
           <tr id='addr0' class="selectme">
             <td align="center">
-            Asociado a viajes de vuelo
+            Hospitalarios
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_hospitalarios, "TRUE", class: "required requerido8",  id: 'myRadio8', :title => "Debes Seleccionar una Opción" )%>
             </td>
             <td align="center">
-              <%= f.check_box :asociado_viajes_de_vuelo_true, class: 'checkItem myCheckbox myCheckbox12' %>
-            </td>
-            <td align="center">
-              <%= f.check_box :asociado_viajes_de_vuelo_false, class: 'checkItem2 myCheckbox myCheckbox122' %>
+                <%= f.radio_button(:b_hospitalarios, "FALSE", class: 'no_requerido8', :id => "myRadio20" )%>
             </td>
             <td>
-              <%= f.text_field :asociado_viajes_de_vuelo_description, class: 'form-control', :id => "txtPassportNumber" %>
-
+              <%= f.text_field :b_hospitalarios_descripcion, class: 'form-control', :id => "text_requerido8", :title => "Es un Campo Obligatorio" %>
             </td>
           </tr>
-          <tr id='addr1'></tr>
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Atep Laboral
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_atep_laboral, "TRUE", class: "required requerido9",  id: 'myRadio9', :title => "Debes Seleccionar una Opción" )%>
+            </td>
+            <td align="center">
+                <%= f.radio_button(:b_atep_laboral, "FALSE", class: 'no_requerido9', :id => "myRadio21" )%>
+            </td>
+            <td>
+              <%= f.text_field :b_atep_laboral_descripcion, class: 'form-control', :id => "text_requerido9", :title => "Es un Campo Obligatorio" %>
+            </td>
+          </tr>
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Atep Laboral
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_familiares, "TRUE", class: "required requerido10",  id: 'myRadio10', :title => "Debes Seleccionar una Opción" )%>
+            </td>
+            <td align="center">
+                <%= f.radio_button(:b_familiares, "FALSE", class: 'no_requerido10', :id => "myRadio22" )%>
+            </td>
+            <td>
+              <%= f.text_field :b_familiar_descripcion, class: 'form-control', :id => "text_requerido10", :title => "Es un Campo Obligatorio" %>
+            </td>
+          </tr>
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Inmunologicos
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_inmunologicos, "TRUE", class: "required requerido11",  id: 'myRadio11', :title => "Debes Seleccionar una Opción" )%>
+            </td>
+            <td align="center">
+                <%= f.radio_button(:b_inmunologicos, "FALSE", class: 'no_requerido11', :id => "myRadio23" )%>
+            </td>
+            <td>
+              <%= f.text_field :b_inmunologios_descripcion, class: 'form-control', :id => "text_requerido11", :title => "Es un Campo Obligatorio" %>
+            </td>
+          </tr>
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Asociado Viajes de Vuelo
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_asociado_viajes_de_vuelo, "TRUE", class: "required requerido12",  id: 'myRadio12', :title => "Debes Seleccionar una Opción" )%>
+            </td>
+            <td align="center">
+                <%= f.radio_button(:b_asociado_viajes_de_vuelo, "FALSE", class: 'no_requerido12', :id => "myRadio24" )%>
+            </td>
+            <td>
+              <%= f.text_field :b_asociado_viajes_de_vuelo_descripcion, class: 'form-control', :id => "text_requerido12", :title => "Es un Campo Obligatorio" %>
+            </td>
+          </tr>
 
 
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-
-<% if @paciente != "Femenino" %>
 
 
 
 
+              </tbody>
+            </table>
+          
+        </div> <!-- /widget-content -->
+      
+      </div> <!-- /widget -->
+            </div>
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+$('.no_requerido').change(function(){
+  if(this.checked){
+      $('#text_requerido').removeClass('required');
+      $('#text_requerido').removeClass('error');
+      $('#text_requerido-error').hide(); 
+  }
+})
+$('.requerido').change(function(){
+if(this.checked){
+       $('#text_requerido').addClass('required');
+  }  
+})
+
+$('.no_requerido2').change(function(){
+  if(this.checked){
+      $('#text_requerido2').removeClass('required');
+      $('#text_requerido2').removeClass('error');
+      $('#text_requerido2-error').hide(); 
+  }
+})
+$('.requerido2').change(function(){
+if(this.checked){
+       $('#text_requerido2').addClass('required');
+  }  
+})
+
+$('.no_requerido3').change(function(){
+  if(this.checked){
+      $('#text_requerido3').removeClass('required');
+      $('#text_requerido3').removeClass('error');
+      $('#text_requerido3-error').hide(); 
+  }
+})
+$('.requerido3').change(function(){
+if(this.checked){
+       $('#text_requerido3').addClass('required');
+  }  
+})
+
+$('.no_requerido4').change(function(){
+  if(this.checked){
+      $('#text_requerido4').removeClass('required');
+      $('#text_requerido4').removeClass('error');
+      $('#text_requerido4-error').hide(); 
+  }
+})
+$('.requerido4').change(function(){
+if(this.checked){
+       $('#text_requerido4').addClass('required');
+  }  
+})
+
+$('.no_requerido5').change(function(){
+  if(this.checked){
+      $('#text_requerido5').removeClass('required');
+      $('#text_requerido5').removeClass('error');
+      $('#text_requerido5-error').hide(); 
+  }
+})
+$('.requerido5').change(function(){
+if(this.checked){
+       $('#text_requerido5').addClass('required');
+  }  
+})
+
+$('.no_requerido6').change(function(){
+  if(this.checked){
+      $('#text_requerido6').removeClass('required');
+      $('#text_requerido6').removeClass('error');
+      $('#text_requerido6-error').hide(); 
+  }
+})
+$('.requerido6').change(function(){
+if(this.checked){
+       $('#text_requerido6').addClass('required');
+  }  
+})
+
+$('.no_requerido7').change(function(){
+  if(this.checked){
+      $('#text_requerido7').removeClass('required');
+      $('#text_requerido7').removeClass('error');
+      $('#text_requerido7-error').hide(); 
+  }
+})
+$('.requerido7').change(function(){
+if(this.checked){
+       $('#text_requerido7').addClass('required');
+  }  
+})
+
+$('.no_requerido8').change(function(){
+  if(this.checked){
+      $('#text_requerido8').removeClass('required');
+      $('#text_requerido8').removeClass('error');
+      $('#text_requerido8-error').hide(); 
+  }
+})
+$('.requerido8').change(function(){
+if(this.checked){
+       $('#text_requerido8').addClass('required');
+  }  
+})
+
+$('.no_requerido9').change(function(){
+  if(this.checked){
+      $('#text_requerido9').removeClass('required');
+      $('#text_requerido9').removeClass('error');
+      $('#text_requerido9-error').hide(); 
+  }
+})
+$('.requerido9').change(function(){
+if(this.checked){
+       $('#text_requerido9').addClass('required');
+  }  
+})
+
+$('.no_requerido10').change(function(){
+  if(this.checked){
+      $('#text_requerido10').removeClass('required');
+      $('#text_requerido10').removeClass('error');
+      $('#text_requerido10-error').hide(); 
+  }
+})
+$('.requerido10').change(function(){
+if(this.checked){
+       $('#text_requerido10').addClass('required');
+  }  
+})
+
+$('.no_requerido11').change(function(){
+  if(this.checked){
+      $('#text_requerido11').removeClass('required');
+      $('#text_requerido11').removeClass('error');
+      $('#text_requerido11-error').hide(); 
+  }
+})
+$('.requerido11').change(function(){
+if(this.checked){
+       $('#text_requerido11').addClass('required');
+  }  
+})
+
+$('.no_requerido12').change(function(){
+  if(this.checked){
+      $('#text_requerido12').removeClass('required');
+      $('#text_requerido12').removeClass('error');
+      $('#text_requerido12-error').hide(); 
+  }
+})
+$('.requerido12').change(function(){
+if(this.checked){
+       $('#text_requerido12').addClass('required');
+  }  
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+<% if @paciente.genero != "Femenino" %>
 
 <div class="container-fluid">
-    <div class=" clearfix">
-
+    <div class="well clearfix">
+      <div class="centered title">
+        <h1 style=" font-size:25px; text-align: center;color: #22BDC8;">   
+          Gineco-Obstétricos
+        </h1>
+      </div>
     <div class="row">
-    <center>
-
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: center;color: #22BDC8;">   Gineco-Obstétricos</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
-
-    </center>
-      <div class="col-md-3">
-        <label class="label" for="firstname">Ciclo Menstrual</label>
-        <%= f.text_field :menstrual_cycle, class: 'form-control', placeholder: 'Ciclo Menstrual', :id => "ciclo" %>
-
-      </div>
       <div class="col-md-2">
-        <label class="label" for="lastname">Eco</label>
-        <%= f.text_field :eco, class: 'form-control', placeholder: 'Eco', :id => "eco" %>
+        <label class="control-label" for="firstname">Ciclo Menstrual</label>
+        <%= f.text_field :b_ciclo_menstrual, class: 'form-control', placeholder: 'Ciclo Menstrual', :id => "ciclo" %>
 
       </div>
+
       <div class="col-md-2">
-        <label class="label" for="firstname">FUM</label>
-        <%= f.text_field :fum, class: 'form-control', placeholder: 'Fum', :id => "fum" %>
+        <label class="control-label" for="firstname">Eco</label>
+        <%= f.text_field :b_eco, class: 'form-control', placeholder: 'Eco', :id => "eco" %>
       </div>
 
-      <div class="col-md-2" id="chkboxes">
+      <div class="col-md-2">
+        <label class="control-label" for="firstname">FUM</label>
+        <%= f.text_field :b_fum, class: 'form-control', placeholder: 'Fum', :id => "fum" %>
+      </div>
+
+      <div class="col-md-2" >
+        <label class="label" for="firstname">Menarquia</label>
+        <%= f.text_field :b_menarquia, class: 'form-control', placeholder: 'Menarquia', :id => "menarquia"  %>
+      </div>
+
+
+
+
       <h5>Esta en Embarazo?</h5>
 
-      <div class="col-md-1">
-        <label class="label" for="firstname">Si</label><br/>
-         <%= f.check_box :pregnancy_true, :id => "yes" %>
+      <div class="col-md-2">
+        <label class="label" for="firstname">Si</label>
+         <%= f.check_box :b_embarazo, :id => "yes" %>
       </div>
-            <div class="col-md-1">
-        <label class="label" for="firstname">No</label><br/>
-         <%= f.check_box :pregnancy_false, :id => "no" %>
-      </div>
+      <div class="col-md-2" style="margin-left:-30px;">
+        <label class="label" for="firstname">No</label>
+         <%= f.check_box :b_embarazo, :id => "no" %>
       </div>
 
 
     </div>
 
-  </div>
-</div>
+
+<div class="row">
+      <div class="col-md-6"  >
+          <label class="label">Fecha de la Ultima Citología</label>
+            <div class="form-group">
+              <%= f.date_select :b_fecha_ultima_citologia,{
+                :start_year => Time.now.year,
+                :end_year => 1900,
+                :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'],
+                :use_short_month => true,
+                :order => [:day, :month, :year], :disabled => true,
+                :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
+                {:class => 'form-control line1'}
+              %>                             
+            </div>
+      </div>
+
+      <div class="col-md-6"  >
+          <label class="label">Fecha de la Ultima Mamografia</label>
+            <div class="form-group">
+              <%= f.date_select :b_fecha_ultima_mamografia,{
+                :start_year => Time.now.year,
+                :end_year => 1900,
+                :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'],
+                :use_short_month => true,
+                :order => [:day, :month, :year], :disabled => true,
+                :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
+                {:class => 'form-control line1'}
+              %>                             
+            </div>
+
+      </div>
+    </div>
 
 
 
 
 
 
-<div class="container-fluid">
-    <div class=" clearfix">
-    <div class="row">
 
-      <div class="col-md-2" >
+
+
+<div class="row">
+
+ <div class="col-md-1" >
         <label class="label" for="firstname">P</label>
-        <%= f.text_field :p, class: 'form-control', placeholder: 'P', :disabled => true, :id => "txt3" %>
+        <%= f.text_field :b_p, class: 'form-control', placeholder: 'P', :disabled => true, :id => "txt3" %>
       </div>
 
-      <div class="col-md-2"  >
+      <div class="col-md-1"  >
         <label class="label" for="firstname">C</label><br/>
-          <%= f.text_field :c, class: 'form-control', placeholder: 'C', :disabled => true, :id => "txt4" %>
+          <%= f.text_field :b_c, class: 'form-control', placeholder: 'C', :disabled => true, :id => "txt4" %>
 
       </div>
 
 
-      <div class="col-md-2"  >
+      <div class="col-md-1" >
         <label class="label" for="firstname">A</label>
-          <%= f.text_field :a, class: 'form-control', placeholder: 'A', :disabled => true, :id => "txt5" %>
+          <%= f.text_field :b_a, class: 'form-control', placeholder: 'A', :disabled => true, :id => "txt5" %>
 
       </div>
-      <div class="col-md-2" >
+      <div class="col-md-1" >
         <label class="label" for="lastname">M</label>
-          <%= f.text_field :m, class: 'form-control', placeholder: 'M', :disabled => true, :id => "txt6" %>
+          <%= f.text_field :b_m, class: 'form-control', placeholder: 'M', :disabled => true, :id => "txt6" %>
 
       </div>
-      <div class="col-md-2"  >
+      <div class="col-md-1"  >
         <label class="label" for="firstname">V</label>
-          <%= f.text_field :v, class: 'form-control', placeholder: 'V', :disabled => true, :id => "txt7" %>
+          <%= f.text_field :b_v, class: 'form-control', placeholder: 'V', :disabled => true, :id => "txt7" %>
       </div>
 
-      <div class="col-md-2" >
+      <div class="col-md-1" >
         <label class="label" for="firstname">E</label><br/>
-          <%= f.text_field :e, class: 'form-control', placeholder: 'E', :disabled => true, :id => "txt8" %>
+          <%= f.text_field :b_e, class: 'form-control', placeholder: 'E', :disabled => true, :id => "txt8" %>
 
       </div>
 
-
-
-
-    </div>
-
-  </div>
-</div>
-
-<br/>
-
-<div class="container-fluid">
-    <div class=" clearfix">
-    <div class="row">
-
-      <div class="col-md-2" id="MostrarEmbarazo2">
+  <div class="col-md-1" id="MostrarEmbarazo2">
         <label class="label" for="lastname">G</label>
-        <%= f.text_field :g, class: 'form-control', placeholder: 'G', :disabled => true, :id => "txt2" %>
+        <%= f.text_field :b_g, class: 'form-control', placeholder: 'G', :disabled => true, :id => "txt2" %>
 
       </div>
-    </div>
-    </div>
-</div>  
-
-
-
-
-    </div>
+</div>
 
   </div>
 </div>
-
 
 
 
  <script type="text/javascript">
+ // Disable para los campos femeninos
    $('#ciclo').val('').prop('disabled', true);
    $('#eco').val('').prop('disabled', true);
    $('#fum').val('').prop('disabled', true);
    $('#yes').val('').prop('disabled', true);
    $('#no').val('').prop('disabled', true);
+   $('#menarquia').val('').prop('disabled', true);
+   $('#Citologia').val('').prop('disabled', true);
    $('#txt1').val('').prop('disabled', true);
    $('#txt2').val('').prop('disabled', true);
    $('#txt3').val('').prop('disabled', true);
@@ -501,55 +801,88 @@
    $('#txt8').val('').prop('disabled', true);
 </script>
 
-
 <% end %>
-<% if @paciente == "Femenino" %>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if @paciente.genero == "Femenino" %>
 
 <div class="container-fluid">
-  <div class=" clearfix">
-
+    <div class="well clearfix">
+      <div class="centered title">
+        <h1 style=" font-size:25px; text-align: center;color: #22BDC8;">   
+          Gineco-Obstétricos
+        </h1>
+      </div>
     <div class="row">
-    <center>
+      <div class="col-md-2">
+        <label class="control-label" for="firstname">Ciclo Menstrual</label>
+        <%= f.text_field :b_ciclo_menstrual, class: 'form-control', placeholder: 'Ciclo Menstrual', :id => "ciclo" %>
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: center;color: #22BDC8;">   Gineco-Obstétricos</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
-    </center>
-      <div class="col-md-3">
-        <label class="label" for="firstname">Ciclo Menstrual</label>
-        <%= f.text_field :menstrual_cycle, class: 'form-control', placeholder: 'Ciclo Menstrual', :id => "ciclo" %>
       </div>
-      <div class="col-md-3">
-        <label class="label" for="lastname">Eco</label>
-        <%= f.text_field :eco, class: 'form-control', placeholder: 'Eco' %>
+
+      <div class="col-md-2">
+        <label class="control-label" for="firstname">Eco</label>
+        <%= f.text_field :b_eco, class: 'form-control', placeholder: 'Eco', :id => "eco" %>
       </div>
-      <div class="col-md-3">
-        <label class="label" for="firstname">FUM</label>
-        <%= f.text_field :fum, class: 'form-control', placeholder: 'Fum' %>
+
+      <div class="col-md-2">
+        <label class="control-label" for="firstname">FUM</label>
+        <%= f.text_field :b_fum, class: 'form-control', placeholder: 'Fum', :id => "fum" %>
       </div>
-      <div class="col-md-3" >
+
+      <div class="col-md-2" >
         <label class="label" for="firstname">Menarquia</label>
-        <%= f.text_field :menarquia, class: 'form-control', placeholder: 'Menarquia' %>
+        <%= f.text_field :b_menarquia, class: 'form-control', placeholder: 'Menarquia', :id => "menarquia"  %>
       </div>
-    </div>
-    
-    <br/>
 
-    <div class="row">
+
+
+
+      <h5>Esta en Embarazo?</h5>
+
+      <div class="col-md-2">
+        <label class="label" for="firstname">Si</label>
+        <%= f.radio_button(:b_embarazo, "TRUE", :id => "checkbox_mostrar" )%>
+
+
+      </div>
+      <div class="col-md-2" style="margin-left:-30px;">
+        <label class="label" for="firstname">No</label>
+        <%= f.radio_button(:b_embarazo, "FALSE", :id => "checkbox_ocultar" )%>
+ 
+      </div>
+
+    </div>
+
+
+<div class="row">
       <div class="col-md-6"  >
           <label class="label">Fecha de la Ultima Citología</label>
             <div class="form-group">
-              <%= f.date_select :fecha_ultima_citologia,{
+              <%= f.date_select :b_fecha_ultima_citologia,{
                 :start_year => Time.now.year,
                 :end_year => 1900,
                 :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'],
                 :use_short_month => true,
-                :order => [:day, :month, :year],
+                :order => [:day, :month, :year], :disabled => true,
                 :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
-                {:class => 'form-control line1'}
+                {:class => 'form-control line1', :id => 'fecha_citologia'}
               %>                             
             </div>
       </div>
@@ -557,86 +890,141 @@
       <div class="col-md-6"  >
           <label class="label">Fecha de la Ultima Mamografia</label>
             <div class="form-group">
-              <%= f.date_select :fecha_ultima_mamografia,{
+              <%= f.date_select :b_fecha_ultima_mamografia,{
                 :start_year => Time.now.year,
                 :end_year => 1900,
                 :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'],
                 :use_short_month => true,
-                :order => [:day, :month, :year],
+                :order => [:day, :month, :year], :disabled => true,
                 :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
-                {:class => 'form-control line1'}
+                {:class => 'form-control line1', :id => 'fecha_mamografia'}
               %>                             
             </div>
 
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-5" id="chkboxes">
-      <h5>Esta en Embarazo?</h5>
 
-      <div class="col-md-3">
-        <label class="label" for="firstname">Si</label>
-         <%= f.check_box :pregnancy_true, :id => "yes" %>
-      </div>
-      <div class="col-md-3" style="margin-left:-30px;">
-        <label class="label" for="firstname">No</label>
-         <%= f.check_box :pregnancy_false, :id => "no" %>
-      </div>
 
-      </div>
-    </div>
-      
-    <div class="row">
-      <div class="col-md-2" >
+
+
+
+
+
+
+<div class="row">
+
+ <div class="col-md-1" >
         <label class="label" for="firstname">P</label>
-        <%= f.text_field :p, class: 'form-control', placeholder: 'P', :disabled => true, :id => "txt3" %>
+        <%= f.text_field :b_p, class: 'form-control', placeholder: 'P', :id => "txt3", :disabled => true %>
       </div>
-      <div class="col-md-2"  >
+
+      <div class="col-md-1"  >
         <label class="label" for="firstname">C</label><br/>
-          <%= f.text_field :c, class: 'form-control', placeholder: 'C', :disabled => true, :id => "txt4" %>
+          <%= f.text_field :b_c, class: 'form-control', placeholder: 'C', :id => "txt4", :disabled => true %>
 
       </div>
-      <div class="col-md-2"  >
+
+
+      <div class="col-md-1" >
         <label class="label" for="firstname">A</label>
-          <%= f.text_field :a, class: 'form-control', placeholder: 'A', :disabled => true, :id => "txt5" %>
+          <%= f.text_field :b_a, class: 'form-control', placeholder: 'A', :id => "txt5", :disabled => true %>
 
       </div>
-      <div class="col-md-2" >
+      <div class="col-md-1" >
         <label class="label" for="lastname">M</label>
-          <%= f.text_field :m, class: 'form-control', placeholder: 'M', :disabled => true, :id => "txt6" %>
+          <%= f.text_field :b_m, class: 'form-control', placeholder: 'M', :id => "txt6", :disabled => true %>
 
       </div>
-      <div class="col-md-2"  >
+      <div class="col-md-1"  >
         <label class="label" for="firstname">V</label>
-          <%= f.text_field :v, class: 'form-control', placeholder: 'V', :disabled => true, :id => "txt7" %>
+          <%= f.text_field :b_v, class: 'form-control', placeholder: 'V', :id => "txt7", :disabled => true %>
       </div>
 
-      <div class="col-md-2" >
+      <div class="col-md-1" >
         <label class="label" for="firstname">E</label><br/>
-          <%= f.text_field :e, class: 'form-control', placeholder: 'E', :disabled => true, :id => "txt8" %>
-
-      </div>
-    </div>
-
-    <br/>
-    <div class="row">
-      <div class="col-md-2" id="MostrarEmbarazo" >
-        <label class="label" for="firstname">Edad Gestacional</label>
-        <%= f.text_field :gestational_age, class: 'form-control', placeholder: 'Edad Gestacional', :disabled => true, :id => "txt1" %>
+          <%= f.text_field :b_e, class: 'form-control', placeholder: 'E', :id => "txt8", :disabled => true %>
 
       </div>
 
-    </div>
+  <div class="col-md-1" id="MostrarEmbarazo2">
+        <label class="label" for="lastname">G</label>
+        <%= f.text_field :b_g, class: 'form-control', placeholder: 'G', :id => "txt2", :disabled => true %>
+
+      </div>
+</div>
+
   </div>
 </div>
+
+
+
+
+<script type="text/javascript">
+// Agrega requeridoo si el genero del
+// paciente es femenino
+  $('#ciclo').addClass('required');
+  $('#eco').addClass('required');
+  $('#fum').addClass('required');
+  $('#yes').addClass('required');
+  $('#yes').addClass('required');
+  $('#txt2').addClass('required');  
+  $('#txt3').addClass('required');
+  $('#txt4').addClass('required');
+  $('#txt5').addClass('required');
+  $('#txt6').addClass('required');
+  $('#txt7').addClass('required');
+  $('#txt8').addClass('required');
+</script>
+
+<% end %>
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $('#checkbox_mostrar').click(function(){
+      if($(this).prop("checked") == true){
+        $('#fecha_citologia').removeAttr("disabled");
+        $('#fecha_mamografia').removeAttr("disabled");
+        $('#txt2').removeAttr("disabled");
+        $('#txt3').removeAttr("disabled");
+        $('#txt4').removeAttr("disabled");
+        $('#txt5').removeAttr("disabled");
+        $('#txt6').removeAttr("disabled");
+        $('#txt7').removeAttr("disabled");
+        $('#txt8').removeAttr("disabled");
+
+      }
+  });
+  $('#checkbox_ocultar').click(function(){
+      if($(this).prop("checked") == true){
+        
+        $("#fecha_citologia").attr("disabled", true);
+        $("#fecha_mamografia").attr("disabled", true);
+        $("#txt2").attr("disabled", true);
+        $("#txt3").attr("disabled", true);
+        $("#txt4").attr("disabled", true);
+        $("#txt5").attr("disabled", true);
+        $("#txt6").attr("disabled", true);
+        $("#txt7").attr("disabled", true);
+        $("#txt8").attr("disabled", true);
+
+      }
+  });
+});
+
+</script>
+
+
+
 
 <br/>
 
 
 
 
-<% end %>
 
 
 
@@ -660,6 +1048,7 @@
                     
                 </div>
               </div>
+    <% end %>
 
 
   </div>
@@ -668,7 +1057,6 @@
 
 
 
-            <% end %>
 
 
 
@@ -682,228 +1070,65 @@
 
 
 
-
-
-
+<style type="text/css">
+      body {background: #ccc;
+    font-family: sans-serif;
+      padding:7%;
+    }
+     
+input {margin-bottom: 10px;}
+#signup label.error {
+  font-size: 0.8em;
+  color: #F00;
+  font-weight: bold;
+  display: block;
+    margin-bottom: 10px;
+}
+#signup  input.error, #signup select.error  {
+  background: #FFA9B8;
+  border: 1px solid red;
+}
+</style>
 
 <script type="text/javascript">
+   
+$(document).ready(function() {
+ $('#signup').validate({
+   
+   rules: {
+     email: {
+        required: true,
+        email: true
+     },
+     password: {
+        required: true,
+        rangelength:[8,16]
+     },
+     confirm_password: {equalTo:'#password'},
+     spam: "required"
+   }, //end rules
+   messages: {
+      email: {
+         required: "Please supply an e-mail address.",
+         email: "This is not a valid email address."
+       },
+      password: {
+        required: 'Please type a password',
+        rangelength: 'Password must be between 8 and 16 characters long.'
+      },
+      confirm_password: {
+        equalTo: 'The two passwords do not match.'
+      }
+   },
+   errorPlacement: function(error, element) { 
+       if ( element.is(":radio") || element.is(":checkbox")) {
+          error.appendTo( element.parent()); 
+        } else {
+          error.insertAfter(element);
+        } 
+    } 
 
-
-
-
-$('#checkAll').click(function () {    
-    $(':checkbox.checkItem').prop('checked', this.checked);    
-    $(':checkbox.checkItem2').prop('checked', false);    
-    $( "#checkAll2" ).prop( "checked", false );
-
- });
-$('#checkAll2').click(function () {    
-    $(':checkbox.checkItem2').prop('checked', this.checked);    
-    $(':checkbox.checkItem').prop('checked', false);    
-    $( "#checkAll" ).prop( "checked", false );
-
- });
-
-////////////////
-$('.myCheckbox1').click(function () {    
-    $('.myCheckbox1').prop('checked', this.checked);    
-    $('.myCheckbox12').prop('checked', false);    
-    
-
- });
-$('.myCheckbox12').click(function () {    
-    $('.myCheckbox12').prop('checked', this.checked);    
-    $('.myCheckbox1').prop('checked', false);    
-    
-
- });
-///////////////
-
-$('.myCheckbox2').click(function () {    
-    $('.myCheckbox2').prop('checked', this.checked);    
-    $('.myCheckbox22').prop('checked', false);    
-    
-
- });
-$('.myCheckbox22').click(function () {    
-    $('.myCheckbox22').prop('checked', this.checked);    
-    $('.myCheckbox2').prop('checked', false);    
-    
-
- });
-///////////////
-$('.myCheckbox3').click(function () {    
-    $('.myCheckbox3').prop('checked', this.checked);    
-    $('.myCheckbox32').prop('checked', false);    
-    
-
- });
-$('.myCheckbox32').click(function () {    
-    $('.myCheckbox32').prop('checked', this.checked);    
-    $('.myCheckbox3').prop('checked', false);    
-    
-
- });
-
-$('.myCheckbox4').click(function () {    
-    $('.myCheckbox4').prop('checked', this.checked);    
-    $('.myCheckbox42').prop('checked', false);    
-    
-
- });
-$('.myCheckbox42').click(function () {    
-    $('.myCheckbox42').prop('checked', this.checked);    
-    $('.myCheckbox4').prop('checked', false);    
-    
-
- });
-
-
-$('.myCheckbox5').click(function () {    
-    $('.myCheckbox5').prop('checked', this.checked);    
-    $('.myCheckbox52').prop('checked', false);    
-    
-
- });
-$('.myCheckbox52').click(function () {    
-    $('.myCheckbox52').prop('checked', this.checked);    
-    $('.myCheckbox5').prop('checked', false);    
-    
-
- });
-
-
-$('.myCheckbox6').click(function () {    
-    $('.myCheckbox6').prop('checked', this.checked);    
-    $('.myCheckbox62').prop('checked', false);    
-    
-
- });
-$('.myCheckbox62').click(function () {    
-    $('.myCheckbox62').prop('checked', this.checked);    
-    $('.myCheckbox6').prop('checked', false);    
-    
-
- });
-
-
-$('.myCheckbox7').click(function () {    
-    $('.myCheckbox7').prop('checked', this.checked);    
-    $('.myCheckbox72').prop('checked', false);    
-    
-
- });
-$('.myCheckbox72').click(function () {    
-    $('.myCheckbox72').prop('checked', this.checked);    
-    $('.myCheckbox7').prop('checked', false);    
-    
-
- });
-
-
-$('.myCheckbox8').click(function () {    
-    $('.myCheckbox8').prop('checked', this.checked);    
-    $('.myCheckbox82').prop('checked', false);    
-    
-
- });
-$('.myCheckbox82').click(function () {    
-    $('.myCheckbox82').prop('checked', this.checked);    
-    $('.myCheckbox8').prop('checked', false);    
-    
-
- });
-$('.myCheckbox9').click(function () {    
-    $('.myCheckbox9').prop('checked', this.checked);    
-    $('.myCheckbox92').prop('checked', false);    
-    
-
- });
-$('.myCheckbox92').click(function () {    
-    $('.myCheckbox92').prop('checked', this.checked);    
-    $('.myCheckbox9').prop('checked', false);    
-    
-
- });
-
-$('.myCheckbox10').click(function () {    
-    $('.myCheckbox10').prop('checked', this.checked);    
-    $('.myCheckbox102').prop('checked', false);    
-    
-
- });
-$('.myCheckbox102').click(function () {    
-    $('.myCheckbox102').prop('checked', this.checked);    
-    $('.myCheckbox10').prop('checked', false);    
-    
-
- });
-
-$('.myCheckbox11').click(function () {    
-    $('.myCheckbox11').prop('checked', this.checked);    
-    $('.myCheckbox112').prop('checked', false);    
-    
-
- });
-$('.myCheckbox112').click(function () {    
-    $('.myCheckbox112').prop('checked', this.checked);    
-    $('.myCheckbox11').prop('checked', false);    
-    
-
- });
-$('.myCheckbox12').click(function () {    
-    $('.myCheckbox12').prop('checked', this.checked);    
-    $('.myCheckbox122').prop('checked', false);    
-    
-
- });
-$('.myCheckbox122').click(function () {    
-    $('.myCheckbox122').prop('checked', this.checked);    
-    $('.myCheckbox12').prop('checked', false);    
-    
-
- });
-
-
-
-$(function(){
-    $('#chkboxes input:checkbox').on('change', function(){
-        if($(this).is(':checked'))
-        {
-         if($(this).attr('id')=='yes')
-         {         
-           $('#txt1').prop('disabled', false);
-           $('#txt2').prop('disabled', false);
-           $('#txt3').prop('disabled', false);
-           $('#txt4').prop('disabled', false);
-           $('#txt5').prop('disabled', false);
-           $('#txt6').prop('disabled', false);
-           $('#txt7').prop('disabled', false);
-           $('#txt8').prop('disabled', false);
-           $('#txt9').prop('disabled', false);
-           $('#chkno input:checkbox').prop('disabled', true)
-           .prop('checked', false);
-           $('#no').prop('checked', false);  
-         }
-            else
-         {
-           $('#txt1').val('').prop('disabled', true);
-           $('#txt2').val('').prop('disabled', true);
-           $('#txt3').val('').prop('disabled', true);
-           $('#txt4').val('').prop('disabled', true);
-           $('#txt5').val('').prop('disabled', true);
-           $('#txt6').val('').prop('disabled', true);
-           $('#txt7').val('').prop('disabled', true);
-           $('#txt8').val('').prop('disabled', true);
-           $('#txt9').val('').prop('disabled', true);
-           $('#chkno input:checkbox').prop('disabled', false);   
-           $('#yes').prop('checked', false);             
-
-         }
-        }
-    });
-});
-
-
-
+  }); // end validate 
+}); // end ready
 </script>
+

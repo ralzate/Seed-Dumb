@@ -37,18 +37,20 @@ class Paciente < ActiveRecord::Base
   accepts_nested_attributes_for :ciudad, :reject_if => lambda {|a| a[:nombre].blank?}
 
 
-=begin
   
-  validates :primer_nombre, :presence => { :message => " es un Campo Obligatorio"}
-  validates :primer_apellido, :presence => { :message => " es un Campo Obligatorio"}
-  validates :tipo_documento, :presence => { :message => " es un Campo Obligatorio"}
-  validates :documento, :presence => { :message => " es un Campo Obligatorio"}
-  validates :genero, :presence => { :message => " es un Campo Obligatorio"}
-  validates :fecha_nacimiento, :presence => { :message => " es un Campo Obligatorio"}
-  validates :tipo_sangre, :presence => { :message => " es un Campo Obligatorio"}
-  validates :profesion, :presence => { :message => " es un Campo Obligatorio"}
-  validates :direccion, :presence => { :message => " es un Campo Obligatorio"}
-=end
+  #validates :primer_nombre, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :primer_apellido, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :tipo_documento, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :documento, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :genero, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :fecha_nacimiento, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :tipo_sangre, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :profesion, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :direccion, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :nacionalidad, :presence => { :message => " es un Campo Obligatorio"}
+  #validates :ciudad_id, :presence => { :message => " es un Campo Obligatorio"}
+
+
 
 
 

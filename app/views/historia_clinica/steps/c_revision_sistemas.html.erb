@@ -1,3 +1,85 @@
+ 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+ 
+
+<style type="text/css">
+      body {background: #ccc;
+    font-family: sans-serif;
+      padding:7%;
+    }
+     
+input {margin-bottom: 10px;}
+#signup label.error {
+  font-size: 0.8em;
+  color: #F00;
+  font-weight: bold;
+  display: block;
+    margin-bottom: 10px;
+}
+#signup  input.error, #signup select.error  {
+  background: #FFA9B8;
+  border: 1px solid red;
+}
+</style>
+
+
+<script type="text/javascript">
+   
+$(document).ready(function() {
+ $('#signup').validate({
+   
+   rules: {
+     email: {
+        required: true,
+        email: true
+     },
+     password: {
+        required: true,
+        rangelength:[8,16]
+     },
+     confirm_password: {equalTo:'#password'},
+     spam: "required"
+   }, //end rules
+   messages: {
+      email: {
+         required: "Please supply an e-mail address.",
+         email: "This is not a valid email address."
+       },
+      password: {
+        required: 'Please type a password',
+        rangelength: 'Password must be between 8 and 16 characters long.'
+      },
+      confirm_password: {
+        equalTo: 'The two passwords do not match.'
+      }
+   },
+   errorPlacement: function(error, element) { 
+       if ( element.is(":radio") || element.is(":checkbox")) {
+          error.appendTo( element.parent()); 
+        } else {
+          error.insertAfter(element);
+        } 
+    } 
+
+  }); // end validate 
+}); // end ready
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
  <div class="col-md-12" style = "margin:15px!important;text-align:center;">
 <% if not @historia_clinica.errors.any? %>
 
@@ -61,10 +143,154 @@
 
 
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#selecctall').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+             document.getElementById('myRadio').checked = true;        
+             document.getElementById('myRadio2').checked = true;        
+             document.getElementById('myRadio3').checked = true;        
+             document.getElementById('myRadio4').checked = true;        
+             document.getElementById('myRadio5').checked = true;        
+             document.getElementById('myRadio6').checked = true;        
+             document.getElementById('myRadio7').checked = true;        
+             document.getElementById('myRadio8').checked = true;        
+             document.getElementById('myRadio9').checked = true;        
+             document.getElementById('selecctall2').checked = false;    
+             document.getElementById('myRadio10').checked = false;        
+             document.getElementById('myRadio11').checked = false;        
+             document.getElementById('myRadio12').checked = false; 
+             document.getElementById('myRadio13').checked = false;        
+             document.getElementById('myRadio14').checked = false;        
+             document.getElementById('myRadio15').checked = false;
+             document.getElementById('myRadio16').checked = false;
+             document.getElementById('myRadio17').checked = false;
+             document.getElementById('myRadio18').checked = false;
+     
+        }
+    });
+
+    $('#selecctall2').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+
+             document.getElementById('myRadio10').checked = true;        
+             document.getElementById('myRadio11').checked = true;        
+             document.getElementById('myRadio12').checked = true;   
+             document.getElementById('myRadio13').checked = true;        
+             document.getElementById('myRadio14').checked = true;        
+             document.getElementById('myRadio15').checked = true;
+             document.getElementById('myRadio16').checked = true;
+             document.getElementById('myRadio17').checked = true;
+             document.getElementById('myRadio18').checked = true;    
+             document.getElementById('selecctall').checked = false;        
+             document.getElementById('myRadio').checked = false;        
+             document.getElementById('myRadio2').checked = false;        
+             document.getElementById('myRadio3').checked = false;        
+             document.getElementById('myRadio4').checked = false;        
+             document.getElementById('myRadio5').checked = false;        
+             document.getElementById('myRadio6').checked = false;        
+             document.getElementById('myRadio7').checked = false;        
+             document.getElementById('myRadio8').checked = false;        
+             document.getElementById('myRadio9').checked = false;        
+    
+        }
+    });
+    
+    
+});
+
+
+
+
+
+
+
+$(document).ready(function(){
+      $('#selecctall').click(function(){
+          if($(this).prop("checked") == true){
+               $('#text_requerido').addClass('required');
+               $('#text_requerido2').addClass('required');
+               $('#text_requerido3').addClass('required');
+               $('#text_requerido4').addClass('required');
+               $('#text_requerido5').addClass('required');
+               $('#text_requerido6').addClass('required');
+               $('#text_requerido7').addClass('required');
+               $('#text_requerido8').addClass('required');
+               $('#text_requerido9').addClass('required');
+               $('#text_requerido10').addClass('required');
+
+          }
+      });
+      $('#selecctall2').click(function(){
+          if($(this).prop("checked") == true){
+            $('#text_requerido').removeClass('required');
+            $('#text_requerido').removeClass('error');
+            $('#text_requerido-error').hide(); 
+            $('#text_requerido2').removeClass('required');
+            $('#text_requerido2').removeClass('error');
+            $('#text_requerido2-error').hide(); 
+            $('#text_requerido3').removeClass('required');
+            $('#text_requerido3').removeClass('error');
+            $('#text_requerido3-error').hide(); 
+            $('#text_requerido4').removeClass('required');
+            $('#text_requerido4').removeClass('error');
+            $('#text_requerido4-error').hide();  
+            $('#text_requerido5').removeClass('required');
+            $('#text_requerido5').removeClass('error');
+            $('#text_requerido5-error').hide(); 
+            $('#text_requerido6').removeClass('required');
+            $('#text_requerido6').removeClass('error');
+            $('#text_requerido6-error').hide(); 
+            $('#text_requerido7').removeClass('required');
+            $('#text_requerido7').removeClass('error');
+            $('#text_requerido7-error').hide(); 
+            $('#text_requerido8').removeClass('required');
+            $('#text_requerido8').removeClass('error');
+            $('#text_requerido8-error').hide(); 
+            $('#text_requerido9').removeClass('required');
+            $('#text_requerido9').removeClass('error');
+            $('#text_requerido9-error').hide(); 
+            $('#text_requerido10').removeClass('required');
+            $('#text_requerido10').removeClass('error');
+            $('#text_requerido10-error').hide();                                
+                                                                       
+          }
+      });
+
+  });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
-<%= form_for [@paciente, @historia_clinica], method: :put, url: wizard_path do |f| %>
+<%= simple_form_for([@paciente, @historia_clinica], method: :put, url: wizard_path, :html => { :class => 'block multistep pf_form w_normal horizontal_center shadow', :id => "signup" }) do |f| %>
 
 
 
@@ -99,15 +325,11 @@
           <tr >
             <th  colspan="1">
             </th>
-
-
-
-            <th  colspan="1">
-               &nbsp;Todos Normales &nbsp;<input type="checkbox" id="checkAll"  />
+            <th colspan="1"  class="text-center" >
+                Seleccionar Normales<br/><input type="checkbox" id="selecctall">
             </th>
-
-            <th  colspan="1">
-               &nbsp;Todos Anormales &nbsp;<input type="checkbox" id="checkAll2"  />
+            <th  colspan="1"  class="text-center" >
+                Seleccionar todos Anormales<br/><input type="checkbox" id="selecctall2">
             </th>
             <th  colspan="1">
             </th>
@@ -141,23 +363,34 @@
 
 
         <tbody>
+
+          
+
+
           <tr id='addr0' class="selectme">
             <td align="center">
             Cardiovascular
             </td>
+          
             <td align="center">
-              <%= f.check_box :cardiovascular_true, class: 'checkItem myCheckbox1' %>
+                <%= f.radio_button(:c_cardiovascular, "TRUE", class: "required requerido", :title => "Debes Seleccionar una Opción", id: 'myRadio' )%>
             </td>
             <td align="center">
-              <%= f.check_box :cardiovascular_false, class: 'checkItem2 myCheckbox12' %>
+                <%= f.radio_button(:c_cardiovascular, "FALSE", class: 'no_requerido', :id => "myRadio10" )%>
             </td>
+
             <td>
-            <%= f.text_field :cardiovascular_description, class: 'form-control' %>
+              <%= f.text_field :c_cardiovascular_descripcion, class: 'form-control', :id => "text_requerido", :title => "Es un Campo Obligatorio" %>
 
             </td>
           </tr>
 
+
+
+   
           <tr id='addr1'></tr>
+
+
 
 
 
@@ -165,55 +398,88 @@
             <td align="center">
             Respiratorio
             </td>
+          
             <td align="center">
-              <%= f.check_box :respiratory_true, class: 'checkItem myCheckbox2' %>
+
+                <%= f.radio_button(:c_respiratorio, "TRUE", class: "required requerido2", :title => "Debes Seleccionar una Opción", id: 'myRadio2' )%>
+
             </td>
             <td align="center">
-              <%= f.check_box :respiratory_false, class: 'checkItem2 myCheckbox22' %>
+                <%= f.radio_button(:c_respiratorio, "FALSE", class: 'no_requerido2', :id => "myRadio11" )%>
+
             </td>
+
             <td>
-            <%= f.text_field :respiratory_description, class: 'form-control' %>
+              <%= f.text_field :c_respiratorio_descripcion, class: 'form-control', :id => "text_requerido2", :title => "Es un Campo Obligatorio" %>
 
             </td>
           </tr>
 
+
+
+
           <tr id='addr1'></tr>
+
+
 
 
           <tr id='addr0' class="selectme">
             <td align="center">
             Abdominal
             </td>
+          
             <td align="center">
-              <%= f.check_box :abdominal_true, class: 'checkItem myCheckbox3' %>
+
+
+                <%= f.radio_button(:c_abdominal, "TRUE", class: "required requerido3", :title => "Debes Seleccionar una Opción", id: 'myRadio3' )%>
+
+
             </td>
             <td align="center">
-              <%= f.check_box :abdominal_false, class: 'checkItem2 myCheckbox32' %>
+                <%= f.radio_button(:c_abdominal, "FALSE", class: 'no_requerido3', :id => "myRadio12" )%>
+
+
             </td>
+
             <td>
-            <%= f.text_field :abdominal_description, class: 'form-control' %>
+              <%= f.text_field :c_abdominal_descripcion, class: 'form-control', :id => "text_requerido3", :title => "Es un Campo Obligatorio" %>
 
             </td>
           </tr>
 
+
+
           <tr id='addr1'></tr>
+
+
+
+
+
 
 
           <tr id='addr0' class="selectme">
             <td align="center">
             Genito urinario
             </td>
+          
             <td align="center">
-              <%= f.check_box :genito_urinario_true, class: 'checkItem myCheckbox4' %>
+
+                <%= f.radio_button(:c_genito_urinario, "TRUE", class: "required requerido4", :title => "Debes Seleccionar una Opción", id: 'myRadio4' )%>
+
+
             </td>
             <td align="center">
-              <%= f.check_box :genito_urinario_false, class: 'checkItem2 myCheckbox42' %>
+                <%= f.radio_button(:c_genito_urinario, "FALSE", class: 'no_requerido4', :id => "myRadio13" )%>
+
             </td>
+
             <td>
-            <%= f.text_field :genito_urinario_description, class: 'form-control' %>
+              <%= f.text_field :c_genito_urinario_descripcion, class: 'form-control', :id => "text_requerido4", :title => "Es un Campo Obligatorio" %>
 
             </td>
           </tr>
+
+
 
           <tr id='addr1'></tr>
 
@@ -223,13 +489,16 @@
             Neurologico
             </td>
             <td align="center">
-              <%= f.check_box :neurological_true, class: 'checkItem myCheckbox5' %>
+              <%= f.radio_button(:c_neurologico, "TRUE", class: "required requerido5", :title => "Debes Seleccionar una Opción", id: 'myRadio5' )%>
+
             </td>
             <td align="center">
-              <%= f.check_box :neurological_false, class: 'checkItem2 myCheckbox52' %>
+                <%= f.radio_button(:c_neurologico, "FALSE", class: 'no_requerido5', :id => "myRadio14" )%>
+
+
             </td>
             <td>
-            <%= f.text_field :neurological_description, class: 'form-control' %>
+            <%= f.text_field :c_neurologico_descripcion, class: 'form-control', :id => "text_requerido5", :title => "Es un Campo Obligatorio" %>
 
             </td>
           </tr>
@@ -242,13 +511,13 @@
             Mental
             </td>
             <td align="center">
-              <%= f.check_box :mental_true, class: 'checkItem myCheckbox6' %>
+              <%= f.radio_button(:c_mental, "TRUE", class: "required requerido6", :title => "Debes Seleccionar una Opción", id: 'myRadio6' )%>
             </td>
             <td align="center">
-              <%= f.check_box :mental_false, class: 'checkItem2 myCheckbox62' %>
+              <%= f.radio_button(:c_mental, "FALSE", class: 'no_requerido6', :id => "myRadio15" )%>
             </td>
             <td>
-            <%= f.text_field :mental_description, class: 'form-control' %>
+            <%= f.text_field :c_mental_descripcion, class: 'form-control', :id => "text_requerido6", :title => "Es un Campo Obligatorio" %>
 
             </td>
           </tr>
@@ -261,13 +530,17 @@
             Organo de los sentidos
             </td>
             <td align="center">
-              <%= f.check_box :sense_organ_true, class: 'checkItem myCheckbox7' %>
+              <%= f.radio_button(:c_organo_de_los_sentidos, "TRUE", class: "required requerido7", :title => "Debes Seleccionar una Opción", id: 'myRadio7' )%>
+
+
             </td>
             <td align="center">
-              <%= f.check_box :sense_organ_false, class: 'checkItem2 myCheckbox72' %>
+              <%= f.radio_button(:c_organo_de_los_sentidos, "FALSE", class: 'no_requerido7', :id => "myRadio16" )%>
+
+
             </td>
             <td>
-            <%= f.text_field :sense_organ_description, class: 'form-control' %>
+            <%= f.text_field :c_organo_de_los_sentidos_descripcion, class: 'form-control', :id => "text_requerido7", :title => "Es un Campo Obligatorio" %>
 
             </td>
           </tr>
@@ -282,13 +555,14 @@
             Musculo-esqueletico
             </td>
             <td align="center">
-              <%= f.check_box :skeletal_muscle_true, class: 'checkItem myCheckbox8' %>
+              <%= f.radio_button(:c_musculo_esqueletico, "TRUE", class: "required requerido8", :title => "Debes Seleccionar una Opción", id: 'myRadio8' )%>
+
             </td>
             <td align="center">
-              <%= f.check_box :skeletal_muscle_false, class: 'checkItem2 myCheckbox82' %>
+              <%= f.radio_button(:c_musculo_esqueletico, "FALSE", class: 'no_requerido8', :id => "myRadio17" )%>
             </td>
             <td>
-            <%= f.text_field :skeletal_muscle_description, class: 'form-control' %>
+            <%= f.text_field :c_musculo_esqueletico_descripcion, class: 'form-control', :id => "text_requerido8", :title => "Es un Campo Obligatorio"  %>
 
             </td>
           </tr>
@@ -300,13 +574,13 @@
             Piel y faneras
             </td>
             <td align="center">
-              <%= f.check_box :skin_and_appendages_true, class: 'checkItem myCheckbox9' %>
+              <%= f.radio_button(:c_piel_y_faneras, "TRUE", class: "required requerido9", :title => "Debes Seleccionar una Opción", id: 'myRadio9' )%>
             </td>
             <td align="center">
-              <%= f.check_box :skin_and_appendages_false, class: 'checkItem2 myCheckbox92' %>
+              <%= f.radio_button(:c_piel_y_faneras, "FALSE", class: 'no_requerido9', :id => "myRadio18" )%>
             </td>
             <td>
-            <%= f.text_field :skin_and_appendages_description, class: 'form-control' %>
+            <%= f.text_field :c_piel_y_faneras_descripcion, class: 'form-control', :id => "text_requerido10", :title => "Es un Campo Obligatorio"  %>
 
             </td>
           </tr>
@@ -331,6 +605,140 @@
 
 
    
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+$('.no_requerido').change(function(){
+  if(this.checked){
+      $('#text_requerido').removeClass('required');
+      $('#text_requerido').removeClass('error');
+      $('#text_requerido-error').hide(); 
+  }
+})
+$('.requerido').change(function(){
+if(this.checked){
+       $('#text_requerido').addClass('required');
+  }  
+})
+
+$('.no_requerido2').change(function(){
+  if(this.checked){
+      $('#text_requerido2').removeClass('required');
+      $('#text_requerido2').removeClass('error');
+      $('#text_requerido2-error').hide(); 
+  }
+})
+$('.requerido2').change(function(){
+if(this.checked){
+       $('#text_requerido2').addClass('required');
+  }  
+})
+
+$('.no_requerido3').change(function(){
+  if(this.checked){
+      $('#text_requerido3').removeClass('required');
+      $('#text_requerido3').removeClass('error');
+      $('#text_requerido3-error').hide(); 
+  }
+})
+$('.requerido3').change(function(){
+if(this.checked){
+       $('#text_requerido3').addClass('required');
+  }  
+})
+
+$('.no_requerido4').change(function(){
+  if(this.checked){
+      $('#text_requerido4').removeClass('required');
+      $('#text_requerido4').removeClass('error');
+      $('#text_requerido4-error').hide(); 
+  }
+})
+$('.requerido4').change(function(){
+if(this.checked){
+       $('#text_requerido4').addClass('required');
+  }  
+})
+
+$('.no_requerido5').change(function(){
+  if(this.checked){
+      $('#text_requerido5').removeClass('required');
+      $('#text_requerido5').removeClass('error');
+      $('#text_requerido5-error').hide(); 
+  }
+})
+$('.requerido5').change(function(){
+if(this.checked){
+       $('#text_requerido5').addClass('required');
+  }  
+})
+
+$('.no_requerido6').change(function(){
+  if(this.checked){
+      $('#text_requerido6').removeClass('required');
+      $('#text_requerido6').removeClass('error');
+      $('#text_requerido6-error').hide(); 
+  }
+})
+$('.requerido6').change(function(){
+if(this.checked){
+       $('#text_requerido6').addClass('required');
+  }  
+})
+
+$('.no_requerido7').change(function(){
+  if(this.checked){
+      $('#text_requerido7').removeClass('required');
+      $('#text_requerido7').removeClass('error');
+      $('#text_requerido7-error').hide(); 
+  }
+})
+$('.requerido7').change(function(){
+if(this.checked){
+       $('#text_requerido7').addClass('required');
+  }  
+})
+
+$('.no_requerido8').change(function(){
+  if(this.checked){
+      $('#text_requerido8').removeClass('required');
+      $('#text_requerido8').removeClass('error');
+      $('#text_requerido8-error').hide(); 
+  }
+})
+$('.requerido8').change(function(){
+if(this.checked){
+       $('#text_requerido8').addClass('required');
+  }  
+})
+
+$('.no_requerido9').change(function(){
+  if(this.checked){
+      $('#text_requerido9').removeClass('required');
+      $('#text_requerido9').removeClass('error');
+      $('#text_requerido9-error').hide(); 
+  }
+})
+$('.requerido9').change(function(){
+if(this.checked){
+       $('#text_requerido9').addClass('required');
+  }  
+})
+
+
+</script>
+
+
+
+
+
 
 
 
@@ -379,160 +787,3 @@
 
 
 
-
-
-
-
-
-
-
-
-<script type="text/javascript">
-
-
-
-
-$('#checkAll').click(function () {    
-    $(':checkbox.checkItem').prop('checked', this.checked);    
-    $(':checkbox.checkItem2').prop('checked', false);    
-    $( "#checkAll2" ).prop( "checked", false );
-
- });
-$('#checkAll2').click(function () {    
-    $(':checkbox.checkItem2').prop('checked', this.checked);    
-    $(':checkbox.checkItem').prop('checked', false);    
-    $( "#checkAll" ).prop( "checked", false );
-
- });
-
-
-
-////////////////
-$('.myCheckbox1').click(function () {    
-    $('.myCheckbox1').prop('checked', this.checked);    
-    $('.myCheckbox12').prop('checked', false);    
-    
-
- });
-$('.myCheckbox12').click(function () {    
-    $('.myCheckbox12').prop('checked', this.checked);    
-    $('.myCheckbox1').prop('checked', false);    
-    
-
- });
-///////////////
-
-$('.myCheckbox2').click(function () {    
-    $('.myCheckbox2').prop('checked', this.checked);    
-    $('.myCheckbox22').prop('checked', false);    
-    
-
- });
-$('.myCheckbox22').click(function () {    
-    $('.myCheckbox22').prop('checked', this.checked);    
-    $('.myCheckbox2').prop('checked', false);    
-    
-
- });
-///////////////
-$('.myCheckbox3').click(function () {    
-    $('.myCheckbox3').prop('checked', this.checked);    
-    $('.myCheckbox32').prop('checked', false);    
-    
-
- });
-$('.myCheckbox32').click(function () {    
-    $('.myCheckbox32').prop('checked', this.checked);    
-    $('.myCheckbox3').prop('checked', false);    
-    
-
- });
-
-$('.myCheckbox4').click(function () {    
-    $('.myCheckbox4').prop('checked', this.checked);    
-    $('.myCheckbox42').prop('checked', false);    
-    
-
- });
-$('.myCheckbox42').click(function () {    
-    $('.myCheckbox42').prop('checked', this.checked);    
-    $('.myCheckbox4').prop('checked', false);    
-    
-
- });
-
-
-$('.myCheckbox5').click(function () {    
-    $('.myCheckbox5').prop('checked', this.checked);    
-    $('.myCheckbox52').prop('checked', false);    
-    
-
- });
-$('.myCheckbox52').click(function () {    
-    $('.myCheckbox52').prop('checked', this.checked);    
-    $('.myCheckbox5').prop('checked', false);    
-    
-
- });
-
-
-$('.myCheckbox6').click(function () {    
-    $('.myCheckbox6').prop('checked', this.checked);    
-    $('.myCheckbox62').prop('checked', false);    
-    
-
- });
-$('.myCheckbox62').click(function () {    
-    $('.myCheckbox62').prop('checked', this.checked);    
-    $('.myCheckbox6').prop('checked', false);    
-    
-
- });
-
-
-$('.myCheckbox7').click(function () {    
-    $('.myCheckbox7').prop('checked', this.checked);    
-    $('.myCheckbox72').prop('checked', false);    
-    
-
- });
-$('.myCheckbox72').click(function () {    
-    $('.myCheckbox72').prop('checked', this.checked);    
-    $('.myCheckbox7').prop('checked', false);    
-    
-
- });
-
-
-$('.myCheckbox8').click(function () {    
-    $('.myCheckbox8').prop('checked', this.checked);    
-    $('.myCheckbox82').prop('checked', false);    
-    
-
- });
-$('.myCheckbox82').click(function () {    
-    $('.myCheckbox82').prop('checked', this.checked);    
-    $('.myCheckbox8').prop('checked', false);    
-    
-
- });
-$('.myCheckbox9').click(function () {    
-    $('.myCheckbox9').prop('checked', this.checked);    
-    $('.myCheckbox92').prop('checked', false);    
-    
-
- });
-$('.myCheckbox92').click(function () {    
-    $('.myCheckbox92').prop('checked', this.checked);    
-    $('.myCheckbox9').prop('checked', false);    
-    
-
- });
-
-
-
-
-
-
-
-</script>
