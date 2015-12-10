@@ -1,3 +1,93 @@
+ 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+
+
+
+<style type="text/css">
+      body {background: #ccc;
+    font-family: sans-serif;
+      padding:7%;
+    }
+     
+input {margin-bottom: 10px;}
+#signup label.error {
+  font-size: 0.8em;
+  color: #F00;
+  font-weight: bold;
+  display: block;
+    margin-bottom: 10px;
+}
+#signup  input.error, #signup select.error  {
+  background: #FFA9B8;
+  border: 1px solid red;
+}
+</style>
+
+
+<script type="text/javascript">
+   
+$(document).ready(function() {
+ $('#signup').validate({
+   
+   rules: {
+     email: {
+        required: true,
+        email: true
+     },
+     password: {
+        required: true,
+        rangelength:[8,16]
+     },
+     confirm_password: {equalTo:'#password'},
+     spam: "required"
+   }, //end rules
+   messages: {
+      email: {
+         required: "Please supply an e-mail address.",
+         email: "This is not a valid email address."
+       },
+      password: {
+        required: 'Please type a password',
+        rangelength: 'Password must be between 8 and 16 characters long.'
+      },
+      confirm_password: {
+        equalTo: 'The two passwords do not match.'
+      }
+   },
+   errorPlacement: function(error, element) { 
+       if ( element.is(":radio") || element.is(":checkbox")) {
+          error.appendTo( element.parent()); 
+        } else {
+          error.insertAfter(element);
+        } 
+    } 
+
+  }); // end validate 
+}); // end ready
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -40,7 +130,7 @@
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
-<%= form_for([@paciente, @historia_clinica]) do |f| %>
+<%= simple_form_for([@paciente, @historia_clinica], :html => { :id => "signup" }) do |f| %>
 
 
 
@@ -82,8 +172,7 @@
               <label>Auxiliar:</label> 
 
 
-
-              <%= f.text_field :a_auxiliar, class: 'form-control' , placeholder: 'Campo Obligatorio', label: false  %>
+              <%= f.input :a_auxiliar,  :input_html => { class: 'form-control required', title: "Campo Obligatorio" } , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
 
@@ -93,22 +182,20 @@
           <div class="col-md-3">
               <label>Aeropuerto:</label> 
 
+              <%= f.collection_select :a_aeropuerto, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
 
-              <%= f.collection_select :a_aeropuerto, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
 
           </div>
 
           <div class="col-md-3">
               <label>Cove:</label> 
-              <%= f.text_field :a_cove, class: 'form-control', placeholder: 'Campo Obligatorio', label: false  %>
-
-
+              <%= f.input :a_cove,  :input_html => { class: 'form-control required', title: "Campo Obligatorio" } , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
          
 
           <div class="col-md-3">
               <label>Movil/Servicio:</label> 
-              <%= f.text_field :a_movil_servicio, class: 'form-control', placeholder: 'Campo Obligatorio', label: false  %>
+              <%= f.input :a_movil_servicio,  :input_html => { class: 'form-control required', title: "Campo Obligatorio" }  , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
         </div>
 
@@ -164,25 +251,40 @@ $(document).on('change', '#combo', function(){
 
           <div class="col-md-4">
               <label>Condición:</label> 
-              <%= f.select :a_condicion, [ 'Pasajero', 'Tripulante', 'Empleado', 'Visitante', 'Otro' ], {prompt: "Campo Obligatorio"},  {class: "form-control", id: "combo"} %>
+              <%= f.select :a_condicion, [ 'Pasajero', 'Tripulante', 'Empleado', 'Visitante', 'Otro' ], {prompt: "Campo Obligatorio"},  {class: "form-control required", id: "myselect", title: "Campo Obligatorio"} %>
 
           </div>
- <tr valign="baseline">
- <td nowrap="nowrap" align="right" class="postage">Postage:</td>
- <input type="text" name="postage" id="textbox" disabled>
+
+
+
+
+
+
+<script type="text/javascript">
+  $("#myselect").change(function() {
+    var val = $(this).val();
+    $("#company").prop("disabled", val == "Pasajero" || val == "Visitante" || val == "Otro");
+}).change();
+</script>
+
+
 
 
 
 
           <div class="col-md-4">
               <label>Tipo Servicio:</label> 
-                    <%= f.select :a_tipo_servicio, [ 'Atención prehospitalaria', 'Valoración aptitud de vuelo', 'Enfermedad general', 'Evento laboral', 'Accidente de transito', 'Traslado', 'Otro tipo de accidente', 'Remisión'], {prompt: "Campo Obligatorio"},  {class: "form-control"} %>
+                    <%= f.input :a_tipo_servicio,
+                    prompt:       'Campo Obligatorio',
+                    collection: @historia_clinica.select_type_service.sort,
+                    error: false, label: false, 
+                    input_html:   {class: 'form-control required', title: "Campo Obligatorio"}, 'aria-required' => 'true' %>
           </div>
           <div class="col-md-4">
 
               <label>Empresa:</label> 
 
-              <%= f.collection_select :a_empresa, Empresa.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+              <%= f.collection_select :a_empresa, Empresa.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
 
 
           </div>
@@ -197,11 +299,14 @@ $(document).on('change', '#combo', function(){
 
 
 
-
           <div class="col-md-4">
 
           <label>Lugar de Atención:</label> 
-              <%= f.select :a_lugar_de_atencion, [ 'Interno(Sanidad)', 'Externo' ], {prompt: "Campo Obligatorio"}, {class: "form-control"}  %>
+              <%= f.input :a_lugar_de_atencion,
+                prompt:       'Campo Obligatorio',
+                collection: @historia_clinica.select_lugar.sort,
+                error: false, label: false, 
+                input_html:   {class: 'form-control required', title: "Campo Obligatorio"}, 'aria-required' => 'true' %>
           </div>
 
 
@@ -209,12 +314,12 @@ $(document).on('change', '#combo', function(){
 
 
  <label>Origen:</label> 
-                  <%= f.collection_select :a_origen, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                  <%= f.collection_select :a_origen, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
                   </div>
 
           <div class="col-md-4">
               <label>Destino:</label> 
-                  <%= f.collection_select :a_destino, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
+                  <%= f.collection_select :a_destino, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
 
 
           </div>
@@ -226,17 +331,17 @@ $(document).on('change', '#combo', function(){
 
           <div class="col-md-4">
               <label>Nombre Acompañante:</label> 
-                <%= f.text_field :a_nombre_acompañante, :class => 'form-control', id: "accompanist_name"  , placeholder: 'Campo Obligatorio', label: false  %>
+                <%= f.input :a_nombre_acompañante,  :input_html => { :class => 'form-control required', id: "accompanist_name", title: "Campo Obligatorio" } , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
           <div class="col-md-4">
               <label>Parentesco:</label> 
+                <%= f.input :a_parentesco,  :input_html => { :class => 'form-control required', id: "accompanist_name", title: "Campo Obligatorio" } , placeholder: 'Campo Obligatorio', label: false  %>
 
-                <%= f.text_field :a_parentesco, :class => 'form-control', id: "accompanist_name"   , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
 <div class="col-md-4">
               <label>Telefono Acompañante:</label> 
-                <%= f.text_field :a_telefono, :class => 'form-control' , placeholder: 'Campo Obligatorio', label: false  %>
+                <%= f.input :a_telefono,  :input_html => { :class => 'form-control required', id: "accompanist_name", title: "Campo Obligatorio" }  , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
           
@@ -248,7 +353,7 @@ $(document).on('change', '#combo', function(){
 
                     <div class="col-md-4">
                         <label>Arl:</label> 
-                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado", id: "textbox", :disabled => true} %>
+                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado required", id: "company", :disabled => true, title: "Campo Obligatorio"} %>
                     </div>
 
 
@@ -294,7 +399,10 @@ $(document).on('change', '#combo', function(){
 
               <div class="col-md-4">
                   <label>Eps:</label> 
-                  <%= f.collection_select :eps_id, Eps.all, :id, :nombre, {prompt: "Selecciones una Eps"}, {class: "form-control eps"} %>
+
+                  <%= f.collection_select :eps_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado required", id: "company", title: "Campo Obligatorio"} %>
+
+
               </div>
 
 
@@ -353,17 +461,10 @@ $(document).on('change', '#combo', function(){
 
 
 
-
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 2 MOTIVO DE CONSULTA</h1></div>
+<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span> 2 MOTIVO DE LA CONSULTA</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
-
-
-
-
-
          
 <div class="container-fluid">
     <div class="row">
@@ -371,8 +472,7 @@ $(document).on('change', '#combo', function(){
 
           <div class="col-md-12">
 
-                <%= f.text_area :a_motivo_de_consulta, :class => 'form-control', id: "reason_for_consultation"  , placeholder: 'Campo Obligatorio', label: false  %>
-
+                <%= f.text_area :a_motivo_de_consulta, :class => 'form-control required', id: "reason_for_consultation"  , placeholder: 'Campo Obligatorio', label: false, title: "Campo Obligatorio"  %>
           </div>
         </div>
         <br/>
@@ -382,28 +482,18 @@ $(document).on('change', '#combo', function(){
 </div>
 
 
-
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 3 ENFERMEDAD ACTUAL</h1></div>
+<div class="container" style="margin-top:10px; margin-bottom:-8px;">
+        <div class="centered title"> <h1 style=" font-size:25px;"> <span style = "margin-right:10px;"class="glyphicon glyphicon-user"></span>3 ENFERMEDAD ACTUAL</h1></div>
      </div>
      <hr class="featurette-divider"></hr>
-
-
-
-
          
-
-
-
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
 
           <div class="col-md-12">
 
-              <%= f.text_area :a_enfermedad_actual, :class => 'form-control', id: "current_illness", placeholder: 'Campo Obligatorio', label: false  %>
+              <%= f.text_area :a_enfermedad_actual, :class => 'form-control required', id: "current_illness", placeholder: 'Campo Obligatorio', label: false, title: "Campo Obligatorio"  %>
           </div>
         </div>
         <br/>
@@ -411,6 +501,7 @@ $(document).on('change', '#combo', function(){
         <br/>        <br/>
     </div>
 </div>
+        
 
 
 

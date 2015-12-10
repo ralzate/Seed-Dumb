@@ -1,5 +1,98 @@
 
+
+
+
+
+
+
+
+ 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
+
+
+
+<style type="text/css">
+      body {background: #ccc;
+    font-family: sans-serif;
+      padding:7%;
+    }
+     
+input {margin-bottom: 10px;}
+#signup label.error {
+  font-size: 0.8em;
+  color: #F00;
+  font-weight: bold;
+  display: block;
+    margin-bottom: 10px;
+}
+#signup  input.error, #signup select.error  {
+  background: #FFA9B8;
+  border: 1px solid red;
+}
+</style>
+
+
+<script type="text/javascript">
+   
+$(document).ready(function() {
+ $('#signup').validate({
+   
+   rules: {
+     email: {
+        required: true,
+        email: true
+     },
+     password: {
+        required: true,
+        rangelength:[8,16]
+     },
+     confirm_password: {equalTo:'#password'},
+     spam: "required"
+   }, //end rules
+   messages: {
+      email: {
+         required: "Please supply an e-mail address.",
+         email: "This is not a valid email address."
+       },
+      password: {
+        required: 'Please type a password',
+        rangelength: 'Password must be between 8 and 16 characters long.'
+      },
+      confirm_password: {
+        equalTo: 'The two passwords do not match.'
+      }
+   },
+   errorPlacement: function(error, element) { 
+       if ( element.is(":radio") || element.is(":checkbox")) {
+          error.appendTo( element.parent()); 
+        } else {
+          error.insertAfter(element);
+        } 
+    } 
+
+  }); // end validate 
+}); // end ready
+</script>
+
+
+
+
     
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -50,7 +143,7 @@
 
     <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
       <div class="row">
-            <%= simple_form_for(@paciente) do |f| %>
+<%= simple_form_for([@paciente], :html => { :id => "signup" }) do |f| %>
 
 
 
@@ -76,6 +169,15 @@
     margin-left: 0px!important;">
         <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <%= link_to "Regresar", root_path, :class=>"btn btn-info color_blanco mrg" %><br><br><span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> Datos Paciente</h1></div>
      </div>
+
+
+
+
+
+
+
+
+     
      <hr class="featurette-divider"></hr>
 
 
@@ -84,13 +186,14 @@
                     <label class="label">Primer Nombre</label>
                     <div class="form-group">
 
-                      <%= f.text_field :primer_nombre, class: "form-control trs1"%>
+                      <%= f.text_field :primer_nombre, class: "form-control trs1 required", :title => "Es un Campo Obligatorio", id: '1name'  %>
                     </div>
                   </div>
+
                   <div class="col-md-3">
                     <label class="label">Segundo Nombre</label>
                     <div class="form-group">
-                      <%= f.text_field :segundo_nombre, class: "form-control trs2" %>
+                      <%= f.text_field :segundo_nombre, class: "form-control trs2", id: '2name' %>
                     </div>
                   </div>
 
@@ -99,24 +202,31 @@
                     <label class="label">Primer Apellido</label>
                     <div class="form-group">
 
-                      <%= f.text_field :primer_apellido, class: "form-control trs3" %>
+                      <%= f.text_field :primer_apellido, class: "form-control trs3 required", :title => "Es un Campo Obligatorio", id: '1surname' %>
                     </div>
                   </div>
                   <div class="col-md-3">
                     <label class="label">Segundo Apellido</label>
                     <div class="form-group">
-                      <%= f.text_field :segundo_apellido, class: "form-control trs4"%>
+                      <%= f.text_field :segundo_apellido, class: "form-control trs4", id: '2surname' %>
                     </div>
                   </div>
 
                </div>
+
+
+
+  
 
                 <div class="row sir">
 
                   <div class="col-md-4">
                     <label class="label">Email</label>
                     <div class="form-group">
-                      <%= f.text_field :email, class: 'form-control'%>
+                      <%= f.text_field :email, class: 'form-control', :value => 'no aplica' %>
+
+
+
                     </div>
                   </div>
   
@@ -124,19 +234,23 @@
                   <div class="col-md-4">
                     <label class="label">Tipo Documento</label>
                     <div class="form-group">
+
+
                       <%= f.input :tipo_documento,
-                              prompt:       'Seleccionar un Documento',
-                              collection: @paciente.select_documento.sort,
-                              error: false, label: false, 
-                              input_html:   {class: 'form-control '},
-                               :selected => '1'   %>
+                          prompt:       'Seleccionar',
+                          collection: @paciente.select_documento.sort,
+                          error: false, label: false, 
+                          input_html:   {class: 'form-control fontf required', :title => "Es un Campo Obligatorio"}, :selected => '1' %>
+
+
+
                     </div>
                   </div>
 
                   <div class="col-md-4">
                     <label class="label">Documento</label>
                     <div class="form-group">
-                        <%= f.text_field :documento, class: "form-control ",  id: 'document'  %>
+                        <%= f.text_field :documento, class: "form-control required",  id: 'document', :title => "Es un Campo Obligatorio"  %>
                     </div>
                   </div>  
 
@@ -149,7 +263,7 @@
                               prompt:       'Seleccionar',
                               collection: @paciente.select_genero.sort,
                               error: false, label: false, 
-                              input_html:   {class: 'form-control '}  %>
+                              input_html:   {class: 'form-control required', :title => "Es un Campo Obligatorio" }  %>
 
                     </div>
                   </div>
@@ -165,8 +279,8 @@
                         :use_short_month => true,
                         :order => [:day, :month, :year],
                         :prompt => {:month => 'Mes', :day => 'Dia', :year => 'Año'}},
-                        {:class => 'year form-control line1',
-                        :id => 'user_birthday'}
+                        {:class => 'year form-control line1 required',
+                        :id => 'user_birthday' , :title => "Es un Campo Obligatorio" }
                       %>                             
                     </div>
                 </div>
@@ -181,7 +295,7 @@
                           prompt:       'Seleccionar',
                           collection: @paciente.select_sangre.sort,
                           error: false, label: false, 
-                          input_html:   {class: 'form-control fontf'} %>
+                          input_html:   {class: 'form-control fontf required', :title => "Es un Campo Obligatorio"} %>
                     </div>
                   </div>
 
@@ -196,7 +310,7 @@
                     <div class="form-group">
      
 
-                        <%= f.text_field :profesion, class: "form-control ",  id: 'document'  %>
+                        <%= f.text_field :profesion, class: "form-control ",  id: 'document', :value => 'no aplica'  %>
 
 
 
@@ -206,7 +320,7 @@
                   <div class="col-md-4">
                     <label class="label">Direccion</label>
                     <div class="form-group">
-                      <%= f.text_field :direccion, class: 'form-control fontf' %>
+                      <%= f.text_field :direccion, class: 'form-control fontf required', :title => "Es un Campo Obligatorio" %>
                     </div>
                   </div>
 
@@ -215,7 +329,7 @@
                   <div class="form-group">
                   <label class="label">Nacionalidad</label>
 
-                        <%= f.country_select :nacionalidad, {object: f.object,:selected => 'CO'  }, class: 'form-control' %>
+                        <%= f.country_select :nacionalidad, {object: f.object,:selected => 'CO'  }, class: 'form-control required', :title => "Es un Campo Obligatorio" %>
 
 
                       <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -227,13 +341,24 @@
 
 
 
+<script type="text/javascript">
+function changeddl($this)
+{
+    if($this.value!="")
+    {
+      $('#text_requerido').removeClass('required');
+      $('#text_requerido').removeClass('error');
+      $('#text_requerido-error').hide(); 
+    }
+}
+</script>
 
               <div class="row sir">
 
                 <div class="col-md-4">
                   <label class="label">Ciudad</label>
                   <div class="form-group">
-                    <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, {prompt: "Seleccionar"}, {class: "form-control city"}  %>
+                    <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, {prompt: "Seleccionar"}, {class: "form-control city", :onchange => 'changeddl(this)'}  %>
                   </div>
                 </div>
 
@@ -275,8 +400,18 @@
 
               </div>
 
+      <%= f.hidden_field :nombre_completo, class: "form-control", id: 'nombre_completo' %>
 
 
+
+<script type="text/javascript">
+  $('#1name, #2name, #1surname, #2surname').bind('keypress blur', function() {   
+    $('#nombre_completo').val($('#1name').val() + ' ' +
+                             $('#2name').val() + ' '+
+                             $('#1surname').val() + ' '+
+                             $('#2surname').val());
+});
+</script>
 
 
                <div class="well pie_form">

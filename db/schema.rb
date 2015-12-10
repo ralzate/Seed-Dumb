@@ -310,6 +310,7 @@ ActiveRecord::Schema.define(version: 20151207131356) do
     t.string   "segundo_nombre"
     t.string   "primer_apellido"
     t.string   "segundo_apellido"
+    t.text     "nombre_completo"
     t.string   "email"
     t.string   "tipo_documento"
     t.string   "documento"
