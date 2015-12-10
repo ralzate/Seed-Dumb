@@ -5,9 +5,6 @@
 
 
 
-
-
-
 <div class="container-fluid">    
         
     <div id="loginbox" class="mainbox col-md-12 col-sm-12"> 
@@ -145,7 +142,17 @@
 
 
 
-         
+       
+
+
+
+<script type="text/javascript">
+$(document).on('change', '#combo', function(){
+    var shouldEnable = $(this).val() !== 'Empleado';
+    $('#textbox').prop('disabled', shouldEnable);
+});
+
+</script>
 
 
 
@@ -157,11 +164,12 @@
 
           <div class="col-md-4">
               <label>Condición:</label> 
-              <%= f.select :a_condicion, [ 'Pasajero', 'Tripulante', 'Empleado', 'Visitante', 'Otro' ], {prompt: "Campo Obligatorio"},  {class: "form-control"} %>
+              <%= f.select :a_condicion, [ 'Pasajero', 'Tripulante', 'Empleado', 'Visitante', 'Otro' ], {prompt: "Campo Obligatorio"},  {class: "form-control", id: "combo"} %>
 
           </div>
-
-
+ <tr valign="baseline">
+ <td nowrap="nowrap" align="right" class="postage">Postage:</td>
+ <input type="text" name="postage" id="textbox" disabled>
 
 
 
@@ -240,7 +248,7 @@
 
                     <div class="col-md-4">
                         <label>Arl:</label> 
-                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado"} %>
+                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado", id: "textbox", :disabled => true} %>
                     </div>
 
 
