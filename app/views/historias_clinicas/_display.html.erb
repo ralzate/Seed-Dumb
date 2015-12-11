@@ -53,14 +53,14 @@
 
 
     <td><%= historia_clinica.id %></td>
-    <td><%= historia_clinica.primer_nombre %></td>
-    <td><%= historia_clinica.documento %></td>
+    <td><%= historia_clinica.p_primer_nombre %></td>
+    <td><%= historia_clinica.p_documento %></td>
     <td><%= historia_clinica.created_at.strftime('%b %d. %Y') %></td>
     <td><%= link_to 'Ver Historia Clinica', paciente_historia_clinica_path(@paciente,historia_clinica), :class => "btn btn-info blanco btn-sm" %>
 
 
 
-<% if historia_clinica.estado != TRUE %>
+<% if historia_clinica.e_estado != TRUE %>
      &nbsp;  <%= link_to 'Editar Historia Clinica', paciente_historia_clinica_steps_path(@paciente, historia_clinica, HistoriaClinica.form_steps.first), :class => "btn btn-success blanco btn-sm" %>
 <% end %>
 

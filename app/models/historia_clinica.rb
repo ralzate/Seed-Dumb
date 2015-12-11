@@ -43,9 +43,9 @@ class HistoriaClinica < ActiveRecord::Base
     return true if self.form_steps.index(step.to_s) <= self.form_steps.index(form_step)
   end
    def self.search(search)
-    where("primer_nombre like '%#{search}%'  or segundo_nombre like '%#{search}%' 
-    or primer_apellido like '%#{search}%'  or segundo_apellido like '%#{search}%' 
-    or email like '%#{search}%' or documento like '%#{search}%' or direccion like 
+    where("p_primer_nombre like '%#{search}%'  or p_segundo_nombre like '%#{search}%' 
+    or p_primer_apellido like '%#{search}%'  or p_segundo_apellido like '%#{search}%' 
+    or p_email like '%#{search}%' or p_documento like '%#{search}%' or p_direccion like 
     '%#{search}%'")
   end
 

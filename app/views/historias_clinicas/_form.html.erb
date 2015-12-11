@@ -348,34 +348,46 @@ $(document).on('change', '#combo', function(){
          
         </div>
                 <br/>
+
+<script type="text/javascript">
+function changeddl($this)
+{
+    if($this.value!="")
+    {
+      $('.new_arl').removeClass('required');
+      $('.new_arl').removeClass('error');
+      $('.new_arl-error').hide();
+      $('#historia_clinica_arl_attributes_nombre-error').hide();
+
+    }
+}
+</script>       
+
+
+
         
         <div class="col-md-12">
 
                     <div class="col-md-4">
                         <label>Arl:</label> 
-                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado required", id: "company", :disabled => true, title: "Campo Obligatorio"} %>
+                        <%= f.collection_select :arl_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado required", id: "company", :disabled => true, title: "Campo Obligatorio", :onchange => 'changeddl(this)' } %>
                     </div>
 
 
 
-                  <div class="col-md-4">
-
-              <label for="chkPassport" style="margin-top:30px;">
-                  <input type="checkbox" id="chkPassport" />
-                 La Arl no esta registrada?
-              </label>
-
-                  </div>
-
-              <div id="dvPassport" style="display: none">
+              <div id="dvPassport">
 
                   <%= f.simple_fields_for :arl do |builder| %>
               <%#= builder.label :account_type %>
 
                   <div class="col-md-4">
-                    <label class="label">Nueva Arl</label>
+
+
+                <label for="chkPassport" >
+                 La Arl no esta registrada?
+              </label>
                     <div class="form-group">
-                      <%= builder.text_field :nombre, class: 'form-control' %>
+                      <%= builder.text_field :nombre, class: 'form-control required new_arl', :title => "Es un Campo Obligatorio" %>
                     </div>
                   </div>
 
@@ -394,13 +406,27 @@ $(document).on('change', '#combo', function(){
         <br/>
  
 
+      <script type="text/javascript">
+      function changeddl2($this)
+      {
+          if($this.value!="")
+          {
+            $('.new_eps').removeClass('required');
+            $('.new_eps').removeClass('error');
+            $('.new_eps-error').hide();
+            $('#historia_clinica_eps_attributes_nombre-error').hide();
+          }
+      }
+      </script>   
+
+
         <div class="col-md-12">
           
 
               <div class="col-md-4">
                   <label>Eps:</label> 
 
-                  <%= f.collection_select :eps_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado required", id: "company", title: "Campo Obligatorio"} %>
+                  <%= f.collection_select :eps_id, Arl.all, :id, :nombre, {prompt: "Selecciones una Arl"}, {class: "form-control arl habilitado", id: "company", :onchange => 'changeddl2(this)', :title => "Es un Campo Obligatorio"} %>
 
 
               </div>
@@ -408,24 +434,23 @@ $(document).on('change', '#combo', function(){
 
 
 
-                  <div class="col-md-4">
+               
 
-              <label for="chkPassport2">
-                  <input type="checkbox" id="chkPassport2"  style="margin-top:30px;"/>
-                 La Eps no esta registrada?
-              </label>
 
-                  </div>
 
-              <div id="dvPassport2" style="display: none">
+              <div id="dvPassport2" >
 
                   <%= f.simple_fields_for :eps do |builder| %>
               <%#= builder.label :account_type %>
 
                   <div class="col-md-4">
-                    <label class="label">Nueva Eps</label>
+
+
+           <label for="chkPassport2">
+                 La Eps no esta registrada?
+              </label>
                     <div class="form-group">
-                      <%= builder.text_field :nombre, class: 'form-control' %>
+                      <%= builder.text_field :nombre, class: 'form-control required new_eps' %>
                     </div>
                   </div>
 
