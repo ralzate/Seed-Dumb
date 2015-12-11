@@ -1,5 +1,6 @@
 class Cie10sController < ApplicationController
   before_action :set_cie10, only: [:show, :edit, :update, :destroy]
+  autocomplete :cie10, :codigo, extra_data: [:descripcion]
 
   # GET /cie10s
   # GET /cie10s.json

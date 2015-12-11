@@ -1,12 +1,24 @@
 <div class="nested-fields">
 
+
+
+
+
+
+
+
+
 	<div class="row">
 
 	    <div class="col-sm-4 col-md-4">
 	        <div class="fielset">
-	          <%= f.label :codigo %><br>
+	         
+    <%= f.label :codigo %>
+    <%= f.autocomplete_field :codigo, autocomplete_cie10_codigo_cie10s_path, update_elements: { descripcion: '#_descripcion' }, class: 'form-control' %>
 
-	        <%= f.collection_select :codigo, Cie10.all, :codigo, :codigo, {prompt: "Campo Obligatorio"}, {class: "form-control required"} %>
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+	         
 	        </div>
 	    </div>
 
@@ -14,7 +26,7 @@
 	        <div class="fielset">
 			<%= f.label :descripcion %><br>
 
-	        <%= f.collection_select :descripcion, Cie10.all, :descripcion, :descripcion, {prompt: "Campo Obligatorio"}, {class: "form-control required"} %>
+	        <%= f.collection_select :descripcion, Cie10.all, :descripcion, :descripcion, {prompt: "Campo Obligatorio"}, {class: "form-control"} %>
 	        </div>
 	    </div>
 	    <div class="col-sm-2 col-md-2">

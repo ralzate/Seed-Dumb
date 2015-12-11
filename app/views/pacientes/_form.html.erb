@@ -358,7 +358,7 @@ $(document).ready(function() {
                   <div class="form-group">
                   <label class="label">Nacionalidad</label>
 
-                        <%= f.country_select :nacionalidad, {object: f.object,:selected => 'CO'  }, class: 'form-control required error', :title => "Es un Campo Obligatorio" %>
+                        <%= f.country_select :nacionalidad, {object: f.object,:selected => 'CO'  }, class: 'form-control required', :title => "Es un Campo Obligatorio" %>
 
 
                       <%= f.hidden_field :user_id, :value => current_user.id %>

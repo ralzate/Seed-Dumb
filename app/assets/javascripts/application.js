@@ -22,7 +22,8 @@
 //= require garlic
 //= require turbolinks
 //= require cocoon
-
+//= require jquery-ui
+//= require autocomplete-rails
 //= require lazybox
 //= require turbolinks
 

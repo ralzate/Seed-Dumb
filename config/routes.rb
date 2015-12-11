@@ -1,7 +1,14 @@
 PetThing::Application.routes.draw do
 
 
-  resources :cie10s
+
+
+  resources :cie10s do
+    collection do
+      get :autocomplete_cie10_codigo
+    end
+  end
+
   resources :empresas, :path => "empresas"
   resources :procedimientos, :path => "procedimientos"
   resources :diagnosticos,  :path => "diagnosticos"
@@ -55,13 +62,14 @@ PetThing::Application.routes.draw do
 
 
 
+
+
   resources :pacientes, :path => "pacientes",  only: [:new, :create, :index, :destroy, :show, :edit, :update]  do
-    resources :historias_clinicas,  :path => "historias_clinicas", only: [:show, :new, :create, :index, :destroy] do
+    resources :historias_clinicas,  :path => "historias_clinicas", only: [:new, :create, :index, :destroy, :show, :edit, :update] do
       resources :steps,  :path => "steps", only: [:show, :update, :edit], controller: 'historia_clinica/steps'
       resources :notas_progreso,  :path => "notas_progreso", only: [:new, :create, :index, :destroy, :show, :edit, :update]
     end
   end
-
 
 
   root to: 'pages#home'

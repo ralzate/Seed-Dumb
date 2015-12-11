@@ -8,6 +8,8 @@
 
 
 
+
+
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 <div class="container-fluid">
@@ -17,22 +19,13 @@
         <h3 class="omb_authTitle">Historia Clinica de <a href="#"><%= @paciente.primer_nombre %> <%= @paciente.primer_apellido %></a></h3>
       <div class="row omb_row-sm-offset-3 omb_socialButtons">
             <div class="col-xs-4 col-sm-2">
-              <a href="#" class="btn btn-lg btn-block  omb_btn-facebook">
-                <i class="fa fa-facebook visible-xs"></i>
-                <span class="hidden-xs">Facebook</span>
-              </a>
+              <%= link_to 'Regresar' , paciente_historias_clinicas_path(@paciente), :class => "btn btn-lg btn-block  omb_btn-facebook" %> 
             </div>
             <div class="col-xs-4 col-sm-2">
-              <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
-                <i class="fa fa-twitter visible-xs"></i>
-                <span class="hidden-xs">Twitter</span>
-              </a>
+              <%= link_to 'Imprimir Pdf', paciente_historias_clinicas_path(@paciente, @historia_clinica, :format => "pdf"), target: '_blank',  :rel => "tooltip", :title => "Pdf", :class => 'btn btn-lg btn-block omb_btn-twitter' %>
             </div>  
             <div class="col-xs-4 col-sm-2">
-              <a href="#" class="btn btn-lg btn-block omb_btn-google">
-                <i class="fa fa-google-plus visible-xs"></i>
-                <span class="hidden-xs">Google+</span>
-              </a>
+              <a class="btn btn-lg btn-block omb_btn-google">Imprimit Csv</a>
             </div>  
       </div>
 
