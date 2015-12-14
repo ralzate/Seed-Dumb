@@ -1,5 +1,5 @@
 class Cie10 < ActiveRecord::Base
-  def self.search(search)
-    where("codigo like ?", "%#{search}%")
-  end
+		  belongs_to :historia_clinica
+		  has_many :diagnosticos 
+
 end

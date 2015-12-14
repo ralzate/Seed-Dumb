@@ -16,6 +16,9 @@ class DiagnosticosController < ApplicationController
   # GET /diagnosticos/new
   def new
     @diagnostico = Diagnostico.new
+@diagnostico.familia = "hola jodido"
+    
+
   end
 
   # GET /diagnosticos/1/edit
@@ -26,7 +29,8 @@ class DiagnosticosController < ApplicationController
   # POST /diagnosticos.json
   def create
     @diagnostico = Diagnostico.new(diagnostico_params)
-
+        @diagnostico.familia = "hola jodido"
+    
     respond_to do |format|
       if @diagnostico.save
         format.html { redirect_to @diagnostico, notice: 'Material sheet was successfully created.' }

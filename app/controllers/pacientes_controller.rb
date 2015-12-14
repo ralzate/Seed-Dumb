@@ -29,7 +29,9 @@ class PacientesController < ApplicationController
   # POST /pacientes.json
   def create
     @paciente = Paciente.new(paciente_params)
-  
+    if @paciente.email.blank?
+      @paciente.email = "N/A"
+    end  
     respond_to do |format|
       if @paciente.save
         format.html { redirect_to new_paciente_historia_clinica_path(@paciente), notice: 'Historia Clinica was successfully created.' }

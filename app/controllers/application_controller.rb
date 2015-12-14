@@ -11,7 +11,9 @@ class ApplicationController < ActionController::Base
   protected
   # Permisos Admin
   def admin?
-true
+    if current_user.rol_id === 1
+     flash[:notice] = "Bienvenido #{current_user.email}"
+    end
   end
 
 
@@ -55,7 +57,6 @@ true
       false
     end
   end
-
 
 
 

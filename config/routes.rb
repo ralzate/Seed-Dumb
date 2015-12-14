@@ -3,11 +3,7 @@ PetThing::Application.routes.draw do
 
 
 
-  resources :cie10s do
-    collection do
-      get :autocomplete_cie10_codigo
-    end
-  end
+  resources :cie10s
 
   resources :empresas, :path => "empresas"
   resources :procedimientos, :path => "procedimientos"

@@ -20,7 +20,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 # https://github.com/activebridge/lazybox
 gem 'lazybox', '0.2.3'
 gem 'remotipart', '~> 1.2'
-
+gem "chartkick"
 # https://github.com/apeacox/simple_form_fancy_uploads
 gem 'simple_form_fancy_uploads'
 # https://github.com/thoughtbot/paperclip
@@ -80,8 +80,8 @@ gem 'jasny_bootstrap_extension_rails'
 
 gem 'carmen-rails', '~> 1.0.0'
 gem 'sextant'
-gem 'rails4-autocomplete'
 gem 'jquery-ui-rails'
+gem 'chosen-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

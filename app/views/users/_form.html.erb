@@ -122,7 +122,7 @@
                   <div class="col-md-3">
                     <label class="label">Tipo Documento</label>
                     <div class="form-group">
-                      <%= f.input :type_document,
+                      <%= f.input :tipo_documento,
                               prompt:       'Seleccionar un Documento',
                               collection: @user.select_document.sort,
                               error: false, label: false, 
@@ -136,7 +136,7 @@
                 <div class="col-md-3">
                     <label class="label">Documento</label>
                     <div class="form-group">
-                        <%= f.text_field :documento, class: "form-control ", placeholder: 'Documento',  id: 'document'  %>
+                        <%= f.number_field :documento, class: "form-control ", placeholder: 'Documento',  id: 'document'  %>
                     </div>
                   </div>  
 

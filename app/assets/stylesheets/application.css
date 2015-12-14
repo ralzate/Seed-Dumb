@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require switchery
- *= require jquery-ui
+ *= require chosen 
  *= require jasny-bootstrap
  *= require rails_bootstrap_forms
  *= require lazybox

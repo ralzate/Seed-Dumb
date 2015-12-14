@@ -7,6 +7,7 @@ class CreateDiagnosticos < ActiveRecord::Migration
       t.text :descripcion
       t.string :codigo
       t.references :historia_clinica, index: true, foreign_key: true
+      t.references :cie10, index: true, foreign_key: true
 
       t.timestamps null: false
     end

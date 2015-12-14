@@ -4,162 +4,23 @@
 
 
 
+<h1>
 
+<% #Diagnostico.where(:cie10_id => 2).count %>
 
-
-
-
-
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
-<div class="container-fluid">
-    
-
-    <div class="omb_login">
-        <h3 class="omb_authTitle">Historia Clinica de <a href="#"><%= @paciente.primer_nombre %> <%= @paciente.primer_apellido %></a></h3>
-      <div class="row omb_row-sm-offset-3 omb_socialButtons">
-            <div class="col-xs-4 col-sm-2">
-              <%= link_to 'Regresar' , paciente_historias_clinicas_path(@paciente), :class => "btn btn-lg btn-block  omb_btn-facebook" %> 
-            </div>
-            <div class="col-xs-4 col-sm-2">
-              <%= link_to 'Imprimir Pdf', paciente_historias_clinicas_path(@paciente, @historia_clinica, :format => "pdf"), target: '_blank',  :rel => "tooltip", :title => "Pdf", :class => 'btn btn-lg btn-block omb_btn-twitter' %>
-            </div>  
-            <div class="col-xs-4 col-sm-2">
-              <a class="btn btn-lg btn-block omb_btn-google">Imprimit Csv</a>
-            </div>  
-      </div>
-
-        
-    </div>
-
-</div>
-
-
-<style type="text/css">
+<% #@diagnosticos.each do |f|  %>
   
-/*
-    Note: It is best to use a less version of this file ( see http://css2less.cc
-    For the media queries use @screen-sm-min instead of 768px.
-    For .omb_spanOr use @body-bg instead of white.
-*/
-
-@media (min-width: 768px) {
-    .omb_row-sm-offset-3 div:first-child[class*="col-"] {
-        margin-left: 25%;
-    }
-}
-
-.omb_login .omb_authTitle {
-    text-align: center;
-  line-height: 300%;
-}
-  
-.omb_login .omb_socialButtons a {
-  color: white; // In yourUse @body-bg 
-  opacity:0.9;
-}
-.omb_login .omb_socialButtons a:hover {
-    color: white;
-  opacity:1;      
-}
-.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
-.omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
-.omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
-
-
-.omb_login .omb_loginOr {
-  position: relative;
-  font-size: 1.5em;
-  color: #aaa;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-.omb_login .omb_loginOr .omb_hrOr {
-  background-color: #cdcdcd;
-  height: 1px;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-}
-.omb_login .omb_loginOr .omb_spanOr {
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: -0.6em;
-  margin-left: -1.5em;
-  background-color: white;
-  width: 3em;
-  text-align: center;
-}     
-
-.omb_login .omb_loginForm .input-group.i {
-  width: 2em;
-}
-.omb_login .omb_loginForm  .help-block {
-    color: red;
-}
-.btn-block{
-  background-color: #5bc0de !important;
-}
-  
-@media (min-width: 768px) {
-    .omb_login .omb_forgotPwd {
-        text-align: right;
-    margin-top:10px;
-  }   
-}
-</style>
-<br/>
+  <% # if f.cie10.familia == "Enfermedades infecciosas y parasitarias." %>
+<% #@alejo = @alejo + 1  %>
 
 
 
+<% # end %>
+<% #end %>
 
+</h1>
 
-
-
-
-<div class="container-fluid">
-    <div class="row clearfix">
-    <div class="col-md-12 column">
-<table  class="table table-bordered table-hover" id="tab_logic">
-  
-  <tr>
-      <td rowspan="2"  style="width:10%">
-      <%= link_to image_tag('Logo/logo.png',:size => "140x60", :class =>"ember-view "), root_path %>
-  </td>
-
-    <td colspan="2" class="text-center">HISTORIA CLINICA</td>
-    <td>
-      Fecha: 20/11/2013<br>
-    </td>
-  </tr>
-  <tr>
-    <td>Fecha y hora de Di</td>
-    <td>Savings</td>
-    <td>Revision 11-13</td>
-  </tr>
-  <tr>
-    <td>February</td>
-    <td>$80</td>
-    <td>$80</td>
-    <td>$80</td>
-  </tr>
-</table>
-  </div>
-  </div>
-  </div>    
-
-
-
-
-
-
-
-
-
-
-
+<% #@alejo  %>
 
 
 
@@ -170,16 +31,12 @@ A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themefores
 Licensed under MIT
 -->
 
+
+
+
+
 <div class="container-fluid">
-    <div class="row profile well">
-    <div class="col-md-12">
-
-
-
-<div class="col-md-12" style = "margin:15px!important;text-align:center;">
-
-
-
+    <div class="col-md-12 column col-md-offset-3">
 
     <%= link_to 'Volver a Historias Clinicas' , paciente_historias_clinicas_path(@paciente), :class => "btn btn-info color_blanco mrg" %> 
 
@@ -187,104 +44,70 @@ Licensed under MIT
   <%= link_to 'Imprimir Pdf', paciente_historias_clinicas_path(@paciente, @historia_clinica, :format => "pdf"), target: '_blank',  :rel => "tooltip", :title => "Pdf", :class => 'btn btn-info color_blanco mrg' %>
 
     <a class="btn btn-info color_blanco mrg ">Imprimit Csv</a>
-
-
 </div>
-
-    <div class="row col-md-12 custyle">
-    <table class="table table-bordered">
-              <tr>
-                <th rowspan = "3"style="width:25%;">
-                 <%= link_to image_tag('Logo/logo.png',:size => "160x80", :class =>"ember-view "), root_path %>           
+    </div>
+    <br/>
+<div class="container-fluid">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
+              <tr  style="height:20px;">
+                <th rowspan = "4"style="width:20%;">
+                 <%= link_to image_tag('Logo/logo.png',:size => "200x120", :class =>"ember-view "), root_path %>           
                 </th>
-                <th style="width:50%;" colspan="2">
+                <th style="width: 50%;  text-align:center;" colspan="2" >
                  HISTORIA CLINICA             
                 </th>
-                <th style="width:30%;text-align:center;font-size:12px">
-                  Fecha: 20/11/2013<br>
-                  Revision 11-13            
-                </th>
+                <th style="width:30%;text-align:center;font-size:12px; height:10px;">
+                  Fecha: <%= Time.now.strftime("%d-%m-%Y") %><br>
+                </th> 
+
               </tr>
               <tr>
                
                
                  <th style="width:30%;">
-                 FECHA         
+                 FECHA:  <%= @historia_clinica.created_at.strftime('%b %d. %Y') %>
                 </th>
                 <th style="width:30%;">
-                  HORA MILITAR:             
+                  HORA MILITAR: <%= @historia_clinica.created_at.strftime("%H:%M") %>
                 </th>
                  <th style="width:20%;text-align:center;font-size:12px">
-                  F GS 0RR <br>
-                  Version 5            
+                  Revisión 11 - 13           
                 </th>
               </tr>
+
+
+
                <tr>
                
                
-                 <th colspan = "3" style="width:100%;">
-                 fDATOS GENERALES          
+                         
+                 <th colspan = "2" style="width:85%;text-align:center;" rowspan="2">
+                 DATOS GENERALES          
                 </th>
+
+
+                 <th style="width:20%;text-align:center;font-size:12px">
+                  F GS 033           
+                </th>
+       
                 
+                 
               </tr>
 
-
-    </table>
-    </div>
-</div>
-
-
-
-      <div class="profile-usertitle">
-        <div class="profile-usertitle-name">
-          HISTORIA CLINICA 
-        </div>
-      </div>
-                   
-
-
-
-
-
-
-
-<div class="container-fluid">
-    <div class="row col-md-12 custyle">
-    <table class="table table-striped custab table-bordered">
               <tr >
-                <th style="width:25%;">
-                  Fecha:             
+                         <th  colspan = "3" style="width:15%;text-align:center;font-size:12px">
+                  Version 5            
                 </th>
-                <td style="width:25%;">
-                  <%= @historia_clinica.created_at.strftime('%b %d. %Y') %>
-                </td>
-                <th style="width:25%;">
-                  Hora:           
-                </th>
-                <td>
-                  <%= @historia_clinica.created_at.strftime("%H:%M") %>
-                </td>
-              </tr>  
-
-              <tr>
-              <th style="width:25%;">
-                  Ciudad:            
-                </th>
-                <td>
-                </td>
-
-                <th style="width:25%;" >
-                  Departamento:       
-                </th>
-                <td>
-                  <%= @historia_clinica %>
-                </td>
               </tr>
+
+
     </table>
     </div>
 </div>
 
-
+</div>
 
 
 
@@ -299,84 +122,104 @@ DATOS GENERALES
 
 
 
-
-
 <div class="container-fluid">
-    <div class="row col-md-12 col-md-offset-2 custyle">
-    <table class="table table-striped custab table-bordered">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
 
               <tr >
-                <th style="width:25%;">
-                  Medico de Turno:        
-                </th>
-                <td  style="width:25%;">
+                <td style="width:25%;">
+                  <b>Movil/Servicio:</b>        
                 </td>
-                <th  style="width:25%;">
-                  Auxiiar de enfermeria:   
-                </th>
-                <td  style="width:25%;">
-                  No Aplica
+                <td style="width:25%;">
+                <%= @historia_clinica.a_movil_servicio %> 
                 </td>
-
+                <td  style="width:25%;">
+                  <b>Conductor/Comandante:</b>   
+                </td>
+                <td  style="width:25%;">
+                <%= @historia_clinica.a_cove  %></td>
                 
+    
+
               </tr>  
 
 
-
-        
-
-
-
               <tr >
-                <th  style="width:25%;">
-                  <b>Cove:             
-                </th>
-                <td  style="width:25%;">
-                  <%= @historia_clinica %>
+
+            <td style="width:10%;">
+                  <b>Ciudad:</b>        
+                </td>
+                <td  style="width:10%;">
+                <%= @historia_clinica.a_movil_servicio %> 
                 </td>
 
-                <th  style="width:25%;">
-                    Movil/Servicio:    
-                </th>
-                <td  style="width:25%;">
-                  <%= @historia_clinica %>
+                <td  style="width:5%;">
+                  <b>Departamento:</b>   
                 </td>
+                <td  style="width:10%;">
+                <%= @historia_clinica.aeropuerto.departamento  %></td>
+
+                
                  
 
                 </tr>
 
 
 
-                <tr>
-                   <th style="width:25%;">
-                    Aeropuerto: 
-                  </th>
-                  <td style="width:25%;">
-                  </td>
-                  <th style="width:25%;">
-                    Ubicación: 
-                  </th>
-                  <td style="width:25%;">
-                    No Aplica
-                  </td>
-                </tr> 
+                
 
                 <tr>
-                   <th style="width:25%;">
-                    Tipo se servicio Solicitado:  
-                  </th>
-                  <td style="width:25%;">
-                    <%= @historia_clinica %>
-                  </td>
+                  <td >
+                <b>Medico de Turno:</b>             
+                </td>
+                <td>
+                <%=  @historia_clinica.user.nombre_usuario %>
+                </td>
+
+                <td>
+                  <b>Aeropuerto:</b>    
+                </td>
+                <td >
+                  <%=  @historia_clinica.aeropuerto.nombre %>                
+                </td>
+                </tr>
+
+                
+
+                <tr>
+                  <td >
+                <b>Empresa:</b>             
+                </td>
+                <td>
+                <%=  @historia_clinica.a_empresa %>
+                </td>
+
+                <td>
+                 <b> Auxiliar de Enfermería: </b>   
+                </td>
+                <td >
+                  <%=  @historia_clinica.a_auxiliar %>                
+                </td>
                 </tr>
 
 
+                <tr>
+                  <td >
+                <b>Tipo de Servicio:</b>             
+                </td>
+                <td>
+                <%=  @historia_clinica.a_tipo_servicio %>
+                </td>
+
+                
+                </tr>
             
     </table>
     </div>
 </div>
 
-
+</div>
 
 
 
@@ -404,39 +247,132 @@ I. IDENTIFICACIÓN DEL PACIENTE
 
 
 <div class="container-fluid">
-    <div class="row col-md-12 custyle">
-    <table class="table table-striped custab table-bordered">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
 
-                
-              <tbody>
-                <tr >
-                  <th style="width:25%;">
-                    Nombres:   
-                  </th>
-                   <td  style="width:25%;">
-                     <%= @historia_clinica %> <%= @historia_clinica %>
+                <tr>
+                  <td  style="width:15%;">
+                  <b>Nombre Completo:</b>             
                   </td>
-                  <th  style="width:25%;">
-                    Apellidos: 
-                  </th>
+                  <td  style="width:85%;">
+                  <%= @historia_clinica.p_primer_nombre %> <%= @historia_clinica.p_segundo_nombre %> <%= @historia_clinica.p_primer_apellido %> <%= @historia_clinica.p_segundo_apellido %>
+                  </td>
+                </tr>
+
+            </table>
+
+      <table class="table table-bordered table-hover" id="tab_logic" style="margin-top:-20px;">
+
+                <tr>
                   <td  style="width:25%;">
-                    <%= @historia_clinica %> <%= @historia_clinica %>
+                  <b>Origen:</b>             
                   </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.a_origen %>
+                  </td>
+                 
+                  <td  style="width:25%;">
+                  <b>Destino:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.a_destino %>
+                  </td>
+                </tr>
 
-                </tr>                             
+
+                <tr>
+                  <td  style="width:25%;">
+                  <b>Tipo de Documento:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.p_tipo_documento %>
+                  </td>
+                 
+                  <td  style="width:25%;">
+                  <b>Documento:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.p_documento %>
+                  </td>
+                </tr>
 
 
 
+                <tr>
+                  <td  style="width:25%;">
+                  <b>Genero:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.p_genero %>
+                  </td>
+                 
+                  <td  style="width:25%;">
+                  <b>Email:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.p_email %>
+                  </td>
+                </tr>
 
 
 
-              </tbody>
+                <tr>
+                  <td  style="width:25%;">
+                  <b>Profesion:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.p_profesion %>
+                  </td>
+                 
+                  <td  style="width:25%;">
+                  <b>Fecha de nacimiento:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.p_fecha_nacimiento %>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td  style="width:25%;">
+                  <b>Tipo de Sangre:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.p_tipo_sangre %>
+                  </td>
+                 
+                  <td  style="width:25%;">
+                  <b>Nacionalidad:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= to_country_code(@historia_clinica.p_nacionalidad) %>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td  style="width:25%;">
+                  <b>Direccion:</b>             
+                  </td>
+                  <td  style="width:25%;">
+                  <%= @historia_clinica.p_direccion %>
+                  </td>
+   
+                </tr>
 
 
 
             </table>
+
+
+
+
+
             </div>
   </div>
+ </div>
+
+
 
 
 
@@ -454,24 +390,25 @@ II. MOTIVO DE CONSULTA
 
 
 
+
 <div class="container-fluid">
-    <div class="row col-md-12 col-md-offset-2 custyle">
-    <table class="table table-striped custab table-bordered">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
 
-              <tr >
-                <td >
-                </td>
+            <tr>
+        
+              <td >
+                <%= @historia_clinica.a_motivo_de_consulta %>
+              </td>
 
-
-                
-              </tr>  
-
-
+            </tr>
 
 
             
     </table>
     </div>
+</div>
 </div>
 
 
@@ -487,14 +424,17 @@ III. ENFERMEDAD ACTUAL
 </div>
 
 <div class="container-fluid">
-    <div class="row col-md-12 col-md-offset-2 custyle">
-    <table class="table table-striped custab table-bordered">
-        <tr >
-          <td >
-          </td>
-        </tr>  
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
+            <tr>
+              <td>
+                <%= @historia_clinica.a_enfermedad_actual %>
+              </td>
+            </tr> 
     </table>
     </div>
+</div>
 </div>
 
 
@@ -511,20 +451,48 @@ IV. ANTECEDENTES PERSONALES
 </div>
 
 <div class="container-fluid">
-    <div class="row col-md-12 col-md-offset-2 custyle">
-    <table class="table table-striped custab table-bordered">
+    <div class="row clearfix">
+    <div class="col-md-12 column">
+      <table class="table table-bordered table-hover" id="tab_logic">
 
+                <tr>
+                  <td  style="width:20%;">
+                  <b>Neonatales:</b>             
+                  </td>
+                  <td  style="width:5%;">
+                    <%= @historia_clinica.b_neonatales %>
+                  </td>
+                 
+                  <td  style="width:25%;">
+                  <b>Neonatales Descripción:</b>             
+                  </td>
+                  <td  style="width:50%;">
+                  <%= @historia_clinica.b_neonatales_descripcion %>
+                  </td>
+                </tr>
 
+                <tr>
+                  <td>
+                  <b>Patologicos:</b>             
+                  </td>
+                  <td >
+                  <%= @historia_clinica.b_patologicos %>
+                  </td>
+   
+                  <td>
+                  <b>Patologicos Descripción:</b>             
+                  </td>
+                  <td >
+                  <%= @historia_clinica.b_neonatales_descripcion %>
+                  </td>
+
+                </tr>
 
 
     </table>
 
-    <table class="table table-striped custab table-bordered">
-
-
-
-    </table>
     </div>
+</div>
 </div>
 
 
@@ -797,3 +765,46 @@ Plan y Tratamiento
 
 
 
+
+
+
+
+
+
+
+
+
+
+    <tr>
+      <th width="3% !important;">Id</th>
+      <th width="20% !important;">Fecha</th>
+      <th width="40% !important;">Descripción</th>
+      <th width="10% !important;">Responsable</th>
+      <th width="10% !important;">Cargo</th>
+      <th width="15% !important;">Opciones</th>
+    </tr>
+
+<% notas_progreso = @historia_clinica.notas_progreso.each do |nota_progreso| %>
+
+  <tr>
+
+
+    <td><%= nota_progreso.id %></td>
+    <td><%= nota_progreso.created_at %></td>
+    <td><%= nota_progreso.descripcion %></td>
+    <td><%= current_user.name %></td>
+    <td><%= current_user.name %></td>
+
+<td>
+
+    <%= link_to 'Mostrar',  paciente_historia_clinica_nota_progreso_path(@paciente,@historia_clinica,nota_progreso),  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-primary btn-xs color_blanco principal'%>
+
+
+
+
+
+</td>
+
+  </tr>
+
+<% end %>  

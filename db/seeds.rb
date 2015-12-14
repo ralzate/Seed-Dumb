@@ -183,8 +183,3 @@ Empresa.create!([
 ])
 
 
-Aeropuerto.create!([
-  { nombre: "Alfredo Vásquez Cobo", departamento: "Leticia", ciudad_id: 1},
-
-
-])

@@ -175,147 +175,6 @@ $(document).ready(function() {
 
 
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#selecctall').click(function(event) {  //on click 
-        if(this.checked) { // check select status
-             document.getElementById('myRadio').checked = true;        
-             document.getElementById('myRadio2').checked = true;        
-             document.getElementById('myRadio3').checked = true;        
-             document.getElementById('myRadio4').checked = true;        
-             document.getElementById('myRadio5').checked = true;        
-             document.getElementById('myRadio6').checked = true;        
-             document.getElementById('myRadio7').checked = true;        
-             document.getElementById('myRadio8').checked = true;        
-             document.getElementById('myRadio9').checked = true;        
-             document.getElementById('myRadio10').checked = true;        
-             document.getElementById('myRadio11').checked = true;        
-             document.getElementById('myRadio12').checked = true;        
-             document.getElementById('myRadio13').checked = true;        
-             document.getElementById('selecctall2').checked = false;         
-             document.getElementById('myRadio14').checked = false;        
-             document.getElementById('myRadio15').checked = false;
-             document.getElementById('myRadio16').checked = false;
-             document.getElementById('myRadio17').checked = false;
-             document.getElementById('myRadio18').checked = false;
-             document.getElementById('myRadio19').checked = false;
-             document.getElementById('myRadio20').checked = false;
-             document.getElementById('myRadio21').checked = false;
-             document.getElementById('myRadio22').checked = false;
-             document.getElementById('myRadio23').checked = false;
-     
-        }
-    });
-
-    $('#selecctall2').click(function(event) {  //on click 
-        if(this.checked) { // check select status
-
-             document.getElementById('myRadio14').checked = true;        
-             document.getElementById('myRadio15').checked = true;
-             document.getElementById('myRadio16').checked = true;
-             document.getElementById('myRadio17').checked = true;
-             document.getElementById('myRadio18').checked = true;
-             document.getElementById('myRadio19').checked = true;
-             document.getElementById('myRadio20').checked = true;
-             document.getElementById('myRadio21').checked = true;
-             document.getElementById('myRadio22').checked = true;
-             document.getElementById('myRadio23').checked = true;
-             document.getElementById('selecctall').checked = false;        
-             document.getElementById('myRadio').checked = false;        
-             document.getElementById('myRadio2').checked = false;        
-             document.getElementById('myRadio3').checked = false;        
-             document.getElementById('myRadio4').checked = false;        
-             document.getElementById('myRadio5').checked = false;        
-             document.getElementById('myRadio6').checked = false;        
-             document.getElementById('myRadio7').checked = false;        
-             document.getElementById('myRadio8').checked = false;        
-             document.getElementById('myRadio9').checked = false;        
-             document.getElementById('myRadio10').checked = false;        
-             document.getElementById('myRadio11').checked = false;        
-             document.getElementById('myRadio12').checked = false;        
-             document.getElementById('myRadio13').checked = false;         
-    
-        }
-    });
-    
-    
-});
-
-
-
-
-
-
-
-$(document).ready(function(){
-      $('#selecctall').click(function(){
-          if($(this).prop("checked") == true){
-               $('#text_requerido').addClass('required');
-               $('#text_requerido2').addClass('required');
-               $('#text_requerido3').addClass('required');
-               $('#text_requerido4').addClass('required');
-               $('#text_requerido5').addClass('required');
-               $('#text_requerido6').addClass('required');
-               $('#text_requerido7').addClass('required');
-               $('#text_requerido8').addClass('required');
-               $('#text_requerido9').addClass('required');
-               $('#text_requerido10').addClass('required');
-               $('#text_requerido11').addClass('required');
-               $('#text_requerido12').addClass('required');
-               $('#text_requerido13').addClass('required');
-
-          }
-      });
-      $('#selecctall2').click(function(){
-          if($(this).prop("checked") == true){
-            $('#text_requerido').removeClass('required');
-            $('#text_requerido').removeClass('error');
-            $('#text_requerido-error').hide(); 
-            $('#text_requerido2').removeClass('required');
-            $('#text_requerido2').removeClass('error');
-            $('#text_requerido2-error').hide(); 
-            $('#text_requerido3').removeClass('required');
-            $('#text_requerido3').removeClass('error');
-            $('#text_requerido3-error').hide(); 
-            $('#text_requerido4').removeClass('required');
-            $('#text_requerido4').removeClass('error');
-            $('#text_requerido4-error').hide();  
-            $('#text_requerido5').removeClass('required');
-            $('#text_requerido5').removeClass('error');
-            $('#text_requerido5-error').hide(); 
-            $('#text_requerido6').removeClass('required');
-            $('#text_requerido6').removeClass('error');
-            $('#text_requerido6-error').hide(); 
-            $('#text_requerido7').removeClass('required');
-            $('#text_requerido7').removeClass('error');
-            $('#text_requerido7-error').hide(); 
-            $('#text_requerido8').removeClass('required');
-            $('#text_requerido8').removeClass('error');
-            $('#text_requerido8-error').hide(); 
-            $('#text_requerido9').removeClass('required');
-            $('#text_requerido9').removeClass('error');
-            $('#text_requerido9-error').hide(); 
-            $('#text_requerido10').removeClass('required');
-            $('#text_requerido10').removeClass('error');
-            $('#text_requerido10-error').hide();                                
-            $('#text_requerido11').removeClass('required');
-            $('#text_requerido11').removeClass('error');
-            $('#text_requerido11-error').hide();            
-            $('#text_requerido12').removeClass('required');
-            $('#text_requerido12').removeClass('error');
-            $('#text_requerido12-error').hide();
-            $('#text_requerido13').removeClass('required');
-            $('#text_requerido13').removeClass('error');
-            $('#text_requerido13-error').hide();
-
-          }
-      });
-
-  });
-
-</script>
-
-
 
 
 
@@ -443,11 +302,11 @@ $(document).ready(function(){
 
 
             <th  colspan="1">
-               &nbsp;Seleccionar todos Normales&nbsp;<input type="checkbox" id="selecctall">
+               &nbsp;Seleccionar Anormales&nbsp;<input type="checkbox" id="selecctall">
             </th>
 
             <th  colspan="1">
-               &nbsp;Seleccionar todos Anormales&nbsp;<input type="checkbox" id="selecctall2">
+               &nbsp;Seleccionar Normales&nbsp;<input type="checkbox" id="selecctall2">
             </th>
             <th  colspan="1">
             </th>
@@ -460,10 +319,10 @@ $(document).ready(function(){
               Nombre
             </th>
             <th class="text-center" style="width:10%">
-              Normal
+              Anormal
             </th>
             <th class="text-center" style="width:10%">
-              Anormal
+              Normal
             </th>
             <th class="text-center" style="width:60%">
               Ampliar Información
@@ -1080,21 +939,212 @@ $(document).ready(function(){
 
 
 
+
+
+
 <script type="text/javascript">
+// Selecccionar/Deseleccionar todos los radio button
+  $(document).ready(function() {
+    $('#selecctall').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+             document.getElementById('myRadio').checked = true;        
+             document.getElementById('myRadio2').checked = true;        
+             document.getElementById('myRadio3').checked = true;        
+             document.getElementById('myRadio4').checked = true;        
+             document.getElementById('myRadio5').checked = true;        
+             document.getElementById('myRadio6').checked = true;        
+             document.getElementById('myRadio7').checked = true;        
+             document.getElementById('myRadio8').checked = true;        
+             document.getElementById('myRadio9').checked = true;        
+             document.getElementById('myRadio10').checked = true;        
+             document.getElementById('myRadio11').checked = true;        
+             document.getElementById('myRadio12').checked = true;        
+             document.getElementById('myRadio13').checked = true;        
+             document.getElementById('selecctall2').checked = false;        
+             document.getElementById('myRadio14').checked = false;        
+             document.getElementById('myRadio15').checked = false;
+             document.getElementById('myRadio16').checked = false;
+             document.getElementById('myRadio17').checked = false;
+             document.getElementById('myRadio18').checked = false;
+             document.getElementById('myRadio19').checked = false;
+             document.getElementById('myRadio20').checked = false;
+             document.getElementById('myRadio21').checked = false;
+             document.getElementById('myRadio22').checked = false;
+             document.getElementById('myRadio23').checked = false;    
+             document.getElementById('myRadio24').checked = false;    
+             document.getElementById('myRadio25').checked = false;    
+             document.getElementById('myRadio26').checked = false;    
+        }
+    });
+    $('#selecctall2').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+             document.getElementById('myRadio14').checked = true;        
+             document.getElementById('myRadio15').checked = true;
+             document.getElementById('myRadio16').checked = true;
+             document.getElementById('myRadio17').checked = true;
+             document.getElementById('myRadio18').checked = true;    
+             document.getElementById('myRadio19').checked = true;    
+             document.getElementById('myRadio20').checked = true;    
+             document.getElementById('myRadio21').checked = true;    
+             document.getElementById('myRadio22').checked = true;    
+             document.getElementById('myRadio23').checked = true;    
+             document.getElementById('myRadio24').checked = true;    
+             document.getElementById('myRadio25').checked = true;    
+             document.getElementById('myRadio26').checked = true;    
+             document.getElementById('selecctall').checked = false;        
+             document.getElementById('myRadio').checked = false;        
+             document.getElementById('myRadio2').checked = false;        
+             document.getElementById('myRadio3').checked = false;        
+             document.getElementById('myRadio4').checked = false;        
+             document.getElementById('myRadio5').checked = false;        
+             document.getElementById('myRadio6').checked = false;        
+             document.getElementById('myRadio7').checked = false;        
+             document.getElementById('myRadio8').checked = false;        
+             document.getElementById('myRadio9').checked = false;        
+             document.getElementById('myRadio10').checked = false;        
+             document.getElementById('myRadio11').checked = false;        
+             document.getElementById('myRadio12').checked = false;
+             document.getElementById('myRadio13').checked = false;        
+        }
+    });
+
+
+    
+  $('#selecctall2').change(function(){
+    if ($('#selecctall2').is(':checked') == true){
+        $('#text_requerido').val('N/A').prop('disabled', true);
+        $('#text_requerido2').val('N/A').prop('disabled', true);
+        $('#text_requerido3').val('N/A').prop('disabled', true);
+        $('#text_requerido4').val('N/A').prop('disabled', true);
+        $('#text_requerido5').val('N/A').prop('disabled', true);
+        $('#text_requerido6').val('N/A').prop('disabled', true);
+        $('#text_requerido7').val('N/A').prop('disabled', true);
+        $('#text_requerido8').val('N/A').prop('disabled', true);
+        $('#text_requerido9').val('N/A').prop('disabled', true);
+    }
+  });
+
+    
+});
+
+
+</script>
+
+<script type="text/javascript">
+// Agrega y quita la clase requerida a los campos de ampliar información
+$(document).ready(function(){
+      $('#selecctall').click(function(){
+          if($(this).prop("checked") == true){
+               $('#text_requerido').addClass('required');
+               $('#text_requerido2').addClass('required');
+               $('#text_requerido3').addClass('required');
+               $('#text_requerido4').addClass('required');
+               $('#text_requerido5').addClass('required');
+               $('#text_requerido6').addClass('required');
+               $('#text_requerido7').addClass('required');
+               $('#text_requerido8').addClass('required');
+               $('#text_requerido9').addClass('required');
+               $('#text_requerido10').addClass('required');
+               $('#text_requerido11').addClass('required');
+               $('#text_requerido12').addClass('required');
+               $('#text_requerido13').addClass('required');
+                $('#text_requerido').val('').prop('disabled', false);             
+                $('#text_requerido2').val('').prop('disabled', false);             
+                $('#text_requerido3').val('').prop('disabled', false);             
+                $('#text_requerido4').val('').prop('disabled', false);             
+                $('#text_requerido5').val('').prop('disabled', false);             
+                $('#text_requerido6').val('').prop('disabled', false);             
+                $('#text_requerido7').val('').prop('disabled', false);             
+                $('#text_requerido8').val('').prop('disabled', false);             
+                $('#text_requerido9').val('').prop('disabled', false);             
+                $('#text_requerido10').val('').prop('disabled', false);             
+                $('#text_requerido11').val('').prop('disabled', false);             
+                $('#text_requerido12').val('').prop('disabled', false);             
+                $('#text_requerido13').val('').prop('disabled', false);             
+
+          }
+      });
+      $('#selecctall2').click(function(){
+          if($(this).prop("checked") == true){
+            $('#text_requerido').removeClass('required');
+            $('#text_requerido').removeClass('error');
+            $('#text_requerido-error').hide(); 
+            $('#text_requerido').val('N/A').prop('disabled', true);            
+            $('#text_requerido').val('').prop('disabled', true);
+            $('#text_requerido2').removeClass('required');
+            $('#text_requerido2').removeClass('error');
+            $('#text_requerido2-error').hide(); 
+            $('#text_requerido2').val('').prop('disabled', true);
+            $('#text_requerido3').removeClass('required');
+            $('#text_requerido3').removeClass('error');
+            $('#text_requerido3-error').hide(); 
+            $('#text_requerido3').val('').prop('disabled', true);
+            $('#text_requerido4').removeClass('required');
+            $('#text_requerido4').removeClass('error');
+            $('#text_requerido4-error').hide();  
+            $('#text_requerido4').val('').prop('disabled', true);
+            $('#text_requerido5').removeClass('required');
+            $('#text_requerido5').removeClass('error');
+            $('#text_requerido5-error').hide(); 
+            $('#text_requerido5').val('').prop('disabled', true);
+            $('#text_requerido6').removeClass('required');
+            $('#text_requerido6').removeClass('error');
+            $('#text_requerido6-error').hide(); 
+            $('#text_requerido6').val('').prop('disabled', true);
+            $('#text_requerido7').removeClass('required');
+            $('#text_requerido7').removeClass('error');
+            $('#text_requerido7-error').hide();
+            $('#text_requerido7').val('').prop('disabled', true);             
+            $('#text_requerido8').removeClass('required');
+            $('#text_requerido8').removeClass('error');
+            $('#text_requerido8-error').hide(); 
+            $('#text_requerido8').val('').prop('disabled', true);             
+            $('#text_requerido9').removeClass('required');
+            $('#text_requerido9').removeClass('error');
+            $('#text_requerido9-error').hide(); 
+            $('#text_requerido9').val('').prop('disabled', true);
+            $('#text_requerido10').removeClass('required');
+            $('#text_requerido10').removeClass('error');
+            $('#text_requerido10-error').hide(); 
+            $('#text_requerido10').val('').prop('disabled', true);   
+            $('#text_requerido11').removeClass('required');
+            $('#text_requerido11').removeClass('error');
+            $('#text_requerido11-error').hide(); 
+            $('#text_requerido11').val('').prop('disabled', true);   
+            $('#text_requerido12').removeClass('required');
+            $('#text_requerido12').removeClass('error');
+            $('#text_requerido12-error').hide(); 
+            $('#text_requerido12').val('').prop('disabled', true);   
+            $('#text_requerido13').removeClass('required');
+            $('#text_requerido13').removeClass('error');
+            $('#text_requerido13-error').hide(); 
+            $('#text_requerido13').val('').prop('disabled', true);   
 
 
 
+          }
+      });
 
+  });
+
+</script>
+
+<script type="text/javascript">
+// Agrega y quita la clase required a los campos ampliar información uno a
 $('.no_requerido').change(function(){
   if(this.checked){
       $('#text_requerido').removeClass('required');
       $('#text_requerido').removeClass('error');
       $('#text_requerido-error').hide(); 
+       $('#text_requerido').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido').change(function(){
 if(this.checked){
        $('#text_requerido').addClass('required');
+       $('#text_requerido').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -1103,11 +1153,16 @@ $('.no_requerido2').change(function(){
       $('#text_requerido2').removeClass('required');
       $('#text_requerido2').removeClass('error');
       $('#text_requerido2-error').hide(); 
+       $('#text_requerido2').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido2').change(function(){
 if(this.checked){
        $('#text_requerido2').addClass('required');
+       $('#text_requerido2').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -1116,11 +1171,16 @@ $('.no_requerido3').change(function(){
       $('#text_requerido3').removeClass('required');
       $('#text_requerido3').removeClass('error');
       $('#text_requerido3-error').hide(); 
+       $('#text_requerido3').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido3').change(function(){
 if(this.checked){
        $('#text_requerido3').addClass('required');
+       $('#text_requerido3').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -1129,11 +1189,15 @@ $('.no_requerido4').change(function(){
       $('#text_requerido4').removeClass('required');
       $('#text_requerido4').removeClass('error');
       $('#text_requerido4-error').hide(); 
+       $('#text_requerido4').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido4').change(function(){
 if(this.checked){
        $('#text_requerido4').addClass('required');
+       $('#text_requerido4').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -1142,11 +1206,15 @@ $('.no_requerido5').change(function(){
       $('#text_requerido5').removeClass('required');
       $('#text_requerido5').removeClass('error');
       $('#text_requerido5-error').hide(); 
+       $('#text_requerido5').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido5').change(function(){
 if(this.checked){
        $('#text_requerido5').addClass('required');
+       $('#text_requerido5').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -1155,11 +1223,15 @@ $('.no_requerido6').change(function(){
       $('#text_requerido6').removeClass('required');
       $('#text_requerido6').removeClass('error');
       $('#text_requerido6-error').hide(); 
+       $('#text_requerido6').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido6').change(function(){
 if(this.checked){
        $('#text_requerido6').addClass('required');
+       $('#text_requerido6').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -1168,11 +1240,15 @@ $('.no_requerido7').change(function(){
       $('#text_requerido7').removeClass('required');
       $('#text_requerido7').removeClass('error');
       $('#text_requerido7-error').hide(); 
+       $('#text_requerido7').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido7').change(function(){
 if(this.checked){
        $('#text_requerido7').addClass('required');
+       $('#text_requerido7').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -1181,11 +1257,16 @@ $('.no_requerido8').change(function(){
       $('#text_requerido8').removeClass('required');
       $('#text_requerido8').removeClass('error');
       $('#text_requerido8-error').hide(); 
+       $('#text_requerido8').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido8').change(function(){
 if(this.checked){
        $('#text_requerido8').addClass('required');
+       $('#text_requerido8').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -1194,74 +1275,97 @@ $('.no_requerido9').change(function(){
       $('#text_requerido9').removeClass('required');
       $('#text_requerido9').removeClass('error');
       $('#text_requerido9-error').hide(); 
+       $('#text_requerido9').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido9').change(function(){
 if(this.checked){
        $('#text_requerido9').addClass('required');
+       $('#text_requerido9').val('').prop('disabled', false);             
+
   }  
 })
+
+
 $('.no_requerido10').change(function(){
   if(this.checked){
       $('#text_requerido10').removeClass('required');
       $('#text_requerido10').removeClass('error');
       $('#text_requerido10-error').hide(); 
+       $('#text_requerido10').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido10').change(function(){
 if(this.checked){
        $('#text_requerido10').addClass('required');
+       $('#text_requerido10').val('').prop('disabled', false);             
+
   }  
 })
+
 
 $('.no_requerido11').change(function(){
   if(this.checked){
       $('#text_requerido11').removeClass('required');
       $('#text_requerido11').removeClass('error');
       $('#text_requerido11-error').hide(); 
+       $('#text_requerido11').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido11').change(function(){
 if(this.checked){
        $('#text_requerido11').addClass('required');
+       $('#text_requerido11').val('').prop('disabled', false);             
+
   }  
 })
+
 
 $('.no_requerido12').change(function(){
   if(this.checked){
       $('#text_requerido12').removeClass('required');
       $('#text_requerido12').removeClass('error');
       $('#text_requerido12-error').hide(); 
+       $('#text_requerido12').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido12').change(function(){
 if(this.checked){
        $('#text_requerido12').addClass('required');
+       $('#text_requerido12').val('').prop('disabled', false);             
+
   }  
 })
+
 
 $('.no_requerido13').change(function(){
   if(this.checked){
       $('#text_requerido13').removeClass('required');
       $('#text_requerido13').removeClass('error');
       $('#text_requerido13-error').hide(); 
+       $('#text_requerido13').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido13').change(function(){
 if(this.checked){
        $('#text_requerido13').addClass('required');
+       $('#text_requerido13').val('').prop('disabled', false);             
+
   }  
 })
 
 
-
 </script>
-
-
-
-
-
-
 
 
 

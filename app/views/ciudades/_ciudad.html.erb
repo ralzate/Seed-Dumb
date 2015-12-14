@@ -4,6 +4,7 @@
 <tr id=<%= "ciudad_#{ciudad.id}" %>>
 	<td><%= link_to ciudad.id, edit_ciudad_path(ciudad), :remote => true %></td>
 	<td><%= ciudad.nombre.capitalize %></td>
+	<td><%= to_country_code(ciudad.pais_codigo) %></td>
 	
 	<td>
 

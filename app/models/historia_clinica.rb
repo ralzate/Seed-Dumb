@@ -13,11 +13,13 @@ class HistoriaClinica < ActiveRecord::Base
   accepts_nested_attributes_for :arl
   accepts_nested_attributes_for :eps
 
+  has_many :cie10s
   has_many :diagnosticos
   has_many :procedimientos
   has_many :notas_progreso
 
-  accepts_nested_attributes_for :diagnosticos, reject_if: :all_blank, allow_destroy: true
+  
+  accepts_nested_attributes_for :diagnosticos
   accepts_nested_attributes_for :procedimientos, reject_if: :all_blank, allow_destroy: true
 
 

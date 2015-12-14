@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207131356) do
+ActiveRecord::Schema.define(version: 20151203151203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,13 +47,6 @@ ActiveRecord::Schema.define(version: 20151207131356) do
     t.string   "pais_codigo"
   end
 
-  create_table "contacts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -76,10 +69,12 @@ ActiveRecord::Schema.define(version: 20151207131356) do
     t.string   "simbolo"
     t.text     "descripcion"
     t.integer  "historia_clinica_id"
+    t.integer  "cie10_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
+  add_index "diagnosticos", ["cie10_id"], name: "index_diagnosticos_on_cie10_id", using: :btree
   add_index "diagnosticos", ["historia_clinica_id"], name: "index_diagnosticos_on_historia_clinica_id", using: :btree
 
   create_table "empresas", force: :cascade do |t|
@@ -106,15 +101,14 @@ ActiveRecord::Schema.define(version: 20151207131356) do
     t.string   "p_genero"
     t.string   "p_profesion"
     t.string   "p_tipo_sangre"
-    t.string   "p_pais_codigo"
     t.string   "p_nacionalidad"
     t.string   "p_direccion"
-    t.integer  "p_user_id"
+    t.integer  "user_id"
     t.string   "p_ciudad"
     t.string   "p_departamento"
     t.integer  "paciente_id"
     t.string   "a_auxiliar"
-    t.string   "a_aeropuerto"
+    t.integer  "aeropuerto_id"
     t.string   "a_cove"
     t.string   "a_movil_servicio"
     t.string   "a_condicion"
@@ -240,9 +234,14 @@ ActiveRecord::Schema.define(version: 20151207131356) do
     t.integer  "e_glucometria2"
     t.string   "e_hora2"
     t.text     "e_electrocardiograma"
+    t.integer  "cie10_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
+
+  add_index "historias_clinicas", ["aeropuerto_id"], name: "index_historias_clinicas_on_aeropuerto_id", using: :btree
+  add_index "historias_clinicas", ["cie10_id"], name: "index_historias_clinicas_on_cie10_id", using: :btree
+  add_index "historias_clinicas", ["user_id"], name: "index_historias_clinicas_on_user_id", using: :btree
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
@@ -407,7 +406,11 @@ ActiveRecord::Schema.define(version: 20151207131356) do
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", using: :btree
 
   add_foreign_key "aeropuertos", "ciudades"
+  add_foreign_key "diagnosticos", "cie10s"
   add_foreign_key "diagnosticos", "historias_clinicas"
+  add_foreign_key "historias_clinicas", "aeropuertos"
+  add_foreign_key "historias_clinicas", "cie10s"
+  add_foreign_key "historias_clinicas", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"

@@ -27,8 +27,17 @@
       Nombre:
     </div>
     <div class="col-md-8">
-      <%= f.text_field :nombre,  placeholder: 'Campo Obligatorio', input_html: {class: "form-control new_blog"}, label: false %>
+      <%= f.text_field :nombre,  placeholder: 'Campo Obligatorio', class: "form-control new_blog", label: false %>
+    </div>
+  </div>
+ <br>
 
+  <div class="row">
+    <div class="col-md-4">
+      Nombre:
+    </div>
+    <div class="col-md-8">
+    <%= f.country_select :pais_codigo, {object: f.object, prompt: 'Selecciona un Pais'}, html_options = {:class => "form-control"} %>
     </div>
   </div>
 

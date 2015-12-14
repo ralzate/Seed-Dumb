@@ -13,15 +13,14 @@ class CreateHistoriasClinicas < ActiveRecord::Migration
           t.string   :p_genero
           t.string   :p_profesion
           t.string   :p_tipo_sangre
-          t.string   :p_pais_codigo
           t.string   :p_nacionalidad
           t.string   :p_direccion
-          t.integer  :p_user_id
+          t.integer  :user_id
           t.string   :p_ciudad
           t.string   :p_departamento
           t.integer  :paciente_id
           t.string   :a_auxiliar
-          t.string   :a_aeropuerto
+          t.string   :aeropuerto_id
           t.string   :a_cove    
           t.string   :a_movil_servicio
           t.string   :a_condicion
@@ -147,6 +146,10 @@ class CreateHistoriasClinicas < ActiveRecord::Migration
           t.integer  :e_glucometria2
           t.string   :e_hora2
           t.text     :e_electrocardiograma
+          t.integer  :cie10_id  
+          t.references :aeropuerto, index: true, foreign_key: true
+          t.references :user, index: true, foreign_key: true
+          t.references :cie10, index: true, foreign_key: true
 
       t.timestamps null: false
     end

@@ -143,125 +143,6 @@ $(document).ready(function() {
 
 
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('#selecctall').click(function(event) {  //on click 
-        if(this.checked) { // check select status
-             document.getElementById('myRadio').checked = true;        
-             document.getElementById('myRadio2').checked = true;        
-             document.getElementById('myRadio3').checked = true;        
-             document.getElementById('myRadio4').checked = true;        
-             document.getElementById('myRadio5').checked = true;        
-             document.getElementById('myRadio6').checked = true;        
-             document.getElementById('myRadio7').checked = true;        
-             document.getElementById('myRadio8').checked = true;        
-             document.getElementById('myRadio9').checked = true;        
-             document.getElementById('selecctall2').checked = false;    
-             document.getElementById('myRadio10').checked = false;        
-             document.getElementById('myRadio11').checked = false;        
-             document.getElementById('myRadio12').checked = false; 
-             document.getElementById('myRadio13').checked = false;        
-             document.getElementById('myRadio14').checked = false;        
-             document.getElementById('myRadio15').checked = false;
-             document.getElementById('myRadio16').checked = false;
-             document.getElementById('myRadio17').checked = false;
-             document.getElementById('myRadio18').checked = false;
-     
-        }
-    });
-
-    $('#selecctall2').click(function(event) {  //on click 
-        if(this.checked) { // check select status
-
-             document.getElementById('myRadio10').checked = true;        
-             document.getElementById('myRadio11').checked = true;        
-             document.getElementById('myRadio12').checked = true;   
-             document.getElementById('myRadio13').checked = true;        
-             document.getElementById('myRadio14').checked = true;        
-             document.getElementById('myRadio15').checked = true;
-             document.getElementById('myRadio16').checked = true;
-             document.getElementById('myRadio17').checked = true;
-             document.getElementById('myRadio18').checked = true;    
-             document.getElementById('selecctall').checked = false;        
-             document.getElementById('myRadio').checked = false;        
-             document.getElementById('myRadio2').checked = false;        
-             document.getElementById('myRadio3').checked = false;        
-             document.getElementById('myRadio4').checked = false;        
-             document.getElementById('myRadio5').checked = false;        
-             document.getElementById('myRadio6').checked = false;        
-             document.getElementById('myRadio7').checked = false;        
-             document.getElementById('myRadio8').checked = false;        
-             document.getElementById('myRadio9').checked = false;        
-    
-        }
-    });
-    
-    
-});
-
-
-
-
-
-
-
-$(document).ready(function(){
-      $('#selecctall').click(function(){
-          if($(this).prop("checked") == true){
-               $('#text_requerido').addClass('required');
-               $('#text_requerido2').addClass('required');
-               $('#text_requerido3').addClass('required');
-               $('#text_requerido4').addClass('required');
-               $('#text_requerido5').addClass('required');
-               $('#text_requerido6').addClass('required');
-               $('#text_requerido7').addClass('required');
-               $('#text_requerido8').addClass('required');
-               $('#text_requerido9').addClass('required');
-               $('#text_requerido10').addClass('required');
-
-          }
-      });
-      $('#selecctall2').click(function(){
-          if($(this).prop("checked") == true){
-            $('#text_requerido').removeClass('required');
-            $('#text_requerido').removeClass('error');
-            $('#text_requerido-error').hide(); 
-            $('#text_requerido2').removeClass('required');
-            $('#text_requerido2').removeClass('error');
-            $('#text_requerido2-error').hide(); 
-            $('#text_requerido3').removeClass('required');
-            $('#text_requerido3').removeClass('error');
-            $('#text_requerido3-error').hide(); 
-            $('#text_requerido4').removeClass('required');
-            $('#text_requerido4').removeClass('error');
-            $('#text_requerido4-error').hide();  
-            $('#text_requerido5').removeClass('required');
-            $('#text_requerido5').removeClass('error');
-            $('#text_requerido5-error').hide(); 
-            $('#text_requerido6').removeClass('required');
-            $('#text_requerido6').removeClass('error');
-            $('#text_requerido6-error').hide(); 
-            $('#text_requerido7').removeClass('required');
-            $('#text_requerido7').removeClass('error');
-            $('#text_requerido7-error').hide(); 
-            $('#text_requerido8').removeClass('required');
-            $('#text_requerido8').removeClass('error');
-            $('#text_requerido8-error').hide(); 
-            $('#text_requerido9').removeClass('required');
-            $('#text_requerido9').removeClass('error');
-            $('#text_requerido9-error').hide(); 
-            $('#text_requerido10').removeClass('required');
-            $('#text_requerido10').removeClass('error');
-            $('#text_requerido10-error').hide();                                
-                                                                       
-          }
-      });
-
-  });
-
-</script>
-
-
 
 
 
@@ -326,10 +207,10 @@ $(document).ready(function(){
             <th  colspan="1">
             </th>
             <th colspan="1"  class="text-center" >
-                Seleccionar Normales<br/><input type="checkbox" id="selecctall">
+                Todos Anormales<br/><input type="checkbox" id="selecctall">
             </th>
             <th  colspan="1"  class="text-center" >
-                Seleccionar todos Anormales<br/><input type="checkbox" id="selecctall2">
+                Todos Normales<br/><input type="checkbox" id="selecctall2">
             </th>
             <th  colspan="1">
             </th>
@@ -342,10 +223,10 @@ $(document).ready(function(){
               Nombre
             </th>
             <th class="text-center" style="width:10%">
-              Normales
+              Anormales
             </th>
             <th class="text-center" style="width:10%">
-              Anormales
+              Normales
             </th>
             <th class="text-center" style="width:60%">
               Ampliar Información
@@ -373,10 +254,10 @@ $(document).ready(function(){
             </td>
           
             <td align="center">
-                <%= f.radio_button(:c_cardiovascular, "TRUE", class: "required requerido", :title => "Debes Seleccionar una Opción", id: 'myRadio' )%>
+                <%= f.radio_button(:c_cardiovascular, "Anormal", class: "required requerido", :title => "Debes Seleccionar una Opción", id: 'myRadio' )%>
             </td>
             <td align="center">
-                <%= f.radio_button(:c_cardiovascular, "FALSE", class: 'no_requerido', :id => "myRadio10" )%>
+                <%= f.radio_button(:c_cardiovascular, "Normal", class: 'no_requerido', :id => "myRadio10" )%>
             </td>
 
             <td>
@@ -401,11 +282,11 @@ $(document).ready(function(){
           
             <td align="center">
 
-                <%= f.radio_button(:c_respiratorio, "TRUE", class: "required requerido2", :title => "Debes Seleccionar una Opción", id: 'myRadio2' )%>
+                <%= f.radio_button(:c_respiratorio, "Anormal", class: "required requerido2", :title => "Debes Seleccionar una Opción", id: 'myRadio2' )%>
 
             </td>
             <td align="center">
-                <%= f.radio_button(:c_respiratorio, "FALSE", class: 'no_requerido2', :id => "myRadio11" )%>
+                <%= f.radio_button(:c_respiratorio, "Normal", class: 'no_requerido2', :id => "myRadio11" )%>
 
             </td>
 
@@ -431,12 +312,12 @@ $(document).ready(function(){
             <td align="center">
 
 
-                <%= f.radio_button(:c_abdominal, "TRUE", class: "required requerido3", :title => "Debes Seleccionar una Opción", id: 'myRadio3' )%>
+                <%= f.radio_button(:c_abdominal, "Anormal", class: "required requerido3", :title => "Debes Seleccionar una Opción", id: 'myRadio3' )%>
 
 
             </td>
             <td align="center">
-                <%= f.radio_button(:c_abdominal, "FALSE", class: 'no_requerido3', :id => "myRadio12" )%>
+                <%= f.radio_button(:c_abdominal, "Normal", class: 'no_requerido3', :id => "myRadio12" )%>
 
 
             </td>
@@ -464,12 +345,12 @@ $(document).ready(function(){
           
             <td align="center">
 
-                <%= f.radio_button(:c_genito_urinario, "TRUE", class: "required requerido4", :title => "Debes Seleccionar una Opción", id: 'myRadio4' )%>
+                <%= f.radio_button(:c_genito_urinario, "Anormal", class: "required requerido4", :title => "Debes Seleccionar una Opción", id: 'myRadio4' )%>
 
 
             </td>
             <td align="center">
-                <%= f.radio_button(:c_genito_urinario, "FALSE", class: 'no_requerido4', :id => "myRadio13" )%>
+                <%= f.radio_button(:c_genito_urinario, "Normal", class: 'no_requerido4', :id => "myRadio13" )%>
 
             </td>
 
@@ -489,11 +370,11 @@ $(document).ready(function(){
             Neurologico
             </td>
             <td align="center">
-              <%= f.radio_button(:c_neurologico, "TRUE", class: "required requerido5", :title => "Debes Seleccionar una Opción", id: 'myRadio5' )%>
+              <%= f.radio_button(:c_neurologico, "Anormal", class: "required requerido5", :title => "Debes Seleccionar una Opción", id: 'myRadio5' )%>
 
             </td>
             <td align="center">
-                <%= f.radio_button(:c_neurologico, "FALSE", class: 'no_requerido5', :id => "myRadio14" )%>
+                <%= f.radio_button(:c_neurologico, "Normal", class: 'no_requerido5', :id => "myRadio14" )%>
 
 
             </td>
@@ -511,10 +392,10 @@ $(document).ready(function(){
             Mental
             </td>
             <td align="center">
-              <%= f.radio_button(:c_mental, "TRUE", class: "required requerido6", :title => "Debes Seleccionar una Opción", id: 'myRadio6' )%>
+              <%= f.radio_button(:c_mental, "Anormal", class: "required requerido6", :title => "Debes Seleccionar una Opción", id: 'myRadio6' )%>
             </td>
             <td align="center">
-              <%= f.radio_button(:c_mental, "FALSE", class: 'no_requerido6', :id => "myRadio15" )%>
+              <%= f.radio_button(:c_mental, "Normal", class: 'no_requerido6', :id => "myRadio15" )%>
             </td>
             <td>
             <%= f.text_field :c_mental_descripcion, class: 'form-control', :id => "text_requerido6", :title => "Es un Campo Obligatorio" %>
@@ -530,12 +411,12 @@ $(document).ready(function(){
             Organo de los sentidos
             </td>
             <td align="center">
-              <%= f.radio_button(:c_organo_de_los_sentidos, "TRUE", class: "required requerido7", :title => "Debes Seleccionar una Opción", id: 'myRadio7' )%>
+              <%= f.radio_button(:c_organo_de_los_sentidos, "Anormal", class: "required requerido7", :title => "Debes Seleccionar una Opción", id: 'myRadio7' )%>
 
 
             </td>
             <td align="center">
-              <%= f.radio_button(:c_organo_de_los_sentidos, "FALSE", class: 'no_requerido7', :id => "myRadio16" )%>
+              <%= f.radio_button(:c_organo_de_los_sentidos, "Normal", class: 'no_requerido7', :id => "myRadio16" )%>
 
 
             </td>
@@ -555,11 +436,11 @@ $(document).ready(function(){
             Musculo-esqueletico
             </td>
             <td align="center">
-              <%= f.radio_button(:c_musculo_esqueletico, "TRUE", class: "required requerido8", :title => "Debes Seleccionar una Opción", id: 'myRadio8' )%>
+              <%= f.radio_button(:c_musculo_esqueletico, "Anormal", class: "required requerido8", :title => "Debes Seleccionar una Opción", id: 'myRadio8' )%>
 
             </td>
             <td align="center">
-              <%= f.radio_button(:c_musculo_esqueletico, "FALSE", class: 'no_requerido8', :id => "myRadio17" )%>
+              <%= f.radio_button(:c_musculo_esqueletico, "Normal", class: 'no_requerido8', :id => "myRadio17" )%>
             </td>
             <td>
             <%= f.text_field :c_musculo_esqueletico_descripcion, class: 'form-control', :id => "text_requerido8", :title => "Es un Campo Obligatorio"  %>
@@ -574,13 +455,13 @@ $(document).ready(function(){
             Piel y faneras
             </td>
             <td align="center">
-              <%= f.radio_button(:c_piel_y_faneras, "TRUE", class: "required requerido9", :title => "Debes Seleccionar una Opción", id: 'myRadio9' )%>
+              <%= f.radio_button(:c_piel_y_faneras, "Anormal", class: "required requerido9", :title => "Debes Seleccionar una Opción", id: 'myRadio9' )%>
             </td>
             <td align="center">
-              <%= f.radio_button(:c_piel_y_faneras, "FALSE", class: 'no_requerido9', :id => "myRadio18" )%>
+              <%= f.radio_button(:c_piel_y_faneras, "Normal", class: 'no_requerido9', :id => "myRadio18" )%>
             </td>
             <td>
-            <%= f.text_field :c_piel_y_faneras_descripcion, class: 'form-control', :id => "text_requerido10", :title => "Es un Campo Obligatorio"  %>
+            <%= f.text_field :c_piel_y_faneras_descripcion, class: 'form-control', :id => "text_requerido9", :title => "Es un Campo Obligatorio"  %>
 
             </td>
           </tr>
@@ -608,23 +489,168 @@ $(document).ready(function(){
 
 
 
+<script type="text/javascript">
+// Selecccionar/Deseleccionar todos los radio button
+  $(document).ready(function() {
+    $('#selecctall').click(function(event) {  //on click 
+        if(this.checked) { // check select status
+             document.getElementById('myRadio').checked = true;        
+             document.getElementById('myRadio2').checked = true;        
+             document.getElementById('myRadio3').checked = true;        
+             document.getElementById('myRadio4').checked = true;        
+             document.getElementById('myRadio5').checked = true;        
+             document.getElementById('myRadio6').checked = true;        
+             document.getElementById('myRadio7').checked = true;        
+             document.getElementById('myRadio8').checked = true;        
+             document.getElementById('myRadio9').checked = true;        
+             document.getElementById('selecctall2').checked = false;        
+             document.getElementById('myRadio10').checked = false;        
+             document.getElementById('myRadio11').checked = false;        
+             document.getElementById('myRadio12').checked = false;        
+             document.getElementById('myRadio13').checked = false;        
+             document.getElementById('myRadio14').checked = false;        
+             document.getElementById('myRadio15').checked = false;
+             document.getElementById('myRadio16').checked = false;
+             document.getElementById('myRadio17').checked = false;
+             document.getElementById('myRadio18').checked = false;
+        }
+    });
 
+    $('#selecctall2').click(function(event) {  //on click 
+        if(this.checked) { // check select status          
+             document.getElementById('myRadio10').checked = true;        
+             document.getElementById('myRadio11').checked = true;        
+             document.getElementById('myRadio12').checked = true;        
+             document.getElementById('myRadio13').checked = true;        
+             document.getElementById('myRadio14').checked = true;        
+             document.getElementById('myRadio15').checked = true;
+             document.getElementById('myRadio16').checked = true;
+             document.getElementById('myRadio17').checked = true;
+             document.getElementById('myRadio18').checked = true;    
+             document.getElementById('selecctall').checked = false;        
+             document.getElementById('myRadio').checked = false;        
+             document.getElementById('myRadio2').checked = false;        
+             document.getElementById('myRadio3').checked = false;        
+             document.getElementById('myRadio4').checked = false;        
+             document.getElementById('myRadio5').checked = false;        
+             document.getElementById('myRadio6').checked = false;        
+             document.getElementById('myRadio7').checked = false;        
+             document.getElementById('myRadio8').checked = false;        
+             document.getElementById('myRadio9').checked = false;        
+        }
+    });
+
+
+    
+  $('#selecctall2').change(function(){
+    if ($('#selecctall2').is(':checked') == true){
+        $('#text_requerido').val('N/A').prop('disabled', true);
+        $('#text_requerido2').val('N/A').prop('disabled', true);
+        $('#text_requerido3').val('N/A').prop('disabled', true);
+        $('#text_requerido4').val('N/A').prop('disabled', true);
+        $('#text_requerido5').val('N/A').prop('disabled', true);
+        $('#text_requerido6').val('N/A').prop('disabled', true);
+        $('#text_requerido7').val('N/A').prop('disabled', true);
+        $('#text_requerido8').val('N/A').prop('disabled', true);
+        $('#text_requerido9').val('N/A').prop('disabled', true);
+    } 
+  });
+
+    
+});
+
+
+</script>
 
 <script type="text/javascript">
+// Agrega y quita la clase requerida a los campos de ampliar información
+$(document).ready(function(){
+      $('#selecctall').click(function(){
+          if($(this).prop("checked") == true){
+               $('#text_requerido').addClass('required');
+               $('#text_requerido2').addClass('required');
+               $('#text_requerido3').addClass('required');
+               $('#text_requerido4').addClass('required');
+               $('#text_requerido5').addClass('required');
+               $('#text_requerido6').addClass('required');
+               $('#text_requerido7').addClass('required');
+               $('#text_requerido8').addClass('required');
+               $('#text_requerido9').addClass('required');
+                $('#text_requerido').val('').prop('disabled', false);             
+                $('#text_requerido2').val('').prop('disabled', false);             
+                $('#text_requerido3').val('').prop('disabled', false);             
+                $('#text_requerido4').val('').prop('disabled', false);             
+                $('#text_requerido5').val('').prop('disabled', false);             
+                $('#text_requerido6').val('').prop('disabled', false);             
+                $('#text_requerido7').val('').prop('disabled', false);             
+                $('#text_requerido8').val('').prop('disabled', false);             
+                $('#text_requerido9').val('').prop('disabled', false);             
 
+          }
+      });
+      $('#selecctall2').click(function(){
+          if($(this).prop("checked") == true){
+            $('#text_requerido').removeClass('required');
+            $('#text_requerido').removeClass('error');
+            $('#text_requerido-error').hide(); 
+            $('#text_requerido').val('N/A').prop('disabled', true);            
+            $('#text_requerido').val('').prop('disabled', true);
+            $('#text_requerido2').removeClass('required');
+            $('#text_requerido2').removeClass('error');
+            $('#text_requerido2-error').hide(); 
+            $('#text_requerido2').val('').prop('disabled', true);
+            $('#text_requerido3').removeClass('required');
+            $('#text_requerido3').removeClass('error');
+            $('#text_requerido3-error').hide(); 
+            $('#text_requerido3').val('').prop('disabled', true);
+            $('#text_requerido4').removeClass('required');
+            $('#text_requerido4').removeClass('error');
+            $('#text_requerido4-error').hide();  
+            $('#text_requerido4').val('').prop('disabled', true);
+            $('#text_requerido5').removeClass('required');
+            $('#text_requerido5').removeClass('error');
+            $('#text_requerido5-error').hide(); 
+            $('#text_requerido5').val('').prop('disabled', true);
+            $('#text_requerido6').removeClass('required');
+            $('#text_requerido6').removeClass('error');
+            $('#text_requerido6-error').hide(); 
+            $('#text_requerido6').val('').prop('disabled', true);
+            $('#text_requerido7').removeClass('required');
+            $('#text_requerido7').removeClass('error');
+            $('#text_requerido7-error').hide();
+            $('#text_requerido7').val('').prop('disabled', true);             
+            $('#text_requerido8').removeClass('required');
+            $('#text_requerido8').removeClass('error');
+            $('#text_requerido8-error').hide(); 
+            $('#text_requerido8').val('').prop('disabled', true);             
+            $('#text_requerido9').removeClass('required');
+            $('#text_requerido9').removeClass('error');
+            $('#text_requerido9-error').hide(); 
+            $('#text_requerido9').val('').prop('disabled', true);                                   
 
+          }
+      });
 
+  });
 
+</script>
+
+<script type="text/javascript">
+// Agrega y quita la clase required a los campos ampliar información uno a
 $('.no_requerido').change(function(){
   if(this.checked){
       $('#text_requerido').removeClass('required');
       $('#text_requerido').removeClass('error');
       $('#text_requerido-error').hide(); 
+       $('#text_requerido').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido').change(function(){
 if(this.checked){
        $('#text_requerido').addClass('required');
+       $('#text_requerido').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -633,11 +659,16 @@ $('.no_requerido2').change(function(){
       $('#text_requerido2').removeClass('required');
       $('#text_requerido2').removeClass('error');
       $('#text_requerido2-error').hide(); 
+       $('#text_requerido2').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido2').change(function(){
 if(this.checked){
        $('#text_requerido2').addClass('required');
+       $('#text_requerido2').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -646,11 +677,16 @@ $('.no_requerido3').change(function(){
       $('#text_requerido3').removeClass('required');
       $('#text_requerido3').removeClass('error');
       $('#text_requerido3-error').hide(); 
+       $('#text_requerido3').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido3').change(function(){
 if(this.checked){
        $('#text_requerido3').addClass('required');
+       $('#text_requerido3').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -659,11 +695,15 @@ $('.no_requerido4').change(function(){
       $('#text_requerido4').removeClass('required');
       $('#text_requerido4').removeClass('error');
       $('#text_requerido4-error').hide(); 
+       $('#text_requerido4').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido4').change(function(){
 if(this.checked){
        $('#text_requerido4').addClass('required');
+       $('#text_requerido4').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -672,11 +712,15 @@ $('.no_requerido5').change(function(){
       $('#text_requerido5').removeClass('required');
       $('#text_requerido5').removeClass('error');
       $('#text_requerido5-error').hide(); 
+       $('#text_requerido5').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido5').change(function(){
 if(this.checked){
        $('#text_requerido5').addClass('required');
+       $('#text_requerido5').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -685,11 +729,15 @@ $('.no_requerido6').change(function(){
       $('#text_requerido6').removeClass('required');
       $('#text_requerido6').removeClass('error');
       $('#text_requerido6-error').hide(); 
+       $('#text_requerido6').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido6').change(function(){
 if(this.checked){
        $('#text_requerido6').addClass('required');
+       $('#text_requerido6').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -698,11 +746,15 @@ $('.no_requerido7').change(function(){
       $('#text_requerido7').removeClass('required');
       $('#text_requerido7').removeClass('error');
       $('#text_requerido7-error').hide(); 
+       $('#text_requerido7').val('N/A').prop('disabled', true);             
+
   }
 })
 $('.requerido7').change(function(){
 if(this.checked){
        $('#text_requerido7').addClass('required');
+       $('#text_requerido7').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -711,11 +763,16 @@ $('.no_requerido8').change(function(){
       $('#text_requerido8').removeClass('required');
       $('#text_requerido8').removeClass('error');
       $('#text_requerido8-error').hide(); 
+       $('#text_requerido8').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido8').change(function(){
 if(this.checked){
        $('#text_requerido8').addClass('required');
+       $('#text_requerido8').val('').prop('disabled', false);             
+
   }  
 })
 
@@ -724,16 +781,26 @@ $('.no_requerido9').change(function(){
       $('#text_requerido9').removeClass('required');
       $('#text_requerido9').removeClass('error');
       $('#text_requerido9-error').hide(); 
+       $('#text_requerido9').val('N/A').prop('disabled', true);             
+
+
   }
 })
 $('.requerido9').change(function(){
 if(this.checked){
        $('#text_requerido9').addClass('required');
+       $('#text_requerido9').val('').prop('disabled', false);             
+
   }  
 })
 
 
+
+
+
 </script>
+
+
 
 
 
