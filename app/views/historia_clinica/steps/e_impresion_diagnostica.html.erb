@@ -220,7 +220,16 @@ $(document).ready(function() {
      <hr class="featurette-divider"></hr>
 
 
+             <script type="text/javascript">
+                    $(function() {
+                    return $('.chosen-select').chosen({
+                      allow_single_deselect: true,
+                      no_results_text: 'No results matched',
+                      width: '200px'
+                    });
+                  });
 
+                  </script>
 
                   <div class="fielset">
                     <%= f.fields_for :diagnosticos do |diagnosticos| %>
@@ -234,16 +243,7 @@ $(document).ready(function() {
 
 
 
-                  <script type="text/javascript">
-                    $(function() {
-                    return $('.chosen-select').chosen({
-                      allow_single_deselect: true,
-                      no_results_text: 'No results matched',
-                      width: '200px'
-                    });
-                  });
-
-                  </script>
+     
 
 
                   </div>

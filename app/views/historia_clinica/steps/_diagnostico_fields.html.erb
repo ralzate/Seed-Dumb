@@ -1,18 +1,54 @@
 
 <div class="nested-fields">
 
-	<div class="row">
+
+<br/>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="well well-sm">
+          <form class="form-horizontal" action="" method="post">
+          <fieldset>
+            <legend class="text-center">Nuevo Diagnostico</legend>
+    
+            <!-- Name input-->
+            <div class="form-group">
+              <div class="col-md-8 col-md-offset-2">
+
+                <%= f.select :cie10_id,
+                  Cie10.all.map { |u| ["#{u.id}, #{u.familia}, #{u.codigo}, #{u.descripcion}", u.id] },
+                               { include_blank: true },
+                               { class: 'chosen-select' } %>
+              </div>
+            </div>
+    
+            
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 col-md-offset-2">
+                <%= link_to_remove_association 'Eliminar', f, :class => "btn btn-danger color_blanco custom" %>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+
+</div>
 
 
+<style type="text/css">
+.chosen-container-single .chosen-single{
+  width: 200%;
+}
 
+.chosen-container .chosen-drop{
+      width: 200%;
+}
 
-<%= f.select :cie10_id,
-  Cie10.all.map { |u| ["#{u.id}, #{u.familia}, #{u.codigo}, #{u.descripcion}", u.id] },
-               { include_blank: true },
-               { class: 'chosen-select' } %>
-
-
-
+</style>
 
 
 
@@ -26,17 +62,4 @@
 });
 
 </script>
-
-
-	</div>
-
-  <div class="modal-footer">
-
-       <%= link_to_remove_association 'Eliminar', f, :class => "
-       btn btn-danger color_blanco custom" %>
-    </div>
-
-</div>
-
-
 
