@@ -11,6 +11,7 @@
 
 
 class Rol < ActiveRecord::Base
+  has_many :users, dependent: :destroy
 
 
   validates :nombre, :presence => { :message => " es un Campo Obligatorio"}

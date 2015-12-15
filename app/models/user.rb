@@ -40,11 +40,14 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   acts_as_messageable
   has_many :products, dependent: :destroy
+  has_many :notas_progreso, dependent: :destroy
+
   has_many :clinic_histories, dependent: :destroy
-     has_many :clinic_histories
+  has_many :clinic_histories
 
   before_save { self.email = email.downcase }
   mount_uploader :picture, PictureUploader
+  belongs_to :rol
 
 
   EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i

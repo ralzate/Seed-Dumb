@@ -64,10 +64,6 @@ ActiveRecord::Schema.define(version: 20151203151203) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "diagnosticos", force: :cascade do |t|
-    t.string   "familia"
-    t.string   "codigo"
-    t.string   "simbolo"
-    t.text     "descripcion"
     t.integer  "historia_clinica_id"
     t.integer  "cie10_id"
     t.datetime "created_at",          null: false
@@ -217,30 +213,27 @@ ActiveRecord::Schema.define(version: 20151203151203) do
     t.text     "d_mental_descripcion"
     t.string   "d_neurologico"
     t.text     "d_neurologico_descripcion"
-    t.integer  "d_alteracion"
+    t.string   "d_alteracion"
     t.integer  "d_apertura_ocular"
     t.integer  "d_respuesta_verbal"
     t.integer  "d_respuesta_motora"
-    t.integer  "d_otros_signos"
+    t.string   "d_otros_signos"
     t.integer  "d_escala_de_glasgow"
     t.text     "e_analisis"
-    t.text     "e_impresion_diagnostica"
-    t.text     "e_plan_y_tratamiento"
     t.text     "e_observaciones_recomendaciones"
     t.text     "e_evento_adverso"
-    t.boolean  "e_estado"
-    t.integer  "e_glucometria1"
+    t.boolean  "e_estado_historia_clinica"
+    t.string   "e_estado_paciente"
+    t.string   "e_glucometria1"
     t.string   "e_hora1"
-    t.integer  "e_glucometria2"
+    t.string   "e_glucometria2"
     t.string   "e_hora2"
     t.text     "e_electrocardiograma"
-    t.integer  "cie10_id"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
 
   add_index "historias_clinicas", ["aeropuerto_id"], name: "index_historias_clinicas_on_aeropuerto_id", using: :btree
-  add_index "historias_clinicas", ["cie10_id"], name: "index_historias_clinicas_on_cie10_id", using: :btree
   add_index "historias_clinicas", ["user_id"], name: "index_historias_clinicas_on_user_id", using: :btree
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
@@ -300,15 +293,15 @@ ActiveRecord::Schema.define(version: 20151203151203) do
     t.string   "nombre_paciente"
     t.string   "documento_paciente"
     t.string   "tipo_documento"
-    t.integer  "edad"
-    t.string   "registro_medico"
     t.text     "descripcion"
     t.integer  "historia_clinica_id"
+    t.integer  "user_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
   add_index "notas_progreso", ["historia_clinica_id"], name: "index_notas_progreso_on_historia_clinica_id", using: :btree
+  add_index "notas_progreso", ["user_id"], name: "index_notas_progreso_on_user_id", using: :btree
 
   create_table "pacientes", force: :cascade do |t|
     t.integer  "ciudad_id"
@@ -409,12 +402,12 @@ ActiveRecord::Schema.define(version: 20151203151203) do
   add_foreign_key "diagnosticos", "cie10s"
   add_foreign_key "diagnosticos", "historias_clinicas"
   add_foreign_key "historias_clinicas", "aeropuertos"
-  add_foreign_key "historias_clinicas", "cie10s"
   add_foreign_key "historias_clinicas", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "notas_progreso", "historias_clinicas"
+  add_foreign_key "notas_progreso", "users"
   add_foreign_key "pacientes", "users"
   add_foreign_key "procedimientos", "historias_clinicas"
   add_foreign_key "products", "users"

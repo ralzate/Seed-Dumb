@@ -60,7 +60,7 @@
 
 
 
-<% if historia_clinica.e_estado != TRUE %>
+<% if historia_clinica.e_estado_historia_clinica != true %>
      &nbsp;  <%= link_to 'Editar Historia Clinica', paciente_historia_clinica_steps_path(@paciente, historia_clinica, HistoriaClinica.form_steps.first), :class => "btn btn-success blanco btn-sm" %>
 <% end %>
 

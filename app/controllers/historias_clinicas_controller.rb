@@ -19,7 +19,8 @@ class HistoriasClinicasController < ApplicationController
   # GET /pets/1.json
   def show
     @cie10s = Cie10.all
-    @diagnosticos = Diagnostico.all
+    @diagnosticos = @historia_clinica.diagnosticos.all
+    @procedimientos = @historia_clinica.procedimientos.all
     @alejo = 0
 
   end

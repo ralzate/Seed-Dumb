@@ -17,6 +17,11 @@
 
 class NotaProgreso < ActiveRecord::Base
   belongs_to :historia_clinica
+  belongs_to :user
+
+
+  validates :descripcion, :presence => {:message => ' es un Campo Obligatorio'}
+
 
   def self.search(search)
     where("nombre_paciente like '%#{search}%'  or documento_paciente like '%#{search}%'")

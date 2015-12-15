@@ -278,6 +278,23 @@
             </td>
           </tr>
 
+
+
+          <tr id='addr0' class="selectme">
+            <td align="center">
+            Familiares
+            </td>  
+            <td align="center">
+                <%= f.radio_button(:b_familiares, "Si", class: "required requerido10",  id: 'myRadio10', :title => "Debes Seleccionar una Opción" )%>
+            </td>
+            <td align="center">
+                <%= f.radio_button(:b_familiares, "No", class: 'no_requerido10', :id => "myRadio22" )%>
+            </td>
+            <td>
+              <%= f.text_field :b_familiar_descripcion, class: 'form-control', :id => "text_requerido10", :title => "Es un Campo Obligatorio" %>
+            </td>
+          </tr>
+
  
 
           <tr id='addr0' class="selectme">
@@ -372,17 +389,22 @@
 
 
 
+
+
+
       <h5>Esta en Embarazo?</h5>
 
       <div class="col-md-2">
         <label class="label" for="firstname">Si</label>
-         <%= f.check_box :b_embarazo, :id => "yes" %>
+
+        <%= f.radio_button(:b_embarazo, "Si", :id => "yes", :onclick => "return false" )%>
+
       </div>
       <div class="col-md-2" style="margin-left:-30px;">
         <label class="label" for="firstname">No</label>
-         <%= f.check_box :b_embarazo, :id => "no" %>
-      </div>
+        <%= f.radio_button(:b_embarazo, "No", :id => "no", :onclick => "return false" )%>
 
+      </div>
 
     </div>
 
@@ -391,14 +413,14 @@
       <div class="col-md-6"  >
           <label class="label">Fecha de la Ultima Citología</label>
             <div class="form-group">
-              <%= f.text_field :b_fecha_ultima_citologia, class: 'form-control', placeholder: 'Campo Obligatorio', :disabled => true %>
+              <%= f.text_field :b_fecha_ultima_citologia, class: 'form-control', placeholder: 'Campo Obligatorio', :id => "citologia" %>
             </div>
       </div>
 
       <div class="col-md-6"  >
           <label class="label">Fecha de la Ultima Mamografia</label>
             <div class="form-group">
-              <%= f.text_field :b_fecha_ultima_mamografia, class: 'form-control', placeholder: 'Campo Obligatorio', :disabled => true %>
+              <%= f.text_field :b_fecha_ultima_mamografia, class: 'form-control', placeholder: 'Campo Obligatorio', :id => "mamografia" %>
 
             </div>
 
@@ -417,40 +439,40 @@
 
  <div class="col-md-1" >
         <label class="label" for="firstname">P</label>
-        <%= f.text_field :b_p, class: 'form-control', placeholder: 'P', :disabled => true, :id => "txt3", :value => 'no aplica' %>
+        <%= f.text_field :b_p, class: 'form-control', placeholder: 'P', :readonly => true,  :id => "txt3", :value => 'no aplica' %>
       </div>
 
       <div class="col-md-1"  >
         <label class="label" for="firstname">C</label><br/>
-          <%= f.text_field :b_c, class: 'form-control', placeholder: 'C', :disabled => true, :id => "txt4", :value => 'no aplica' %>
+          <%= f.text_field :b_c, class: 'form-control', placeholder: 'C', :readonly => true,  :id => "txt4", :value => 'no aplica' %>
 
       </div>
 
 
       <div class="col-md-1" >
         <label class="label" for="firstname">A</label>
-          <%= f.text_field :b_a, class: 'form-control', placeholder: 'A', :disabled => true, :id => "txt5", :value => 'no aplica' %>
+          <%= f.text_field :b_a, class: 'form-control', placeholder: 'A', :readonly => true,  :id => "txt5", :value => 'no aplica' %>
 
       </div>
       <div class="col-md-1" >
         <label class="label" for="lastname">M</label>
-          <%= f.text_field :b_m, class: 'form-control', placeholder: 'M', :disabled => true, :id => "txt6", :value => 'no aplica' %>
+          <%= f.text_field :b_m, class: 'form-control', placeholder: 'M', :readonly => true,  :id => "txt6", :value => 'no aplica' %>
 
       </div>
       <div class="col-md-1"  >
         <label class="label" for="firstname">V</label>
-          <%= f.text_field :b_v, class: 'form-control', placeholder: 'V', :disabled => true, :id => "txt7", :value => 'no aplica' %>
+          <%= f.text_field :b_v, class: 'form-control', placeholder: 'V', :readonly => true,  :id => "txt7", :value => 'no aplica' %>
       </div>
 
       <div class="col-md-1" >
         <label class="label" for="firstname">E</label><br/>
-          <%= f.text_field :b_e, class: 'form-control', placeholder: 'E', :disabled => true, :id => "txt8", :value => 'no aplica' %>
+          <%= f.text_field :b_e, class: 'form-control', placeholder: 'E', :readonly => true,  :id => "txt8", :value => 'no aplica' %>
 
       </div>
 
   <div class="col-md-1" id="MostrarEmbarazo2">
         <label class="label" for="lastname">G</label>
-        <%= f.text_field :b_g, class: 'form-control', placeholder: 'G', :disabled => true, :id => "txt2", :value => 'no aplica' %>
+        <%= f.text_field :b_g, class: 'form-control', placeholder: 'G', :readonly => true,  :id => "txt2", :value => 'no aplica' %>
 
       </div>
 </div>
@@ -462,21 +484,24 @@
 
  <script type="text/javascript">
  // Disable para los campos femeninos
-   $('#ciclo').val('').prop('disabled', true);
-   $('#eco').val('').prop('disabled', true);
-   $('#fum').val('').prop('disabled', true);
-   $('#yes').val('').prop('disabled', true);
-   $('#no').val('').prop('disabled', true);
-   $('#menarquia').val('').prop('disabled', true);
-   $('#Citologia').val('').prop('disabled', true);
-   $('#txt1').val('').prop('disabled', true);
-   $('#txt2').val('').prop('disabled', true);
-   $('#txt3').val('').prop('disabled', true);
-   $('#txt4').val('').prop('disabled', true);
-   $('#txt5').val('').prop('disabled', true);
-   $('#txt6').val('').prop('disabled', true);
-   $('#txt7').val('').prop('disabled', true);
-   $('#txt8').val('').prop('disabled', true);
+   $('#ciclo').val('N/A').prop('readonly', true);
+   $('#eco').val('N/A').prop('readonly', true);
+   $('#fum').val('N/A').prop('readonly', true);
+   $('#menarquia').val('N/A').prop('readonly', true);
+   $("#no").each(function(i) {
+        $(this).attr('readonly', true);
+        $(this).prop("checked", true);
+    });
+   $('#citologia').val('N/A').prop('readonly', true);
+   $('#mamografia').val('N/A').prop('readonly', true);
+
+   $('#txt2').val('N/A').prop('readonly', true);
+   $('#txt3').val('N/A').prop('readonly', true);
+   $('#txt4').val('N/A').prop('readonly', true);
+   $('#txt5').val('N/A').prop('readonly', true);
+   $('#txt6').val('N/A').prop('readonly', true);
+   $('#txt7').val('N/A').prop('readonly', true);
+   $('#txt8').val('N/A').prop('readonly', true);
 </script>
 
 <% end %>
@@ -510,23 +535,23 @@
     <div class="row">
       <div class="col-md-2">
         <label class="control-label" for="firstname">Ciclo Menstrual</label>
-        <%= f.text_field :b_ciclo_menstrual, class: 'form-control', placeholder: 'Ciclo Menstrual', :id => "ciclo" %>
+        <%= f.text_field :b_ciclo_menstrual, class: 'form-control required', placeholder: 'Ciclo Menstrual', :id => "ciclo", :title => "Debes Seleccionar una Opción" %>
 
       </div>
 
       <div class="col-md-2">
         <label class="control-label" for="firstname">Eco</label>
-        <%= f.text_field :b_eco, class: 'form-control', placeholder: 'Eco', :id => "eco" %>
+        <%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Debes Seleccionar una Opción" %>
       </div>
 
       <div class="col-md-2">
         <label class="control-label" for="firstname">FUM</label>
-        <%= f.text_field :b_fum, class: 'form-control', placeholder: 'Fum', :id => "fum" %>
+        <%= f.text_field :b_fum, class: 'form-control required', placeholder: 'Fum', :id => "fum", :title => "Debes Seleccionar una Opción" %>
       </div>
 
       <div class="col-md-2" >
         <label class="label" for="firstname">Menarquia</label>
-        <%= f.text_field :b_menarquia, class: 'form-control', placeholder: 'Menarquia', :id => "menarquia"  %>
+        <%= f.text_field :b_menarquia, class: 'form-control required', placeholder: 'Menarquia', :id => "menarquia" , :title => "Debes Seleccionar una Opción" %>
       </div>
 
 
@@ -536,13 +561,13 @@
 
       <div class="col-md-2">
         <label class="label" for="firstname">Si</label>
-        <%= f.radio_button(:b_embarazo, "TRUE", :id => "checkbox_mostrar" )%>
+        <%= f.radio_button(:b_embarazo, "Si", :id => "checkbox_mostrar", :readonly => true )%>
 
 
       </div>
       <div class="col-md-2" style="margin-left:-30px;">
         <label class="label" for="firstname">No</label>
-        <%= f.radio_button(:b_embarazo, "No", :id => "checkbox_ocultar" )%>
+        <%= f.radio_button(:b_embarazo, "No", :id => "checkbox_ocultar", :readonly => true )%>
  
       </div>
 
@@ -582,40 +607,40 @@
 
  <div class="col-md-1" >
         <label class="label" for="firstname">P</label>
-        <%= f.text_field :b_p, class: 'form-control', placeholder: 'P', :id => "txt3", :disabled => true %>
+        <%= f.text_field :b_p, class: 'form-control', placeholder: 'P', :id => "txt3", :readonly => true %>
       </div>
 
       <div class="col-md-1"  >
         <label class="label" for="firstname">C</label><br/>
-          <%= f.text_field :b_c, class: 'form-control', placeholder: 'C', :id => "txt4", :disabled => true %>
+          <%= f.text_field :b_c, class: 'form-control', placeholder: 'C', :id => "txt4", :readonly => true %>
 
       </div>
 
 
       <div class="col-md-1" >
         <label class="label" for="firstname">A</label>
-          <%= f.text_field :b_a, class: 'form-control', placeholder: 'A', :id => "txt5", :disabled => true %>
+          <%= f.text_field :b_a, class: 'form-control', placeholder: 'A', :id => "txt5", :readonly => true %>
 
       </div>
       <div class="col-md-1" >
         <label class="label" for="lastname">M</label>
-          <%= f.text_field :b_m, class: 'form-control', placeholder: 'M', :id => "txt6", :disabled => true %>
+          <%= f.text_field :b_m, class: 'form-control', placeholder: 'M', :id => "txt6", :readonly => true %>
 
       </div>
       <div class="col-md-1"  >
         <label class="label" for="firstname">V</label>
-          <%= f.text_field :b_v, class: 'form-control', placeholder: 'V', :id => "txt7", :disabled => true %>
+          <%= f.text_field :b_v, class: 'form-control', placeholder: 'V', :id => "txt7", :readonly => true %>
       </div>
 
       <div class="col-md-1" >
         <label class="label" for="firstname">E</label><br/>
-          <%= f.text_field :b_e, class: 'form-control', placeholder: 'E', :id => "txt8", :disabled => true %>
+          <%= f.text_field :b_e, class: 'form-control', placeholder: 'E', :id => "txt8", :readonly => true %>
 
       </div>
 
   <div class="col-md-1" id="MostrarEmbarazo2">
         <label class="label" for="lastname">G</label>
-        <%= f.text_field :b_g, class: 'form-control', placeholder: 'G', :id => "txt2", :disabled => true %>
+        <%= f.text_field :b_g, class: 'form-control', placeholder: 'G', :id => "txt2", :readonly => true %>
 
       </div>
 </div>
@@ -652,30 +677,30 @@
 $(document).ready(function(){
   $('#checkbox_mostrar').click(function(){
       if($(this).prop("checked") == true){
-        $('#fecha_citologia').removeAttr("disabled");
-        $('#fecha_mamografia').removeAttr("disabled");
-        $('#txt2').removeAttr("disabled");
-        $('#txt3').removeAttr("disabled");
-        $('#txt4').removeAttr("disabled");
-        $('#txt5').removeAttr("disabled");
-        $('#txt6').removeAttr("disabled");
-        $('#txt7').removeAttr("disabled");
-        $('#txt8').removeAttr("disabled");
+        $('#fecha_citologia').removeAttr("readonly");
+        $('#fecha_mamografia').removeAttr("readonly");
+        $('#txt2').removeAttr("readonly");
+        $('#txt3').removeAttr("readonly");
+        $('#txt4').removeAttr("readonly");
+        $('#txt5').removeAttr("readonly");
+        $('#txt6').removeAttr("readonly");
+        $('#txt7').removeAttr("readonly");
+        $('#txt8').removeAttr("readonly");
 
       }
   });
   $('#checkbox_ocultar').click(function(){
       if($(this).prop("checked") == true){
         
-        $("#fecha_citologia").attr("disabled", true);
-        $("#fecha_mamografia").attr("disabled", true);
-        $("#txt2").attr("disabled", true);
-        $("#txt3").attr("disabled", true);
-        $("#txt4").attr("disabled", true);
-        $("#txt5").attr("disabled", true);
-        $("#txt6").attr("disabled", true);
-        $("#txt7").attr("disabled", true);
-        $("#txt8").attr("disabled", true);
+        $("#fecha_citologia").attr("readonly", true);
+        $("#fecha_mamografia").attr("readonly", true);
+        $("#txt2").attr("readonly", true);
+        $("#txt3").attr("readonly", true);
+        $("#txt4").attr("readonly", true);
+        $("#txt5").attr("readonly", true);
+        $("#txt6").attr("readonly", true);
+        $("#txt7").attr("readonly", true);
+        $("#txt8").attr("readonly", true);
 
       }
   });
@@ -701,6 +726,7 @@ $(document).ready(function(){
              document.getElementById('myRadio7').checked = true;        
              document.getElementById('myRadio8').checked = true;        
              document.getElementById('myRadio9').checked = true;        
+             document.getElementById('myRadio10').checked = true;        
              document.getElementById('myRadio11').checked = true;        
              document.getElementById('myRadio12').checked = true;        
              document.getElementById('selecctall2').checked = false;        
@@ -713,6 +739,7 @@ $(document).ready(function(){
              document.getElementById('myRadio19').checked = false;
              document.getElementById('myRadio20').checked = false;
              document.getElementById('myRadio21').checked = false;
+             document.getElementById('myRadio22').checked = false;
              document.getElementById('myRadio23').checked = false;
              document.getElementById('myRadio24').checked = false;
         }
@@ -729,6 +756,7 @@ $(document).ready(function(){
              document.getElementById('myRadio19').checked = true;
              document.getElementById('myRadio20').checked = true;
              document.getElementById('myRadio21').checked = true;
+             document.getElementById('myRadio22').checked = true;
              document.getElementById('myRadio23').checked = true;
              document.getElementById('myRadio24').checked = true;     
              document.getElementById('selecctall').checked = false;        
@@ -741,6 +769,7 @@ $(document).ready(function(){
              document.getElementById('myRadio7').checked = false;        
              document.getElementById('myRadio8').checked = false;        
              document.getElementById('myRadio9').checked = false;        
+             document.getElementById('myRadio10').checked = false;        
              document.getElementById('myRadio11').checked = false;        
              document.getElementById('myRadio12').checked = false;       
         }
@@ -748,22 +777,25 @@ $(document).ready(function(){
 
 
     
+
+
   $('#selecctall2').change(function(){
     if ($('#selecctall2').is(':checked') == true){
-        $('#text_requerido').val('N/A');
-        $('#text_requerido2').val('N/A');
-        $('#text_requerido3').val('N/A');
-        $('#text_requerido4').val('N/A');
-        $('#text_requerido5').val('N/A');
-        $('#text_requerido6').val('N/A');
-        $('#text_requerido7').val('N/A');
-        $('#text_requerido8').val('N/A');
-        $('#text_requerido9').val('N/A');
-        $('#text_requerido10').val('N/A');
-        $('#text_requerido11').val('N/A');
-        $('#text_requerido12').val('N/A');
+        $('#text_requerido').val('N/A').prop('readonly', true);
+        $('#text_requerido2').val('N/A').prop('readonly', true);
+        $('#text_requerido3').val('N/A').prop('readonly', true);
+        $('#text_requerido4').val('N/A').prop('readonly', true);
+        $('#text_requerido5').val('N/A').prop('readonly', true);
+        $('#text_requerido6').val('N/A').prop('readonly', true);
+        $('#text_requerido7').val('N/A').prop('readonly', true);
+        $('#text_requerido8').val('N/A').prop('readonly', true);
+        $('#text_requerido9').val('N/A').prop('readonly', true);
+        $('#text_requerido10').val('N/A').prop('readonly', true);
+        $('#text_requerido11').val('N/A').prop('readonly', true);
+        $('#text_requerido12').val('N/A').prop('readonly', true);
     } 
   });
+
 
     
 });
@@ -785,19 +817,21 @@ $(document).ready(function(){
                $('#text_requerido7').addClass('required');
                $('#text_requerido8').addClass('required');
                $('#text_requerido9').addClass('required');
+               $('#text_requerido10').addClass('required');
                $('#text_requerido11').addClass('required');
                $('#text_requerido12').addClass('required');
-              $('#text_requerido').val('').prop('disabled', false);             
-              $('#text_requerido2').val('').prop('disabled', false);             
-              $('#text_requerido3').val('').prop('disabled', false);             
-              $('#text_requerido4').val('').prop('disabled', false);             
-              $('#text_requerido5').val('').prop('disabled', false);             
-              $('#text_requerido6').val('').prop('disabled', false);             
-              $('#text_requerido7').val('').prop('disabled', false);             
-              $('#text_requerido8').val('').prop('disabled', false);             
-              $('#text_requerido9').val('').prop('disabled', false);             
-              $('#text_requerido11').val('').prop('disabled', false);             
-              $('#text_requerido12').val('').prop('disabled', false);             
+              $('#text_requerido').val('').prop('readonly', false);             
+              $('#text_requerido2').val('').prop('readonly', false);             
+              $('#text_requerido3').val('').prop('readonly', false);             
+              $('#text_requerido4').val('').prop('readonly', false);             
+              $('#text_requerido5').val('').prop('readonly', false);             
+              $('#text_requerido6').val('').prop('readonly', false);             
+              $('#text_requerido7').val('').prop('readonly', false);             
+              $('#text_requerido8').val('').prop('readonly', false);             
+              $('#text_requerido9').val('').prop('readonly', false);             
+              $('#text_requerido10').val('').prop('readonly', false);             
+              $('#text_requerido11').val('').prop('readonly', false);             
+              $('#text_requerido12').val('').prop('readonly', false);             
 
 
           }
@@ -807,47 +841,51 @@ $(document).ready(function(){
             $('#text_requerido').removeClass('required');
             $('#text_requerido').removeClass('error');
             $('#text_requerido-error').hide(); 
-            $('#text_requerido').val('').prop('disabled', true);
+            $('#text_requerido').val('').prop('readonly', true);
             $('#text_requerido2').removeClass('required');
             $('#text_requerido2').removeClass('error');
             $('#text_requerido2-error').hide(); 
-            $('#text_requerido2').val('').prop('disabled', true);
+            $('#text_requerido2').val('').prop('readonly', true);
             $('#text_requerido3').removeClass('required');
             $('#text_requerido3').removeClass('error');
             $('#text_requerido3-error').hide(); 
-            $('#text_requerido3').val('').prop('disabled', true);
+            $('#text_requerido3').val('').prop('readonly', true);
             $('#text_requerido4').removeClass('required');
             $('#text_requerido4').removeClass('error');
             $('#text_requerido4-error').hide();  
-            $('#text_requerido4').val('').prop('disabled', true);
+            $('#text_requerido4').val('').prop('readonly', true);
             $('#text_requerido5').removeClass('required');
             $('#text_requerido5').removeClass('error');
             $('#text_requerido5-error').hide(); 
-            $('#text_requerido5').val('').prop('disabled', true);
+            $('#text_requerido5').val('').prop('readonly', true);
             $('#text_requerido6').removeClass('required');
             $('#text_requerido6').removeClass('error');
             $('#text_requerido6-error').hide(); 
-            $('#text_requerido6').val('').prop('disabled', true);
+            $('#text_requerido6').val('').prop('readonly', true);
             $('#text_requerido7').removeClass('required');
             $('#text_requerido7').removeClass('error');
             $('#text_requerido7-error').hide();
-            $('#text_requerido7').val('').prop('disabled', true);             
+            $('#text_requerido7').val('').prop('readonly', true);             
             $('#text_requerido8').removeClass('required');
             $('#text_requerido8').removeClass('error');
             $('#text_requerido8-error').hide(); 
-            $('#text_requerido8').val('').prop('disabled', true);             
+            $('#text_requerido8').val('').prop('readonly', true);             
             $('#text_requerido9').removeClass('required');
             $('#text_requerido9').removeClass('error');
             $('#text_requerido9-error').hide(); 
-            $('#text_requerido9').val('').prop('disabled', true);              
+            $('#text_requerido9').val('').prop('readonly', true); 
+            $('#text_requerido10').removeClass('required');
+            $('#text_requerido10').removeClass('error');
+            $('#text_requerido10-error').hide(); 
+            $('#text_requerido10').val('').prop('readonly', true);
             $('#text_requerido11').removeClass('required');
             $('#text_requerido11').removeClass('error');
             $('#text_requerido11-error').hide(); 
-            $('#text_requerido11').val('').prop('disabled', true);             
+            $('#text_requerido11').val('').prop('readonly', true);             
             $('#text_requerido12').removeClass('required');
             $('#text_requerido12').removeClass('error');
             $('#text_requerido12-error').hide();
-            $('#text_requerido12').val('').prop('disabled', true);             
+            $('#text_requerido12').val('').prop('readonly', true);             
 
           }
       });
@@ -857,20 +895,114 @@ $(document).ready(function(){
 </script>
 
 <script type="text/javascript">
+
+// Codigo para cuando Ya guardoo registros
+if($(".no_requerido").is(':checked')) {
+    $('#text_requerido').removeClass('required');
+    $('#text_requerido').removeClass('error');
+    $('#text_requerido-error').hide(); 
+    $('#text_requerido').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido2").is(':checked')) {
+    $('#text_requerido2').removeClass('required');
+    $('#text_requerido2').removeClass('error');
+    $('#text_requerido2-error').hide(); 
+    $('#text_requerido2').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido3").is(':checked')) {
+    $('#text_requerido3').removeClass('required');
+    $('#text_requerido3').removeClass('error');
+    $('#text_requerido3-error').hide(); 
+    $('#text_requerido3').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido4").is(':checked')) {
+    $('#text_requerido4').removeClass('required');
+    $('#text_requerido4').removeClass('error');
+    $('#text_requerido4-error').hide(); 
+    $('#text_requerido4').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido5").is(':checked')) {
+    $('#text_requerido5').removeClass('required');
+    $('#text_requerido5').removeClass('error');
+    $('#text_requerido5-error').hide(); 
+    $('#text_requerido5').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido6").is(':checked')) {
+    $('#text_requerido6').removeClass('required');
+    $('#text_requerido6').removeClass('error');
+    $('#text_requerido6-error').hide(); 
+    $('#text_requerido6').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido7").is(':checked')) {
+    $('#text_requerido7').removeClass('required');
+    $('#text_requerido7').removeClass('error');
+    $('#text_requerido7-error').hide(); 
+    $('#text_requerido7').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido8").is(':checked')) {
+    $('#text_requerido8').removeClass('required');
+    $('#text_requerido8').removeClass('error');
+    $('#text_requerido8-error').hide(); 
+    $('#text_requerido8').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido9").is(':checked')) {
+    $('#text_requerido9').removeClass('required');
+    $('#text_requerido9').removeClass('error');
+    $('#text_requerido9-error').hide(); 
+    $('#text_requerido9').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido10").is(':checked')) {
+    $('#text_requerido10').removeClass('required');
+    $('#text_requerido10').removeClass('error');
+    $('#text_requerido10-error').hide(); 
+    $('#text_requerido10').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido11").is(':checked')) {
+    $('#text_requerido11').removeClass('required');
+    $('#text_requerido11').removeClass('error');
+    $('#text_requerido11-error').hide(); 
+    $('#text_requerido11').val('N/A').prop('readonly', true);             
+}
+
+if($(".no_requerido12").is(':checked')) {
+    $('#text_requerido12').removeClass('required');
+    $('#text_requerido12').removeClass('error');
+    $('#text_requerido12-error').hide(); 
+    $('#text_requerido12').val('N/A').prop('readonly', true);             
+}
+
+
+
+
+
+
+
+
+
 // Agrega y quita la clase required a los campos ampliar información uno a
 $('.no_requerido').change(function(){
-  if(this.checked){
+  if($(".no_requerido").is(':checked')) {
       $('#text_requerido').removeClass('required');
       $('#text_requerido').removeClass('error');
       $('#text_requerido-error').hide(); 
-       $('#text_requerido').val('N/A').prop('disabled', true);             
+       $('#text_requerido').val('N/A').prop('readonly', true);             
 
   }
 })
 $('.requerido').change(function(){
 if(this.checked){
        $('#text_requerido').addClass('required');
-       $('#text_requerido').val('').prop('disabled', false);             
+       $('#text_requerido').val('').prop('readonly', false);             
 
   }  
 })
@@ -880,7 +1012,7 @@ $('.no_requerido2').change(function(){
       $('#text_requerido2').removeClass('required');
       $('#text_requerido2').removeClass('error');
       $('#text_requerido2-error').hide(); 
-       $('#text_requerido2').val('N/A').prop('disabled', true);             
+       $('#text_requerido2').val('N/A').prop('readonly', true);             
 
 
   }
@@ -888,7 +1020,7 @@ $('.no_requerido2').change(function(){
 $('.requerido2').change(function(){
 if(this.checked){
        $('#text_requerido2').addClass('required');
-       $('#text_requerido2').val('').prop('disabled', false);             
+       $('#text_requerido2').val('').prop('readonly', false);             
 
   }  
 })
@@ -898,7 +1030,7 @@ $('.no_requerido3').change(function(){
       $('#text_requerido3').removeClass('required');
       $('#text_requerido3').removeClass('error');
       $('#text_requerido3-error').hide(); 
-       $('#text_requerido3').val('N/A').prop('disabled', true);             
+       $('#text_requerido3').val('N/A').prop('readonly', true);             
 
 
   }
@@ -906,7 +1038,7 @@ $('.no_requerido3').change(function(){
 $('.requerido3').change(function(){
 if(this.checked){
        $('#text_requerido3').addClass('required');
-       $('#text_requerido3').val('').prop('disabled', false);             
+       $('#text_requerido3').val('').prop('readonly', false);             
 
   }  
 })
@@ -916,14 +1048,14 @@ $('.no_requerido4').change(function(){
       $('#text_requerido4').removeClass('required');
       $('#text_requerido4').removeClass('error');
       $('#text_requerido4-error').hide(); 
-       $('#text_requerido4').val('N/A').prop('disabled', true);             
+       $('#text_requerido4').val('N/A').prop('readonly', true);             
 
   }
 })
 $('.requerido4').change(function(){
 if(this.checked){
        $('#text_requerido4').addClass('required');
-       $('#text_requerido4').val('').prop('disabled', false);             
+       $('#text_requerido4').val('').prop('readonly', false);             
 
   }  
 })
@@ -933,14 +1065,14 @@ $('.no_requerido5').change(function(){
       $('#text_requerido5').removeClass('required');
       $('#text_requerido5').removeClass('error');
       $('#text_requerido5-error').hide(); 
-       $('#text_requerido5').val('N/A').prop('disabled', true);             
+       $('#text_requerido5').val('N/A').prop('readonly', true);             
 
   }
 })
 $('.requerido5').change(function(){
 if(this.checked){
        $('#text_requerido5').addClass('required');
-       $('#text_requerido5').val('').prop('disabled', false);             
+       $('#text_requerido5').val('').prop('readonly', false);             
 
   }  
 })
@@ -950,14 +1082,14 @@ $('.no_requerido6').change(function(){
       $('#text_requerido6').removeClass('required');
       $('#text_requerido6').removeClass('error');
       $('#text_requerido6-error').hide(); 
-       $('#text_requerido6').val('N/A').prop('disabled', true);             
+       $('#text_requerido6').val('N/A').prop('readonly', true);             
 
   }
 })
 $('.requerido6').change(function(){
 if(this.checked){
        $('#text_requerido6').addClass('required');
-       $('#text_requerido6').val('').prop('disabled', false);             
+       $('#text_requerido6').val('').prop('readonly', false);             
 
   }  
 })
@@ -967,14 +1099,14 @@ $('.no_requerido7').change(function(){
       $('#text_requerido7').removeClass('required');
       $('#text_requerido7').removeClass('error');
       $('#text_requerido7-error').hide(); 
-       $('#text_requerido7').val('N/A').prop('disabled', true);             
+       $('#text_requerido7').val('N/A').prop('readonly', true);             
 
   }
 })
 $('.requerido7').change(function(){
 if(this.checked){
        $('#text_requerido7').addClass('required');
-       $('#text_requerido7').val('').prop('disabled', false);             
+       $('#text_requerido7').val('').prop('readonly', false);             
 
   }  
 })
@@ -984,7 +1116,7 @@ $('.no_requerido8').change(function(){
       $('#text_requerido8').removeClass('required');
       $('#text_requerido8').removeClass('error');
       $('#text_requerido8-error').hide(); 
-       $('#text_requerido8').val('N/A').prop('disabled', true);             
+       $('#text_requerido8').val('N/A').prop('readonly', true);             
 
 
   }
@@ -992,7 +1124,7 @@ $('.no_requerido8').change(function(){
 $('.requerido8').change(function(){
 if(this.checked){
        $('#text_requerido8').addClass('required');
-       $('#text_requerido8').val('').prop('disabled', false);             
+       $('#text_requerido8').val('').prop('readonly', false);             
 
   }  
 })
@@ -1002,7 +1134,7 @@ $('.no_requerido9').change(function(){
       $('#text_requerido9').removeClass('required');
       $('#text_requerido9').removeClass('error');
       $('#text_requerido9-error').hide(); 
-       $('#text_requerido9').val('N/A').prop('disabled', true);             
+       $('#text_requerido9').val('N/A').prop('readonly', true);             
 
 
   }
@@ -1010,18 +1142,36 @@ $('.no_requerido9').change(function(){
 $('.requerido9').change(function(){
 if(this.checked){
        $('#text_requerido9').addClass('required');
-       $('#text_requerido9').val('').prop('disabled', false);             
+       $('#text_requerido9').val('').prop('readonly', false);             
 
   }  
 })
 
+
+$('.no_requerido10').change(function(){
+  if(this.checked){
+      $('#text_requerido10').removeClass('required');
+      $('#text_requerido10').removeClass('error');
+      $('#text_requerido10-error').hide(); 
+      $('#text_requerido10').val('N/A').prop('readonly', true);             
+
+
+  }
+})
+$('.requerido10').change(function(){
+if(this.checked){
+       $('#text_requerido10').addClass('required');
+       $('#text_requerido10').val('').prop('readonly', false);             
+
+  }  
+})
 
 $('.no_requerido11').change(function(){
   if(this.checked){
       $('#text_requerido11').removeClass('required');
       $('#text_requerido11').removeClass('error');
       $('#text_requerido11-error').hide(); 
-       $('#text_requerido11').val('N/A').prop('disabled', true);             
+       $('#text_requerido11').val('N/A').prop('readonly', true);             
 
 
   }
@@ -1029,7 +1179,7 @@ $('.no_requerido11').change(function(){
 $('.requerido11').change(function(){
 if(this.checked){
        $('#text_requerido11').addClass('required');
-       $('#text_requerido11').val('').prop('disabled', false);             
+       $('#text_requerido11').val('').prop('readonly', false);             
 
   }  
 })
@@ -1039,14 +1189,14 @@ $('.no_requerido12').change(function(){
       $('#text_requerido12').removeClass('required');
       $('#text_requerido12').removeClass('error');
       $('#text_requerido12-error').hide(); 
-       $('#text_requerido12').val('N/A').prop('disabled', true);             
+       $('#text_requerido12').val('N/A').prop('readonly', true);             
 
   }
 })
 $('.requerido12').change(function(){
 if(this.checked){
        $('#text_requerido12').addClass('required');
-       $('#text_requerido12').val('').prop('disabled', false);             
+       $('#text_requerido12').val('').prop('readonly', false);             
 
   }  
 })

@@ -193,7 +193,7 @@ $(document).ready(function() {
 
 
 
-                        <%= f.text_area :e_analisis, class: 'form-control required' %>
+                        <%= f.text_area :e_analisis, class: 'form-control required', :title => "Es un Campo Obligatorio"  %>
 
 
                 </div>
@@ -231,6 +231,20 @@ $(document).ready(function() {
                   <div class="modal-footer">
                     <%= link_to_add_association 'Agregar', f, :diagnosticos, {data: {'association-insertion-method' => 'after'}, :class => "btn btn-info color_blanco custom" } %>
                   </div>
+
+
+
+                  <script type="text/javascript">
+                    $(function() {
+                    return $('.chosen-select').chosen({
+                      allow_single_deselect: true,
+                      no_results_text: 'No results matched',
+                      width: '200px'
+                    });
+                  });
+
+                  </script>
+
 
                   </div>
 
@@ -289,14 +303,14 @@ $(document).ready(function() {
               <div class="col-sm-2 col-md-2">
                 <div class="field">
                   <%= f.label :glucometria1 %><br>
-                  <%= f.text_field :e_glucometria1, class: 'form-control required' %>
+                  <%= f.text_field :e_glucometria1, class: 'form-control required', :title => "Es un Campo Obligatorio"  %>
                 </div>
               </div>
 
               <div class="col-sm-2 col-md-2">
                 <div class="field">
                   <%= f.label :hora1 %><br>
-                  <%= f.text_field :e_hora1, class: 'form-control required' %>
+                  <%= f.text_field :e_hora1, class: 'form-control required', :title => "Es un Campo Obligatorio" , :title => "Es un Campo Obligatorio"  %>
                 </div>
               </div>
 
@@ -342,7 +356,7 @@ $(document).ready(function() {
 
 
 
-                        <%= f.text_area :e_observaciones_recomendaciones, class: 'form-control required'  %>
+                        <%= f.text_area :e_observaciones_recomendaciones, class: 'form-control required', :title => "Es un Campo Obligatorio"   %>
 
 
                 </div>
@@ -378,7 +392,7 @@ $(document).ready(function() {
 
 
           <%= f.label :e_evento_adverso %><br />
-          <%= f.text_area :e_evento_adverso, class: 'form-control required' %>
+          <%= f.text_area :e_evento_adverso, class: 'form-control required', :title => "Es un Campo Obligatorio"  %>
 
 
 
@@ -398,7 +412,7 @@ $(document).ready(function() {
                <%= f.label "Translado a Sanidad " %>
             </td>
             <td style = "width:2%!important;">
-              <%= f.radio_button(:e_estado, "translado a sanidad", class: "calc required" )%>
+              <%= f.radio_button(:e_estado_paciente, "translado a sanidad", class: "calc required", :title => "Es un Campo Obligatorio"  )%>
 
             </td>
             <td  colspan="1" style = "width:25%!important;  text-align:right;">
@@ -406,7 +420,7 @@ $(document).ready(function() {
             </th>
 
             <td style = "width:2%!important;">
-              <%= f.radio_button(:e_estado, "translado a urgencias", class: "calc" )%>
+              <%= f.radio_button(:e_estado_paciente, "translado a urgencias", class: "calc" )%>
 
             </td>
              <td  colspan="1" style = "width:25%!important;  text-align:right;">
@@ -414,7 +428,7 @@ $(document).ready(function() {
             </th>
 
             <td style = "width:2%!important;">
-              <%= f.radio_button(:e_estado, "fallecido durante el translado" , class: "calc")%>
+              <%= f.radio_button(:e_estado_paciente, "fallecido durante el translado" , class: "calc")%>
 
             </td>
            
@@ -427,7 +441,7 @@ $(document).ready(function() {
                  <%= f.label "Dado de alta a Domicilio" %>
             </td> 
             <td>
-              <%= f.radio_button(:e_estado, "dado de alta a domicilio" , class: "calc")%>
+              <%= f.radio_button(:e_estado_paciente, "dado de alta a domicilio" , class: "calc")%>
 
             </td>
 
@@ -436,7 +450,7 @@ $(document).ready(function() {
                  <%= f.label "Se Otorga Permiso de Vuelo" %>
             </td>
             <td>
-                <%= f.radio_button(:e_estado, "se otorga permiso de vuelo" , class: "calc")%>
+                <%= f.radio_button(:e_estado_paciente, "se otorga permiso de vuelo" , class: "calc")%>
 
             </td> 
 
@@ -446,7 +460,7 @@ $(document).ready(function() {
                  <%= f.label "Retirado por Propios Medios sin concluir tratamiento" %>
             </td>
             <td>
-                              <%= f.radio_button(:e_estado, "retirado por propios medios" , class: "calc")%>
+                              <%= f.radio_button(:e_estado_paciente, "retirado por propios medios" , class: "calc")%>
 
             </td> 
 
@@ -462,7 +476,7 @@ $(document).ready(function() {
                  <%= f.label "Salida Voluntaria" %>
             </td>
             <td>
-                              <%= f.radio_button(:e_estado, "salida voluntaria" , class: "calc")%>
+                              <%= f.radio_button(:e_estado_paciente, "salida voluntaria" , class: "calc")%>
 
             </td> 
       </tr>
@@ -516,7 +530,7 @@ $(document).ready(function() {
 
         <div class="col-sm-1 col-md-1" style="margin-left:-180px; margin-top:10px;">
           <div class="centered title"> 
-            <h1 style=" font-size:25px;"><%= f.check_box :e_estado, class: 'form-control' %></h1>
+            <h1 style=" font-size:25px;"><%= f.check_box :e_estado_historia_clinica, class: 'form-control' %></h1>
           </div>
         </div>
 
