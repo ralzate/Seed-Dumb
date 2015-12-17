@@ -8,11 +8,12 @@ $('.personal').html(data)
 
 
 $('.query').on("keyup", function (e){
+
 $('.js-filter').submit();
 
 });
 
 
 
-
 });
+

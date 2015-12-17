@@ -1,12 +1,13 @@
 
 
-
 <div class="col-md-12" style = "margin:25px!important">
+<% if current_user %>
+
     <%= link_to "Listado de Usuarios",  users_path, :class => "btn btn-info color_blanco  pull-left" %>
-</div>
+<% end %>
+    
 
-
-
+<br/>
 
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>

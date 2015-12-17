@@ -1,53 +1,37 @@
-
-<div class="nested-fields">
-
-
 <br/>
-<div class="container-fluid">
-  <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="well well-sm">
-          <form class="form-horizontal" action="" method="post">
-          <fieldset>
-            <legend class="text-center">Nuevo Diagnostico</legend>
-    
-            <!-- Name input-->
-            <div class="form-group">
-              <div class="col-md-8 col-md-offset-2">
+<div class="nested-fields">
+  <div class="">
+      <div class="well clearfix inicio">
+      <div class="row">
+        <div class="col-md-9 ">
+          <%= f.select :cie10_id, Cie10.all.map { |u| ["#{u.codigo}, #{u.descripcion}", u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
+        </div>
 
-                <%= f.select :cie10_id,
-                  Cie10.all.map { |u| ["#{u.id}, #{u.familia}, #{u.codigo}, #{u.descripcion}", u.id] },
-                               { include_blank: true },
-                               { class: 'chosen-select' } %>
-              </div>
-            </div>
-    
-            
-            <!-- Form actions -->
-            <div class="form-group">
-              <div class="col-md-12 col-md-offset-2">
-                <%= link_to_remove_association 'Eliminar', f, :class => "btn btn-danger color_blanco custom" %>
-              </div>
-            </div>
-          </fieldset>
-          </form>
+        <div class="col-md-2">
+          <%= link_to_remove_association 'Eliminar', f, :class => "btn btn-danger color_blanco custom  pull-right btn-sm" %>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
-</div>
 
+<style type="text/css" media="screen">
 
-<style type="text/css">
-.chosen-container-single .chosen-single{
-  width: 200%;
+.chosen-container-single .chosen-single {
+  width: 290% !important;
+  margin-left: 30px;
+}  
+.chosen-drop{
+  width: 290% !important;
+  margin-left: 130px;  
 }
+.inicio
+{
 
-.chosen-container .chosen-drop{
-      width: 200%;
+    margin-bottom: 0px;
+    padding: 10px;
 }
-
 </style>
 
 
@@ -60,6 +44,7 @@
     width: '200px'
   });
 });
+
 
 </script>
 

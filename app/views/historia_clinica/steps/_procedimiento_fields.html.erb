@@ -1,51 +1,49 @@
 
-<div class="nested-fields">
-
 
 <br/>
-<div class="container-fluid">
-      <div class="col-md-10 col-md-offset-1">
- 	<div class="row">
-       <div class="well well-sm">
-          <form class="form-horizontal" action="" method="post">
-          <fieldset>
-            <legend class="text-center">Nuevo Procedimiento</legend>
-    
-            <!-- Name input-->
-            <div class="form-group">
-              <div class="col-md-9 col-md-offset-2">
-		          <%= f.label :tratamiento %><br>
-				  <%= f.text_field :tratamiento, class: 'form-control' %>
-              </div>
-            </div>
-    
-            <!-- Email input-->
-            <div class="form-group">
-              <div class="col-md-9 col-md-offset-2">
-				<%= f.label :via_acceso %><br>
-			    <%= f.text_field :via_acceso, class: 'form-control' %>
-              </div>
-            </div>
-    
-            <!-- Message body -->
-            <div class="form-group">
-              <div class="col-md-9 col-md-offset-2">
-                <%= f.label :descripcion %><br>
-			    <%= f.text_field :descripcion, class: 'form-control' %>
-              </div>
-            </div>
-    
-            <!-- Form actions -->
-            <div class="form-group">
-              <div class="col-md-12 col-md-offset-2">
-                <%= link_to_remove_association 'Eliminar', f, :class => "btn btn-danger color_blanco custom" %>
-              </div>
-            </div>
-          </fieldset>
-          </form>
+<div class="nested-fields">
+  <div class="container-fluid">
+      <div class="well clearfix inicio">
+      <div class="row">
+        <div class="col-md-3">
+          <%= f.text_field :tratamiento, class: 'form-control', :placeholder => "Tratamiento" %>
         </div>
+
+        <div class="col-md-3">
+
+          <%= f.text_field :via_acceso, class: 'form-control', :placeholder => "Via Acceso" %>
+
+        </div>
+
+        <div class="col-md-3">
+            
+          <%= f.text_field :descripcion, class: 'form-control', :placeholder => "Descripción" %>
+
+        </div>
+
+        <div class="col-md-3">
+          <%= link_to_remove_association 'Eliminar', f, :class => "btn btn-danger color_blanco custom btn-sm" %>
+
+        </div>
+
       </div>
-	</div>
+
+    </div>
+  </div>
 </div>
 
-</div>
+<style type="text/css">
+  .inicio
+{
+
+    margin-bottom: 0px;
+    padding: 10px;
+    height: 60px;
+}
+.btn-danger{
+  margin-top: 0px !important;
+  margin-right: 20px;
+}
+
+</style>
+

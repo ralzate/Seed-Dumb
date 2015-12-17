@@ -1,4 +1,7 @@
+
 <% if @pacientes != nil%>
+ <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @pacientes, renderer: BootstrapPagination::Rails %>
+</span>
 <% @pacientes.each do |paciente| %>
 
         
@@ -50,7 +53,7 @@
     <div class="col-md-12 jm">
        
            
-                <h1 class="panel-title-fd">¡ No se encontro el Paciente! </h1>
+                
           
         
 
@@ -80,3 +83,4 @@
 </style>
 
  <% end %>
+

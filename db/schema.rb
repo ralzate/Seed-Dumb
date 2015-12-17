@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 20151203151203) do
     t.string   "a_nombre_acompañante"
     t.string   "a_parentesco"
     t.string   "a_telefono"
-    t.integer  "arl_id"
-    t.integer  "eps_id"
+    t.string   "arl"
+    t.string   "eps"
     t.text     "a_motivo_de_consulta"
     t.text     "a_enfermedad_actual"
     t.string   "b_neonatales"
@@ -304,7 +304,7 @@ ActiveRecord::Schema.define(version: 20151203151203) do
   add_index "notas_progreso", ["user_id"], name: "index_notas_progreso_on_user_id", using: :btree
 
   create_table "pacientes", force: :cascade do |t|
-    t.integer  "ciudad_id"
+    t.string   "ciudad"
     t.string   "primer_nombre"
     t.string   "segundo_nombre"
     t.string   "primer_apellido"
@@ -326,7 +326,6 @@ ActiveRecord::Schema.define(version: 20151203151203) do
     t.string   "pais_codigo"
   end
 
-  add_index "pacientes", ["ciudad_id"], name: "index_pacientes_on_ciudad_id", using: :btree
   add_index "pacientes", ["user_id"], name: "index_pacientes_on_user_id", using: :btree
 
   create_table "procedimientos", force: :cascade do |t|

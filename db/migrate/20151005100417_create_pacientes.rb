@@ -1,7 +1,7 @@
 class CreatePacientes < ActiveRecord::Migration
   def change
     create_table :pacientes do |t|
-      t.references :ciudad
+      t.string :ciudad
       t.string :primer_nombre
       t.string :segundo_nombre
       t.string :primer_apellido
@@ -23,6 +23,5 @@ class CreatePacientes < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :pacientes, :ciudad_id
   end
 end

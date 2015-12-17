@@ -1,5 +1,7 @@
 class ArlesController < ApplicationController
  # before_action :set_arl, only: [:show, :edit, :update, :destroy]
+   autocomplete :arl, :nombre
+
   before_action :authorize
 
 
@@ -21,7 +23,6 @@ class ArlesController < ApplicationController
   # GET /epss/new
   def new
     @arl = Arl.new
-    @arl.historias_clinicas.build    
   end
 
   # GET /epss/1/edit

@@ -14,8 +14,6 @@ class Arl < ActiveRecord::Base
 
 
 
-	has_many :historias_clinicas
-	accepts_nested_attributes_for :historias_clinicas, :reject_if => proc { |attributes| attributes.any? {|k,v| v.blank?} }
 
 
 	validates :nombre, :on => :create, :presence => { :message => " es un Campo Obligatorio"}

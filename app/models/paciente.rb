@@ -29,12 +29,12 @@
 class Paciente < ActiveRecord::Base
   belongs_to :eps
   belongs_to :arl
-  belongs_to :ciudad
+  # belongs_to :ciudad
   belongs_to :user
   has_many :historias_clinicas
    has_many :progress_notes
 
-  accepts_nested_attributes_for :ciudad, :reject_if => lambda {|a| a[:nombre].blank?}
+  # accepts_nested_attributes_for :ciudad, :reject_if => lambda {|a| a[:nombre].blank?}
 
 
   
@@ -48,7 +48,6 @@ class Paciente < ActiveRecord::Base
   #validates :profesion, :presence => { :message => " es un Campo Obligatorio"}
   #validates :direccion, :presence => { :message => " es un Campo Obligatorio"}
   #validates :nacionalidad, :presence => { :message => " es un Campo Obligatorio"}
-  #validates :ciudad_id, :presence => { :message => " es un Campo Obligatorio"}
 
 
 
@@ -57,7 +56,6 @@ class Paciente < ActiveRecord::Base
 
 
 
-# validates_presence_of :ciudad_id, :unless => :ciudad, :reject_if => lambda {|a| a[:nombre].present?}
 
 
    def self.search(search)

@@ -3,15 +3,11 @@ class HistoriaClinica < ActiveRecord::Base
 
 
 
-  belongs_to :arl
-  belongs_to :eps
   belongs_to :user
   belongs_to :paciente
   belongs_to :aeropuerto
 
 
-  accepts_nested_attributes_for :arl
-  accepts_nested_attributes_for :eps
 
   has_many :cie10s
   has_many :diagnosticos

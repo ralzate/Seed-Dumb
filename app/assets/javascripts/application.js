@@ -12,6 +12,7 @@
 //
 
 
+
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
@@ -22,11 +23,14 @@
 //= require garlic
 //= require turbolinks
 //= require cocoon
+//= require chosen-jquery
+//= require jquery-ui
+//= require autocomplete-rails
 //= require lazybox
 //= require turbolinks
-//= require chosen-jquery
 
 //= require_tree .
+
 
 
 

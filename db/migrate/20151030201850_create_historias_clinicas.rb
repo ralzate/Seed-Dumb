@@ -32,8 +32,8 @@ class CreateHistoriasClinicas < ActiveRecord::Migration
           t.string   :a_nombre_acompañante
           t.string   :a_parentesco
           t.string   :a_telefono
-          t.integer  :arl_id  
-          t.integer  :eps_id
+          t.string  :arl
+          t.string  :eps
           t.text     :a_motivo_de_consulta
           t.text     :a_enfermedad_actual
           t.string   :b_neonatales

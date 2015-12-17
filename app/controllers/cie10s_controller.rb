@@ -5,6 +5,11 @@ class Cie10sController < ApplicationController
   # GET /cie10s.json
   def index
     @cie10s = Cie10.all
+
+  respond_to do |format|
+       format.json { render :json => @cie10s }
+     end
+
   end
 
   # GET /cie10s/1

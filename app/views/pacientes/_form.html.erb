@@ -403,88 +403,17 @@ $(document).ready(function() {
                 <div class="col-md-4">
                   <label class="label">Ciudad</label>
                   <div class="form-group aa">
-                    <%= f.collection_select :ciudad_id, Ciudad.all, :id, :nombre, {prompt: "Seleccionar"}, {class: "form-control multiples" , :onchange => 'changeddl(this)'}  %>
+
+    <%= f.autocomplete_field :ciudad, autocomplete_ciudad_nombre_ciudades_path, class: 'form-control required', title: "Campo Obligatorio" %>
+
+
                   </div>
                 </div>
 
 
-<script type="text/javascript">
-$(".multiples").append("<option value='aa'>After Apples</option>");
-
-$(document).ready(function(){
-    $('.multiples').focusout(function(){
-         if($(this).val() == 'aa')
-         {
-      		$(".new_city").prop('disabled', false);
-         }  
-    });
-});
-
-</script>
 
 
 
-
-<script type="text/javascript">
-	$(document).ready(function(){
-    $('.multiples').attr('disabled',false);
-    
-    $('.new_city').keyup(function(){
-        if($(this).val().length !=0){
-            $('.multiples').attr('disabled', true);
-        }
-        else
-        {
-            $('.multiples').attr('disabled', false);        
-        }
-    })
-});
-</script>
-
-
-
-                <script type="text/javascript">
-function changeddl($this)
-{
-    if($this.value!="")
-    {
-      $(".new_city").prop('disabled', true);
-      $('.new_city').removeClass('required');
-      $('.new_city').removeClass('error');
-      $('.new_city-error').hide();
-      $('#paciente_ciudad_attributes_nombre-error').hide();
-
-    }
-}
-
-
-
-</script>
-
-
-
-
-
-    <div id="dvPassport">
-
-        <%= f.simple_fields_for :ciudad do |builder| %>
-    <%#= builder.label :account_type %>
-
-        <div class="col-md-4">
-    <label for="chkPassport">
-       La Ciudad no esta registrada?
-    </label>          <div class="form-group">
-            <%= builder.text_field :nombre, class: 'form-control required new_city', :title => "Es un Campo Obligatorio" %>
-          </div>
-        </div>
-
-
-
-    <%#= builder.label :account_number %>
-    <% end %>
-
-
-    </div>
 
 
 
@@ -497,11 +426,20 @@ function changeddl($this)
 
 
 <script type="text/javascript">
+
+
   $('#1name, #2name, #1surname, #2surname').bind('keypress blur', function() {   
+
+
     $('#nombre_completo').val($('#1name').val() + ' ' +
-                             $('#2name').val() + ' '+
-                             $('#1surname').val() + ' '+
-                             $('#2surname').val());
+                             $('#2name').val().toLowerCase() + ' '+
+                             $('#1surname').val().toLowerCase() + ' '+
+                             $('#2surname').val().toLowerCase());
+ 
+
+
+   
+
 });
 </script>
 

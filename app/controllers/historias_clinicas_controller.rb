@@ -28,7 +28,7 @@ class HistoriasClinicasController < ApplicationController
   # GET /countries/1/edit
   def edit
     #@diagnosticos = Diagnostico.where("historia_clinica_id = @historia_clinica")
- 
+ @d = 1
   end
 
 
@@ -39,8 +39,6 @@ class HistoriasClinicasController < ApplicationController
   # GET /pets/new
   def new
     @historia_clinica = HistoriaClinica.new
-    @historia_clinica.build_arl  
-    @historia_clinica.build_eps 
    end
 
   # POST /pets
@@ -51,8 +49,7 @@ class HistoriasClinicasController < ApplicationController
     @historia_clinica = HistoriaClinica.new(historia_clinica_params)
     @historia_clinica.paciente_id = @paciente.id
 
-    if @historia_clinica.arl_id.blank?
-      @historia_clinica.arl_id = "N/A"
+    if @historia_clinica.a_nombre_acompañante.blank?
       @historia_clinica.a_nombre_acompañante = "N/A"
       @historia_clinica.a_parentesco = "N/A"
       @historia_clinica.a_telefono = "N/A"
@@ -81,7 +78,7 @@ class HistoriasClinicasController < ApplicationController
 
 
   def update
-
+ @d = 1
     respond_to do |format|
       if @historia_clinica.update(historia_clinica_params)
         format.html { redirect_to paciente_historia_clinica_path(@paciente, @historia_clinica), notice: 'clinic_history was successfully updated.' }

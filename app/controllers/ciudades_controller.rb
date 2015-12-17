@@ -1,5 +1,6 @@
 class CiudadesController < ApplicationController
  # before_action :set_ciudad, only: [:show, :edit, :update, :destroy]
+   autocomplete :ciudad, :nombre
   before_action :authorize
 
 
@@ -21,7 +22,6 @@ class CiudadesController < ApplicationController
   # GET /Ciudads/new
   def new
     @ciudad = Ciudad.new
-    @ciudad.pacientes.build 
     
   end
 

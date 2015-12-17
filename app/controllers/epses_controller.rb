@@ -1,5 +1,7 @@
 class EpsesController < ApplicationController
  # before_action :set_eps, only: [:show, :edit, :update, :destroy]
+  autocomplete :eps, :nombre
+
   before_action :authorize
 
 
@@ -21,7 +23,6 @@ class EpsesController < ApplicationController
   # GET /epss/new
   def new
     @eps = Eps.new
-    @eps.historias_clinicas.build    
   end
 
   # GET /epss/1/edit

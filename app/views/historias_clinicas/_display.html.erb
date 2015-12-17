@@ -55,7 +55,7 @@
     <td><%= historia_clinica.id %></td>
     <td><%= historia_clinica.p_primer_nombre %></td>
     <td><%= historia_clinica.p_documento %></td>
-    <td><%= historia_clinica.created_at.strftime('%b %d. %Y') %></td>
+    <td><%= historia_clinica.created_at.strftime("%d-%m-%y") %></td>
     <td><%= link_to 'Ver Historia Clinica', paciente_historia_clinica_path(@paciente,historia_clinica), :class => "btn btn-info blanco btn-sm" %>
 
 

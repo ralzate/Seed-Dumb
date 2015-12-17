@@ -3,20 +3,36 @@ PetThing::Application.routes.draw do
 
 
 
-  resources :cie10s
+  resources :cie10s, :defaults => { :format => :json }
 
   resources :empresas, :path => "empresas"
   resources :procedimientos, :path => "procedimientos"
   resources :diagnosticos,  :path => "diagnosticos"
   resources :roles, :path => "roles"
   resources :aeropuertos, :path => "aeropuertos"
-  resources :ciudades, :path => "ciudades"
-  resources :arles, :path => "arles"
-  resources :epses, :path => "epses"
+
+  resources :ciudades, :path => "ciudades" do
+    collection do
+      get :autocomplete_ciudad_nombre
+    end
+  end
+
+
+
+  resources :arles, :path => "arl" do
+    collection do
+      get :autocomplete_arl_nombre
+    end
+  end
+
+  resources :epses, :path => "eps" do
+    collection do
+      get :autocomplete_eps_nombre
+    end
+  end
+
   resources :users, :path => "usuarios"
   resources :roles, :path => "roles"
-  resources :arles, :path => "arls"
-  resources :epses, :path => "eps"
   
   resources :sheets
   resources :material_sheets

@@ -12,8 +12,8 @@
 
 class Ciudad < ActiveRecord::Base
 
-	has_many :pacientes
-	accepts_nested_attributes_for :pacientes, :reject_if => proc { |attributes| attributes.any? {|k,v| v.blank?} }
+	#has_many :pacientes
+	# accepts_nested_attributes_for :pacientes, :reject_if => proc { |attributes| attributes.any? {|k,v| v.blank?} }
 
 	validates :nombre, :on => :create, :presence => { :message => " es un Campo Obligatorio"}
 

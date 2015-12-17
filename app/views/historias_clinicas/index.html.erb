@@ -23,7 +23,7 @@
 
 
 
-    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Listado de  <span>Historias Clinicas</span></h1></span>
+    <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Listado de  <span>Historias Clinicas</span> de <%= @paciente.primer_nombre %></h1></span>
 
 
     <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @clinic_histories, renderer: BootstrapPagination::Rails %>
