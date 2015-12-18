@@ -170,10 +170,10 @@ $(document).ready(function() {
         <div class="col-md-12">
 
           <div class="col-md-3">
-              <label>Auxiliar:</label> 
+              <label>Aeropuerto:</label> 
 
+              <%= f.collection_select :aeropuerto_id, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
 
-              <%= f.input :a_auxiliar,  :input_html => { class: 'form-control required', title: "Campo Obligatorio" } , placeholder: 'Campo Obligatorio', label: false  %>
 
           </div>
 
@@ -181,9 +181,9 @@ $(document).ready(function() {
 
 
           <div class="col-md-3">
-              <label>Aeropuerto:</label> 
+              <label>Auxiliar de enfermería:</label> 
 
-              <%= f.collection_select :aeropuerto_id, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
+              <%= f.input :a_auxiliar,  :input_html => { class: 'form-control required', title: "Campo Obligatorio" } , placeholder: 'Campo Obligatorio', label: false  %>
 
 
           </div>
@@ -313,16 +313,42 @@ $(document).on('change', '#combo', function(){
           </div>
 
 
+<script type="text/javascript">
+$(function() {
+  return $('.chosen-select').chosen({
+    allow_single_deselect: true,
+    no_results_text: 'No results matched',
+    width: '200px'
+  });
+});
+
+</script>
+
+<style type="text/css">
+.chosen-container-single .chosen-single {
+  width: 145% !important;
+}  
+.chosen-drop{
+  width: 145% !important;
+}
+</style>
+
           <div class="col-md-4">
 
 
- <label>Origen:</label> 
-                  <%= f.collection_select :a_origen, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
+ <label>Origen:</label> <br/>
+
+          <%= f.select :a_origen, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
+
+
                   </div>
 
           <div class="col-md-4">
-              <label>Destino:</label> 
-                  <%= f.collection_select :a_destino, Ciudad.all, :nombre, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
+              <label>Destino:</label>  <br/>
+
+          <%= f.select :a_destino, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
+
+
 
 
           </div>

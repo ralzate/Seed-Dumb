@@ -321,7 +321,7 @@ $(document).ready(function() {
               <div class="col-sm-2 col-md-2">
                 <div class="field">
                   <%= f.label :glucometria2 %><br>
-                  <%= f.text_field :e_glucometria2, class: 'form-control' %>
+                  <%= f.text_field :e_glucometria2, class: 'form-control required', :title => "Es un Campo Obligatorio" %>
                 </div>
               </div>
 
@@ -329,7 +329,7 @@ $(document).ready(function() {
               <div class="col-sm-2 col-md-2">
                 <div class="field">
                   <%= f.label :hora2 %><br>
-                  <%= f.text_field :e_hora2, class: 'form-control' %>
+                  <%= f.text_field :e_hora2, class: 'form-control required', :title => "Es un Campo Obligatorio" %>
                 </div>
               </div>
 
@@ -338,7 +338,7 @@ $(document).ready(function() {
 
                 <div class="field">
                   <%= f.label :electrocardiograma %><br>
-                  <%= f.text_field :e_electrocardiograma, class: 'form-control' %>
+                  <%= f.text_field :e_electrocardiograma, class: 'form-control required', :title => "Es un Campo Obligatorio" %>
                 </div>
               </div>
 </div></div></div>
@@ -395,7 +395,7 @@ $(document).ready(function() {
      <hr class="featurette-divider"></hr>
 
 
-          <%= f.label :e_evento_adverso %><br />
+          <%= f.label :evento_adverso %><br />
           <%= f.text_area :e_evento_adverso, class: 'form-control required', :title => "Es un Campo Obligatorio"  %>
 
 

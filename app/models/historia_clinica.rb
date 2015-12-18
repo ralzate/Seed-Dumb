@@ -15,7 +15,7 @@ class HistoriaClinica < ActiveRecord::Base
   has_many :notas_progreso
 
   
-  accepts_nested_attributes_for :diagnosticos
+  accepts_nested_attributes_for :diagnosticos, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :procedimientos, reject_if: :all_blank, allow_destroy: true
 
 
