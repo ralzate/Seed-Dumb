@@ -41,7 +41,6 @@ gem 'bootstrap-sass'
 # https://github.com/minimagick/minimagick
 gem 'mini_magick'
 # https://github.com/fog/fog
-gem 'fog'
 # https://github.com/stympy/faker
 # https://github.com/mislav/will_paginate
 gem 'will_paginate'
@@ -58,17 +57,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'garlicjs-rails'
 gem 'seed_dump'
 
-gem 'best_in_place'
 gem 'bootstrap_form'
 
-# gem 'has_scope'
-gem 'filterrific'
 
 
-gem 'switchery-rails', '0.1.0'
 gem 'jasny_bootstrap_extension_rails'
 
 gem 'carmen-rails', '~> 1.0.0'
@@ -77,6 +71,7 @@ gem 'jquery-ui-rails'
 gem 'chosen-rails'
 gem 'rails4-autocomplete'
 gem 'jquery-ui-rails'
+gem 'wicked'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -97,7 +92,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  gem 'letter_opener'
 end
 
 group :production do
@@ -107,8 +101,6 @@ end
 group :test do
   # https://github.com/guard/guard-minitest
   gem 'guard-minitest'
-  # https://github.com/kern/minitest-reporters
-  gem 'minitest-reporters'
   # https://github.com/metaskills/mini_backtrace
   gem 'mini_backtrace'
 end
@@ -133,6 +125,5 @@ group :development do
   # https://github.com/rspec/rspec-rails
   gem 'rspec-rails', '~> 3.0'
   # https://github.com/railsbp/rails_best_practices
-  gem "rails_best_practices"
 end
 
