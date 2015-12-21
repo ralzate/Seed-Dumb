@@ -333,8 +333,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    switchery-rails (0.1.0)
-      railties (~> 4)
     temple (0.7.6)
     terminal-table (1.5.2)
     therubyracer (0.12.2)
@@ -410,7 +408,6 @@ DEPENDENCIES
   simple_form_fancy_uploads
   sorcery
   spring
-  switchery-rails (= 0.1.0)
   therubyracer
   turbolinks
   twitter-bootstrap-rails!
