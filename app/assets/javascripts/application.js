@@ -18,7 +18,6 @@
 //= require turbolinks
 //= require cocoon
 //= require chosen-jquery
-//= require jquery-ui
 //= require autocomplete-rails
 //= require lazybox
 //= require turbolinks

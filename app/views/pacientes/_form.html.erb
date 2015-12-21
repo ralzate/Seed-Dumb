@@ -26,6 +26,11 @@
 
 
 
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+
 <style type="text/css">
       body {background: #ccc;
     font-family: sans-serif;
@@ -268,6 +273,27 @@ $(document).ready(function() {
 
 
 
+
+<script>
+function edValueKeyPress()
+{
+  var email = document.getElementById("email");
+  var s = email.value;
+  if (s == '.'){
+    $('#email').val('N/A');
+  } 
+
+  var profesion = document.getElementById("profesion");
+  var s = profesion.value;
+  if (s == '.'){
+    $('#profesion').val('N/A');
+  } 
+
+
+
+}
+</script>   
+
   
 
                 <div class="row sir">
@@ -275,7 +301,7 @@ $(document).ready(function() {
                   <div class="col-md-4">
                     <label class="label">Email</label>
                     <div class="form-group">
-                      <%= f.text_field :email, class: 'form-control' %>
+                      <%= f.text_field :email, class: 'form-control', id: "email", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" %>
 
 
 
@@ -362,7 +388,7 @@ $(document).ready(function() {
                     <div class="form-group">
      
 
-                        <%= f.text_field :profesion, class: "form-control required",  id: 'document', :title => "Es un Campo Obligatorio" %>
+                        <%= f.text_field :profesion, class: "form-control required",  id: 'profesion', :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" %>
 
 
 

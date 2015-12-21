@@ -67,7 +67,6 @@ gem 'jasny_bootstrap_extension_rails'
 
 gem 'carmen-rails', '~> 1.0.0'
 gem 'sextant'
-gem 'jquery-ui-rails'
 gem 'chosen-rails'
 gem 'rails4-autocomplete'
 gem 'wicked'
