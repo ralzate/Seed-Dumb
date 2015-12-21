@@ -67,7 +67,7 @@ gem 'seed_dump'
 gem 'best_in_place'
 gem 'bootstrap_form'
 
-gem 'has_scope'
+# gem 'has_scope'
 gem 'random_data'
 gem 'filterrific'
 gem 'chardinjs-rails'

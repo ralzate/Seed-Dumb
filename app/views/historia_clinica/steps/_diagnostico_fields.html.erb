@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-9 ">
 <%= f.select :cie10_id,
-  Cie10.all.map { |u| ["#{u.codigo}, #{u.descripcion}", u.id] },
+  Cie10.all.map { |u| ["#{u.descripcion}, #{u.codigo}", u.id] },
                { include_blank: true },
                { class: 'chosen-select' } %>
         </div>
