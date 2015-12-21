@@ -354,7 +354,7 @@ $(function() {
 
  <label>Origen:</label> <br/>
 
-          <%= f.select :a_origen, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
+          <%= f.select :a_origen, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true }, { class: 'chosen-select' } %>
 
 
                   </div>
@@ -362,7 +362,7 @@ $(function() {
           <div class="col-md-4">
               <label>Destino:</label>  <br/>
 
-          <%= f.select :a_destino, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
+          <%= f.select :a_destino, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true }, { class: 'chosen-select' } %>
 
 
 

@@ -92,7 +92,7 @@ Licensed under MIT
                                   <th  colspan="2">
                                     HISTORIA CLINICA             
                                   </th>
-                                  <th>
+                                  <th style="text-align: center;">
                                     Fecha: <%= Time.now.strftime("%d-%m-%Y") %>
                                   </th>
                                   </tr>
@@ -142,13 +142,13 @@ Licensed under MIT
 
                                   <tr class="gradeA even" role="row">
                                       <td class="sorting_1"><b>Ciudad:</b></td>
-                                      <td><%= @historia_clinica.a_movil_servicio %></td>
+                                      <td><%= @historia_clinica.p_ciudad %></td>
                                       <td><b>Departamento:</b></td>
                                       <td class="center"><%= @historia_clinica.aeropuerto.departamento  %></td>
                                   </tr>
                                   <tr class="gradeA odd" role="row">
                                       <td class="sorting_1"><b>Medico de Turno:</b></td>
-                                      <td><%=  @historia_clinica.user.nombre_usuario %></td>
+                                      <td><%=  @historia_clinica.user.nombres %> <%=  @historia_clinica.user.apellidos %></td>
                                       <td><b>Aeropuerto:</b></td>
                                       <td class="center"><%=  @historia_clinica.aeropuerto.nombre %></td>
                                   </tr>
@@ -159,11 +159,14 @@ Licensed under MIT
                                       <td class="center"><%=  @historia_clinica.a_auxiliar %></td>
                                   </tr>
                                   <tr class="gradeA odd" role="row">
-                                      <td class="sorting_1"><b>Tipo de Servicio:</b></td>
+                                      <td class="sorting_1"><b>Tipo de Servicio Solicitado:</b></td>
                                       <td><%=  @historia_clinica.a_tipo_servicio %></td>
+                                      <td class="sorting_1"><b>Lugar te atención:</b></td>
+                                      <td><%=  @historia_clinica.a_lugar_de_atencion %></td>
+
                                   </tr>
                                   </tbody>
-                          </table></div></div><div class="row"><div class="col-sm-6"><div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">Datos Generales</div></div></div></div>
+                          </table></div></div></div>
                       </div>
                       
                   </div>
@@ -267,12 +270,12 @@ Licensed under MIT
                                       <%= @historia_clinica.p_profesion %>
                                     </td>
 
-                                    <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Fecha de nacimiento:</b></td>
-
-                                    <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;">
-                                      <%= @historia_clinica.p_fecha_nacimiento %>
+                                    <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Tipo de Sangre:</b>
                                     </td>
 
+                                    <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;">
+                                      <%= @historia_clinica.p_tipo_sangre %>
+                                    </td>   
 
                                  
 
@@ -300,11 +303,18 @@ Licensed under MIT
 
                                   <tr>
                                     
-                                  <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Tipo de Sangre:</b>
-                                  </td>
+
+
+                                    <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Fecha de nacimiento:</b></td>
 
                                     <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;">
-                                      <%= @historia_clinica.p_tipo_sangre %>
+                                      <%= @historia_clinica.p_fecha_nacimiento %>
+                                    </td>
+
+                                    <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Edad:</b></td>
+
+                                    <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;">
+                                      <%= @historia_clinica.p_edad %> <%= @historia_clinica.p_tipo_edad %> 
                                     </td>
 
                                   </tr>
@@ -598,8 +608,8 @@ Licensed under MIT
                               <thead>
                                   <tr>
                                       <th style="width:20%;">Antecedentes</th>
-                                      <th style="width:15%;">Anormal/Normal</th>
-                                      <th style="width:65%;">Ampliar Información</th>
+                                      <th style="width:12%;">Anormal/Normal</th>
+                                      <th style="width:68%;">Ampliar Información</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -781,8 +791,8 @@ Licensed under MIT
                               <thead>
                                   <tr>
                                       <th style="width:20%;">Antecedentes</th>
-                                      <th style="width:15%;">Anormal/Normal</th>
-                                      <th style="width:65%;">Ampliar Información</th>
+                                      <th style="width:12%;">Anormal/Normal</th>
+                                      <th style="width:68%;">Ampliar Información</th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -936,10 +946,9 @@ Licensed under MIT
 
 
 
-
       <div class="row">
           <div class="col-lg-12">
-              <h4 class="page-header">VI.  IMPRESIÓN DIAGNOSTICA</h4>
+              <h4 class="page-header">VI.  ANALISIS</h4>
           </div>
           <!-- /.col-lg-12 -->
       </div>
@@ -955,38 +964,11 @@ Licensed under MIT
                           <table class="table table-striped table-bordered table-hover">
                               <thead>
                                   <tr>
-                                      <td><b>Analisis</b></td>
-                                      <td><%= @historia_clinica.e_analisis %>e</td>
-                                      <td><b>Observaciones Recomendaciones:</b></td>
-                                      <td><%= @historia_clinica.e_observaciones_recomendaciones %></td>
+                                      <td  style="width:10%;"><b>Analisis</b></td>
+                                      <td  style="width:80%;"><%= @historia_clinica.e_analisis %>e</td>
                                   </tr>
                               </thead>
-                              <tbody>
-                                  <tr>
-                                      <td><b>Evento Adverso</b></td>
-                                      <td><%= @historia_clinica.e_evento_adverso %></td>
-                                      <td><b>Glucometria</b></td>
-                                      <td><%= @historia_clinica.e_glucometria1 %></td>
-                                  </tr>
-                                  <tr>
-                                      <td><b>Hora 1</b></td>
-                                      <td><%= @historia_clinica.e_hora1 %></td>
-                                      <td><b>Glucometria 2</b></td>
-                                      <td><%= @historia_clinica.e_glucometria2 %></td>
-                                  </tr>
-                                  <tr>
-                                      <td><b>Hora 2</b></td>
-                                      <td><%= @historia_clinica.e_hora2 %></td>
-                                      <td><b>Electrocardiograma</b></td>
-                                      <td>@twitter</td>
-                                  </tr>
 
-                                  <tr>
-                                      <td><b>Estado Paciente</b></td>
-                                      <td><%= @historia_clinica.e_estado_paciente %></td>
-                                  </tr>
-
-                              </tbody>
                           </table>
                       </div>
                       <!-- /.table-responsive -->
@@ -1002,9 +984,10 @@ Licensed under MIT
 
 
 
+
       <div class="row">
           <div class="col-lg-12">
-              <h4 class="page-header">DIAGNOSTICOS</h4>
+              <h4 class="page-header">VI.  IMPRESIÓN DIAGNOSTICA</h4>
           </div>
           <!-- /.col-lg-12 -->
       </div>
@@ -1061,11 +1044,18 @@ Licensed under MIT
                   <div class="panel-body">
                       <div class="table-responsive">
                           <table class="table table-striped table-bordered table-hover">
+                              
+
+
+
+
+
+
                               <thead>
                                   <tr>
-                                      <th><b>Tratamiento</b></td>
-                                      <td><b>Via de Acceso</b></td>
-                                      <td><b>Descripción</b></td>
+                                      <th  style="width:15%;"><b>Tratamiento</b></td>
+                                      <td  style="width:25%;"><b>Via de Acceso</b></td>
+                                      <td  colspan="2"  style="width:50%;"><b>Descripción</b></td>
                                   </tr>
                               </thead>
                               
@@ -1074,10 +1064,37 @@ Licensed under MIT
                                   <tr>
                                     <td><%= procedimiento.tratamiento %></td>
                                     <td><%= procedimiento.via_acceso %></td>
-                                    <td><%= procedimiento.descripcion %></td>
+                                    <td  colspan="2"><%= procedimiento.descripcion %></td>
                                   </tr>
                                 <% end %>
                               </tbody>
+
+
+
+                              <tbody>
+                                  <tr>
+                                      <td><b>Glucometria</b></td>
+                                      <td><%= @historia_clinica.e_glucometria1 %></td>
+                                      <td  style="width:15%;"><b>Hora 1</b></td>
+                                      <td><%= @historia_clinica.e_hora1 %></td>
+
+                                  </tr>
+                                  <tr>
+                                      
+                                      <td><b>Glucometria 2</b></td>
+                                      <td><%= @historia_clinica.e_glucometria2 %></td>
+                                      <td><b>Hora 2</b></td>
+                                      <td><%= @historia_clinica.e_hora2 %></td>
+                                  </tr>
+                                  <tr>
+                                      
+                                      <td><b>Electrocardiograma</b></td>
+                                      <td  colspan="3"><%= @historia_clinica.e_electrocardiograma %></td>
+                                  </tr>
+
+
+                              </tbody>
+
 
                           </table>
                       </div>
@@ -1089,6 +1106,89 @@ Licensed under MIT
           </div>
       </div>
       <!-- /.row -->
+
+
+
+
+
+      <div class="row">
+          <div class="col-lg-12">
+              <h4 class="page-header">VI.  OBSERVACIONES</h4>
+          </div>
+          <!-- /.col-lg-12 -->
+      </div>
+      
+      <!-- /.row -->
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="panel panel-default">
+
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                      <div class="table-responsive">
+                          <table class="table table-striped table-bordered table-hover">
+                              <thead>
+                                  <tr>
+                                      <td  style="width:25%;"><b>Observaciones Recomendaciones:</b></td>
+                                      <td  style="width:75%;"><%= @historia_clinica.e_observaciones_recomendaciones %>e</td>
+                                  </tr>
+                              </thead>
+
+                          </table>
+                      </div>
+                      <!-- /.table-responsive -->
+                  </div>
+                  <!-- /.panel-body -->
+              </div>
+              <!-- /.panel -->
+          </div>
+      </div>
+      <!-- /.row -->
+
+
+
+      <div class="row">
+          <div class="col-lg-12">
+              <h4 class="page-header">VI.  DESENLACE</h4>
+          </div>
+          <!-- /.col-lg-12 -->
+      </div>
+      
+      <!-- /.row -->
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="panel panel-default">
+
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                      <div class="table-responsive">
+                          <table class="table table-striped table-bordered table-hover">
+                              <thead>
+                                  <tr>
+                                      <td  style="width:5%;"><b>Evento Adverso</b></td>
+                                      <td  style="width:45%;"><%= @historia_clinica.e_evento_adverso %></td>
+
+                                    
+                                  </tr>
+                                  <tr>
+                                      <td  style="width:5%;"><b>Estado Paciente</b></td>
+                                      <td  style="width:45%;"><%= @historia_clinica.e_estado_paciente %></td>
+                                  </tr>
+     
+                                     
+                              </thead>
+
+                          </table>
+                      </div>
+                      <!-- /.table-responsive -->
+                  </div>
+                  <!-- /.panel-body -->
+              </div>
+              <!-- /.panel -->
+          </div>
+      </div>
+      <!-- /.row -->
+
 
 
 

@@ -70,8 +70,8 @@ gem 'sextant'
 gem 'jquery-ui-rails'
 gem 'chosen-rails'
 gem 'rails4-autocomplete'
-gem 'jquery-ui-rails'
 gem 'wicked'
+gem 'time_difference'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
