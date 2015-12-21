@@ -38,13 +38,11 @@ gem 'validates_email_format_of'
 # https://github.com/twbs/bootstrap-sass
 gem 'bootstrap-sass'
 # https://github.com/carrierwaveuploader/carrierwave
-gem 'carrierwave'
 # https://github.com/minimagick/minimagick
 gem 'mini_magick'
 # https://github.com/fog/fog
 gem 'fog'
 # https://github.com/stympy/faker
-gem 'faker'
 # https://github.com/mislav/will_paginate
 gem 'will_paginate'
 # https://github.com/bootstrap-ruby/will_paginate-bootstrap
@@ -61,18 +59,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'garlicjs-rails'
-gem 'localstorageshim-rails'
 gem 'seed_dump'
 
 gem 'best_in_place'
 gem 'bootstrap_form'
 
 # gem 'has_scope'
-gem 'random_data'
 gem 'filterrific'
-gem 'chardinjs-rails'
-gem 'wicked'
-gem "default_value_for", "~> 3.0.0"
 
 
 gem 'switchery-rails', '0.1.0'
@@ -143,6 +136,3 @@ group :development do
   gem "rails_best_practices"
 end
 
-
-#gem 'prawn', '~> 1.2.1'
-#gem 'prawn-table', '~> 0.1.0'
