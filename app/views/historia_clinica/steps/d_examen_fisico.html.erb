@@ -80,10 +80,12 @@ $(document).ready(function() {
 
 
 
- <div class="col-md-12" style = "margin:15px!important;text-align:center;">
-<% if not @historia_clinica.errors.any? %>
-
-   <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="panel panel-default modal-dialog">
+            <div class="panel-body">
+ 
+     <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
     <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
 
@@ -92,13 +94,21 @@ $(document).ready(function() {
     <%= link_to "4. Examen Fisico", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
 
     <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
-<% end %>
 
 
 
-
+            </div>
+        </div>
+        
+    </div>
 </div>
 
+
+
+
+<style>
+.panel-default{width:97%;text-align:center}.btn{border-radius:0;border:0;border-bottom:4px solid #CCC;margin:0;-webkit-box-shadow:0 5px 5px -6px rgba(0,0,0,.3);-moz-box-shadow:0 5px 5px -6px rgba(0,0,0,.3);box-shadow:0 5px 5px -6px rgba(0,0,0,.3)}.btn .btn-block:active,.btn .btn-lg:active{-webkit-box-shadow:inset 0 3px 3px -5px rgba(0,0,0,.3);-moz-box-shadow:inset 0 3px 3px -5px rgba(0,0,0,.3);box-shadow:inset 0 3px 3px -5px rgba(0,0,0,.3)}.btn-default{color:#555;background-color:#f9f9f9;border-color:#cacaca;text-shadow:1px 1px 0 #f5f5f5}.btn-default:hover,.btn-default:focus{background-color:#f4f4f4;border-color:#bebebe}.btn-success{background-color:#80d752;border-color:#61be26;text-shadow:1px 1px 0 #5fdb34}.btn-success:hover,.btn-success:focus{background-color:#75cd53;border-color:#53aa27}.btn-info{background-color:#39b3d7;border-color:#348fd2;text-shadow:1px 1px 0 #238ed5}.btn-info:hover,.btn-info:focus{background-color:#45abcd;border-color:#347abe}.btn-warning{background-color:#FEAF20;border-color:#d79a34;text-shadow:1px 1px 0 #db9e34}.btn-warning:hover,.btn-warning:focus{background-color:#f5a620;border-color:#cd9034}.btn-danger{background-color:#d73814;border-color:#be0000;text-shadow:1px 1px 0 #ac2925}.btn-danger:hover,.btn-danger:focus{background-color:#cd3714;border-color:#a00}.btn-primary{background-color:#4274d7;border-color:#4d5bbe;text-shadow:1px 1px 0 #232bd5}.btn-primary:hover,.btn-primary:focus{background-color:#426acd;border-color:#4f56aa}.btn-magick{color:#fff;background-color:#bb39d7;border-color:#9a00cd;text-shadow:1px 1px 0 #9823d5}.btn-magick:hover,.btn-magick:focus{color:#fff;background-color:#b13acd;border-color:#8600b9}.btn-pressure{position:relative;margin-bottom:0}.btn-pressure:focus{-moz-outline-style:none;outline:medium none}.btn-pressure:active,.btn-pressure.active{top:4px;border:0;position:relative}.btn-sensitive:active,.btn-sensitive.active{top:1px;margin-top:4px}
+</style>
 
 
 
@@ -349,7 +359,7 @@ $(document).ready(function() {
 
             </td>
             <td>
-            <%= f.text_field :d_cabeza_descripcion, class: 'form-control', :id => "text_requerido" %>
+            <%= f.text_area :d_cabeza_descripcion, class: 'form-control descripcion', :id => "text_requerido" %>
 
             </td>
           </tr>
@@ -368,7 +378,7 @@ $(document).ready(function() {
                 <%= f.radio_button(:d_cuello, "Normal", class: 'no_requerido2', :id => "myRadio15" )%>
             </td>
             <td>
-            <%= f.text_field :d_cuello_descripcion, class: 'form-control', :id => "text_requerido2" %>
+            <%= f.text_area :d_cuello_descripcion, class: 'form-control descripcion', :id => "text_requerido2" %>
 
             </td>
           </tr>
@@ -394,7 +404,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_caja_toracica, "Normal", class: 'no_requerido3', :id => "myRadio16" )%>
             </td>
             <td>
-            <%= f.text_field :d_caja_toracica_descripcion, class: 'form-control', :id => "text_requerido3" %>
+            <%= f.text_area :d_caja_toracica_descripcion, class: 'form-control descripcion', :id => "text_requerido3" %>
 
 
             </td>
@@ -415,7 +425,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_corazon, "Normal", class: 'no_requerido4', :id => "myRadio17" )%>
             </td>
             <td>
-            <%= f.text_field :d_corazon_descripcion, class: 'form-control', :id => "text_requerido4" %>
+            <%= f.text_area :d_corazon_descripcion, class: 'form-control descripcion', :id => "text_requerido4" %>
 
             </td>
           </tr>
@@ -434,7 +444,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_pulmones, "Normal", class: 'no_requerido5', :id => "myRadio18" )%>
             </td>
             <td>
-            <%= f.text_field :d_pulmones_descripcion, class: 'form-control', :id => "text_requerido5" %>
+            <%= f.text_area :d_pulmones_descripcion, class: 'form-control descripcion', :id => "text_requerido5" %>
 
             </td>
           </tr>
@@ -453,7 +463,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_abdomen, "Normal", class: 'no_requerido6', :id => "myRadio19" )%>
             </td>
             <td>
-            <%= f.text_field :d_abdomen_descripcion, class: 'form-control', :id => "text_requerido6" %>
+            <%= f.text_area :d_abdomen_descripcion, class: 'form-control descripcion', :id => "text_requerido6" %>
 
             </td>
           </tr>
@@ -473,7 +483,7 @@ $(document).ready(function() {
 
             </td>
             <td>
-            <%= f.text_field :d_genito_urinario_descripcion, class: 'form-control', :id => "text_requerido7" %>
+            <%= f.text_area :d_genito_urinario_descripcion, class: 'form-control descripcion', :id => "text_requerido7" %>
 
             </td>
           </tr>
@@ -492,7 +502,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_recto, "Normal", class: 'no_requerido8', :id => "myRadio21" )%>
             </td>
             <td>
-            <%= f.text_field :d_recto_descripcion, class: 'form-control', :id => "text_requerido8" %>
+            <%= f.text_area :d_recto_descripcion, class: 'form-control descripcion', :id => "text_requerido8" %>
 
             </td>
           </tr>
@@ -513,7 +523,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_extremidades, "Normal", class: 'no_requerido9', :id => "myRadio22" )%>
             </td>
             <td>
-            <%= f.text_field :d_extremidades_descripcion, class: 'form-control', :id => "text_requerido9" %>
+            <%= f.text_area :d_extremidades_descripcion, class: 'form-control descripcion', :id => "text_requerido9" %>
 
             </td>
           </tr>
@@ -530,7 +540,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_piel_y_faneras, "Normal", class: 'no_requerido10', :id => "myRadio23" )%>
             </td>
             <td>
-            <%= f.text_field :d_piel_y_faneras_descripcion, class: 'form-control', :id => "text_requerido10" %>
+            <%= f.text_area :d_piel_y_faneras_descripcion, class: 'form-control descripcion', :id => "text_requerido10" %>
 
             </td>
           </tr>
@@ -547,7 +557,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_musculo_esqueletico, "Normal", class: 'no_requerido11', :id => "myRadio24" )%>
             </td>
             <td>
-            <%= f.text_field :d_musculo_esqueletico_descripcion, class: 'form-control', :id => "text_requerido11" %>
+            <%= f.text_area :d_musculo_esqueletico_descripcion, class: 'form-controldescripcion', :id => "text_requerido11" %>
 
             </td>
           </tr>
@@ -564,7 +574,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_mental, "Normal", class: 'no_requerido12', :id => "myRadio25" )%>
             </td>
             <td>
-            <%= f.text_field :d_mental_descripcion, class: 'form-control', :id => "text_requerido12" %>
+            <%= f.text_area :d_mental_descripcion, class: 'form-control descripcion', :id => "text_requerido12" %>
 
             </td>
           </tr>
@@ -582,7 +592,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_neurologico, "Normal", class: 'no_requerido13', :id => "myRadio26" )%>
             </td>
             <td>
-            <%= f.text_field :d_neurologico_descripcion, class: 'form-control', :id => "text_requerido13" %>
+            <%= f.text_area :d_neurologico_descripcion, class: 'form-control descripcion', :id => "text_requerido13" %>
 
             </td>
           </tr>

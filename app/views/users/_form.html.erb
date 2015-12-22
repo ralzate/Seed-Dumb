@@ -269,18 +269,25 @@ jQuery(document).ready(function() {
    jQuery("#tagtype").change(function() {
       if(jQuery(this).find("option:selected").val() == "1" ) {
          jQuery(".multiples").prop('disabled', true);
+         jQuery('.multiples').val('N/A');
+
       }
    });
 
   jQuery("#tagtype").change(function() {
       if(jQuery(this).find("option:selected").val() == "3" ) {
          jQuery(".multiples").prop('disabled', true);
+         jQuery('.multiples').val('N/A');
+
+
       }
    });
 
   jQuery("#tagtype").change(function() {
       if(jQuery(this).find("option:selected").val() == "2" ) {
          jQuery(".multiples").prop('disabled', false);
+         jQuery('.multiples').val('');
+         
       }
    });
 
