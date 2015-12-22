@@ -326,13 +326,13 @@ $(document).ready(function() {
             <th class="text-center" style="width:10%">
               Nombre
             </th>
-            <th class="text-center" style="width:10%">
+            <th class="text-center" style="width:25%">
               Anormal
             </th>
-            <th class="text-center" style="width:10%">
+            <th class="text-center" style="width:25%">
               Normal
             </th>
-            <th class="text-center" style="width:60%">
+            <th class="text-center" style="width:40%">
               Ampliar Información
             </th>
           </tr>
@@ -557,7 +557,7 @@ $(document).ready(function() {
               <%= f.radio_button(:d_musculo_esqueletico, "Normal", class: 'no_requerido11', :id => "myRadio24" )%>
             </td>
             <td>
-            <%= f.text_area :d_musculo_esqueletico_descripcion, class: 'form-controldescripcion', :id => "text_requerido11" %>
+            <%= f.text_area :d_musculo_esqueletico_descripcion, class: 'form-control descripcion', :id => "text_requerido11" %>
 
             </td>
           </tr>
@@ -583,7 +583,7 @@ $(document).ready(function() {
 
           <tr id='addr0' class="selectme">
             <td align="center">
-            Nuurologico
+            Neurologico
             </td>
             <td align="center">
               <%= f.radio_button(:d_neurologico, "Anormal", class: "required requerido13", :title => "Debes Seleccionar una Opción", id: 'myRadio13' )%>
@@ -981,7 +981,9 @@ $(document).ready(function() {
              document.getElementById('myRadio23').checked = false;    
              document.getElementById('myRadio24').checked = false;    
              document.getElementById('myRadio25').checked = false;    
-             document.getElementById('myRadio26').checked = false;    
+             document.getElementById('myRadio26').checked = false; 
+             $('.item label').hide(); 
+   
         }
     });
     $('#selecctall2').click(function(event) {  //on click 
@@ -1012,7 +1014,9 @@ $(document).ready(function() {
              document.getElementById('myRadio10').checked = false;        
              document.getElementById('myRadio11').checked = false;        
              document.getElementById('myRadio12').checked = false;
-             document.getElementById('myRadio13').checked = false;        
+             document.getElementById('myRadio13').checked = false;
+             $('.item label').hide(); 
+        
         }
     });
 

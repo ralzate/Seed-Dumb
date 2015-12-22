@@ -287,6 +287,7 @@ Licensed under MIT
 
 
 
+
                                   <tr role="row">
                                     <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Nacionalidad:</b></td>
 
@@ -420,9 +421,10 @@ Licensed under MIT
           </div>
           <!-- /.col-lg-12 -->
       </div>
+      
 
 
-
+      
       <!-- /.row -->
       <div class="row">
           <div class="col-lg-12">
@@ -441,180 +443,71 @@ Licensed under MIT
                               <tbody>
                                   <tr>
                                       <td>Neonatales</td>
-                                      
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_neonatales == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td>
-
+                                      <td><%= @historia_clinica.b_neonatales %></td>
                                       <td><%= @historia_clinica.b_neonatales_descripcion %></td>
                                   </tr>
                                   <tr>
                                       <td>Patologicos</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_patologicos == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td>
-
+                                      <td><%= @historia_clinica.b_patologicos %></td>
                                       <td><%= @historia_clinica.b_neonatales_descripcion %></td>
                                   </tr>
                                   <tr>
                                       <td>Quirurgicos</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_quirurgicos == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td>
-                                      
-
+                                      <td><%= @historia_clinica.b_quirurgicos %></td>
                                       <td><%= @historia_clinica.b_quirurgicos_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Farmacologicos</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_farmacologicos == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td>
-
+                                      <td><%= @historia_clinica.b_farmacologicos %></td>
                                       <td><%= @historia_clinica.b_farmacologicos_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Alergicos</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_alergicos == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td>
-
+                                      <td><%= @historia_clinica.b_alergicos %></td>
                                       <td><%= @historia_clinica.b_alergicos_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Toxicos</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_toxicos == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.b_toxicos %></td>
                                       <td><%= @historia_clinica.b_toxicos_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Traumaticos</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_traumaticos == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.b_traumaticos %></td>
                                       <td><%= @historia_clinica.b_traumaticos_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Hospitalarios</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_hospitalarios == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
+                                      <td><%= @historia_clinica.b_hospitalarios %></td>
                                       <td><%= @historia_clinica.b_hospitalarios_descripcion %></td>
                                   </tr>
                                   
                                   <tr>
                                       <td>Atep Laboral</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_atep_laboral == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.b_atep_laboral %></td>
                                       <td><%= @historia_clinica.b_atep_laboral_descripcion %></td>
                                   </tr>
                                   
                                   <tr>
                                       <td>Familiares</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_familiares == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.b_familiares %></td>
                                       <td><%= @historia_clinica.b_familiar_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Inmunologicos</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_inmunologicos == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.b_inmunologicos %></td>
                                       <td><%= @historia_clinica.b_inmunologios_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Asociado Viajes De Vuelo</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.b_asociado_viajes_de_vuelo == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.b_asociado_viajes_de_vuelo %></td>
                                       <td><%= @historia_clinica.b_asociado_viajes_de_vuelo_descripcion %></td>
                                   </tr>
 
@@ -739,129 +632,53 @@ Licensed under MIT
                               <tbody>
                                   <tr>
                                       <td>Cardiovascular</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.c_cardiovascular == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.c_cardiovascular %></td>
                                       <td><%= @historia_clinica.c_cardiovascular_descripcion %></td>
                                   </tr>
                                   <tr>
                                       <td>Respiratorio</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.c_respiratorio == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.c_respiratorio %></td>
                                       <td><%= @historia_clinica.c_respiratorio_descripcion %></td>
                                   </tr>
                                   <tr>
                                       <td>Abdominal</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.c_abdominal == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.c_abdominal %></td>
                                       <td><%= @historia_clinica.c_abdominal_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Genito Urinario</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.c_genito_urinario == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.c_genito_urinario %></td>
                                       <td><%= @historia_clinica.c_genito_urinario_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Neurologico</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.c_neurologico == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.c_neurologico %></td>
                                       <td><%= @historia_clinica.c_neurologico_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Mental</td>
-                                      <td class="item">
-                                        <% if @historia_clinica.c_mental == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
+                                      <td><%= @historia_clinica.c_mental %></td>
                                       <td><%= @historia_clinica.c_mental_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Organo de los Sentidos</td>
-                                      <td class="item">
-                                        <% if @historia_clinica.c_organo_de_los_sentidos == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.c_organo_de_los_sentidos %></td>
                                       <td><%= @historia_clinica.c_organo_de_los_sentidos_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Musculo esqueletico</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.c_musculo_esqueletico == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.c_musculo_esqueletico %></td>
                                       <td><%= @historia_clinica.c_musculo_esqueletico_descripcion %></td>
                                   </tr>
                                   
                                   <tr>
                                       <td>Piel y Faneras</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.c_piel_y_faneras == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.c_piel_y_faneras %></td>
                                       <td><%= @historia_clinica.c_piel_y_faneras_descripcion %></td>
                                   </tr>
                                   
@@ -1001,196 +818,78 @@ Licensed under MIT
                               <tbody>
                                   <tr>
                                       <td>Cabeza</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_cabeza == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
                                       <td><%= @historia_clinica.d_cabeza %></td>
                                       <td><%= @historia_clinica.d_cabeza_descripcion %></td>
                                   </tr>
                                   <tr>
                                       <td>Cuello</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_cuello == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.d_cuello %></td>
                                       <td><%= @historia_clinica.d_cuello_descripcion %></td>
                                   </tr>
                                   <tr>
                                       <td>Caja Toracica</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_caja_toracica == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.d_caja_toracica %></td>
                                       <td><%= @historia_clinica.d_caja_toracica_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Corazón</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_corazon == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.d_corazon %></td>
                                       <td><%= @historia_clinica.d_corazon_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Pulmones</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_pulmones == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.d_pulmones %></td>
                                       <td><%= @historia_clinica.d_pulmones_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Abdomen</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_abdomen == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.d_abdomen %></td>
                                       <td><%= @historia_clinica.d_abdomen_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Genito Urinario</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_genito_urinario == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.d_genito_urinario %></td>
                                       <td><%= @historia_clinica.d_genito_urinario_descripcion %></td>
                                   </tr>
 
                                   <tr>
                                       <td>Recto</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_recto == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-                                      
-
+                                      <td><%= @historia_clinica.d_recto %></td>
                                       <td><%= @historia_clinica.d_recto_descripcion %></td>
                                   </tr>
                                   
                                   <tr>
                                       <td>Extremidades</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_extremidades == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.d_extremidades %></td>
                                       <td><%= @historia_clinica.d_extremidades_descripcion %></td>
                                   </tr>
                                   
                                   <tr>
                                       <td>Piel Y Faneras</td>
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_piel_y_faneras == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.d_piel_y_faneras %></td>
                                       <td><%= @historia_clinica.d_piel_y_faneras_descripcion %></td>
                                   </tr>
                                   
                                   <tr>
                                       <td>Musculo Esqueletico</td>
-
-
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_musculo_esqueletico == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.d_musculo_esqueletico %></td>
                                       <td><%= @historia_clinica.d_musculo_esqueletico_descripcion %></td>
                                   </tr>
                                   
                                   <tr>
                                       <td>Mental</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_mental == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.d_mental %></td>
                                       <td><%= @historia_clinica.d_mental_descripcion %></td>
                                   </tr>
 
                                   
                                   <tr>
                                       <td>Neurologico</td>
-
-                                      <td class="item">
-                                        <% if @historia_clinica.d_neurologico == 'Si' %>
-                                          <i class="fa fa-check fa-lg"></i>
-                                        <% else %>
-                                          <i class="fa fa-times fa-lg"></i>
-                                        <% end %>
-                                      </td> 
-
+                                      <td><%= @historia_clinica.d_neurologico %></td>
                                       <td><%= @historia_clinica.d_neurologico_descripcion %></td>
                                   </tr>
                                   
