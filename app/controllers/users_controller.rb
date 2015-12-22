@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-      @users = User.paginate(page: params[:page], per_page: 3)
+      @users = User.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /users/1
@@ -28,8 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { login(params[:user][:nombre_usuario], params[:user][:password])
-                      flash[:success] = "Registration successful. Please check your email for activation."
+        format.html { flash[:success] = "Registration successful. Please check your email for activation."
                       redirect_to root_path  }
         format.json { render :show, status: :created, location: @user }
       else
