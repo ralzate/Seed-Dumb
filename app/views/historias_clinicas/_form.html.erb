@@ -197,20 +197,14 @@ $(document).ready(function() {
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <%= link_to "Regresar", pacientes_path, :class=>"btn btn-info color_blanco mrg" %><br><br><span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> DATOS GENERALES</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
 
-
-
-
-
-
-         
 <div class="container-fluid">
     <div class="row">
+<br/>
+	<%= link_to "Regresar", pacientes_path, :class=>"btn btn-info color_blanco mrg" %>
+
+    <h3 style = "color: #22BDC8;">DATOS GENERALES</h3>
+    <hr class="featurette-divider"></hr>
         <div class="col-md-12">
 
           <div class="col-md-3">
@@ -265,11 +259,7 @@ $(document).ready(function() {
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 1 IDENTIFICACIÓN DEL PACIENTE</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
+
 
 
 
@@ -282,7 +272,9 @@ $(document).ready(function() {
 <div class="container-fluid">
     <div class="row">
 
+    <h3 style = "color: #22BDC8;">I. IDENTIFICACIÓN DEL PACIENTE</h3>
 
+    <hr class="featurette-divider"></hr>
 
           <div class="col-md-4">
               <label>Condición:</label> 
@@ -297,29 +289,29 @@ $(document).ready(function() {
 jQuery(document).ready(function() {
    jQuery("#myselect").change(function() {
       if(jQuery(this).find("option:selected").val() == "Pasajero" ) {
-         jQuery("#company").prop('disabled', true);
+         jQuery("#company").prop('readOnly', true);
          jQuery('#company').val('N/A');
       }
 
 	  if(jQuery(this).find("option:selected").val() == "Visitante" ) {
-         jQuery("#company").prop('disabled', true);
+         jQuery("#company").prop('readOnly', true);
          jQuery('#company').val('N/A');
       }
      
       if(jQuery(this).find("option:selected").val() == "Otro" ) {
-         jQuery("#company").prop('disabled', true);
+         jQuery("#company").prop('readOnly', true);
          jQuery('#company').val('N/A');
 
       }
 
       if(jQuery(this).find("option:selected").val() == "Empleado" ) {
-         jQuery("#company").prop('disabled', false);
+         jQuery("#company").prop('readOnly', false);
          jQuery('#company').val('');
 
       }
 
 	  if(jQuery(this).find("option:selected").val() == "Tripulante" ) {
-         jQuery("#company").prop('disabled', false);
+         jQuery("#company").prop('readOnly', false);
          jQuery('#company').val('');
 
       }
@@ -539,12 +531,8 @@ function edValueKeyPress()
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 2 MOTIVO DE LA CONSULTA</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
-
+<h3 style = "color: #22BDC8;"> II. MOTIVO DE LA CONSULTA</h3>
+<hr class="featurette-divider"></hr>
 
 
          
@@ -566,12 +554,9 @@ function edValueKeyPress()
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> 3 ENFERMEDAD ACTUAL</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
 
+<h3 style = "color: #22BDC8;"> III. ENFERMEDAD ACTUAL</h3>
+<hr class="featurette-divider"></hr>
      
          
 <div class="container-fluid">
@@ -591,7 +576,6 @@ function edValueKeyPress()
         
 
 
-
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :paciente_id, :value => @paciente.id %>
       <%= f.hidden_field :p_primer_nombre, :value => @paciente.primer_nombre %>
@@ -607,6 +591,7 @@ function edValueKeyPress()
       <%= f.hidden_field :p_tipo_sangre, :value => @paciente.tipo_sangre %>
       <%= f.hidden_field :p_nacionalidad, :value => @paciente.nacionalidad %>
       <%= f.hidden_field :p_direccion, :value => @paciente.direccion %>
+      <%= f.hidden_field :p_ciudad, :value => @paciente.ciudad %>
 
 
 

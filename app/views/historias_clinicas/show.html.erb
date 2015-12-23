@@ -62,7 +62,7 @@ Licensed under MIT
 
   <%= link_to 'Imprimir Pdf', paciente_historias_clinicas_path(@paciente, @historia_clinica, :format => "pdf"), target: '_blank',  :rel => "tooltip", :title => "Pdf", :class => 'btn btn-info color_blanco mrg' %>
 
-    <a class="btn btn-info color_blanco mrg ">Imprimit Csv</a>
+    <%= link_to 'Notas de Evolución', paciente_historia_clinica_notas_progreso_path(@paciente,@historia_clinica), :class => "btn btn-info color_blanco mrg" %>
 </div>
     </div>
 
@@ -449,7 +449,7 @@ Licensed under MIT
                                   <tr>
                                       <td>Patologicos</td>
                                       <td><%= @historia_clinica.b_patologicos %></td>
-                                      <td><%= @historia_clinica.b_neonatales_descripcion %></td>
+                                      <td><%= @historia_clinica.b_patologicos_descripcion %></td>
                                   </tr>
                                   <tr>
                                       <td>Quirurgicos</td>
@@ -917,7 +917,7 @@ Licensed under MIT
 
 
                               <tr>
-                                <td  >
+                                <td>
                                 <b>Respuesta Motora:</b>             
                                 </td>
                                 <td >
@@ -925,10 +925,10 @@ Licensed under MIT
                                 </td>
                                
                                 <td >
-                                <b>Escala_de Glasgow:</b>             
+                                <b>Escala de Glasgow:</b>             
                                 </td>
                                 <td  >
-                                <%= @historia_clinica.d_escala_de_glasgow %>
+                                <%= @historia_clinica.d_escala_de_glasgow %> / 15
                                 </td>
                               </tr>
 
@@ -987,7 +987,7 @@ Licensed under MIT
                           <table class="table table-striped table-bordered table-hover">
                               <thead>
                                   <tr>
-                                      <td  style="width:100%;"><%= @historia_clinica.e_analisis %>e</td>
+                                      <td  style="width:100%;"><%= @historia_clinica.e_analisis %></td>
                                   </tr>
                               </thead>
 
@@ -1164,7 +1164,7 @@ Licensed under MIT
                           <table class="table table-striped table-bordered table-hover">
                               <thead>
                                   <tr>
-                                      <td  style="width:100%;"><%= @historia_clinica.e_observaciones_recomendaciones %>e</td>
+                                      <td  style="width:100%;"><%= @historia_clinica.e_observaciones_recomendaciones %></td>
                                   </tr>
                               </thead>
 

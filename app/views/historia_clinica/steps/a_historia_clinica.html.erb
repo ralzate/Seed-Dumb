@@ -342,29 +342,29 @@ $(document).ready(function() {
 jQuery(document).ready(function() {
    jQuery("#myselect").change(function() {
       if(jQuery(this).find("option:selected").val() == "Pasajero" ) {
-         jQuery("#company").prop('disabled', true);
+         jQuery("#company").prop('readonly', true);
          jQuery('#company').val('N/A');
       }
 
 	  if(jQuery(this).find("option:selected").val() == "Visitante" ) {
-         jQuery("#company").prop('disabled', true);
+         jQuery("#company").prop('readonly', true);
          jQuery('#company').val('N/A');
       }
      
       if(jQuery(this).find("option:selected").val() == "Otro" ) {
-         jQuery("#company").prop('disabled', true);
+         jQuery("#company").prop('readonly', true);
          jQuery('#company').val('N/A');
 
       }
 
       if(jQuery(this).find("option:selected").val() == "Empleado" ) {
-         jQuery("#company").prop('disabled', false);
+         jQuery("#company").prop('readonly', false);
          jQuery('#company').val('');
 
       }
 
 	  if(jQuery(this).find("option:selected").val() == "Tripulante" ) {
-         jQuery("#company").prop('disabled', false);
+         jQuery("#company").prop('readonly', false);
          jQuery('#company').val('');
 
       }
@@ -581,11 +581,10 @@ function edValueKeyPress()
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> II. MOTIVO DE LA CONSULTA</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
+
+<h3 style = "color: #22BDC8;"> II. MOTIVO DE LA CONSULTA</h3>
+<hr class="featurette-divider"></hr>
+
 
 
          
@@ -608,11 +607,10 @@ function edValueKeyPress()
 
 
 
-<div class="container" style="margin-top:10px; margin-bottom:-8px; text-align: left;
-    margin-left: 0px!important;">
-        <div class="centered title"><h1 style=" font-size:25px; text-align: left;color: #22BDC8;">  <span style = "margin-right:10px;color: #22BDC8;"class="glyphicon glyphicon-list-alt"></span> III. ENFERMEDAD ACTUAL</h1></div>
-     </div>
-     <hr class="featurette-divider"></hr>
+<h3 style = "color: #22BDC8;"> III. ENFERMEDAD ACTUAL</h3>
+<hr class="featurette-divider"></hr>
+     
+     
      
          
 <div class="container-fluid">
@@ -648,6 +646,7 @@ function edValueKeyPress()
       <%= f.hidden_field :p_tipo_sangre, :value => @paciente.tipo_sangre %>
       <%= f.hidden_field :p_nacionalidad, :value => @paciente.nacionalidad %>
       <%= f.hidden_field :p_direccion, :value => @paciente.direccion %>
+      <%= f.hidden_field :p_ciudad, :value => @paciente.ciudad %>
 
 
 
@@ -696,105 +695,6 @@ function edValueKeyPress()
 
 
 
-
-<script type="text/javascript">
-
-
-
-
-
-
-jQuery(document).ready(function() {
-   jQuery("#select").change(function() {
-      if(jQuery(this).find("option:selected").val() == "Empleado" ) {
-         jQuery(".habilitado").prop('disabled', false);
-      }
-      else if (jQuery(this).find("option:selected").val() != "Empleado" ) {
-         jQuery(".habilitado").prop('disabled', true);
-      }
-   });
-
-  jQuery("#select").change(function() {
-      if(jQuery(this).find("option:selected").val() == "Pasajero" ) {
-         jQuery(".habilitado").prop('disabled', false);
-      }
-
-
-   });
-
-
-
-});
-
-
-// Ocultar la arl para pasajero
-$(document).ready(function() {
-$('#disabled_input').attr('disabled','disabled');        
-$('select[name="historia_clinica[condicion]"]').on('change',function(){
-var  others = $(this).val();
-    if(others == "2"){           
-    $('#disabled_input').removeAttr('disabled');          
-     }else{
-     $('#disabled_input').attr('disabled','disabled'); 
-    }  
-
-  });
-});
-
-
-
-// Seleccionar una arl sin registrar una nueva
-$('.arl').change(function(e) {
-  if ($(this).prop("selectedIndex") != 0)
-    {
-        $('#chkPassport').prop('disabled', true);  
-    }
-    else
-    {
-        $('#chkPassport').prop('disabled', false);
-    }
-});
-
-
-
-// Seleccionar una eps sin registrar una nueva
-$('.eps').change(function(e) {
-  if ($(this).prop("selectedIndex") != 0)
-    {
-        $('#chkPassport2').prop('disabled', true);  
-    }
-    else
-    {
-        $('#chkPassport2').prop('disabled', false);
-    }
-});
-
-// Mostrar los Checkbox para agregar
-    $(function () {
-        $("#chkPassport").click(function () {
-            if ($(this).is(":checked")) {
-                $(".arl").prop('disabled', true);
-                $("#dvPassport").show();
-            } else {
-                $(".arl").prop('disabled', false);
-                $("#dvPassport").hide();
-            }
-        });
-    });
-
-    $(function () {
-        $("#chkPassport2").click(function () {
-            if ($(this).is(":checked")) {
-                $(".eps").prop('disabled', true);              
-                $("#dvPassport2").show();
-            } else {
-                $(".eps").prop('disabled', false);                            
-                $("#dvPassport2").hide();
-            }
-        });
-    });
-
-</script>
 
 
 

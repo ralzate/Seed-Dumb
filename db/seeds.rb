@@ -1,0 +1,3 @@
+User.create!([
+  {email: "admin@gmail.com", nombre_usuario: "Admin1", nombres: "Admin1", apellidos: "admin1", tipo_documento: 0, documento: "231312", registro_medico: "", rol_id: 1,  crypted_password: "$2a$10$1wbgFYeOTQy02ecvBJ.xUegynS5iV/6qHdldYKBTenE3Ys.W0J7bS", salt: "Hyp85FLxCW8tgskZeZj3",   name: nil, remember_me_token: nil, remember_me_token_expires_at: nil, reset_password_token: nil,  reset_password_token_expires_at: nil, reset_password_email_sent_at: nil, activation_state: nil,  activation_token: nil, activation_token_expires_at: nil, picture: nil, failed_logins_count: 0,   lock_expires_at: nil, unlock_token: nil, last_login_at: nil, last_logout_at: nil, last_activity_at: nil, last_login_from_ip_address: nil}
+])

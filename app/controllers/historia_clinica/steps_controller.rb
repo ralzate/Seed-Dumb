@@ -38,7 +38,7 @@ class HistoriaClinica::StepsController < ApplicationController
            :p_departamento,
            :paciente_id,
            :a_auxiliar,
-           :a_aeropuerto_id,
+           :aeropuerto_id,
            :a_cove,
            :a_movil_servicio,
            :a_condicion,
@@ -50,10 +50,12 @@ class HistoriaClinica::StepsController < ApplicationController
            :a_nombre_acompañante,
            :a_parentesco,
            :a_telefono,
-           :arl_id,
-           :eps_id,
+           :arl,
+           :eps,
            :a_motivo_de_consulta,
-           :a_enfermedad_actual
+           :a_enfermedad_actual,
+           :p_tipo_edad,
+           :p_edad,
           ]
 
        when "b_antecedentes"
