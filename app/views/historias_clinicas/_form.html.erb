@@ -210,7 +210,7 @@ $(document).ready(function() {
           <div class="col-md-3">
               <label>Aeropuerto:</label> <br/>
 
-          <%= f.select :aeropuerto_id, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true }, { class: 'chosen-select2' } %>
+          <%= f.select :aeropuerto_id, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true },  { class: 'chosen-select2', :date => {:placeholder => 'Choose a Country...'} } %>
 
 
 
@@ -369,13 +369,16 @@ jQuery(document).ready(function() {
           </div>
 
 
+
 <script type="text/javascript">
 
 $(function() {
   return $('.chosen-select2').chosen({
     allow_single_deselect: true,
-    no_results_text: 'No results matched',
-    width: '130px'
+    no_results_text: 'No hay resultados',
+    width: '130px',
+    height: '30px'
+
   });
 });
 
@@ -383,20 +386,30 @@ $(function() {
 $(function() {
   return $('.chosen-select').chosen({
     allow_single_deselect: true,
-    no_results_text: 'No results matched',
-    width: '200px'
+    no_results_text: 'No hay resultados',
+    width: '200px',
+    height: '30px'
   });
 });
 
 </script>
 
+
 <style type="text/css">
+
 .chosen-container-single .chosen-single {
   width: 145% !important;
+
+    height: 34px;
+
 }  
 .chosen-drop{
   width: 145% !important;
 }
+.chosen-single span{
+	font-size: 17px !important;
+}
+
 </style>
 
           <div class="col-md-4">
