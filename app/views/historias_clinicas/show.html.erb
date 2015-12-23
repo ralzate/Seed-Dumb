@@ -60,7 +60,6 @@ Licensed under MIT
     <%= link_to 'Volver a Historias Clinicas' , paciente_historias_clinicas_path(@paciente), :class => "btn btn-info color_blanco mrg" %> 
 
 
-  <%= link_to 'Imprimir Pdf', paciente_historias_clinicas_path(@paciente, @historia_clinica, :format => "pdf"), target: '_blank',  :rel => "tooltip", :title => "Pdf", :class => 'btn btn-info color_blanco mrg' %>
 
     <%= link_to 'Notas de Evolución', paciente_historia_clinica_notas_progreso_path(@paciente,@historia_clinica), :class => "btn btn-info color_blanco mrg" %>
 </div>
@@ -1260,7 +1259,7 @@ Licensed under MIT
                               <tbody>
                                 <% notas_progreso = @historia_clinica.notas_progreso.each do |nota_progreso| %>
                                   <tr>
-                                    <td><%= nota_progreso.created_at.strftime('%b %d. %Y') %></td>
+                                    <td><%= nota_progreso.created_at.created_at.strftime("%d-%m-%y") %></td>
                                     <td><%= nota_progreso.descripcion %></td>
                                     <td><%= nota_progreso.user.nombre_usuario %></td>
                                     <td><%= nota_progreso.user.rol.nombre %></td>

@@ -208,9 +208,10 @@ $(document).ready(function() {
         <div class="col-md-12">
 
           <div class="col-md-3">
-              <label>Aeropuerto:</label> 
+              <label>Aeropuerto:</label> <br/>
 
-              <%= f.collection_select :aeropuerto_id, Aeropuerto.all, :id, :nombre, {prompt: "Campo Obligatorio"}, {class: "form-control required", title: "Campo Obligatorio"} %>
+          <%= f.select :aeropuerto_id, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true }, { class: 'chosen-select2' } %>
+
 
 
           </div>
@@ -369,6 +370,16 @@ jQuery(document).ready(function() {
 
 
 <script type="text/javascript">
+
+$(function() {
+  return $('.chosen-select2').chosen({
+    allow_single_deselect: true,
+    no_results_text: 'No results matched',
+    width: '130px'
+  });
+});
+
+
 $(function() {
   return $('.chosen-select').chosen({
     allow_single_deselect: true,
