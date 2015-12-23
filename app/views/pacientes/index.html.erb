@@ -13,8 +13,9 @@
     <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @pacientes, renderer: BootstrapPagination::Rails %>
 </span>
 
+<% if current_user.rol_id != 3 %>
     <span  class="btn btn-link btn-xs  pagination pagination pull-right"><%= link_to 'Nuevo Paciente', new_paciente_path, :class => "btn  principal" %></span>
-
+<% end %>
 
 
 <div class="row new_blog">

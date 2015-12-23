@@ -64,8 +64,9 @@
 
     <%= link_to 'Mostrar',  paciente,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-primary btn-xs color_blanco principal'%>
 
+<% if current_user.rol_id != 3 %>
     <%= link_to 'Editar', edit_paciente_path(paciente),  :rel => "tooltip", :title => "Editar", :class => 'btn btn-primary btn-xs color_blanco principal' %>
-
+<% end %>
 
         <%= link_to 'Ver Historias Clinicas(' + paciente.historias_clinicas.count.to_s + ')' , paciente_historias_clinicas_path(paciente), :class => 'btn btn-primary btn-xs color_blanco principal' %> 
 

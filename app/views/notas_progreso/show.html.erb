@@ -102,15 +102,20 @@
                     </div>
                 </div>            
                 <div class="col-xs-12 text-center">
-                    <div class="col-xs-12 col-sm-4 emphasis">
 
+                    <div class="col-xs-12 col-sm-3 emphasis">
 
+                    <% @ultimaHc = @paciente.historias_clinicas.last %>
 
+                        <%= link_to "Ultima Historia Clinica", paciente_historia_clinica_path(@paciente, @ultimaHc), :class => 'btn btn-primary  color_blanco principal' %>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 emphasis">
                         <%= link_to ' Nueva Historia Clinica',  new_paciente_historia_clinica_path(@paciente), :class => 'btn btn-primary  color_blanco principal'  %>
 
 
                     </div>
-                    <div class="col-xs-12 col-sm-4 emphasis">
+                    <div class="col-xs-12 col-sm-3 emphasis">
                         <% if @paciente.historias_clinicas.count != 0 
                         @alejo = @paciente.historias_clinicas.last
                           %>
@@ -120,7 +125,7 @@
                         <% end %>
 
                     </div>
-                    <div class="col-xs-12 col-sm-4 emphasis">
+                    <div class="col-xs-12 col-sm-3 emphasis">
                         <%= link_to 'Ver Historias Clinicas ', paciente_historias_clinicas_path(@paciente), :class => 'btn btn-primary color_blanco principal' %> 
                     </div>
                 </div>

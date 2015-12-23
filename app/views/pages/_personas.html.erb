@@ -22,8 +22,10 @@
        
         <%= link_to '| Ver Historias Clinicas(' + paciente.historias_clinicas.count.to_s + ')' , paciente_historias_clinicas_path(paciente), :class => "marg" %> 
  <br> <br>
-
+ 
+<% if current_user.rol_id != 3 %>
  <%= link_to ' Nueva Historia Clinica',  new_paciente_historia_clinica_path(paciente), :class => "btn principal"  %>
+<% end %>
 
 <% if paciente.historias_clinicas.count != 0 
 @alejo = paciente.historias_clinicas.last

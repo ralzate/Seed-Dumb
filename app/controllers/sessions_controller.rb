@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_back_or_to root_path
     else
       flash.now[:danger] = "Login failed! Please check your email and password."
-      redirect_back_or_to root_path
+      render 'new'
     end
   end
 
