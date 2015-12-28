@@ -201,94 +201,6 @@ $(document).ready(function() {
     </div>
   <% end %>
 
-
-
-
-
-
-<h3 style = "color: #22BDC8;"> VI. ENFERMEDAD ACTUAL</h3>
-<hr class="featurette-divider"></hr>
-     
-
-
-
-<div class="container-fluid">
-    
-
-
-    <div class="row">
-      <div>
-    
-      <div class="col-md-3" >
-      <span style="margin-left:70px;">
-      TA mm/HG:
-      </span>
-      <div class="row">
-
-         <div class="col-md-6"  style = "padding-right:2px;!important" >
-          
-          <%= f.input :d_ta_mmgh_diastole, placeholder: 'mm', :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-           </div>
-      
-          <div class="col-md-6" style = "padding-left:2px;!important" >
-            
-            <%= f.input :d_ta_mmgh_sistole,placeholder: 'HG', :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-             </div>
-          </div>
-      </div>
-
-
-      <div class="col-md-3" >Frecuencía Cardiaca/Min:
-        <%= f.input :d_frecuencia_cardiaca, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-      </div>
-      <div class="col-md-3" >Frecuencía Respiratoria/Min:
-        <%= f.input :d_frecuencia_respiratoria, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-      </div>
-
-        <div class="col-md-3">Talla en Centimetros:
-        <%= f.input :d_talla_en_centimetros, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-      </div>
-
-      </div>
-    </div>
-      
-
-
-
-
- 
-    <br/>
-  
-    <div class="row">
-      <div class="col-md-3">
-        <label class="control-label" for="lastname">% SAT. de O2 Ambiente:</label>
-        <%= f.input :d_sat_of_o_ambiente, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %></label>
-      </div>
-      <div class="col-md-3">% SAT. de 02 Suplementario:
-        <%= f.input :d_sat_of_o_suplementario, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-      </div>
-      <div class="col-md-3">Temperatura C°
-        <%= f.input :d_temperatura, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-      </div>
-      <div class="col-md-3">Peso en Kilogramos:
-        <%= f.input :d_peso_en_kilogramos, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-      </div>
-    </div>
-    <br/>
-
-    <div class="row">
-
-      <div class="col-md-3" >
-              <label class="control-label" for="lastname">Glucometría:</label>
-
-      <%= f.input :d_glucometria, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
-      </div>
-
-    </div>
-
-
-  </div>
-
 <br/>
 
 
@@ -296,6 +208,149 @@ $(document).ready(function() {
 
 
 
+
+<style>
+
+#titulo_td>th {
+    vertical-align: bottom;
+    border-bottom-style:hidden;
+}
+
+</style>
+
+<div class="container-fluid">
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3 style = "color: #22BDC8;"> VI. ENFERMEDAD ACTUAL</h3>
+			<hr class="featurette-divider"></hr>
+				<table class="table" id="tab_logic">
+					<thead>
+						<tr id="titulo_td">
+							<th class="text-center" colspan="2" style="width:25%">
+								TA mm/HG:
+							</th>
+							<th class="text-center" style="width:25%">
+								Frecuencía Cardiaca/Min:
+							</th>
+							<th class="text-center" style="width:25%">
+								Frecuencía Respiratoria/Min:
+							</th>
+							<th class="text-center" style="width:25%">
+								Talla en Centimetros:
+							</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+							<td>
+							    <%= f.input :d_ta_mmgh_diastole, placeholder: 'mm', :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+					       </td>
+					       <td>
+					          <%= f.input :d_ta_mmgh_sistole,placeholder: 'HG', :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+					       
+
+							</td>
+							<td>
+	        					<%= f.input :d_frecuencia_cardiaca, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+							</td>
+							<td>
+	        					<%= f.input :d_frecuencia_respiratoria, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+							</td>
+							<td>
+								<%= f.input :d_talla_en_centimetros, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="table" id="tab_logic" style="margin-top: -10px;">
+					<thead>
+						<tr  id="titulo_td">
+							<th class="text-center" style="width:25%">
+								% SAT. de O2 Ambiente:
+							</th>
+							<th class="text-center" style="width:25%">
+								% SAT. de 02 Suplementario:
+							</th>
+							<th class="text-center" style="width:25%">
+								Temperatura C°:
+							</th>
+							<th class="text-center" style="width:25%">
+								Peso en Kilogramos:
+							</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+				
+					       <td>
+        						<%= f.input :d_sat_of_o_ambiente, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %></label>
+					       
+
+							</td>
+							<td>
+        						<%= f.input :d_sat_of_o_suplementario, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+							</td>
+							<td>
+        						<%= f.input :d_temperatura, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+							</td>
+							<td>
+        						<%= f.input :d_peso_en_kilogramos, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="table" id="tab_logic" style="margin-top: -20px;">
+					<thead>
+						<tr  id="titulo_td">
+							<th class="text-center" style="width:25% !important;">
+								Glucometría:
+							</th>
+							<th>
+								
+							</th>
+
+
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+				
+					       <td>
+      							<%= f.input :d_glucometria, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+							</td>
+							<td>
+								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+    
+
+
+
+
+
+
+ 
+
+
+
+
+
+<br/>
 
 <div class="container-fluid">
     <div class="row clearfix">
@@ -920,6 +975,7 @@ $(document).ready(function() {
   }
   .optional{
    text-transform: capitalize;
+   margin-top: -12px;
   }
 </style>
 

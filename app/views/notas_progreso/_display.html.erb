@@ -12,7 +12,7 @@
   
 
 <tr>
-      <th  colspan="6">
+      <th  colspan="7">
         
                             <%= form_tag request.path, :method => 'get', :class => '' do %>
 
@@ -46,7 +46,8 @@
 
     <tr>
       <th width="3% !important;">Id</th>
-      <th width="20% !important;">Fecha</th>
+      <th width="10% !important;">Fecha</th>
+      <th width="10% !important;">Hora</th>
       <th width="30% !important;">Descripción</th>
       <th width="20% !important;">Responsable</th>
       <th width="10% !important;">Cargo</th>
@@ -60,6 +61,7 @@
 
     <td><%= nota_progreso.id %></td>
     <td><%= nota_progreso.created_at.strftime("%d-%m-%Y") %></td>
+    <td><%= nota_progreso.created_at.strftime("%X")  %></td>
     <td><%= nota_progreso.descripcion %></td>
     <td><%= nota_progreso.user.nombres %> <%= nota_progreso.user.apellidos %></td>
     <td><%= nota_progreso.user.rol.nombre %></td>

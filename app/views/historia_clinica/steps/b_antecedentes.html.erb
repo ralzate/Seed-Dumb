@@ -388,150 +388,162 @@
 
 
 
+
+
+<style>
+
+#titulo_td>th {
+    vertical-align: bottom;
+    border-bottom-style:hidden;
+}
+
+</style>
+
 <div class="container-fluid">
-    <div class=" clearfix">
-      <div class="centered title">
-        <h1 style=" font-size:25px; text-align: center;color: #22BDC8;">   
-          GINECO-OBSTÉTRICOS
-        </h1>
-      </div>
-    <div class="row">
-      <div class="col-md-3">
-        <label class="control-label" for="firstname">Ciclo Menstrual</label>
-        <%= f.text_field :b_ciclo_menstrual, class: 'form-control required', placeholder: 'Ciclo Menstrual', :readonly => true, :value => 'N/A' %>
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3 style = "color: #22BDC8;" align="center"> GINECO-OBSTÉTRICOS</h3>
+			<hr class="featurette-divider"></hr>
+				<table class="table" id="tab_logic">
+					<thead>
+						<tr id="titulo_td">
+							<th class="text-center" style="width:25%">
+								Ciclo Menstrual:
+							</th>
+							<th class="text-center" style="width:25%">
+								Eco:
+							</th>
+							<th class="text-center" style="width:25%">
+								FUM:
+							</th>
+							<th class="text-center" style="width:25%">
+								Menarquia:
+							</th>
+						</tr>
 
-      </div>
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+							<td>
+        						<%= f.text_field :b_ciclo_menstrual, class: 'form-control required', placeholder: 'Ciclo Menstrual', :id => "ciclo", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
+					       </td>
+					       
+							<td>
+        						<%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
+							</td>
+							<td>
+        						<%= f.text_field :b_fum, class: 'form-control required', placeholder: 'Fum', :id => "fum", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
+							</td>
+							<td>
+        						<%= f.text_field :b_menarquia, class: 'form-control required', placeholder: 'Menarquia', :id => "menarquia", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A'  %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
-      <div class="col-md-3">
-        <label class="control-label" for="firstname">Eco</label>
-        <%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
-      </div>
+				<table class="table" id="tab_logic" style="margin-top: -10px;">
+					<thead>
+						<tr  id="titulo_td">
+							<th class="text-center" style="width:33%">
+								Fecha de la Ultima Citología:
+							</th>
+							<th class="text-center" style="width:33%">
+								Fecha de la Ultima Mamografia:
+							</th>
+							<th  colspan="2" style="width:33%">
+								Esta en Embarazo?
+							</th>
+						</tr>
 
-      <div class="col-md-3">
-        <label class="control-label" for="firstname">FUM</label>
-        <%= f.text_field :b_fum, class: 'form-control required', placeholder: 'Fum', :id => "fum", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
-      </div>
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+				
+					       <td>
+                				<%= f.text_field :b_fecha_ultima_citologia, class: 'form-control required', placeholder: 'Eco', :id => "citologia", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
+					       
 
-      <div class="col-md-3" >
-        <label class="control-label" for="firstname">Menarquia</label>
-        <%= f.text_field :b_menarquia, class: 'form-control required', placeholder: 'Menarquia', :readonly => true, :value => 'N/A'  %>
-      </div>
-    </div>  
+							</td>
+							<td>
+              					<%= f.text_field :b_fecha_ultima_mamografia, class: 'form-control required', placeholder: 'Campo Obligatorio', :id => "mamografia", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
+							</td>
+							<td>
+        						<label class="label" for="firstname">Si</label>
+
+        						<%= f.radio_button(:b_embarazo, "Si", :id => "yes", class: 'required', :title => "Es un Campo Obligatorio" , :onclick => "return false")%>
+							</td>
+							<td>
+
+        						<label class="label" for="firstname">No</label>
+
+        						<%= f.radio_button(:b_embarazo, "No", :id => "no", :onclick => "return false", :checked => true)%>
+							</td>
+	
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="table" id="tab_logic" style="margin-top: -20px;">
+					<thead>
+						<tr  id="titulo_td">
+							<th class="text-center" style="width:14% !important;">
+								P:
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								C
+							</th>
+
+							<th  class="text-center" style="width:14% !important;">
+								A
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								M
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								V
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								E
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								G
+							</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+				
+					       <td>
+        						<%= f.text_field :b_p, class: 'form-control required', placeholder: 'P',  :id => "txt3", :readonly => true, :value => 'N/A' , :title => "Es un Campo Obligatorio" %>
+							</td>
+
+							<td>
+								<%= f.text_field :b_c, class: 'form-control required', placeholder: 'C',  :id => "txt4", :readonly => true, :value => 'N/A' , :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>
+								<%= f.text_field :b_a, class: 'form-control required', placeholder: 'A',  :id => "txt5", :readonly => true, :value => 'N/A' , :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>
+								<%= f.text_field :b_m, class: 'form-control required', placeholder: 'M',  :id => "txt6", :readonly => true, :value => 'N/A' , :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>
+								<%= f.text_field :b_v, class: 'form-control required', placeholder: 'V',  :id => "txt7", :readonly => true, :value => 'N/A' , :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>
+								<%= f.text_field :b_e, class: 'form-control required', placeholder: 'E',  :id => "txt8", :readonly => true, :value => 'N/A' , :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>        
+								<%= f.text_field :b_g, class: 'form-control required', placeholder: 'G', :id => "txt2", :readonly => true, :value => 'N/A' , :title => "Es un Campo Obligatorio" %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
 
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-      <div class="col-md-4"  >
-          <label class="control-label">Fecha de la Ultima Citología</label>
-            <div class="form-group">
-                <%= f.text_field :b_fecha_ultima_citologia, class: 'form-control required', placeholder: 'Eco', :readonly => true, :value => 'N/A' %>
-
-            </div>
-      </div>
-
-      <div class="col-md-4"  >
-          <label class="control-label">Fecha de la Ultima Mamografia</label>
-            <div class="form-group">
-              <%= f.text_field :b_fecha_ultima_mamografia, class: 'form-control required', placeholder: 'Campo Obligatorio', :readonly => true, :value => 'N/A' %>
-
-            </div>
-
-      </div>
-
-      <h5><b>Esta en Embarazo?</b></h5>
-
-      <div class="col-md-2">
-        <label class="label" for="firstname">Si</label>
-
-        <%= f.radio_button(:b_embarazo, "Si", :id => "yes", :onclick => "return false"  )%>
-
-      </div>
-      <div class="col-md-2" >
-        <label class="label" for="firstname">No</label>
-        <%= f.radio_button(:b_embarazo, "No", :id => "no", :onclick => "return false", :checked => true)%>
-
-      </div>
-      
-
-
-
-
-    </div>
-
-
-
-
-
-<div class="row">
-  
-
-
-
-     
- <div class="col-md-2"  style="margin-top: -30px;">
-        <label class="label" for="firstname">P</label>
-        <%= f.text_field :b_p, class: 'form-control required', placeholder: 'P',  :id => "txt3", :readonly => true, :value => 'N/A' %>
-      </div>
-
-      <div class="col-md-2"  style="margin-top: -30px;" >
-        <label class="label" for="firstname">C</label><br/>
-          <%= f.text_field :b_c, class: 'form-control required', placeholder: 'C', :readonly => true, :value => 'N/A' %>
-
-      </div>
-
-
-      <div class="col-md-2"  style="margin-top: -30px;">
-        <label class="label" for="firstname">A</label>
-          <%= f.text_field :b_a, class: 'form-control required', placeholder: 'A', :readonly => true, :value => 'N/A' %>
-
-      </div>
-
-      <div class="col-md-2"  style="margin-top: -30px;">
-        <label class="label" for="lastname">M</label>
-          <%= f.text_field :b_m, class: 'form-control required', placeholder: 'M', :readonly => true, :value => 'N/A' %>
-
-      </div>
-
+		</div>
+	</div>
 </div>
-
-
-
-
-
-<div class="row">
-
-
-      <div class="col-md-2"  >
-        <label class="label" for="firstname">V</label>
-          <%= f.text_field :b_v, class: 'form-control required', placeholder: 'V', :readonly => true, :value => 'N/A' %>
-      </div>
-
-      <div class="col-md-2" >
-        <label class="label" for="firstname">E</label><br/>
-          <%= f.text_field :b_e, class: 'form-control required', placeholder: 'E', :readonly => true, :value => 'N/A' %>
-
-      </div>
-
-  <div class="col-md-2" id="MostrarEmbarazo2">
-        <label class="label" for="lastname">G</label>
-        <%= f.text_field :b_g, class: 'form-control required', placeholder: 'G', :readonly => true, :value => 'N/A' %>
-
-      </div>
-</div>
-
-  </div>
-</div>
-
-
 
 
 
@@ -573,152 +585,180 @@
 
   
 
+<style>
+
+#titulo_td>th {
+    vertical-align: bottom;
+    border-bottom-style:hidden;
+}
+
+</style>
 
 <div class="container-fluid">
-    <div class=" clearfix">
-      <div class="centered title">
-        <h1 style=" font-size:25px; text-align: center;color: #22BDC8;">   
-          GINECO-OBSTÉTRICOS
-        </h1>
-      </div>
-    <div class="row">
-      <div class="col-md-3">
-        <label class="control-label" for="firstname">Ciclo Menstrual</label>
-        <%= f.text_field :b_ciclo_menstrual, class: 'form-control required', placeholder: 'Ciclo Menstrual', :id => "ciclo", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
+    <div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3 style = "color: #22BDC8;" align="center"> GINECO-OBSTÉTRICOS</h3>
+			<hr class="featurette-divider"></hr>
+				<table class="table" id="tab_logic">
+					<thead>
+						<tr id="titulo_td">
+							<th class="text-center" style="width:25%">
+								Ciclo Menstrual:
+							</th>
+							<th class="text-center" style="width:25%">
+								Eco:
+							</th>
+							<th class="text-center" style="width:25%">
+								FUM:
+							</th>
+							<th class="text-center" style="width:25%">
+								Menarquia:
+							</th>
+						</tr>
 
-      </div>
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+							<td>
+        						<%= f.text_field :b_ciclo_menstrual, class: 'form-control required', placeholder: 'Ciclo Menstrual', :id => "ciclo", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
+					       </td>
+					       
+							<td>
+        						<%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
+							</td>
+							<td>
+        						<%= f.text_field :b_fum, class: 'form-control required', placeholder: 'Fum', :id => "fum", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
+							</td>
+							<td>
+        						<%= f.text_field :b_menarquia, class: 'form-control required', placeholder: 'Menarquia', :id => "menarquia", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()"  %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
-      <div class="col-md-3">
-        <label class="control-label" for="firstname">Eco</label>
-        <%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
-      </div>
+				<table class="table" id="tab_logic" style="margin-top: -10px;">
+					<thead>
+						<tr  id="titulo_td">
+							<th class="text-center" style="width:33%">
+								Fecha de la Ultima Citología:
+							</th>
+							<th class="text-center" style="width:33%">
+								Fecha de la Ultima Mamografia:
+							</th>
+							<th  colspan="2" style="width:33%">
+								Esta en Embarazo?
+							</th>
+						</tr>
 
-      <div class="col-md-3">
-        <label class="control-label" for="firstname">FUM</label>
-        <%= f.text_field :b_fum, class: 'form-control required', placeholder: 'Fum', :id => "fum", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
-      </div>
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+				
+					       <td>
+                				<%= f.text_field :b_fecha_ultima_citologia, class: 'form-control required', placeholder: 'Eco', :id => "citologia", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
+					       
 
-      <div class="col-md-3" >
-        <label class="control-label" for="firstname">Menarquia</label>
-        <%= f.text_field :b_menarquia, class: 'form-control required', placeholder: 'Menarquia', :id => "menarquia", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()"  %>
-      </div>
-    </div>  
+							</td>
+							<td>
+              					<%= f.text_field :b_fecha_ultima_mamografia, class: 'form-control required', placeholder: 'Campo Obligatorio', :id => "mamografia", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
+							</td>
+							<td>
+        						<label class="label" for="firstname">Si</label>
 
+        						<%= f.radio_button(:b_embarazo, "Si", :id => "yes", class: 'required', :title => "Es un Campo Obligatorio"  )%>
+							</td>
 
+							<td>
 
+        						<label class="label" for="firstname">No</label>
 
-
-
-
-
-
-
-
-
-<div class="row">
-      <div class="col-md-4"  >
-          <label class="control-label">Fecha de la Ultima Citología</label>
-            <div class="form-group">
-                <%= f.text_field :b_fecha_ultima_citologia, class: 'form-control required', placeholder: 'Eco', :id => "citologia", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
-
-            </div>
-      </div>
-
-      <div class="col-md-4"  >
-          <label class="control-label">Fecha de la Ultima Mamografia</label>
-            <div class="form-group">
-              <%= f.text_field :b_fecha_ultima_mamografia, class: 'form-control required', placeholder: 'Campo Obligatorio', :id => "mamografia", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
-
-            </div>
-
-      </div>
-
-      <h5><b>Esta en Embarazo?</b></h5>
-
-      <div class="col-md-2">
-        <label class="label" for="firstname">Si</label>
-
-        <%= f.radio_button(:b_embarazo, "Si", :id => "yes", class: 'required', :title => "Es un Campo Obligatorio"  )%>
-
-      </div>
-      <div class="col-md-2" >
-        <label class="label" for="firstname">No</label>
-        <%= f.radio_button(:b_embarazo, "No", :id => "no")%>
-
-      </div>
-
-
-
-    </div>
-
-
-
-
-
-<div class="row">
-  
-
-
-
-      
+								<%= f.radio_button(:b_embarazo, "No", :id => "no")%>
+							</td>
 	
-     
- <div class="col-md-2" >
-        <label class="label" for="firstname">P</label>
-        <%= f.text_field :b_p, class: 'form-control required', placeholder: 'P',  :id => "txt3", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
-      </div>
+						</tr>
+					</tbody>
+				</table>
 
-      <div class="col-md-2" >
-        <label class="label" for="firstname">C</label><br/>
-          <%= f.text_field :b_c, class: 'form-control required', placeholder: 'C',  :id => "txt4", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
+				<table class="table" id="tab_logic" style="margin-top: -20px;">
+					<thead>
+						<tr  id="titulo_td">
+							<th class="text-center" style="width:14% !important;">
+								P:
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								C
+							</th>
 
-      </div>
+							<th  class="text-center" style="width:14% !important;">
+								A
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								M
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								V
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								E
+							</th>
+							<th  class="text-center" style="width:14% !important;">
+								G
+							</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr id='addr0'>
+				
+					       <td>
+        						<%= f.text_field :b_p, class: 'form-control required', placeholder: 'P',  :id => "txt3", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
+							</td>
+
+							<td>
+								<%= f.text_field :b_c, class: 'form-control required', placeholder: 'C',  :id => "txt4", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>
+								<%= f.text_field :b_a, class: 'form-control required', placeholder: 'A',  :id => "txt5", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>
+								<%= f.text_field :b_m, class: 'form-control required', placeholder: 'M',  :id => "txt6", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>
+								<%= f.text_field :b_v, class: 'form-control required', placeholder: 'V',  :id => "txt7", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>
+								<%= f.text_field :b_e, class: 'form-control required', placeholder: 'E',  :id => "txt8", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
+							</td>
+							<td>        
+								<%= f.text_field :b_g, class: 'form-control required', placeholder: 'G', :id => "txt2", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 
 
-      <div class="col-md-2" >
-        <label class="label" for="firstname">A</label>
-          <%= f.text_field :b_a, class: 'form-control required', placeholder: 'A',  :id => "txt5", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
-
-      </div>
-
-      <div class="col-md-2">
-        <label class="label" for="lastname">M</label>
-          <%= f.text_field :b_m, class: 'form-control required', placeholder: 'M',  :id => "txt6", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
-
-      </div>
-
-      <div class="col-md-2" >
-        <label class="label" for="firstname">V</label>
-          <%= f.text_field :b_v, class: 'form-control required', placeholder: 'V',  :id => "txt7", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
-      </div>
-
-
-      <div class="col-md-2" >
-        <label class="label" for="firstname">E</label><br/>
-          <%= f.text_field :b_e, class: 'form-control required', placeholder: 'E',  :id => "txt8", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
-
-      </div>
-
-
+		</div>
+	</div>
 </div>
 
 
 
 
 
-<div class="row">
 
 
 
-  <div class="col-md-2" id="MostrarEmbarazo2">
-        <label class="label" for="lastname">G</label>
-        <%= f.text_field :b_g, class: 'form-control required', placeholder: 'G', :id => "txt2", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
 
-      </div>
-</div>
 
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
 
 
 
