@@ -10,7 +10,10 @@
     <span  class="btn btn-link btn-xs  pull-left pagination pagination"><h1 class="title">Ciudades</h1></span>
 
 
-    <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @ciudades, renderer: BootstrapPagination::Rails %>
+    <span class="btn btn-link btn-xs pull-right ">  <%= will_paginate @ciudades, renderer: BootstrapPagination::Rails, :previous_label => 'Atras', :next_label => 'Siguiente' %>
+
+
+    
 </span>
 <% if admin? %>
 

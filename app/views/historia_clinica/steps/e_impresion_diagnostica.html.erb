@@ -92,7 +92,9 @@ $(document).ready(function() {
 
     <%= link_to "4. Examen Fisico", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fourth), :class=>"btn btn-info color_blanco mrg" %>
 
-    <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-info color_blanco mrg" %>
+    <%= link_to "5. Impresión Diagnostica", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.fifth), :class=>"btn btn-default  mrg" %>
+
+
 
 
 
@@ -147,7 +149,9 @@ $(document).ready(function() {
   }
 
 
-
+  .btn{
+		border-radius: 5px;
+	}  
 </style>
 
 
@@ -229,7 +233,7 @@ $(document).ready(function() {
               <div class="col-sm-12 col-md-12">
 
 					<style type="text/css">
-						.btn-default{
+						.add{
 							margin-top: -58px !important;
 						}
 					</style>
@@ -241,7 +245,7 @@ $(document).ready(function() {
 
  
 
-                    	<%= link_to_add_association 'Agregar', f, :diagnosticos, {data: {'association-insertion-method' => 'after'}, :class => "btn btn-default  custom" } %>
+                    	<%= link_to_add_association 'Agregar', f, :diagnosticos, {data: {'association-insertion-method' => 'after'}, :class => "btn btn-default add  custom" } %>
                   	</div>
 
      				<hr class="featurette-divider"></hr>

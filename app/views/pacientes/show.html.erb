@@ -94,14 +94,12 @@
                                     <th>Tipo Sanguineo:</th>
                                     <td><%= @paciente.tipo_sangre %></td>
                                     <th>Nacionalidad:</th>
-                                    <td><%= @paciente.nacionalidad %></td>
+                                    <td><%= to_country_code(@paciente.nacionalidad ) %></td>
                                 </tr>
 
                                 <tr>
                                     <th>Tipo Sanguineo:</th>
                                     <td><%= @paciente.direccion %></td>
-                                    <th>Condición:</th>
-                                    <td><%= @paciente.condicion %></td>
                                 </tr>
 
                             </table>

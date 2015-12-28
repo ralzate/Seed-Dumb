@@ -82,7 +82,7 @@ $(document).ready(function() {
         <div class="panel panel-default modal-dialog">
             <div class="panel-body">
  
-     <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
+     <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-default  mrg" %>
 
     <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
 
@@ -166,6 +166,10 @@ $(document).ready(function() {
             display: inline-block;
             width: 30% !important;
           }
+
+  .btn{
+		border-radius: 5px;
+	}  
     </style>
 
 
