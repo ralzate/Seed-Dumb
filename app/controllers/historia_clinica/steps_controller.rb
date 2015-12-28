@@ -38,7 +38,7 @@ class HistoriaClinica::StepsController < ApplicationController
            :p_departamento,
            :paciente_id,
            :a_auxiliar,
-           :aeropuerto_id,
+           :a_aeropuerto,
            :a_cove,
            :a_movil_servicio,
            :a_condicion,

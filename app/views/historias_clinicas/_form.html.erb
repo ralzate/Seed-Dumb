@@ -210,7 +210,7 @@ $(document).ready(function() {
           <div class="col-md-3">
               <label>Aeropuerto:</label> <br/>
 
-          <%= f.select :aeropuerto_id, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true },  { class: 'chosen-select2', :date => {:placeholder => 'Choose a Country...'} } %>
+          <%= f.select :aeropuerto_id, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true },  { class: 'chosen-select2', :date => {:placeholder => 'Choose a Country...'} } %>
 
 
 

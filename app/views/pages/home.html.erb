@@ -9,7 +9,6 @@
 <% if current_user %>
 
 
-
 <div class="padding">
 
   <div class="full col-sm-9">
@@ -20,24 +19,29 @@
         <header class="sb-page-header" style = "padding-bottom:0px!important">
           <div class="navbar navbar-default">
             
-            
-            <!--  <div id="carbonads-container">
-                <div class="carbonad">
-                    <div id="azcarbon"></div>
-                      <script type="text/javascript">
-                      var z = document.createElement("script");
-                      z.type = "text/javascript";
-                      z.async = true;
-                      z.src = "http://engine.carbonads.com/z/51625/azcarbon_2_1_0_HORIZ";
-                      var s = document.getElementsByTagName("script")[0];
-                      s.parentNode.insertBefore(z, s);
-                      </script>
-                  </div>
-              </div>
-            </div>--> 
-         
+
+
+
+
             <%= form_tag pages_home_path, :method => 'get', remote: true, class: 'js-filter' do %>
+
+
+
                   <div class="container">
+
+<style>
+.alert-success{
+  text-align: center;
+  font-size: 18px;
+}
+</style>
+
+<div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-success" %>
+<% end %>
+<div >
+
                   <h2 style = "color:#969696 !important;font-size:45px!important;text-align:center!important">Buscar Paciente</h2>
                     <div class="row">
                       <div class="col-md-12">
@@ -671,8 +675,12 @@ background-image: url('/assets/06.jpg')  ;
 <br><br><br>
 <%= form_tag sessions_path, :method => :post do %>
 
-<div class="container-fluid">
-  <div >
+<div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-danger" %>
+<% end %>
+<div >
+
  <div class="card card-container"  style="border-radius:20px;">
             <div class="row"> 
               <div class="col-xs-6 col-md-6 col-sm-6">            <%= link_to  image_tag('Logo/logo.png', :size => "125x80"), :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link logo'%>
@@ -698,8 +706,8 @@ background-image: url('/assets/06.jpg')  ;
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
 
-                <%= text_field_tag :nombre_usuario, nil, class: 'form-control', required: true, :placeholder => "Nombres" %>
-                <%= password_field_tag :password, nil, class: 'form-control', required: true, :placeholder => "Clave" %>
+                <%= text_field_tag :nombre_usuario, nil, class: 'form-control', :placeholder => "Nombres" %>
+                <%= password_field_tag :password, nil, class: 'form-control', :placeholder => "Clave" %>
                 <div id="remember" class="checkbox">
                     <label>
                       <%= check_box_tag :remember_me %>Recordar mis datos
@@ -709,7 +717,6 @@ background-image: url('/assets/06.jpg')  ;
 
             </form><!-- /form -->
             <br/>
-                <%= link_to 'Olvidaste tu contraseña?', new_reset_password_path, :class => "forgot-password" %>
         </div><!-- /card-container -->
         </div>
       

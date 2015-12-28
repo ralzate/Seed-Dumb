@@ -20,7 +20,7 @@ class CreateHistoriasClinicas < ActiveRecord::Migration
           t.string   :p_departamento
           t.integer  :paciente_id
           t.string   :a_auxiliar
-          t.string   :aeropuerto_id
+          t.integer   :aeropuerto_id
           t.string   :a_cove    
           t.string   :a_movil_servicio
           t.string   :a_condicion
@@ -32,8 +32,8 @@ class CreateHistoriasClinicas < ActiveRecord::Migration
           t.string   :a_nombre_acompañante
           t.string   :a_parentesco
           t.string   :a_telefono
-          t.string  :arl
-          t.string  :eps
+          t.string   :arl
+          t.string   :eps
           t.text     :a_motivo_de_consulta
           t.text     :a_enfermedad_actual
           t.string   :b_neonatales

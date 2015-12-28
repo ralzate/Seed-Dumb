@@ -1,5 +1,6 @@
 
 
+
 <style type="text/css">
   /*
 
@@ -175,21 +176,61 @@ background-image: url('/assets/06.jpg')  ;
   }
 }
 
+
+
+
+.colorgraph {
+  height: 7px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
 </style>
 
-
+<br><br><br>
 <%= form_tag sessions_path, :method => :post do %>
 
 <div class="container">
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-danger" %>
+<% end %>
+<div >
+
+
+<div class="container-fluid">
   <div >
- <div class="card card-container">
-            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-            <%= link_to  image_tag('Logo/logo.png', :size => "125x105"), :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link logo'%>
+ <div class="card card-container"  style="border-radius:20px;">
+            <div class="row"> 
+              <div class="col-xs-6 col-md-6 col-sm-6">            <%= link_to  image_tag('Logo/logo.png', :size => "125x80"), :remote => true,  :rel => "tooltip", :title => "Mostrar", :class => 'btn btn-link logo'%>
+</div>
+
+<style type="text/css">
+  .glyphicon {
+    font-size: 30px;
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+    opacity: .65;
+
+}
+</style>
+              <div class="col-xs-6 col-md-6 col-sm-6">
+              <i class="glyphicon glyphicon-lock"></i>
+              </div>
+            </div>
+
+                    <hr class="colorgraph"><br>
+
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
 
-                <%= text_field_tag :nombre_usuario, nil, class: 'form-control', required: true, :placeholder => "Email" %>
-                <%= password_field_tag :password, nil, class: 'form-control', required: true, :placeholder => "Clave" %>
+                <%= text_field_tag :nombre_usuario, nil, class: 'form-control', :placeholder => "Nombres" %>
+                <%= password_field_tag :password, nil, class: 'form-control', :placeholder => "Clave" %>
                 <div id="remember" class="checkbox">
                     <label>
                       <%= check_box_tag :remember_me %>Recordar mis datos
@@ -199,18 +240,20 @@ background-image: url('/assets/06.jpg')  ;
 
             </form><!-- /form -->
             <br/>
-                <%= link_to 'Olvidaste tu contraseña?', new_reset_password_path, :class => "forgot-password" %>
         </div><!-- /card-container -->
         </div>
-        
+      
 </div>
 <% end %>
+
+
 <style type="text/css">
 
 
 
+
 .card-container.card {
-    max-width: 350px;
+    max-width: 400px;
     padding: 40px 40px;
 }
 
@@ -460,6 +503,4 @@ background-image: url('/assets/06.jpg')  ;
 }
 
 </style>
-
-
 
