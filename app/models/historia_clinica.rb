@@ -5,9 +5,6 @@ class HistoriaClinica < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :paciente
-  belongs_to :aeropuerto
-
-
 
   has_many :cie10s
   has_many :diagnosticos

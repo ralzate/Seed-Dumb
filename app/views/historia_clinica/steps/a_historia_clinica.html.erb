@@ -174,6 +174,9 @@ $(document).ready(function() {
 
 
 
+<h1>
+<%= @sssequence %>
+</h1>
 
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
@@ -274,10 +277,11 @@ $('.chosen-single.chosen-default span').text("Seleccionar");
           <div class="col-md-3">
               <label>Aeropuerto:</label> 
 
-
-          <%= f.select :aeropuerto_id, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true },  { class: 'chosen-select2', :date => {:placeholder => 'Choose a Country...'} } %>
-
-
+<%= f.select :aeropuerto_id,
+  Aeropuerto.all.map { |u| [u.nombre, u.id] },
+               { include_blank: true },
+               { class: 'chosen-select' }
+%>
 
 
           </div>
@@ -489,7 +493,6 @@ $(function() {
 
  <label>Origen:</label><br/>
 
-          <%= f.select :a_origen, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true },  { class: 'chosen-select', :date => {:placeholder => 'Choose a Country...'} } %>
 
 
                   </div>

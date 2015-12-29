@@ -1,9 +1,6 @@
 
 
 
-
-
-
 <h2>
 
 <% #Diagnostico.where(:cie10_id => 2).count %>
@@ -61,7 +58,9 @@ Licensed under MIT
 
 
 
-    <%= link_to 'Notas de Evolución', paciente_historia_clinica_notas_progreso_path(@paciente,@historia_clinica), :class => "btn btn-info color_blanco mrg" %>
+    <%= link_to 'Crear Nota de Evolución', new_paciente_historia_clinica_nota_progreso_path(@paciente,@historia_clinica,@nota_progreso), :class => "btn btn-info color_blanco mrg" %>
+
+
 </div>
     </div>
 
@@ -128,6 +127,8 @@ Licensed under MIT
 
 
              
+
+
                               
                               <tr class="gradeA odd" role="row">
                                       <td class="sorting_1" >
@@ -150,7 +151,7 @@ Licensed under MIT
                                       <td class="sorting_1"><b>Medico de Turno:</b></td>
                                       <td><%=  @historia_clinica.user.nombres %> <%=  @historia_clinica.user.apellidos %></td>
                                       <td><b>Aeropuerto:</b></td>
-                                      <td class="center"><%=  @historia_clinica.aeropuerto.nombre %> <%=  @historia_clinica.aeropuerto.ciudad.nombre %></td>
+                                      <td class="center"><%=  @historia_clinica.aeropuerto.nombre %> - <%=  @historia_clinica.aeropuerto.ciudad.nombre %></td>
                                   </tr>
                                   <tr class="gradeA even" role="row">
                                       <td class="sorting_1"><b>Empresa:</b></td>
@@ -230,13 +231,17 @@ Licensed under MIT
                                   <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Origen:</b></td>
 
                                   <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;">
-                                    <%= @historia_clinica.a_origen %>
+                                    <%= @historia_clinica.a_origen.nombre %> - <%=  @historia_clinica.a_origen.ciudad.nombre %>
+
                                   </td>
 
                                   <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Destino:</b></td>
 
                                   <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;">
-                                    <%= @historia_clinica.a_destino %>
+
+                                    <%= @historia_clinica.a_destino.nombre %> - <%=  @historia_clinica.a_destino.ciudad.nombre %>
+
+
                                   </td>
 
 
@@ -788,7 +793,7 @@ Licensed under MIT
                                 <b>Temperatura:</b>             
                                 </td>
                                 <td >
-                                  <%= @historia_clinica.d_temperatura %> - Centigrados
+                                  <%= @historia_clinica.d_temperatura %> (Centigrados)
                                 </td>
 </tr>
 
@@ -798,7 +803,7 @@ Licensed under MIT
                                 <b>Peso:</b>             
                                 </td>
                                 <td  >
-                                <%= @historia_clinica.d_peso_en_kilogramos %> - Kilogramos
+                                <%= @historia_clinica.d_peso_en_kilogramos %> (Kilogramos)
                                 </td>
                               
 
@@ -808,7 +813,7 @@ Licensed under MIT
                                 <b>Talla:</b>             
                                 </td>
                                 <td >
-                                  <%= @historia_clinica.d_talla_en_centimetros %> - Centimetros
+                                  <%= @historia_clinica.d_talla_en_centimetros %> (Centimetros)
                                 </td>
                               <tr>
 

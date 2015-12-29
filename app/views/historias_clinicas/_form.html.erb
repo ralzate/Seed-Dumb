@@ -130,7 +130,6 @@ $(document).ready(function() {
 
 
 
-
 <div class="container-fluid navbar navbar-default" style = "margin-bottom:0px!importan">
   <div class="row">
 <%= simple_form_for([@paciente, @historia_clinica], :html => { :id => "signup" }) do |f| %>
@@ -417,7 +416,7 @@ $(function() {
 
  <label>Origen:</label> <br/>
 
-          <%= f.select :a_origen, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true }, { class: 'chosen-select' } %>
+          <%= f.select :a_origen, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
 
 
                   </div>
@@ -425,7 +424,7 @@ $(function() {
           <div class="col-md-4">
               <label>Destino:</label>  <br/>
 
-          <%= f.select :a_destino, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true }, { class: 'chosen-select' } %>
+          <%= f.select :a_destino, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true }, { class: 'chosen-select' } %>
 
 
 
@@ -648,12 +647,6 @@ function edValueKeyPress()
 
 
 </div>
-
-
-
-
-
-
 
 
 
