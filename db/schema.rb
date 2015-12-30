@@ -233,7 +233,6 @@ ActiveRecord::Schema.define(version: 20151228191432) do
     t.datetime "updated_at",                             null: false
     t.integer  "p_edad"
     t.string   "p_tipo_edad"
-    t.string   "sequence"
   end
 
   add_index "historias_clinicas", ["aeropuerto_id"], name: "index_historias_clinicas_on_aeropuerto_id", using: :btree
