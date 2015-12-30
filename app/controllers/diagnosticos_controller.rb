@@ -33,7 +33,7 @@ class DiagnosticosController < ApplicationController
     
     respond_to do |format|
       if @diagnostico.save
-        format.html { redirect_to @diagnostico, notice: 'Material sheet was successfully created.' }
+        format.html { redirect_to @diagnostico, notice: 'Diagnostico creado Satisfactoriamente.' }
         format.json { render :show, status: :created, location: @diagnostico }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class DiagnosticosController < ApplicationController
   def update
     respond_to do |format|
       if @diagnostico.update(diagnostico_params)
-        format.html { redirect_to @diagnostico, notice: 'Material sheet was successfully updated.' }
+        format.html { redirect_to @diagnostico, notice: 'Diagnostico actualizado Satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @diagnostico }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class DiagnosticosController < ApplicationController
   def destroy
     @diagnostico.destroy
     respond_to do |format|
-      format.html { redirect_to diagnosticos_url, notice: 'Material sheet was successfully destroyed.' }
+      format.html { redirect_to diagnosticos_url, notice: 'Diagnostico eliminado Satisfactoriamente.' }
       format.json { head :no_content }
     end
   end

@@ -14,9 +14,10 @@
 class Aeropuerto < ActiveRecord::Base
   belongs_to :ciudad
   has_many :historias_clinicas
+  #has_many :historias_clinicas, :class_name => "HistoriaClinica", :foreign_key => "a_origen"
 
-  has_many :origen_historia_clinicas,  :primary_key => "id", :foreign_key => "a_origen", :class_name  => "HistoriaClinica"
-  has_many :destino_historia_clinicas, :primary_key => "id", :foreign_key => "a_destino", :class_name => "HistoriaClinica"
+
+
 
 
 validates :nombre, :presence => {:message => 'Name cannot be blank, Task not saved'}

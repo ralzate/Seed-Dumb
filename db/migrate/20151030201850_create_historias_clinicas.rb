@@ -27,8 +27,8 @@ class CreateHistoriasClinicas < ActiveRecord::Migration
           t.string   :a_tipo_servicio
           t.string   :a_empresa
           t.string   :a_lugar_de_atencion
-          t.integer   :a_origen
-          t.integer   :a_destino
+          t.string   :a_origen
+          t.string   :a_destino
           t.string   :a_nombre_acompañante
           t.string   :a_parentesco
           t.string   :a_telefono

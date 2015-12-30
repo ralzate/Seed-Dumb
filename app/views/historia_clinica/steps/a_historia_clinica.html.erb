@@ -277,12 +277,7 @@ $('.chosen-single.chosen-default span').text("Seleccionar");
           <div class="col-md-3">
               <label>Aeropuerto:</label> 
 
-<%= f.select :aeropuerto_id,
-  Aeropuerto.all.map { |u| [u.nombre, u.id] },
-               { include_blank: true },
-               { class: 'chosen-select' }
-%>
-
+          <%= f.select :aeropuerto_id, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true },  { class: 'chosen-select2', :date => {:placeholder => 'Choose a Country...'} } %>
 
           </div>
 
@@ -490,9 +485,10 @@ $(function() {
 
           <div class="col-md-4">
 
+ <label>Origen:</label> <br/>
 
- <label>Origen:</label><br/>
 
+          <%= f.select :a_origen, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true }, { class: 'chosen-select' } %>
 
 
                   </div>
@@ -501,7 +497,6 @@ $(function() {
               <label>Destino:</label>  <br/>
 
           <%= f.select :a_destino, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.nombre] }, { include_blank: true }, { class: 'chosen-select' } %>
-
 
 
 

@@ -5,6 +5,17 @@ class HistoriaClinica < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :paciente
+  belongs_to :aeropuerto
+
+
+
+
+
+
+  #belongs_to :origen_aeropuertos,  :primary_key => "id", :foreign_key => "a_orgien", :class_name  => "Aeropuerto"
+  #belongs_to :destino_aeropuertos,  :primary_key => "id", :foreign_key => "a_destino", :class_name => "Aeropuerto"
+
+
 
   has_many :cie10s
   has_many :diagnosticos

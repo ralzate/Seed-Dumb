@@ -51,22 +51,34 @@ Licensed under MIT
     </div>
 <br/>
 
-<div class="container-fluid" style="margin-left: 70px;">
-    <div class="col-md-6 column col-md-offset-3" >
+
+<div class="row">
+
+
+
+  <div class="col-md-3 ">
+
+  </div>
+
+  <div class="col-md-6  col-md-offset-1" style="margin-left: 35px;">
 
     <%= link_to 'Volver a Historias Clinicas' , paciente_historias_clinicas_path(@paciente), :class => "btn btn-info color_blanco mrg" %> 
 
-
-
     <%= link_to 'Crear Nota de Evolución', new_paciente_historia_clinica_nota_progreso_path(@paciente,@historia_clinica,@nota_progreso), :class => "btn btn-info color_blanco mrg" %>
 
+  </div>
 
+  <div class="col-md-2" style="margin-left: 50px; margin-top: -20px;">
+
+
+  </div>
 </div>
-    </div>
-
-
-
 <br/>
+
+
+
+
+
 
 
 
@@ -145,7 +157,7 @@ Licensed under MIT
                                       <td class="sorting_1"><b>Ciudad:</b></td>
                                       <td><%= @historia_clinica.p_ciudad %></td>
                                       <td><b>Departamento:</b></td>
-                                      <td class="center"><%= @historia_clinica.aeropuerto.departamento  %></td>
+                                      <td class="center"><%= @historia_clinica.aeropuerto.nombre  %></td>
                                   </tr>
                                   <tr class="gradeA odd" role="row">
                                       <td class="sorting_1"><b>Medico de Turno:</b></td>
@@ -231,7 +243,7 @@ Licensed under MIT
                                   <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;"><b>Origen:</b></td>
 
                                   <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;">
-                                    <%= @historia_clinica.a_origen.nombre %> - <%=  @historia_clinica.a_origen.ciudad.nombre %>
+                                    <%= @historia_clinica.a_origen %>
 
                                   </td>
 
@@ -239,8 +251,7 @@ Licensed under MIT
 
                                   <td class="sorting_asc" tabindex="0" aria-controls="dataTables-example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 158px;">
 
-                                    <%= @historia_clinica.a_destino.nombre %> - <%=  @historia_clinica.a_destino.ciudad.nombre %>
-
+                                    <%= @historia_clinica.a_destino %> 
 
                                   </td>
 

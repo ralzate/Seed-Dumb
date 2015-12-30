@@ -28,11 +28,11 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { flash[:success] = "Registration successful. Please check your email for activation."
+        format.html { flash[:success] = "Registro exitoso."
                       redirect_to root_path  }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { flash[:danger] = "Registration failed. Please check the data you introduced."
+        format.html { flash[:danger] = "Registro fallido."
                       render :new   }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -44,11 +44,11 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { flash[:success] = "Profile successfully updated"
+        format.html { flash[:success] = "Perfil actualizado correctamente"
                       redirect_to @user }
         format.json { render :show, status: :ok, location: @user }
       else
-        format.html { flash[:danger] = "Edit profile failed. Please check the data you introduced."
+        format.html { flash[:danger] = "Editar perfil falló. Por favor, compruebe los datos que introduces"
                       render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { flash[:success] = "User deleted."
+      format.html { flash[:success] = "Usuario eliminado."
                     redirect_to users_url }
       format.json { head :no_content }
     end

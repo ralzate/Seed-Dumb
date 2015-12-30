@@ -117,6 +117,9 @@ gem 'populator'
 # https://github.com/mdedetrich/jasny-bootstrap-extension-rails
 gem 'jasny-bootstrap-rails'
 gem "cocoon"
+gem 'prawn'
+gem 'prawn-table'
+
 
 group :development do
   # https://github.com/presidentbeef/brakeman

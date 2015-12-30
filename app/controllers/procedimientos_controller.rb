@@ -29,7 +29,7 @@ class ProcedimientosController < ApplicationController
 
     respond_to do |format|
       if @procedimiento.save
-        format.html { redirect_to @procedimiento, notice: 'Procedimiento was successfully created.' }
+        format.html { redirect_to @procedimiento, notice: 'Procedimiento creado Satisfactoriamente.' }
         format.json { render :show, status: :created, location: @procedimiento }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ProcedimientosController < ApplicationController
   def update
     respond_to do |format|
       if @procedimiento.update(procedimiento_params)
-        format.html { redirect_to @procedimiento, notice: 'Procedimiento was successfully updated.' }
+        format.html { redirect_to @procedimiento, notice: 'Procedimiento actualizado Satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @procedimiento }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ProcedimientosController < ApplicationController
   def destroy
     @procedimiento.destroy
     respond_to do |format|
-      format.html { redirect_to procedimientos_url, notice: 'Procedimiento was successfully destroyed.' }
+      format.html { redirect_to procedimientos_url, notice: 'Procedimiento eliminado Satisfactoriamente..' }
       format.json { head :no_content }
     end
   end

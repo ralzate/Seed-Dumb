@@ -43,7 +43,7 @@ class NotasProgresoController < ApplicationController
 
     respond_to do |format|
       if @nota_progreso.save
-        format.html { redirect_to paciente_historia_clinica_nota_progreso_path(@paciente, @historia_clinica, @nota_progreso), notice: 'Historia Clinica was successfully created.' }
+        format.html { redirect_to paciente_historia_clinica_nota_progreso_path(@paciente, @historia_clinica, @nota_progreso), notice: 'Nota de Evolución creada Satisfactoriamente.' }
 
         format.json { render :show, status: :created, location: @nota_progreso }
       else
@@ -59,7 +59,7 @@ class NotasProgresoController < ApplicationController
   def update
     respond_to do |format|
       if @nota_progreso.update(nota_progreso_params)
-        format.html { redirect_to paciente_historia_clinica_nota_progreso_path(@paciente, @historia_clinica, @nota_progreso), notice: 'Progress note was successfully updated.' }
+        format.html { redirect_to paciente_historia_clinica_nota_progreso_path(@paciente, @historia_clinica, @nota_progreso), notice: 'Nota de Evolución actualizada Satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @nota_progreso }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class NotasProgresoController < ApplicationController
   def destroy
     @nota_progreso.destroy
     respond_to do |format|
-      format.html { redirect_to notas_progreso_url, notice: 'Progress note was successfully destroyed.' }
+      format.html { redirect_to notas_progreso_url, notice: 'Nota de Evolución eliminada Satisfactoriamente.' }
       format.json { head :no_content }
     end
   end

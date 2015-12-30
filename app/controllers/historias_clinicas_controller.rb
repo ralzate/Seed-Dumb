@@ -5,13 +5,13 @@ class HistoriasClinicasController < ApplicationController
   def index
     @historias_clinicas = @paciente.historias_clinicas.search(params[:search]).page(params[:page]).per_page(2)
  
-   #respond_to do |format|
-    #  format.html
-     # format.pdf do 
-      #  pdf = HistoriasClinicasPdf.new(@historias_clinicas)
-      #  send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', :disposition => "inline"
-    #  end
-   #end
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = HistoriasClinicasPdf.new(@historias_clinicas)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', :disposition => "inline"
+      end
+    end
 
   end
 
@@ -53,7 +53,7 @@ class HistoriasClinicasController < ApplicationController
     respond_to do |format|
       if @historia_clinica.save(validate: false)
         format.html { redirect_to paciente_historia_clinica_steps_path(@paciente, @historia_clinica,
-         HistoriaClinica.form_steps.second), notice: 'Historia Clinica was successfully created.' }
+         HistoriaClinica.form_steps.second), notice: 'Historia Clinica creada Satisfactoriamente.' }
 
         format.json { render :show, status: :created, location: @historia_clinica }
       else
@@ -73,7 +73,7 @@ class HistoriasClinicasController < ApplicationController
   def update
     respond_to do |format|
       if @historia_clinica.update(historia_clinica_params)
-        format.html { redirect_to paciente_historia_clinica_path(@paciente, @historia_clinica), notice: 'clinic_history was successfully updated.' }
+        format.html { redirect_to paciente_historia_clinica_path(@paciente, @historia_clinica), notice: 'Historia Clinica actualizada Satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @historia_clinica }
       else
         format.html { render :edit }
