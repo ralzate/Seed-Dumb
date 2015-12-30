@@ -206,6 +206,78 @@ $(document).ready(function() {
 
 
 
+<script type="text/javascript">
+	function edValueKeyPress()
+{
+  var diastole = document.getElementById("diastole");
+  var s = diastole.value;
+  if (s == '.'){
+    $('#diastole').val('N/A');
+  } 
+
+
+  var sistole = document.getElementById("sistole");
+  var s = sistole.value;
+  if (s == '.'){
+    $('#sistole').val('N/A');
+  } 
+
+
+  var f_cardiaca = document.getElementById("f_cardiaca");
+  var s = f_cardiaca.value;
+  if (s == '.'){
+    $('#f_cardiaca').val('N/A');
+  } 
+
+
+  var f_respiratoria = document.getElementById("f_respiratoria");
+  var s = f_respiratoria.value;
+  if (s == '.'){
+    $('#f_respiratoria').val('N/A');
+  } 
+
+
+  var talla = document.getElementById("talla");
+  var s = talla.value;
+  if (s == '.'){
+    $('#talla').val('N/A');
+  } 
+
+  var sat_ambiente = document.getElementById("sat_ambiente");
+  var s = sat_ambiente.value;
+  if (s == '.'){
+    $('#sat_ambiente').val('N/A');
+  } 
+
+  var sat_suplementario = document.getElementById("sat_suplementario");
+  var s = sat_suplementario.value;
+  if (s == '.'){
+    $('#sat_suplementario').val('N/A');
+  } 
+
+  var temperatura = document.getElementById("temperatura");
+  var s = temperatura.value;
+  if (s == '.'){
+    $('#temperatura').val('N/A');
+  } 
+
+  var peso = document.getElementById("peso");
+  var s = peso.value;
+  if (s == '.'){
+    $('#peso').val('N/A');
+  } 
+
+  var glucometria = document.getElementById("glucometria");
+  var s = glucometria.value;
+  if (s == '.'){
+    $('#glucometria').val('N/A');
+  } 
+
+
+
+}
+</script>
+
 
 
 
@@ -244,21 +316,23 @@ $(document).ready(function() {
 					<tbody>
 						<tr id='addr0'>
 							<td>
-							    <%= f.input :d_ta_mmgh_diastole, placeholder: 'mm', :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+
+
+							    <%= f.input :d_ta_mmgh_diastole, placeholder: 'mm', :input_html => { :class => 'form-control fs1 required', id: "diastole", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()"  }, label: false %>
 					       </td>
 					       <td>
-					          <%= f.input :d_ta_mmgh_sistole,placeholder: 'HG', :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+					          <%= f.input :d_ta_mmgh_sistole,placeholder: 'HG', :input_html => { :class => 'form-control fs1 required', id: "sistole", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" }, label: false %>
 					       
 
 							</td>
 							<td>
-	        					<%= f.input :d_frecuencia_cardiaca, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+	        					<%= f.input :d_frecuencia_cardiaca, :input_html => { :class => 'form-control fs1 required', id: "f_cardiaca", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" }, label: false %>
 							</td>
 							<td>
-	        					<%= f.input :d_frecuencia_respiratoria, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+	        					<%= f.input :d_frecuencia_respiratoria, :input_html => { :class => 'form-control fs1 required', id: "f_respiratoria", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()"}, label: false %>
 							</td>
 							<td>
-								<%= f.input :d_talla_en_centimetros, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+								<%= f.input :d_talla_en_centimetros, :input_html => { :class => 'form-control fs1 required', id: "talla", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" }, label: false %>
 							</td>
 						</tr>
 					</tbody>
@@ -286,18 +360,18 @@ $(document).ready(function() {
 						<tr id='addr0'>
 				
 					       <td>
-        						<%= f.input :d_sat_of_o_ambiente, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %></label>
+        						<%= f.input :d_sat_of_o_ambiente, :input_html => { :class => 'form-control fs1 required', id: "sat_ambiente", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" }, label: false %></label>
 					       
 
 							</td>
 							<td>
-        						<%= f.input :d_sat_of_o_suplementario, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+        						<%= f.input :d_sat_of_o_suplementario, :input_html => { :class => 'form-control fs1 required', id: "sat_suplementario", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" }, label: false %>
 							</td>
 							<td>
-        						<%= f.input :d_temperatura, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+        						<%= f.input :d_temperatura, :input_html => { :class => 'form-control fs1 required', id: "temperatura", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" }, label: false %>
 							</td>
 							<td>
-        						<%= f.input :d_peso_en_kilogramos, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+        						<%= f.input :d_peso_en_kilogramos, :input_html => { :class => 'form-control fs1 required', id: "peso", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" }, label: false %>
 							</td>
 						</tr>
 					</tbody>
@@ -321,7 +395,7 @@ $(document).ready(function() {
 						<tr id='addr0'>
 				
 					       <td>
-      							<%= f.input :d_glucometria, :input_html => { :class => 'form-control fs1 required', :title => "Es un Campo Obligatorio" }, label: false %>
+      							<%= f.input :d_glucometria, :input_html => { :class => 'form-control fs1 required', id: "glucometria", :title => "Es un Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" }, label: false %>
 							</td>
 							<td>
 								

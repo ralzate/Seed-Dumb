@@ -526,6 +526,13 @@ function edValueKeyPress()
     $('#telefono').val('N/A');
   } 
 
+  var current_illness = document.getElementById("current_illness");
+  var s = current_illness.value;
+  if (s == '.'){
+    $('#current_illness').val('N/A');
+  } 
+
+
 }
 </script>   
 
@@ -533,7 +540,7 @@ function edValueKeyPress()
 
           <div class="col-md-4">
               <label>Nombre Acompañante:</label> 
-                <%= f.input :a_nombre_acompañante,  :input_html => { :class => 'form-control required', id: "acompañante", title: "Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" } , placeholder: 'Campo Obligatorio', label: false  %>
+                <%= f.input :a_nombre_acompañante, as: :text,  :input_html => { :class => 'form-control required', id: "acompañante", title: "Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" } , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
           <div class="col-md-4">
               <label>Parentesco:</label> 
@@ -654,7 +661,10 @@ function edValueKeyPress()
         <div class="col-md-12">
 
 
-              <%= f.text_area :a_enfermedad_actual, :class => 'form-control required', id: "current_illness", placeholder: 'Campo Obligatorio', label: false, title: "Campo Obligatorio"  %>
+
+                <%= f.input :a_enfermedad_actual, as: :text,  :input_html => { :class => 'form-control required', id: "current_illness", title: "Campo Obligatorio", :onkeypress => "edValueKeyPress()", :onkeyup => "edValueKeyPress()" } , placeholder: 'Campo Obligatorio', label: false  %>
+
+              
         </div>
         <br/>
         <br/>        <br/>

@@ -11,9 +11,7 @@ class HistoriasClinicasPdf < Prawn::Document
     @historias_clinicas = historias_clinicas
     header
     logo_1
-    titulo_2
     historias_clinicas_header_1
-    historias_clinicas_header_2
     pie_de_pagina
   end
 
@@ -24,10 +22,24 @@ class HistoriasClinicasPdf < Prawn::Document
   end
 
 
-  def titulo_2
+
+  def line_items
     move_down 20
-      text "Mi Curriculum", size: 28, style: :bold_italic
+    table historias_clinicas_rows do
+      row(0).font_style = :bold
+      columns(1..3).align = :right
+      self.row_colors = ["DDDDDD", "FFFFFF"]
+      self.header = true
+    end
   end
+
+  def historias_clinicas_rows
+    [["Product", "Qty", "Unit Price", "Full Price"]] +
+    @historias_clinicas.line_items.map do |historias_clinica|
+      [historias_clinica.created_at.to_date]
+    end
+  end
+
 
 
   def historias_clinicas_header_1
@@ -40,7 +52,7 @@ class HistoriasClinicasPdf < Prawn::Document
   end
 
   def historias_clinicas_header_2
-    move_down 10
+    move_down 80
     [["      asdasdas Clinica    ", "asdasdas"]] +
       @historias_clinicas.map do |historias_clinica|
       [historias_clinica.created_at.to_date, 
@@ -49,36 +61,6 @@ class HistoriasClinicasPdf < Prawn::Document
   end
 
 
-
-
-
-
-  def header
-
-    y_position = cursor
-    bounding_box([0, y_position], :width => 150, :height => 80) do
-    end
-    bounding_box([150, y_position], :width => 370) do
-      move_down -80
-        table historias_clinicas_header_1 do
-          row(0).font_style = :bold
-          self.header = true
-          self.row_colors = ['FFFFFF', 'FFFFFF']
-    end
-
-    bounding_box([440, y_position], :width => 80) do
-      move_down -80
-        table historias_clinicas_header_2 do
-          row(0).font_style = :bold
-          self.header = true
-          self.row_colors = ['FFFFFF', 'FFFFFF']
-          self.column_widths = [40, 40]
-        end
-    end
-    
-
-  end
-  end
 
 
  

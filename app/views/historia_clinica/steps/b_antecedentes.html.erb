@@ -411,9 +411,7 @@
 							<th class="text-center" style="width:25%">
 								Ciclo Menstrual:
 							</th>
-							<th class="text-center" style="width:25%">
-								Eco:
-							</th>
+
 							<th class="text-center" style="width:25%">
 								FUM:
 							</th>
@@ -423,15 +421,17 @@
 						</tr>
 
 					</thead>
+
+
+
+
 					<tbody>
 						<tr id='addr0'>
 							<td>
         						<%= f.text_field :b_ciclo_menstrual, class: 'form-control required', placeholder: 'Ciclo Menstrual', :id => "ciclo", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
 					       </td>
 					       
-							<td>
-        						<%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
-							</td>
+							
 							<td>
         						<%= f.text_field :b_fum, class: 'form-control required', placeholder: 'Fum', :id => "fum", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
 							</td>
@@ -461,7 +461,7 @@
 						<tr id='addr0'>
 				
 					       <td>
-                				<%= f.text_field :b_fecha_ultima_citologia, class: 'form-control required', placeholder: 'Eco', :id => "citologia", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
+                				<%= f.text_field :b_fecha_ultima_citologia, class: 'form-control required', placeholder: 'Campo Obligatorio', :id => "citologia", :title => "Es un Campo Obligatorio", :readonly => true, :value => 'N/A' %>
 					       
 
 							</td>
@@ -487,27 +487,32 @@
 				<table class="table" id="tab_logic" style="margin-top: -20px;">
 					<thead>
 						<tr  id="titulo_td">
-							<th class="text-center" style="width:14% !important;">
-								P:
-							</th>
-							<th  class="text-center" style="width:14% !important;">
-								C
+
+							<th class="text-center" style="width:12.5% !important;">
+								Eco:
 							</th>
 
-							<th  class="text-center" style="width:14% !important;">
-								A
+							<th class="text-center" style="width:12.5% !important;">
+								P:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								M
+							<th  class="text-center" style="width:12.5% !important;">
+								C:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								V
+
+							<th  class="text-center" style="width:12.5% !important;">
+								A:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								E
+							<th  class="text-center" style="width:12.5% !important;">
+								M:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								G
+							<th  class="text-center" style="width:12.5% !important;">
+								V:
+							</th>
+							<th  class="text-center" style="width:12.5% !important;">
+								E:
+							</th>
+							<th  class="text-center" style="width:12.5% !important;">
+								G:
 							</th>
 						</tr>
 
@@ -515,6 +520,11 @@
 					<tbody>
 						<tr id='addr0'>
 				
+							<td>
+        						<%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Es un Campo Obligatorio" , :readonly => true, :value => 'N/A' %>
+							</td>
+
+
 					       <td>
         						<%= f.text_field :b_p, class: 'form-control required', placeholder: 'P',  :id => "txt3", :readonly => true, :value => 'N/A' , :title => "Es un Campo Obligatorio" %>
 							</td>
@@ -603,16 +613,13 @@
 				<table class="table" id="tab_logic">
 					<thead>
 						<tr id="titulo_td">
-							<th class="text-center" style="width:25%">
+							<th class="text-center" style="width:33%">
 								Ciclo Menstrual:
 							</th>
-							<th class="text-center" style="width:25%">
-								Eco:
-							</th>
-							<th class="text-center" style="width:25%">
+							<th class="text-center" style="width:33%">
 								FUM:
 							</th>
-							<th class="text-center" style="width:25%">
+							<th class="text-center" style="width:33%">
 								Menarquia:
 							</th>
 						</tr>
@@ -624,9 +631,6 @@
         						<%= f.text_field :b_ciclo_menstrual, class: 'form-control required', placeholder: 'Ciclo Menstrual', :id => "ciclo", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
 					       </td>
 					       
-							<td>
-        						<%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
-							</td>
 							<td>
         						<%= f.text_field :b_fum, class: 'form-control required', placeholder: 'Fum', :id => "fum", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
 							</td>
@@ -656,7 +660,7 @@
 						<tr id='addr0'>
 				
 					       <td>
-                				<%= f.text_field :b_fecha_ultima_citologia, class: 'form-control required', placeholder: 'Eco', :id => "citologia", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
+                				<%= f.text_field :b_fecha_ultima_citologia, class: 'form-control required', placeholder: 'Campo Obligatorio', :id => "citologia", :title => "Es un Campo Obligatorio", :onkeyup => "edValueKeyPress()" %>
 					       
 
 							</td>
@@ -683,27 +687,33 @@
 				<table class="table" id="tab_logic" style="margin-top: -20px;">
 					<thead>
 						<tr  id="titulo_td">
-							<th class="text-center" style="width:14% !important;">
+
+
+
+							<th class="text-center" style="width:12.5% !important;%">
+								Eco:
+							</th>
+							<th class="text-center" style="width:12.5% !important;">
 								P:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								C
+							<th  class="text-center" style="width:12.5% !important;">
+								C:
 							</th>
 
-							<th  class="text-center" style="width:14% !important;">
-								A
+							<th  class="text-center" style="width:12.5% !important;">
+								A:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								M
+							<th  class="text-center" style="width:12.5% !important;">
+								M:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								V
+							<th  class="text-center" style="width:12.5% !important;">
+								V:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								E
+							<th  class="text-center" style="width:12.5% !important;">
+								E:
 							</th>
-							<th  class="text-center" style="width:14% !important;">
-								G
+							<th  class="text-center" style="width:12.5% !important;">
+								G:
 							</th>
 						</tr>
 
@@ -711,6 +721,14 @@
 					<tbody>
 						<tr id='addr0'>
 				
+
+							<td>
+        						<%= f.text_field :b_eco, class: 'form-control required', placeholder: 'Eco', :id => "eco", :title => "Es un Campo Obligatorio"  %>
+							</td>
+
+
+
+
 					       <td>
         						<%= f.text_field :b_p, class: 'form-control required', placeholder: 'P',  :id => "txt3", :onkeyup => "edValueKeyPress()", :title => "Es un Campo Obligatorio" %>
 							</td>
@@ -768,11 +786,7 @@
 <script>
 function edValueKeyPress()
 {
-  var ciclo = document.getElementById("ciclo");
-  var s = ciclo.value;
-  if (s == '.'){
-    $('#ciclo').val('N/A');
-  } 
+
 
   var eco = document.getElementById("eco");
   var s = eco.value;
@@ -870,8 +884,13 @@ function edValueKeyPress()
 $(document).ready(function(){
   $('#yes').click(function(){
       if($(this).prop("checked") == true){
-        $("#txt2").attr("readonly", false);
 
+
+
+        $('#eco').addClass('required');
+        $('#eco').addClass('error');
+        $('#eco-error').show(); 
+        $('#eco').val('');   
 
         $('#txt2').addClass('required');
         $('#txt2').addClass('error');
@@ -910,6 +929,8 @@ $(document).ready(function(){
         $('#txt8-error').show(); 
         $('#txt8').val('');             
 
+        $("#eco").attr("readonly", false);
+        $("#txt2").attr("readonly", false);
         $("#txt3").attr("readonly", false);
         $("#txt4").attr("readonly", false);
         $("#txt5").attr("readonly", false);
@@ -921,8 +942,11 @@ $(document).ready(function(){
   });
   $('#no').click(function(){
       if($(this).prop("checked") == true){
-        $("#txt2").attr("readonly", true);
-        $('#txt2').val('N/A');             
+           
+
+    $('#eco').removeClass('required');
+    $('#eco').removeClass('error');
+    $('#eco-error').hide(); 
 
     $('#txt2').removeClass('required');
     $('#txt2').removeClass('error');
@@ -951,6 +975,14 @@ $(document).ready(function(){
     $('#txt8').removeClass('required');
     $('#txt8').removeClass('error');
     $('#txt8-error').hide(); 
+
+
+
+        $("#eco").attr("readonly", true);
+        $('#eco').val('N/A');  
+
+        $("#txt2").attr("readonly", true);
+        $('#txt2').val('N/A');  
 
         $("#txt3").attr("readonly", true);
         $('#txt3').val('N/A');             
