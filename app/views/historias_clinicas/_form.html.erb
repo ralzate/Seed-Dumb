@@ -204,21 +204,21 @@ $(document).ready(function() {
 
     <h3 style = "color: #22BDC8;">DATOS GENERALES</h3>
     <hr class="featurette-divider"></hr>
-        <div class="col-md-12">
+    <div class="row">
 
           <div class="col-md-3">
+
               <label>Aeropuerto:</label> <br/>
 
           <%= f.select :aeropuerto_id, Aeropuerto.all.map { |u| ["#{u.ciudad.nombre}, #{u.nombre}", u.id] }, { include_blank: true },  { class: 'chosen-select2', :date => {:placeholder => 'Choose a Country...'} } %>
 
 
 
+
           </div>
 
 
-
-
-          <div class="col-md-3">
+          <div class="col-md-3 col-md-offset-1">
               <label>Auxiliar de enfermería:</label> 
 
               <%= f.input :a_auxiliar,  :input_html => { class: 'form-control required', title: "Campo Obligatorio" } , placeholder: 'Campo Obligatorio', label: false  %>
@@ -226,21 +226,31 @@ $(document).ready(function() {
 
           </div>
 
+
           <div class="col-md-3">
               <label>Cove:</label> 
               <%= f.input :a_cove,  :input_html => { class: 'form-control required', title: "Campo Obligatorio" } , placeholder: 'Campo Obligatorio', label: false  %>
           </div>
          
 
-          <div class="col-md-3">
+          <div class="col-md-2">
+
               <label>Movil/Servicio:</label> 
               <%= f.input :a_movil_servicio,  :input_html => { class: 'form-control required', title: "Campo Obligatorio" }  , placeholder: 'Campo Obligatorio', label: false  %>
+
+
+
           </div>
+
+
+
         </div>
 
-        <br/>
-        <br/>        <br/>
-        <br/>        <br/>
+<br/>
+
+   
+
+
 
 
     </div>
@@ -375,7 +385,7 @@ $(function() {
   return $('.chosen-select2').chosen({
     allow_single_deselect: true,
     no_results_text: 'No hay resultados',
-    width: '130px',
+    width: '200px',
     height: '30px'
 
   });

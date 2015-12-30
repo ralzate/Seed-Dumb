@@ -86,7 +86,7 @@ $(document).ready(function() {
  
      <%= link_to "1. Informacion General", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.first), :class=>"btn btn-info color_blanco mrg" %>
 
-    <%= link_to "2. Antesedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
+    <%= link_to "2. Antecedentes Personales", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.second), :class=>"btn btn-info color_blanco mrg" %>
 
     <%= link_to "3. Revisión por Sistemas", paciente_historia_clinica_steps_path(@paciente, @historia_clinica, HistoriaClinica.form_steps.third), :class=>"btn btn-info color_blanco mrg" %>
 
@@ -448,7 +448,6 @@ function edValueKeyPress()
 
 
 
-
 <br/>
 <div class="form-group">
   <div class="controls">
@@ -596,7 +595,7 @@ function edValueKeyPress()
 <h3 style = "color: #22BDC8;"> XII.  DESEA CERRAR LA HISTORIA CLINICA</h3>
 
 
-                  <h4>(Al cerrarla Ya no se Podra ser accesible para editarla)</h4>
+                  <h4>(al cerrar la historia clinica ya no se podra editar)</h4>
 
      </div>
      <hr class="featurette-divider"></hr>

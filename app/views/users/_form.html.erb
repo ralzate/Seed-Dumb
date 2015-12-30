@@ -6,8 +6,7 @@
     <%= link_to "Listado de Usuarios",  users_path, :class => "btn btn-info color_blanco  pull-left" %>
 <% end %>
     
-
-<br/>
+  </div>
 
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
@@ -223,19 +222,33 @@
     </div>
 
 
-               <div class="well pie_form">
-                <div class="form-actions"  style = "text-align:center!important"> 
-                    <% if current_user %>
-                        <%= link_to "Volver al Listado", users_path, :class=>"btn btn-info color_blanco mrg" %>
-                    <% end %>
+<br/>
 
 
 
-                        <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;">Borrar</button>
-                        <%= f.submit "Guardar", :class => 'btn btn btn-info  custom' %>
+                <div class="well pie_form">
+                  <% if not @user.errors.any? %>
+
+                      <div class="form-actions"  style = "text-align:center!important"> 
+
+                        <%= link_to "Regresar", users_path, :class=>"btn btn-info color_blanco custom" %>
+
+
+                      <% end %>
+
+                      <button type="reset" class="btn btn btn-info custom" style = "margin-right:20px;margin-left:20px;">Borrar</button>
+                      <%= f.submit "Guardar", :class => 'btn btn btn-info  custom' %>
                     
                 </div>
-              </div>
+              </div>  
+
+
+
+  
+
+
+
+
             <% end %>
 
 

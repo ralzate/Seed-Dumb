@@ -55,19 +55,19 @@ class User < ActiveRecord::Base
 
 
 
-  #validates :nombres, :presence => {:message => ' es un Campo Obligatorio'}
-  #validates :apellidos, :presence => {:message => ' es un Campo Obligatorio'}
-  #validates :documento, :presence => {:message => ' es un Campo Obligatorio'}
-  #validates :rol_id, :presence => {:message => ' es un Campo Obligatorio'}
-  #validates :email, :presence => { :message => " es un Campo Obligatorio" }
-  #validates :password, :presence  => { :message => " es un Campo Obligatorio" }, :confirmation => true, :on => :update
-  #validates :password, :presence => { :message => " es un Campo Obligatorio" }
-  #validates :password,  length: { minimum: 3, :message => " no es una contraseña valida" }
-  #validates :password, confirmation: true, if: :new_user?
-  #validates :email, email_format: { message: "  No es valido" }
-  #validates :email, :uniqueness =>  { message: "  No es valido" }
-  #validates :nombre_usuario, :presence => {:message => ' es un Campo Obligatorio'}
-  #validates :nombre_usuario, :uniqueness => { message: "  No es valido" }
+  validates :nombres, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :apellidos, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :documento, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :rol_id, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :email, :presence => { :message => " es un Campo Obligatorio" }
+  validates :password, :presence  => { :message => " es un Campo Obligatorio" }, :confirmation => true, :on => :update
+  validates :password, :presence => { :message => " es un Campo Obligatorio" }
+  validates :password,  length: { minimum: 3, :message => " no es una contraseña valida" }
+  validates :password, confirmation: true, if: :new_user?
+  validates :email, email_format: { message: "  No es valido" }
+  validates :email, :uniqueness =>  { message: "  No es valido" }
+  validates :nombre_usuario, :presence => {:message => ' es un Campo Obligatorio'}
+  validates :nombre_usuario, :uniqueness => { message: "  No es valido" }
 
 
 
