@@ -117,8 +117,8 @@ gem 'populator'
 # https://github.com/mdedetrich/jasny-bootstrap-extension-rails
 gem 'jasny-bootstrap-rails'
 gem "cocoon"
-gem 'prawn'
-gem 'prawn-table'
+gem 'prawn', '~> 1.2.1'
+gem 'prawn-table', '~> 0.1.0'
 
 
 group :development do

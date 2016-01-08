@@ -4,14 +4,7 @@ class HistoriasClinicasController < ApplicationController
 
   def index
     @historias_clinicas = @paciente.historias_clinicas.search(params[:search]).page(params[:page]).per_page(2)
- 
-    respond_to do |format|
-      format.html
-      format.pdf do 
-        pdf = HistoriasClinicasPdf.new(@historias_clinicas)
-        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', :disposition => "inline"
-      end
-    end
+
 
   end
 
@@ -22,6 +15,18 @@ class HistoriasClinicasController < ApplicationController
     @diagnosticos = @historia_clinica.diagnosticos.all
     @procedimientos = @historia_clinica.procedimientos.all
     @alejo = 0
+
+
+
+    @historias_clinicas = @paciente.historias_clinicas.search(params[:search]).page(params[:page]).per_page(2)
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = HistoriasClinicasPdf.new(@historias_clinicas)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', :disposition => "inline"
+      end
+    end
+
   end
 
   # GET /countries/1/edit

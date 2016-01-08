@@ -9,71 +9,1351 @@ class HistoriasClinicasPdf < Prawn::Document
   def initialize(historias_clinicas)
     super()
     @historias_clinicas = historias_clinicas
-    header
     logo_1
-    historias_clinicas_header_1
+    titulo_2
+    datos_generales
+    datos_generales2
+    datos_generales3
+    datos_generales4
+    experiencias_laborales_1
+    experiencias_laborales_2
+    experiencias_laborales_3
+    experiencias_laborales_4
+    experiencias_laborales_5
+    experiencias_laborales_7
+    experiencias_laborales_6
+    experiencias_laborales_9
+    experiencias_laborales_10
+    experiencias_laborales_11
+    experiencias_laborales_11_5
+    experiencias_laborales_12
+    experiencias_laborales_12_5
+    experiencias_laborales_13
+    experiencias_laborales_14
+    experiencias_laborales_15
+    experiencias_laborales_16
+    experiencias_laborales_17
+    experiencias_laborales_18
+    experiencias_laborales_19
+    experiencias_laborales_20
+    experiencias_laborales_21
+    experiencias_laborales_22
+    experiencias_laborales_23
+    experiencias_laborales_24
+    experiencias_laborales_25
+    experiencias_laborales_26
+    experiencias_laborales_27
+    experiencias_laborales_28
+    experiencias_laborales_29
+    experiencias_laborales_30
+    experiencias_laborales_31
+    experiencias_laborales_32
+    experiencias_laborales_33
+    experiencias_laborales_34
+    experiencias_laborales_35
+    experiencias_laborales_36
+    experiencias_laborales_37
+    experiencias_laborales_38
+    experiencias_laborales_39
+    experiencias_laborales_40
+    experiencias_laborales_41
+    experiencias_laborales_42
+    experiencias_laborales_43
+    experiencias_laborales_44
+    experiencias_laborales_45
+    experiencias_laborales_46
+    experiencias_laborales_47
+    experiencias_laborales_48
+    experiencias_laborales_49
+    experiencias_laborales_50
+    experiencias_laborales_51
+    experiencias_laborales_52
+    experiencias_laborales_53
+    experiencias_laborales_54
+    experiencias_laborales_55
+    experiencias_laborales_56
+    experiencias_laborales_57
+    experiencias_laborales_58
+    experiencias_laborales_59
+    experiencias_laborales_60
+    experiencias_laborales_61
+    
     pie_de_pagina
   end
 
   def logo_1
     image "#{Rails.root}/app/assets/images/Logo/logo.png", :at => [10, 720], :width => 140, :height => 80
     t = Time.now
-    draw_text  formatted = "#{t.strftime("%d-%m-%Y")}", :at => [450, 616], size: 10, style: :bold 
+    draw_text  formatted = "#{t.strftime("%d-%m-%Y")}", :at => [450, 616], size: 8, style: :bold 
   end
 
 
-
-  def line_items
+  def titulo_2
     move_down 20
-    table historias_clinicas_rows do
-      row(0).font_style = :bold
-      columns(1..3).align = :right
-      self.row_colors = ["DDDDDD", "FFFFFF"]
-      self.header = true
-    end
-  end
-
-  def historias_clinicas_rows
-    [["Product", "Qty", "Unit Price", "Full Price"]] +
-    @historias_clinicas.line_items.map do |historias_clinica|
-      [historias_clinica.created_at.to_date]
-    end
-  end
-
-
-
-  def historias_clinicas_header_1
-    move_down 80
-    [["      Historia Clinica    ", "Fecha"]] +
-      @historias_clinicas.map do |historias_clinica|
-      [historias_clinica.created_at.to_date, 
-        historias_clinica.created_at.strftime("%d-%m-%Y")]
-    end
-  end
-
-  def historias_clinicas_header_2
-    move_down 80
-    [["      asdasdas Clinica    ", "asdasdas"]] +
-      @historias_clinicas.map do |historias_clinica|
-      [historias_clinica.created_at.to_date, 
-        historias_clinica.created_at.strftime("%d-%m-%Y")]
-    end
+      text "Subtitulo", size: 28, style: :bold_italic
   end
 
 
 
 
- 
+  def datos_generales
+      move_down 50
+      text "DATOS GENERALES", size: 15, style: :bold, :color => "22BDC8"
+      table(datos_generales_rows, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def datos_generales_rows
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Movil/Servicio:'   ,  historia_clinica.a_movil_servicio, 
+          'Conductor/Comandante:', historia_clinica.a_cove
+        ]
+    end
+  end
+
+
+  def datos_generales2
+      table(datos_generales2_rows, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def datos_generales2_rows
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Ciudad:', historia_clinica.p_ciudad, 
+          'Departamento:', historia_clinica.p_departamento
+        ]
+    end
+  end
+
+
+  def datos_generales3
+      table(datos_generales3_rows, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def datos_generales3_rows
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Medico De Turno:', historia_clinica.user.nombre_usuario, 
+          'Aeropuerto:', historia_clinica.aeropuerto.nombre + ' ' + 
+          historia_clinica.aeropuerto.ciudad.nombre
+        ]
+    end
+  end
+
+
+  def datos_generales4
+      table(datos_generales4_rows, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def datos_generales4_rows
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Empresa:', historia_clinica.a_empresa, 
+          'Auxiliar De Enfermería:', historia_clinica.a_auxiliar
+        ]
+    end
+  end
+
+  def datos_generales5
+      table(datos_generales5_rows, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def datos_generales5_rows
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Tipo De Servicio:', historia_clinica.a_tipo_servicio, 
+          'Lugar De Atención', historia_clinica.a_lugar_de_atencion
+        ]
+    end
+  end
+
+
+
+  def experiencias_laborales_1
+      move_down 30
+      text "I. IDENTIFICACIÓN DEL PACIENTE", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Nombres:', historia_clinica.p_primer_nombre + ' ' + historia_clinica.p_segundo_nombre, 
+          'Apellidos:', historia_clinica.p_primer_apellido + ' ' + historia_clinica.p_segundo_apellido
+        ]
+    end
+  end
+
+
+  def experiencias_laborales_2
+      move_down 0.5
+      table(experiencias_laborales_rows2, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows2
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Email:', historia_clinica.p_email, 
+          'Tipo De Documento:' , historia_clinica.p_tipo_documento, 
+        ]
+    end
+  end
+
+
+  def experiencias_laborales_3
+      move_down 0.5
+      table(experiencias_laborales_rows3, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows3
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Documento:', historia_clinica.p_documento,
+          'Fecha Nacimiento:', historia_clinica.p_fecha_nacimiento, 
+
+        ]
+    end
+  end
+
+
+  def experiencias_laborales_4
+      move_down 0.5
+      table(experiencias_laborales_rows4, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows4
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Genero:', historia_clinica.p_genero, 
+          'Profesión:', historia_clinica.p_profesion
+
+        ]
+    end
+  end
+
+
+  def experiencias_laborales_5
+      move_down 0.5
+      table(experiencias_laborales_rows5, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows5
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Tipo De Sangre:', historia_clinica.p_tipo_sangre, 
+          'Nacionalidad:', historia_clinica.p_nacionalidad,
+
+        ]
+    end
+  end
+
+
+  def experiencias_laborales_7
+      move_down 0.5
+      table(experiencias_laborales_rows7, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows7
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Dirección:', historia_clinica.p_direccion,
+          'Usuario:', historia_clinica.user.nombre_usuario, 
+        ]
+    end
+  end
+
+
+  def experiencias_laborales_6
+      move_down 0.5
+      table(experiencias_laborales_rows6, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows6
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Paciente:', historia_clinica.paciente.primer_nombre, 
+          'Condición:', historia_clinica.a_condicion        
+        ]
+    end
+  end
+        
+
+  def experiencias_laborales_9
+      move_down 0.5
+      table(experiencias_laborales_rows9, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows9
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Origen:', historia_clinica.a_origen, 
+          'Destino:', historia_clinica.a_destino
+        ]
+      end
+  end
+
+
+  def experiencias_laborales_10
+      move_down 0.5
+      table(experiencias_laborales_rows10, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows10
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Nombre Acompañante:', historia_clinica.a_nombre_acompañante,
+          'Parentesco Acompañante:', historia_clinica.a_parentesco, 
+
+        ]
+      end
+  end
+     
+
+  def experiencias_laborales_11
+      move_down 0.5
+      table(experiencias_laborales_rows11, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows11
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Telefono Acompañante:', historia_clinica.a_telefono, 
+          'Arl:', historia_clinica.arl
+        ]
+      end
+  end     
+
+
+
+
+  def experiencias_laborales_11_5
+      move_down 0.5
+      table(experiencias_laborales_rows11_5, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows11_5
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Eps:', historia_clinica.a_parentesco, 
+          'Edad:', historia_clinica.p_edad.to_s + ' ' + historia_clinica.p_tipo_edad   
+        ]
+      end
+  end     
+
+
+       
+  def experiencias_laborales_12
+      move_down 30
+      text "II. MOTIVO DE CONSULTA", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows12, :column_widths => [540], :cell_style => {position: :absulte,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows12
+          @historias_clinicas.map do |historia_clinica|
+        [
+          historia_clinica.a_motivo_de_consulta
+        ]
+      end
+  end        
+
+  def experiencias_laborales_12_5
+      move_down 30
+      text "III. ENFERMEDAD ACTUAL", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows12_5, :column_widths => [540], :cell_style => {position: :absulte,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows12_5
+          @historias_clinicas.map do |historia_clinica|
+        [
+          historia_clinica.a_enfermedad_actual
+        ]
+      end
+  end  
+
+
+  def experiencias_laborales_13
+      move_down 30
+      text "IV. ANTECEDENTES PERSONALES", size: 15, style: :bold, :color => "22BDC8"
+   
+      table(experiencias_laborales_rows13_5, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+          row(0).font_style = :bold
+    end
+      table(experiencias_laborales_rows13, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+
+    
+  end
+
+
+  def experiencias_laborales_rows13_5
+      [['Antecedentes', 'Si/No', 'Ampliar Información']] +
+
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+        ]
+      end
+  end
+
+  def experiencias_laborales_rows13
+
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Neonatales', historia_clinica.b_neonatales, 
+          historia_clinica.b_neonatales_descripcion
+        ]
+      end
+  end
+
+  def experiencias_laborales_14
+      move_down 0.5
+      table(experiencias_laborales_rows14, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows14
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Patologicos', historia_clinica.b_patologicos, 
+          historia_clinica.b_patologicos_descripcion
+        ]
+      end
+  end
+
+    
+  def experiencias_laborales_15
+      move_down 0.5
+      table(experiencias_laborales_rows15, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows15
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Quirurgicos',historia_clinica.b_quirurgicos, 
+          historia_clinica.b_quirurgicos_descripcion
+        ]
+    end
+  end    
+
+    
+  def experiencias_laborales_16
+      move_down 0.5
+      table(experiencias_laborales_rows16, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows16
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Farmacologicos', historia_clinica.b_farmacologicos, 
+          historia_clinica.b_farmacologicos_descripcion
+        ]
+    end
+  end    
+
+    
+  def experiencias_laborales_17
+      move_down 0.5
+      table(experiencias_laborales_rows17, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows17
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Alergicos',historia_clinica.b_alergicos, 
+          historia_clinica.b_alergicos_descripcion
+        ]
+    end
+  end    
+
+
+  def experiencias_laborales_18
+      move_down 0.5
+      table(experiencias_laborales_rows18, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows18
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Toxicos', historia_clinica.b_toxicos, 
+          historia_clinica.b_toxicos_descripcion
+        ]
+    end
+  end    
+
+    
+  def experiencias_laborales_19
+      move_down 0.5
+      table(experiencias_laborales_rows19, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows19
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Traumaticos', historia_clinica.b_traumaticos, 
+          historia_clinica.b_traumaticos_descripcion
+        ]
+    end
+  end    
+
+
+  def experiencias_laborales_20
+      move_down 0.5
+      table(experiencias_laborales_rows20, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows20
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Hospitalarios', historia_clinica.b_hospitalarios, 
+          historia_clinica.b_hospitalarios_descripcion
+        ]
+    end
+  end    
+
+   
+  def experiencias_laborales_21
+      move_down 0.5
+      table(experiencias_laborales_rows21, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows21
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Atep Laboral', historia_clinica.b_atep_laboral, 
+          historia_clinica.b_atep_laboral_descripcion
+        ]
+    end
+  end    
+
+
+  def experiencias_laborales_22
+      move_down 0.5
+      table(experiencias_laborales_rows22, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows22
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Familiares', historia_clinica.b_familiares, 
+          historia_clinica.b_familiar_descripcion
+        ]
+    end
+  end    
+
+    
+  def experiencias_laborales_23
+      move_down 0.5
+      table(experiencias_laborales_rows23, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows23
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Inmunologicos', historia_clinica.b_inmunologicos, 
+          historia_clinica.b_inmunologios_descripcion
+        ]
+    end
+  end    
+    
+  def experiencias_laborales_24
+      move_down 0.5
+      table(experiencias_laborales_rows24, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows24
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Familiares', historia_clinica.b_familiares, 
+          historia_clinica.b_familiar_descripcion
+        ]
+    end
+  end    
+
+    
+  def experiencias_laborales_25
+      move_down 0.5
+      table(experiencias_laborales_rows25, :column_widths => [120, 35, 385], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+  end
+
+  def experiencias_laborales_rows25
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Asociado Viajes De Vuelo', historia_clinica.b_asociado_viajes_de_vuelo, 
+          historia_clinica.b_asociado_viajes_de_vuelo_descripcion
+        ]
+    end
+  end    
+
+
+
+  def experiencias_laborales_26
+      move_down 30
+      text "GINECO-OBSTÉTRICOS", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows26, :column_widths => [130, 115, 125, 170], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows26
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Ciclo Menstrual:', historia_clinica.b_ciclo_menstrual, 
+          'FUM:', historia_clinica.b_fum
+        ]
+    end
+  end
+
+  def experiencias_laborales_27
+      move_down 0.5
+      table(experiencias_laborales_rows27, :column_widths => [130, 115, 125, 170], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows27
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Menarquia:'   ,  historia_clinica.b_menarquia, 
+          'Fecha de la Ultima Citología:', historia_clinica.b_fecha_ultima_citologia
+        ]
+    end
+  end
+
+  def experiencias_laborales_28
+      move_down 0.5
+      table(experiencias_laborales_rows28, :column_widths => [130, 115, 125, 170], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows28
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Fecha de la Ultima Mamografia:',  historia_clinica.b_fecha_ultima_mamografia, 
+          'Esta en Embarazo:', historia_clinica.b_embarazo
+        ]
+    end
+  end
+
+
+  def experiencias_laborales_29
+      move_down 0.5
+      table(experiencias_laborales_rows29, :column_widths => [29,42,29,38,29,38,29,38,29,38,29,38,29,38,29,38], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows29
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Eco:', historia_clinica.b_eco, 
+          'P:', historia_clinica.b_p,
+          'C:', historia_clinica.b_c,
+          'A:', historia_clinica.b_p,
+          'M:', historia_clinica.b_a,
+          'V:', historia_clinica.b_v,
+          'E:', historia_clinica.b_e,
+          'G:', historia_clinica.b_g
+        ]
+    end
+  end
+    
+
+
+  def experiencias_laborales_30
+      move_down 30
+      text "V. REVISIÓN POR SISTEMAS", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows30_5, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+        row(0).font_style = :bold
+    end
+
+   
+
+  end
+
+
+  def experiencias_laborales_rows30_5
+      [['Antecedentes', 'Anormal/Normal', 'Ampliar Información']] +
+
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+        ]
+      end
+  end
+
+
+  def experiencias_laborales_31
+      move_down 0.5
+      table(experiencias_laborales_rows31, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows31
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Cardiovascular:', historia_clinica.c_cardiovascular, 
+          historia_clinica.c_cardiovascular_descripcion
+        ]
+    end
+  end
+    
+
+
+  def experiencias_laborales_32
+      move_down 0.5
+      table(experiencias_laborales_rows32, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows32
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Respiratorio:', historia_clinica.c_respiratorio, 
+          historia_clinica.c_respiratorio_descripcion
+        ]
+    end
+  end
+    
+  def experiencias_laborales_33
+      move_down 0.5
+      table(experiencias_laborales_rows33, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows33
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Abdominal:', historia_clinica.c_abdominal, 
+          historia_clinica.c_abdominal_descripcion
+        ]
+    end
+  end
+    
+  def experiencias_laborales_34
+      move_down 0.5
+      table(experiencias_laborales_rows34, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows34
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Genito Urinario:', historia_clinica.c_genito_urinario, 
+          historia_clinica.c_genito_urinario_descripcion
+        ]
+    end
+  end
+    
+  def experiencias_laborales_35
+      move_down 0.5
+      table(experiencias_laborales_rows35, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows35
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Neugologico:', historia_clinica.c_neurologico, 
+          historia_clinica.c_neurologico_descripcion
+        ]
+    end
+  end
+    
+  def experiencias_laborales_36
+      move_down 0.5
+      table(experiencias_laborales_rows36, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows36
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Mental:', historia_clinica.c_mental, 
+          historia_clinica.c_mental_descripcion
+        ]
+    end
+  end
+    
+  def experiencias_laborales_37
+      move_down 0.5
+      table(experiencias_laborales_rows37, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows37
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Organo De Los Sentidos:', historia_clinica.c_organo_de_los_sentidos, 
+          historia_clinica.c_organo_de_los_sentidos_descripcion
+        ]
+    end
+  end
+    
+
+
+
+    
+  def experiencias_laborales_38
+      move_down 0.5
+      table(experiencias_laborales_rows38, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows38
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Musculo Esqueletico:', historia_clinica.c_musculo_esqueletico, 
+          historia_clinica.c_musculo_esqueletico_descripcion
+        ]
+    end
+  end
+    
+
+
+
+    
+  def experiencias_laborales_39
+      move_down 0.5
+      table(experiencias_laborales_rows39, :column_widths => [120, 80, 340], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+  def experiencias_laborales_rows39
+          @historias_clinicas.map do |historia_clinica|
+
+        [
+          'Piel y Faneras:', historia_clinica.c_piel_y_faneras, 
+          historia_clinica.c_piel_y_faneras_descripcion
+        ]
+    end
+  end
+    
+
+
+
+  def experiencias_laborales_40
+      move_down 120
+      text "VI. EXAMEN FISICO", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows40, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end
+  end
+
+
+  def experiencias_laborales_rows40
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'TA mm/Hg:', historia_clinica.d_ta_mmgh_diastole + ' - Mm / ' + historia_clinica.d_ta_mmgh_sistole + ' -Hg ',
+          'Frecuencia Cardiaca:', historia_clinica.d_frecuencia_cardiaca         
+        ]
+      end
+  end
+
+
+
+
+
+  def experiencias_laborales_41
+      move_down 0.5
+      table(experiencias_laborales_rows41, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows41
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Frecuencia Respiratoria:', historia_clinica.d_frecuencia_respiratoria,
+          '% SAT. de O2 Ambiente:', historia_clinica.d_sat_of_o_ambiente         
+        ]
+      end
+  end
+
+
+  def experiencias_laborales_41
+      move_down 0.5
+      table(experiencias_laborales_rows41, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows41
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          '% SAT. de O2 Suplementario:', historia_clinica.d_sat_of_o_suplementario,
+          'Temperatura:', historia_clinica.d_temperatura         
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_42
+      move_down 0.5
+      table(experiencias_laborales_rows42, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows42
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Peso En Kilogramos:', historia_clinica.d_peso_en_kilogramos,
+          'Talla en Centimetros:', historia_clinica.d_talla_en_centimetros         
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_43
+      move_down 0.5
+      table(experiencias_laborales_rows43, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows43
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Glucometria:', historia_clinica.d_glucometria,
+        ]
+      end
+  end
+
+
+  def experiencias_laborales_44
+      move_down 30
+   
+      table(experiencias_laborales_rows44_5, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+          row(0).font_style = :bold
+    end
+      table(experiencias_laborales_rows44, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 9,  size: 9}) do
+    end
+
+    
+  end
+
+
+  def experiencias_laborales_rows44_5
+      [['Antecedentes', 'Anormal/Normal', 'Ampliar Información']] +
+
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+        ]
+      end
+  end
+
+  def experiencias_laborales_rows44
+
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Cabeza:', historia_clinica.d_cabeza,         
+          historia_clinica.d_cabeza_descripcion
+        ]
+      end
+  end
+
+
+  def experiencias_laborales_45
+      move_down 0.5
+      table(experiencias_laborales_rows45, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows45
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Cuello:', historia_clinica.d_cuello,
+          historia_clinica.d_cuello_descripcion,
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_46
+      move_down 0.5
+      table(experiencias_laborales_rows46, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows46
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Caja Toracica:', historia_clinica.d_caja_toracica,
+          historia_clinica.d_caja_toracica_descripcion
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_47
+      move_down 0.5
+      table(experiencias_laborales_rows47, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows47
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Corazón:', historia_clinica.d_corazon,
+          historia_clinica.d_corazon_descripcion
+        ]
+      end
+  end
+
+
+
+
+  def experiencias_laborales_48
+      move_down 0.5
+      table(experiencias_laborales_rows48, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows48
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Pulmones:', historia_clinica.d_pulmones,
+          historia_clinica.d_pulmones_descripcion
+        ]
+      end
+  end
+
+
+
+
+  def experiencias_laborales_49
+      move_down 0.5
+      table(experiencias_laborales_rows49, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows49
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Abdomen:', historia_clinica.d_abdomen,
+          historia_clinica.d_abdomen_descripcion,
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_50
+      move_down 0.5
+      table(experiencias_laborales_rows50, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows50
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Genito Urinario:', historia_clinica.d_genito_urinario,
+          historia_clinica.d_genito_urinario_descripcion
+        ]
+      end
+  end
+
+
+  def experiencias_laborales_51
+      move_down 0.5
+      table(experiencias_laborales_rows51, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows51
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Recto:', historia_clinica.d_recto,
+          historia_clinica.d_recto_descripcion
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_52
+      move_down 0.5
+      table(experiencias_laborales_rows52, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows52
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Extremidades:', historia_clinica.d_extremidades,
+          historia_clinica.d_extremidades_descripcion
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_53
+      move_down 0.5
+      table(experiencias_laborales_rows53, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows53
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Piel y Faneras:', historia_clinica.d_piel_y_faneras,
+          historia_clinica.d_piel_y_faneras_descripcion
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_54
+      move_down 0.5
+      table(experiencias_laborales_rows54, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows54
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Musculo Esqueletico:', historia_clinica.d_musculo_esqueletico,
+          historia_clinica.d_musculo_esqueletico_descripcion
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_55
+      move_down 0.5
+      table(experiencias_laborales_rows55, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows55
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Mental:', historia_clinica.d_mental,
+          historia_clinica.d_mental_descripcion
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_56
+      move_down 0.5
+      table(experiencias_laborales_rows56, :column_widths => [100, 85, 355], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows56
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Neurologico:', historia_clinica.d_neurologico,
+          historia_clinica.d_neurologico_descripcion
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_57
+      move_down 40
+      table(experiencias_laborales_rows57, :column_widths => [100, 120, 140, 180], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows57
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Apertura Ocular:', 
+          if historia_clinica.d_apertura_ocular == 4
+            '4 - Espontanea'
+          elsif historia_clinica.d_apertura_ocular == 3
+            '3 - Al Llamado'
+          elsif historia_clinica.d_apertura_ocular == 2
+            '2 - Al Dolor'   
+          elsif historia_clinica.d_apertura_ocular == 1
+            '1 - No Apertura'
+          end,
+
+          'Respuesta Verbal:',
+          if  historia_clinica.d_respuesta_verbal == 5 
+            '5 - Orientada'
+          elsif historia_clinica.d_respuesta_verbal == 4 
+            '4 - Confusa'
+          elsif historia_clinica.d_respuesta_verbal == 3 
+            '3 - Palabras'
+          elsif historia_clinica.d_respuesta_verbal == 2 
+            '2- Sonidos'
+          elsif historia_clinica.d_respuesta_verbal == 1 
+            '1- Ninguna'
+          end
+
+
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_58
+      move_down 0.5
+      table(experiencias_laborales_rows58, :column_widths => [100, 120, 140, 180], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows58
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Respueta Motora:', 
+          if historia_clinica.d_respuesta_motora == 6 
+            '6 - Obedece Ordenes'
+          elsif historia_clinica.d_respuesta_motora == 5
+            '5 - Localiza Estimulos'
+          elsif historia_clinica.d_respuesta_motora == 4
+            '4 - Retira El Dolor'
+          elsif historia_clinica.d_respuesta_motora == 3
+            '3 - Retira En Flexión'  
+          elsif historia_clinica.d_respuesta_motora == 2
+            '2- Retira En Extensión'
+          elsif historia_clinica.d_respuesta_motora == 1
+            '1 - Sin Respuesta'
+          end,
+
+          'Escala De Glasgow:', historia_clinica.d_escala_de_glasgow
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_59
+      move_down 0.5
+      table(experiencias_laborales_rows59, :column_widths => [100, 440], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows59
+          @historias_clinicas.map do |historia_clinica|
+        [
+
+          'Alteración:', historia_clinica.d_alteracion        ]
+      end
+  end
+
+  def experiencias_laborales_60
+      move_down 0.5
+      table(experiencias_laborales_rows60, :column_widths => [100, 440], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows60
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Otros Signos:', historia_clinica.d_otros_signos        ]
+      end
+  end
+
+
+  def experiencias_laborales_61
+      move_down 30
+      table(experiencias_laborales_rows61, :column_widths => [100, 440], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows61
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Analisis:', historia_clinica.e_analisis        ]
+      end
+  end
 
 
   def pie_de_pagina 
-    move_down 1120
-    text "www.servidual.com", size: 10, :align => :center, :style => :bold
-    text "servidual@servidual.com", size: 11, :style => :bold, :align => :center
-    text "(+574) 4440996", size: 11, :align => :center
-    text "________________________________________________", size: 15, :align => :center
-    text "Cra 80# 44B-149", size: 10, :align => :center
-    text "La America-Medellin",  size: 10, :align => :center
+    move_down 1020
+    text "www.aerosanidadvirtual.com", size: 9, :align => :center, :style => :bold
+    text "Aeropuerto Bogotá: (57)(1) 2205674 / 3002221245", size: 9, :align => :center
+    text "Aeropuerto Medellín: (57)(4) 3656171 / 3007042683", size: 9, :align => :center
+    text "Aeropuerto Rionegro: 3002214168", size: 9, :align => :center
+    text "------------------------------------------------", size: 9, :align => :center
+    text "info@aerosanidadsas.com",  size: 9, :align => :center
   end
 
 end 

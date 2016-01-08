@@ -4,7 +4,6 @@
 <tr id=<%= "aeropuerto_#{aeropuerto.id}" %>>
 	<td><%= link_to aeropuerto.id, edit_aeropuerto_path(aeropuerto), :remote => true %></td>
 	<td><%= aeropuerto.nombre.capitalize %></td>
-	<td><%= aeropuerto.departamento.capitalize %></td>	
 	<td><%= aeropuerto.ciudad.nombre.capitalize %></td>
 	
 	<td>
