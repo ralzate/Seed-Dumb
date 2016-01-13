@@ -666,8 +666,6 @@ function edValueKeyPress()
 </div>
         
 
-
-
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= f.hidden_field :paciente_id, :value => @paciente.id %>
       <%= f.hidden_field :p_primer_nombre, :value => @paciente.primer_nombre %>
@@ -684,6 +682,8 @@ function edValueKeyPress()
       <%= f.hidden_field :p_nacionalidad, :value => @paciente.nacionalidad %>
       <%= f.hidden_field :p_direccion, :value => @paciente.direccion %>
       <%= f.hidden_field :p_ciudad, :value => @paciente.ciudad %>
+      <%= f.hidden_field :registro_medico, :value => @user.registro_medico %>
+
 
 
 

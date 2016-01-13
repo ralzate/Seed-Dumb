@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20151221171928) do
     t.string   "p_tipo_sangre"
     t.string   "p_nacionalidad"
     t.string   "p_direccion"
+    t.string   "registro_medico"
     t.integer  "user_id"
     t.string   "p_ciudad"
     t.string   "p_departamento"

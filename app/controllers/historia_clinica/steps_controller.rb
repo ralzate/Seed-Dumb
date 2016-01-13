@@ -34,6 +34,7 @@ class HistoriaClinica::StepsController < ApplicationController
            :p_nacionalidad,
            :p_direccion,
            :user_id,
+           :registro_medico,
            :p_ciudad,
            :p_departamento,
            :paciente_id,

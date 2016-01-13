@@ -16,9 +16,8 @@ class DiagnosticosController < ApplicationController
   # GET /diagnosticos/new
   def new
     @diagnostico = Diagnostico.new
-@diagnostico.familia = "hola jodido"
+    #@diagnostico.familia = "hola jodido"
     
-
   end
 
   # GET /diagnosticos/1/edit

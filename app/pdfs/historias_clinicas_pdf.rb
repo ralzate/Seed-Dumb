@@ -6,11 +6,14 @@ NO usar (draw text)!! este metodo no se acomoda a los otros
 =end
 
 class HistoriasClinicasPdf < Prawn::Document
-  def initialize(historias_clinicas)
+  def initialize(historias_clinicas, diagnosticos, cie10s, procedimientos, notas_progreso)
     super()
     @historias_clinicas = historias_clinicas
+    @diagnosticos = diagnosticos
+    @cie10s = cie10s
+    @procedimientos = procedimientos
+    @notas_progreso = notas_progreso
     logo_1
-    titulo_2
     datos_generales
     datos_generales2
     datos_generales3
@@ -77,28 +80,41 @@ class HistoriasClinicasPdf < Prawn::Document
     experiencias_laborales_59
     experiencias_laborales_60
     experiencias_laborales_61
+    experiencias_laborales_62
+    experiencias_laborales_63
+    experiencias_laborales_64
+    experiencias_laborales_65
+    experiencias_laborales_66
+    experiencias_laborales_67
+    experiencias_laborales_68
+    experiencias_laborales_69
+    experiencias_laborales_70
     
     pie_de_pagina
   end
 
   def logo_1
-    image "#{Rails.root}/app/assets/images/Logo/logo.png", :at => [10, 720], :width => 140, :height => 80
-    t = Time.now
-    draw_text  formatted = "#{t.strftime("%d-%m-%Y")}", :at => [450, 616], size: 8, style: :bold 
+
   end
 
 
-  def titulo_2
-    move_down 20
-      text "Subtitulo", size: 28, style: :bold_italic
-  end
 
 
 
 
   def datos_generales
-      move_down 50
-      text "DATOS GENERALES", size: 15, style: :bold, :color => "22BDC8"
+      move_down 10
+
+      image = "#{Rails.root}/app/assets/images/Logo/LogoPdf.png"
+          @historias_clinicas.map do |historia_clinica|
+
+table([
+ [{:image => image, :fit => [95, 190], :colspan => 2, :rowspan => 3}, {:content => "HISTORIA CLINICA", :colspan => 2,  size: 9, :align => :center}, {:content => 'HC N" ' + historia_clinica.id.to_s,  size: 9, :align => :center}],
+  [{:content => 'FECHA: ' + historia_clinica.created_at.strftime("%d-%m-%y"),  size: 9},{:content => 'HORA MILITAR: ' + historia_clinica.created_at.strftime("%H:%M"),  size: 9} , {:content => 'Revisión 11 - 13',  size: 9, :align => :center}],
+ [{:content => "DATOS GENERALES", :colspan => 2,  size: 9, :align => :center}, {:content => "F GS 033",  size: 9, :align => :center}]
+], :width => bounds.width, :column_widths => [65, 40, 100, 150])
+end
+
       table(datos_generales_rows, :column_widths => [105, 120, 150, 165], :cell_style => {position: :absulte,  size: 8}) do
     end
   end
@@ -123,7 +139,9 @@ class HistoriasClinicasPdf < Prawn::Document
           @historias_clinicas.map do |historia_clinica|
         [
           'Ciudad:', historia_clinica.p_ciudad, 
-          'Departamento:', historia_clinica.p_departamento
+          'Aeropuerto:', historia_clinica.aeropuerto.nombre + ' ' + 
+          historia_clinica.aeropuerto.ciudad.nombre
+
         ]
     end
   end
@@ -138,8 +156,8 @@ class HistoriasClinicasPdf < Prawn::Document
           @historias_clinicas.map do |historia_clinica|
         [
           'Medico De Turno:', historia_clinica.user.nombre_usuario, 
-          'Aeropuerto:', historia_clinica.aeropuerto.nombre + ' ' + 
-          historia_clinica.aeropuerto.ciudad.nombre
+          'Registro Medico:', historia_clinica.user.registro_medico 
+
         ]
     end
   end
@@ -871,22 +889,27 @@ class HistoriasClinicasPdf < Prawn::Document
 
 
   def experiencias_laborales_40
-      move_down 120
+      move_down 30
       text "VI. EXAMEN FISICO", size: 15, style: :bold, :color => "22BDC8"
-      table(experiencias_laborales_rows40, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
-    end
-  end
 
 
-  def experiencias_laborales_rows40
           @historias_clinicas.map do |historia_clinica|
-        [
 
-          'TA mm/Hg:', historia_clinica.d_ta_mmgh_diastole + ' - Mm / ' + historia_clinica.d_ta_mmgh_sistole + ' -Hg ',
-          'Frecuencia Cardiaca:', historia_clinica.d_frecuencia_cardiaca         
-        ]
-      end
+    table([
+      [{:content =>  'TA mm/HG: Mm - ' +  historia_clinica.d_ta_mmgh_diastole.to_s,  size: 9 } , 
+       {:content => 'TA mm/HG: Hg - ' + historia_clinica.d_ta_mmgh_sistole.to_s,  size: 9} , 
+       {:content => 'Frecuencia Cardiaca - ' + historia_clinica.d_frecuencia_cardiaca.to_s,  size: 9, :align => :center}]
+    ], :width => bounds.width, :column_widths => [120, 140, 280])
+    end
+
+
+
+
+
+
   end
+
+
 
 
 
@@ -894,7 +917,7 @@ class HistoriasClinicasPdf < Prawn::Document
 
   def experiencias_laborales_41
       move_down 0.5
-      table(experiencias_laborales_rows41, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+      table(experiencias_laborales_rows41, :column_widths => [120, 140, 120, 160], :cell_style => {position: :absulte,  size: 8}) do
     end 
   end
 
@@ -912,7 +935,7 @@ class HistoriasClinicasPdf < Prawn::Document
 
   def experiencias_laborales_41
       move_down 0.5
-      table(experiencias_laborales_rows41, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+      table(experiencias_laborales_rows41, :column_widths => [120, 140, 120, 160], :cell_style => {position: :absulte,  size: 8}) do
     end 
   end
 
@@ -931,7 +954,7 @@ class HistoriasClinicasPdf < Prawn::Document
 
   def experiencias_laborales_42
       move_down 0.5
-      table(experiencias_laborales_rows42, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+      table(experiencias_laborales_rows42, :column_widths => [120, 140, 120, 160], :cell_style => {position: :absulte,  size: 8}) do
     end 
   end
 
@@ -950,7 +973,7 @@ class HistoriasClinicasPdf < Prawn::Document
 
   def experiencias_laborales_43
       move_down 0.5
-      table(experiencias_laborales_rows43, :column_widths => [100, 155, 120, 165], :cell_style => {position: :absulte,  size: 8}) do
+      table(experiencias_laborales_rows43, :column_widths => [120, 140, 120, 160], :cell_style => {position: :absulte,  size: 8}) do
     end 
   end
 
@@ -1228,7 +1251,7 @@ class HistoriasClinicasPdf < Prawn::Document
 
 
   def experiencias_laborales_57
-      move_down 40
+      move_down 20
       table(experiencias_laborales_rows57, :column_widths => [100, 120, 140, 180], :cell_style => {position: :absulte,  size: 8}) do
     end 
   end
@@ -1333,7 +1356,8 @@ class HistoriasClinicasPdf < Prawn::Document
 
   def experiencias_laborales_61
       move_down 30
-      table(experiencias_laborales_rows61, :column_widths => [100, 440], :cell_style => {position: :absulte,  size: 8}) do
+      text "VII. ANALISIS", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows61, :column_widths => [540], :cell_style => {position: :absulte,  size: 8}) do
     end 
   end
 
@@ -1341,13 +1365,222 @@ class HistoriasClinicasPdf < Prawn::Document
   def experiencias_laborales_rows61
           @historias_clinicas.map do |historia_clinica|
         [
-          'Analisis:', historia_clinica.e_analisis        ]
+          historia_clinica.e_analisis        ]
       end
   end
 
 
+
+  def experiencias_laborales_62
+      move_down 30
+      text "VIII. IMPRESIÓN DIAGNOSTICA", size: 15, style: :bold, :color => "22BDC8"
+
+      table(experiencias_laborales_rows62_5, :column_widths => [200, 75, 265], :cell_style => {position: :absulte,  size: 8}) do
+              row(0).font_style = :bold
+    end 
+
+
+
+
+          @diagnosticos.map do |diagnostico|
+
+    table([
+      [{:content =>  '' + diagnostico.cie10.familia.to_s,  size: 9}, 
+       {:content => '' + diagnostico.cie10.codigo.to_s,  size: 9} , 
+       {:content => '' + diagnostico.cie10.descripcion.to_s.capitalize,  size: 9}]
+    ], :width => bounds.width, :column_widths => [200, 75, 265])
+    end
+
+
+
+  end
+
+
+
+  def experiencias_laborales_rows62_5
+    [['Familia', 'Codigo', 'Descripción']] +
+      @diagnosticos.map do |diagnostico|
+        [  
+        ]
+      end
+  end
+
+
+
+
+  def experiencias_laborales_63
+      move_down 30
+      text "IX. PROCEDIMIENTOS", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows63_5, :column_widths => [200, 75, 265], :cell_style => {position: :absulte,  size: 8}) do
+                    row(0).font_style = :bold
+      end 
+
+
+    @procedimientos.map do |procedimiento|
+
+    table([
+      [{:content =>  '' + procedimiento.tratamiento.to_s,  size: 9}, 
+       {:content => '' + procedimiento.via_acceso.to_s,  size: 9} , 
+       {:content => '' + procedimiento.descripcion.to_s,  size: 9, :align => :center}]
+    ], :width => bounds.width, :column_widths => [200, 75, 265])
+    end
+
+
+  end
+
+
+  
+  def experiencias_laborales_rows63_5
+    [['Tratamiento', 'Via de Acceso', 'Descripción']] +
+      @diagnosticos.map do |diagnostico|
+        [  
+        ]
+      end
+  end
+
+
+  def experiencias_laborales_64
+      move_down 20
+      table(experiencias_laborales_rows64, :column_widths => [100, 170, 100, 170], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+
+  def experiencias_laborales_rows64
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Glucometria 1:', historia_clinica.e_glucometria1,
+          'Hora 1:', historia_clinica.e_hora1        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_65
+      move_down 0.5
+      table(experiencias_laborales_rows65, :column_widths => [100, 170, 100, 170], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+  def experiencias_laborales_rows65
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Glucometria 2:', historia_clinica.e_glucometria2,
+          'Hora 2:', historia_clinica.e_hora2        
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_66
+      move_down 0.5
+      table(experiencias_laborales_rows66, :column_widths => [100,440], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+  def experiencias_laborales_rows66
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Electrocardiograma:', historia_clinica.e_analisis        ]
+      end
+  end
+
+
+  def experiencias_laborales_67
+      move_down 30
+      text "X. OBSERVACIONES", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows67, :column_widths => [540], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+  def experiencias_laborales_rows67
+          @historias_clinicas.map do |historia_clinica|
+        [
+          historia_clinica.e_observaciones_recomendaciones        ]
+      end
+  end
+
+
+  def experiencias_laborales_68
+      move_down 30
+      text "XI. DESENLACE", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows68, :column_widths => [100, 440], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+  def experiencias_laborales_rows68
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Evento Adverso:', historia_clinica.e_evento_adverso
+        ]
+      end
+  end
+
+
+  def experiencias_laborales_69
+      move_down 0.5
+      table(experiencias_laborales_rows69, :column_widths => [100, 440], :cell_style => {position: :absulte,  size: 8}) do
+    end 
+  end
+
+  def experiencias_laborales_rows69
+          @historias_clinicas.map do |historia_clinica|
+        [
+          'Estado Paciente:', historia_clinica.e_estado_paciente        
+        ]
+      end
+  end
+
+
+
+  def experiencias_laborales_70
+      move_down 30
+      text "XII. NOTAS DE EVOLUCIÓN", size: 15, style: :bold, :color => "22BDC8"
+      table(experiencias_laborales_rows70_5, :column_widths => [100, 100, 100, 100, 140], :cell_style => {position: :absulte,  size: 8}) do
+                row(0).font_style = :bold
+      end 
+
+
+
+
+          @notas_progreso.map do |nota_progreso|
+
+    table([
+      [{:content => '' + nota_progreso.created_at.strftime("%d-%m-%y").to_s,  size: 9}, 
+       {:content => '' + nota_progreso.created_at.strftime("%X").to_s,  size: 9} , 
+       {:content => '' + nota_progreso.descripcion.to_s,  size: 9, :align => :center},
+       {:content => '' + nota_progreso.user.nombres.to_s + nota_progreso.user.apellidos.to_s,  size: 9, :align => :center},
+       {:content => '' + nota_progreso.user.rol.nombre.to_s,  size: 9, :align => :center}]
+    ], :width => bounds.width)
+    end
+
+
+
+  end
+
+  def experiencias_laborales_rows70_5
+    [['Fecha', 'Hora', 'Descripción', 'Responsable', 'Cargo']] +
+          @notas_progreso.map do |nota_progreso|
+        [ 
+        
+        ]
+      end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
   def pie_de_pagina 
-    move_down 1020
+    move_down 120
     text "www.aerosanidadvirtual.com", size: 9, :align => :center, :style => :bold
     text "Aeropuerto Bogotá: (57)(1) 2205674 / 3002221245", size: 9, :align => :center
     text "Aeropuerto Medellín: (57)(4) 3656171 / 3007042683", size: 9, :align => :center
