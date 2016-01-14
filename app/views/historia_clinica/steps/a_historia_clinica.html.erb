@@ -682,7 +682,7 @@ function edValueKeyPress()
       <%= f.hidden_field :p_nacionalidad, :value => @paciente.nacionalidad %>
       <%= f.hidden_field :p_direccion, :value => @paciente.direccion %>
       <%= f.hidden_field :p_ciudad, :value => @paciente.ciudad %>
-      <%= f.hidden_field :registro_medico, :value => @user.registro_medico %>
+      <%= f.hidden_field :registro_medico, :value => current_user.registro_medico %>
 
 
 
