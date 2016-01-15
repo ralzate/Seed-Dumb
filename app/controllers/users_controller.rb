@@ -6,12 +6,36 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-      @users = User.paginate(page: params[:page], per_page: 10)
+    
+    @users = User.paginate(page: params[:page], per_page: 10)
+    
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = UsersPdf.new(
+          @users)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', :disposition => "inline"
+      end
+    end
+    
+
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+
+    @users = User.paginate(page: params[:page], per_page: 10)
+
+    respond_to do |format|
+      format.html
+      format.pdf do 
+        pdf = UsersPdf.new(
+          @users)
+        send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', :disposition => "inline"
+      end
+    end
+
   end
 
   # GET /users/new
@@ -86,6 +110,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:nombre_usuario, :nombres, :apellidos , :tipo_documento, :documento, :rol_id,
-      :registro_medico, :email, :password, :password_confirmation, :picture)
+      :registro_medico, :email, :password, :password_confirmation, :avatar)
     end
 end

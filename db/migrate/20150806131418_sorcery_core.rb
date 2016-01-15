@@ -5,7 +5,7 @@ class SorceryCore < ActiveRecord::Migration
       t.string   :nombre_usuario
       t.string   :nombres
       t.string   :apellidos
-      t.integer  :tipo_documento
+      t.string   :tipo_documento
       t.string   :documento
       t.string   :registro_medico
       t.integer  :rol_id

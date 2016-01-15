@@ -55,6 +55,9 @@ class User < ActiveRecord::Base
 
 
 
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "220x220>" }, default_url: "/images/:style/missing.png"
+
+
   #validates :nombres, :presence => {:message => ' es un Campo Obligatorio'}
   #validates :apellidos, :presence => {:message => ' es un Campo Obligatorio'}
   #validates :documento, :presence => {:message => ' es un Campo Obligatorio'}
@@ -68,7 +71,8 @@ class User < ActiveRecord::Base
   #validates :email, :uniqueness =>  { message: "  No es valido" }
   #validates :nombre_usuario, :presence => {:message => ' es un Campo Obligatorio'}
   #validates :nombre_usuario, :uniqueness => { message: "  No es valido" }
-
+  #validates :avatar, attachment_presence: true
+  #validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 
 

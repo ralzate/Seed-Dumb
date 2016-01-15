@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221171928) do
+ActiveRecord::Schema.define(version: 20160115180054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -331,6 +331,12 @@ ActiveRecord::Schema.define(version: 20151221171928) do
 
   add_index "pacientes", ["user_id"], name: "index_pacientes_on_user_id", using: :btree
 
+  create_table "paises", force: :cascade do |t|
+    t.string   "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "procedimientos", force: :cascade do |t|
     t.string   "tratamiento"
     t.string   "via_acceso"
@@ -366,7 +372,7 @@ ActiveRecord::Schema.define(version: 20151221171928) do
     t.string   "nombre_usuario"
     t.string   "nombres"
     t.string   "apellidos"
-    t.integer  "tipo_documento"
+    t.string   "tipo_documento"
     t.string   "documento"
     t.string   "registro_medico"
     t.integer  "rol_id"
@@ -391,6 +397,10 @@ ActiveRecord::Schema.define(version: 20151221171928) do
     t.datetime "last_logout_at"
     t.datetime "last_activity_at"
     t.string   "last_login_from_ip_address"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["activation_token"], name: "index_users_on_activation_token", using: :btree

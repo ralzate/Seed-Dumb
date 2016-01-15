@@ -181,7 +181,7 @@
                       <label class="label">Cargar Imagen:</label>
                       <div class="fileinput fileinput-new" data-provides="fileinput">
                         <div>
-                          <span class="btn btn-default btn-file"><span class="fileinput-new"><%= f.file_field :picture, class: "form-control", id: 'button' %></span><span class="fileinput-exists">Cambiar</span><input type="file" name="..."></span>
+                          <span class="btn btn-default btn-file"><span class="fileinput-new"><%= f.input :avatar, as: :file, class: "form-control", id: 'button' %></span><span class="fileinput-exists">Cambiar</span><input type="file" name="..."></span>
                           <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Eliminar</a>
                         </div>
                       </div>

@@ -405,12 +405,27 @@ function edValueKeyPress()
                   <div class="form-group">
                   <label class="label">Nacionalidad</label>
 
-                        <%= f.country_select :nacionalidad, {object: f.object,:selected => 'CO'  }, class: 'form-control required', :title => "Es un Campo Obligatorio" %>
+           <%= f.select :nacionalidad, Pais.all.map { |u| ["#{u.nombre}", u.nombre] }, { include_blank: true },  { class: 'chosen-select', :date => {:placeholder => 'Choose a Country...'} } %>
+
+
+
 
 
                       <%= f.hidden_field :user_id, :value => current_user.id %>
                   </div>
                 </div>
+
+                <script>
+$(function() {
+  return $('.chosen-select').chosen({
+    allow_single_deselect: true,
+    no_results_text: 'No hay resultados',
+    width: '300px',
+    height: '0px'
+  });
+});
+
+</script>
 
               </div>
 
