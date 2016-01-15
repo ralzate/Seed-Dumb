@@ -93,7 +93,7 @@
                             </table>
                 </div>             
                <style>
-                .img-circle{
+                .img-thumbnail{
                     width: 100px !important;
                     height: 100px !important;
                     margin-left: 30px;
@@ -101,7 +101,11 @@
                </style>
                 <div class="col-xs-12 col-sm-3 text-center">
                     <figure>
-                    <%= image_tag @user.avatar.url(:medium), :class => 'img-circle'  %>
+                    <% if @user.avatar.exists? %>
+                    <%= image_tag @user.avatar.url(:medium), :class => 'img-thumbnail'  %>
+                    <% else %>
+                    <%= image_tag("Logo/logo.png", :alt => "Logo", :class => "img-thumbnail") %>
+                    <% end %>
                     </figure>
                 </div>
             </div>            
